@@ -1,552 +1,125 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Wellbeing Builder – Research-led wellbeing practise Pilot</title>
-<meta content="Stage-based learning platform that helps students and professionals practise wellbeing as a transferable skill set through AI-supported scenarios." name="description"/>
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-    html {
-      scroll-behavior: smooth;
-    }
-    
+  <meta charset="UTF-8" />
+  <title>ContextWell Lab – Human-centered AI oversight & well-being capacity building</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+        content="ContextWell Lab is a research-led framework and prototype lab exploring how AI can strengthen human judgment, clarity, and emotional stability.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
     }
-    
-    .gradient-text {
-      background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    .card-hover {
-      transition: all 0.3s ease;
-    }
-    
+    .card-hover { transition: all 0.3s ease; }
     .card-hover:hover {
       transform: translateY(-4px);
-      box-shadow: 0 20px 25px -5px rgba(16, 185, 129, 0.1), 0 10px 10px -5px rgba(16, 185, 129, 0.04);
-    }
-    
-    .btn-primary {
-      transition: all 0.2s ease;
-    }
-    
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3);
-    }
-    
-    .btn-secondary {
-      transition: all 0.2s ease;
-    }
-    
-    .btn-secondary:hover {
-      background-color: rgba(148, 163, 184, 0.1);
+      box-shadow:
+        0 20px 25px -5px rgba(16, 185, 129, 0.12),
+        0 10px 10px -5px rgba(15, 23, 42, 0.6);
     }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100">
-<!-- Header -->
-<header class="fixed top-0 left-0 right-0 bg-slate-950/95 backdrop-blur-sm border-b border-slate-800 z-50">
-<nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-<div class="text-xl font-bold gradient-text">Wellbeing Builder</div>
-<div class="flex items-center gap-8">
-<a class="text-slate-300 hover:text-emerald-400 transition-colors text-sm" href="#how-it-works">How it works</a>
-<a class="text-slate-300 hover:text-emerald-400 transition-colors text-sm" href="#research-pilot">Research pilot</a>
-<a class="bg-emerald-400 text-slate-950 px-4 py-2 rounded-lg font-medium hover:bg-emerald-300 transition-colors text-sm" href="https://forms.office.com/e/dXqrXireAH" rel="noopener" target="_blank">Join pilot</a>
-</div>
-</nav>
-</header>
-<!-- Hero Section -->
-<section class="pt-32 pb-20 px-6">
-<div class="max-w-5xl mx-auto text-centre">
-<div class="inline-block mb-6 px-4 py-2 bg-slate-900 border border-slate-800 rounded-full text-sm text-slate-300">
-        PhD Research Project • Early Beta
+  <!-- Header -->
+  <header class="fixed top-0 inset-x-0 bg-slate-950/95 border-b border-slate-800 backdrop-blur z-50">
+    <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="./" class="text-xl font-bold text-emerald-400">ContextWell Lab</a>
+      <div class="flex flex-wrap items-center gap-6 text-sm">
+        <a href="./" class="text-slate-100 font-medium hover:text-emerald-400">Overview</a>
+        <a href="frameworks/" class="text-slate-300 hover:text-emerald-400">Frameworks</a>
+        <a href="builder/" class="text-slate-300 hover:text-emerald-400">Prototype</a>
+        <a href="library/" class="text-slate-300 hover:text-emerald-400">Library</a>
+        <a href="for-organisations/" class="text-slate-300 hover:text-emerald-400">For organisations</a>
+        <a href="impact/" class="text-slate-300 hover:text-emerald-400">Impact</a>
+        <a href="about/" class="text-slate-300 hover:text-emerald-400">About</a>
       </div>
-<h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-        Practise wellbeing like a skill, <span class="gradient-text">not a feeling</span>
-</h1>
-<p class="text-xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-        A research-led platform that trains students and professionals to navigate challenging situations with confidence. Through short scenarios and AI-supported reflection, learners build a transferable capacity that moves with them across roles and life transitions.
+    </nav>
+  </header>
+
+  <main class="pt-28 pb-16 px-6">
+    <!-- Hero Section -->
+    <section class="max-w-5xl mx-auto mb-16">
+      <p class="inline-block mb-4 px-4 py-1 rounded-full border border-slate-800 bg-slate-900 text-xs text-slate-300">
+        Research-led • Early-stage lab
       </p>
-<p class="text-slate-400 mb-10 max-w-2xl mx-auto">
-        Not inspirational talks. Not one-off workshops. A systematic learning journey grounded in doctoral research on wellbeing as a learnable capacity.
+      <!-- UPDATED HEADING -->
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">
+        ContextWell Lab: Advancing AI, oversight, and well-being as human capacities
+      </h1>
+      <!-- UPDATED SUBHEADING -->
+      <p class="text-lg text-slate-300 mb-6 max-w-3xl">
+        A research-led lab developing systems that turn oversight and well-being into scalable, trainable human capacities for real-world AI environments.
       </p>
-<div class="flex items-center justify-center gap-4 flex-wrap">
-<a class="btn-primary bg-emerald-400 text-slate-950 px-8 py-3 rounded-lg font-semibold inline-block" href="https://forms.office.com/e/dXqrXireAH" rel="noopener" target="_blank">
-          Express interest in pilot
-        </a>
-<a class="btn-secondary border border-slate-700 text-slate-200 px-8 py-3 rounded-lg font-semibold inline-block" href="#how-it-works">
-          See how it works
-        </a>
-</div>
-</div>
-</section>
-<!-- Feature Cards -->
-<section class="py-16 px-6">
-<div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-<div class="card-hover bg-slate-900 border border-slate-800 rounded-xl p-6">
-<div class="w-12 h-12 bg-emerald-400/10 rounded-lg flex items-center justify-center mb-4">
-<svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-</div>
-<h3 class="text-lg font-semibold mb-2">Scenario-based practise</h3>
-<p class="text-slate-400 text-sm">Real situations, not abstract theory</p>
-</div>
-<div class="card-hover bg-slate-900 border border-slate-800 rounded-xl p-6">
-<div class="w-12 h-12 bg-emerald-400/10 rounded-lg flex items-center justify-center mb-4">
-<svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-</div>
-<h3 class="text-lg font-semibold mb-2">AI-supported reflection</h3>
-<p class="text-slate-400 text-sm">Reveals blind spots, deepens insight</p>
-</div>
-<div class="card-hover bg-slate-900 border border-slate-800 rounded-xl p-6">
-<div class="w-12 h-12 bg-emerald-400/10 rounded-lg flex items-center justify-center mb-4">
-<svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-</div>
-<h3 class="text-lg font-semibold mb-2">Research-validated approach</h3>
-<p class="text-slate-400 text-sm">Grounded in doctoral research</p>
-</div>
-<div class="card-hover bg-slate-900 border border-slate-800 rounded-xl p-6">
-<div class="w-12 h-12 bg-emerald-400/10 rounded-lg flex items-center justify-center mb-4">
-<svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-</div>
-<h3 class="text-lg font-semibold mb-2">Transferable skill set</h3>
-<p class="text-slate-400 text-sm">Carries across contexts and transitions</p>
-</div>
-</div>
-</section>
-<!-- Scenario Mockup -->
-<section class="py-20 px-6" id="how-it-works">
-<div class="max-w-5xl mx-auto">
-<div class="text-center mb-12">
-<h2 class="text-4xl font-bold mb-4">See it in action</h2>
-<p class="text-slate-400 text-lg">Here's what a practise scenario looks like in Stage 2</p>
-</div>
-<div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl">
-<!-- Mockup Header -->
-<div class="bg-slate-800 px-6 py-4 border-b border-slate-700 flex items-center justify-between">
-<div class="flex items-center gap-3">
-<div class="w-3 h-3 rounded-full bg-red-500"></div>
-<div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-<div class="w-3 h-3 rounded-full bg-green-500"></div>
-</div>
-<div class="text-sm text-slate-400 flex items-centre gap-3">
-<span class="px-3 py-1 bg-emerald-400/10 text-emerald-400 rounded-full text-xs font-medium">Active scenario</span>
-<span>Turn 2 of 5</span>
-</div>
-</div>
-<!-- Mockup Content -->
-<div class="p-8">
-<div class="mb-8">
-<h3 class="text-sm font-semibold text-slate-400 mb-3 uppercase tracking-wide">Current Context</h3>
-<p class="text-slate-200 text-lg leading-relaxed">
-              New city, long hours, growing sense of emptiness and disconnection from what matters.
-            </p>
-</div>
-<div class="grid md:grid-cols-2 gap-6 mb-8">
-<div>
-<h3 class="text-sm font-semibold text-slate-400 mb-3 uppercase tracking-wide">Available Resources</h3>
-<ul class="space-y-2">
-<li class="flex items-start gap-2">
-<svg class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path>
-</svg>
-<span class="text-slate-300">Free evenings after 7pm</span>
-</li>
-<li class="flex items-start gap-2">
-<svg class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path>
-</svg>
-<span class="text-slate-300">Stable income for activities</span>
-</li>
-<li class="flex items-start gap-2">
-<svg class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path>
-</svg>
-<span class="text-slate-300">Local community groups nearby</span>
-</li>
-</ul>
-</div>
-<div>
-<h3 class="text-sm font-semibold text-slate-400 mb-3 uppercase tracking-wide">Active Identities</h3>
-<ul class="space-y-2">
-<li class="px-3 py-2 bg-slate-800 rounded-lg text-slate-300 text-sm">
-                  Person who prioritises work over connection
-                </li>
-<li class="px-3 py-2 bg-slate-800 rounded-lg text-slate-300 text-sm">
-                  Newcomer feeling isolated
-                </li>
-<li class="px-3 py-2 bg-slate-800 rounded-lg text-slate-300 text-sm">
-                  Someone capable of building community
-                </li>
-</ul>
-</div>
-</div>
-<div class="bg-emerald-400/5 border border-emerald-400/20 rounded-xl p-6">
-<div class="flex items-start gap-3">
-<svg class="w-6 h-6 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-<div>
-<h4 class="font-semibold text-emerald-400 mb-2">AI Insight</h4>
-<p class="text-slate-300 leading-relaxed">
-                  Work isn’t the only lever here. Connection can be a deliberate choice, not just something that happens to you.
-                </p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Staged Learning Journey -->
-<section class="py-20 px-6 bg-slate-900/50" id="research-pilot">
-<div class="max-w-6xl mx-auto">
-<div class="text-center mb-16">
-<h2 class="text-4xl font-bold mb-4">The Staged Learning Journey</h2>
-<p class="text-slate-300 text-lg max-w-3xl mx-auto">
-          Excellent training requires progression. Wellbeing Builder moves learners from shared language, through guided practise, to personal integration. Each stage builds capacity for deep, lasting change.
-        </p>
-</div>
-<div class="space-y-8">
-<!-- Stage 1 -->
-<div class="bg-slate-900 border border-slate-800 rounded-xl p-8 card-hover">
-<div class="flex items-start gap-6">
-<div class="flex-shrink-0 w-16 h-16 bg-emerald-400/10 rounded-xl flex items-centre justify-centre">
-<span class="text-2xl font-bold text-emerald-400">1</span>
-</div>
-<div class="flex-1">
-<div class="mb-2">
-<span class="inline-block px-3 py-1 bg-slate-800 text-emerald-400 rounded-full text-xs font-semibold uppercase tracking-wide">Stage 1</span>
-</div>
-<h3 class="text-2xl font-bold mb-3">Foundational Concepts</h3>
-<p class="text-slate-300 mb-4 leading-relaxed">
-                Core ideas like identity, context, resources, and action are introduced through learning. The focus is clarity over complexity, building a shared language for wellbeing practise.
-              </p>
-<div class="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
-<p class="text-sm text-slate-400 italic">
-                  Establishes the conceptual framework for all practise that follows.
-                </p>
-</div>
-</div>
-</div>
-</div>
-<!-- Stage 2 -->
-<div class="bg-gradient-to-br from-emerald-400/10 to-slate-900 border-2 border-emerald-400/30 rounded-xl p-8 card-hover">
-<div class="flex items-start gap-6">
-<div class="flex-shrink-0 w-16 h-16 bg-emerald-400/20 rounded-xl flex items-centre justify-centre">
-<span class="text-2xl font-bold text-emerald-400">2</span>
-</div>
-<div class="flex-1">
-<div class="mb-2 flex items-centre gap-2">
-<span class="inline-block px-3 py-1 bg-emerald-400 text-slate-950 rounded-full text-xs font-semibold uppercase tracking-wide">Stage 2</span>
-<span class="inline-block px-3 py-1 bg-emerald-400/20 text-emerald-400 rounded-full text-xs font-semibold uppercase tracking-wide">Core Practise</span>
-</div>
-<h3 class="text-2xl font-bold mb-3">Guided Practise with Scaffolding</h3>
-<p class="text-slate-300 mb-4 leading-relaxed">
-                AI-supported scenarios invite learners to practise noticing what is really happening. Support is strongest at the start and gradually fades as confidence grows.
-              </p>
-<div class="grid md:grid-cols-3 gap-4">
-<div class="bg-slate-900/70 border border-slate-700 rounded-lg p-4">
-<p class="text-sm text-slate-200">Skills broken into manageable moves</p>
-</div>
-<div class="bg-slate-900/70 border border-slate-700 rounded-lg p-4">
-<p class="text-sm text-slate-200">Feedback linked to insight, not judgment</p>
-</div>
-<div class="bg-slate-900/70 border border-slate-700 rounded-lg p-4">
-<p class="text-sm text-slate-200">Cases calibrated just beyond comfort zone</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Stage 3 -->
-<div class="bg-slate-900 border border-slate-800 rounded-xl p-8 card-hover">
-<div class="flex items-start gap-6">
-<div class="flex-shrink-0 w-16 h-16 bg-emerald-400/10 rounded-xl flex items-centre justify-centre">
-<span class="text-2xl font-bold text-emerald-400">3</span>
-</div>
-<div class="flex-1">
-<div class="mb-2">
-<span class="inline-block px-3 py-1 bg-slate-800 text-emerald-400 rounded-full text-xs font-semibold uppercase tracking-wide">Stage 3</span>
-</div>
-<h3 class="text-2xl font-bold mb-3">From Practise to Real-Life Application</h3>
-<p class="text-slate-300 mb-4 leading-relaxed">
-                Each learning run concludes with a personal action plan. Learners commit to testing specific actions in their own context and observing the change. Reflection connects these actions with personal values and long-term direction, focusing on sustainable capacity that transfers to study, work, and life.
-              </p>
-<div class="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
-<p class="text-sm text-slate-400 italic">
-                  Focuses on sustainable identity-level change that transfers to real life.
-                </p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Problem to Solution Section -->
-<section class="py-20 px-6">
-<div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-10 bg-slate-900 border border-slate-800 rounded-2xl p-10 shadow-xl">
-<div>
-<h2 class="text-3xl font-bold mb-6 text-emerald-400">Why most wellbeing training fails</h2>
-<h3 class="font-semibold text-xl mb-4">The Problem</h3>
-<ul class="mb-8 space-y-4 text-slate-300 text-base list-disc pl-6">
-<li>Inspiration without practise: Motivational talks fade within days</li>
-<li>Theory without application: You learn concepts but don’t know how to use them</li>
-<li>Quick fixes that do not transfer: One-off workshops don’t stick across different contexts</li>
-<li>Disconnected from real life: Generic advice misses your actual challenges and resources</li>
-</ul>
-</div>
-<div class="flex flex-col justify-centre">
-<h3 class="font-semibold text-xl mb-3">The Solution</h3>
-<p class="mb-4 text-slate-300">Wellbeing Builder treats wellbeing as a learnable skill set, not just a feeling. Practise in realistic scenarios. Reflect with AI support to reveal patterns. Test actions in your own life. Integrate insights into who you are.</p>
-<p class="mb-4 text-emerald-300 font-medium">The result is sustainable capacity that transfers across study, work, and personal transitions.</p>
-</div>
-</div>
-</section>
-<!-- Social Proof Section -->
-<!-- Pilot Section -->
-<section class="py-20 px-6 bg-slate-900/50" id="pilot">
-<div class="max-w-5xl mx-auto">
-<div class="text-center mb-12">
-<div class="inline-block mb-4 px-4 py-2 bg-emerald-400/10 border border-emerald-400/30 rounded-full text-sm text-emerald-400 font-medium">
-          Current status • Early Beta
-        </div>
-<h2 class="text-4xl font-bold mb-4">Join the early research pilot</h2>
-<p class="text-slate-300 text-lg mb-6 max-w-3xl mx-auto">
-          Wellbeing Builder is in early beta and currently being tested with small groups of young adults, particularly healthcare students navigating demanding training and life transitions.
-        </p>
-<div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-4 max-w-2xl mx-auto">
-<p class="text-amber-400 text-sm">
-<strong>Important:</strong> This is not a commercial product. It is an active research project exploring how wellbeing can be learned and practised as a real skill.
+      <!-- REMOVED BUTTONS -->
+      <div class="flex flex-wrap gap-4 mb-6">
+        <!-- Buttons removed here -->
+      </div>
+    </section>
+
+    <!-- What ContextWell Is -->
+    <section class="max-w-4xl mx-auto mb-16">
+      <h2 class="text-xl font-semibold mb-3">What ContextWell Lab is</h2>
+      <p class="text-slate-300 text-sm mb-2">
+        ContextWell Lab is a research-led space that connects conceptual work on well-being and oversight with lightweight prototypes.
+      </p>
+      <p class="text-slate-300 text-sm mb-2">
+        Oversight is not a checkbox. It is a human capacity shaped by context and well-being.
+      </p>
+      <p class="text-slate-400 text-xs">
+        The aim is to make this capacity visible, trainable, and transferable.
+      </p>
+    </section>
+
+    <!-- Three Pillars -->
+    <section class="max-w-6xl mx-auto mb-16">
+      <h2 class="text-xl font-semibold mb-4">Three pillars of ContextWell Lab</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a href="frameworks/" class="card-hover block bg-slate-900 border border-slate-800 rounded-xl p-6">
+          <p class="text-xs uppercase tracking-wide text-emerald-400 mb-2">Pillar 1</p>
+          <h3 class="text-lg font-semibold mb-2">Frameworks</h3>
+          <p class="text-slate-400 text-sm">
+            Core models that describe contextual well-being, oversight as a capacity, and how these interact with AI systems.
           </p>
-</div>
-</div>
-<div class="grid md:grid-cols-3 gap-8 mb-12">
-<!-- Eligibility -->
-<div class="bg-slate-900 border border-slate-800 rounded-xl p-6">
-<h3 class="text-lg font-bold mb-4 text-emerald-400">Who we are inviting</h3>
-<ul class="space-y-3">
-<li class="flex items-start gap-2">
-<svg class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path>
-</svg>
-<span class="text-slate-300 text-sm">Young adults aged 18 to 30</span>
-</li>
-<li class="flex items-start gap-2">
-<svg class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path>
-</svg>
-<span class="text-slate-300 text-sm">Healthcare students in high-pressure environments</span>
-</li>
-<li class="flex items-start gap-2">
-<svg class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path>
-</svg>
-<span class="text-slate-300 text-sm">Individuals curious about understanding themselves in context</span>
-</li>
-</ul>
-</div>
-<!-- Participation -->
-<div class="bg-slate-900 border border-slate-800 rounded-xl p-6">
-<h3 class="text-lg font-bold mb-4 text-emerald-400">What participation involves</h3>
-<ul class="space-y-3">
-<li class="flex items-start gap-2">
-<svg class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path>
-</svg>
-<span class="text-slate-300 text-sm">Completing short scenario-based wellbeing sessions</span>
-</li>
-<li class="flex items-start gap-2">
-<svg class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path>
-</svg>
-<span class="text-slate-300 text-sm">Completing 3 brief questionnaires to help us understand the impact of the practise</span>
-</li>
-<li class="flex items-start gap-2">
-<svg class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path>
-</svg>
-<span class="text-slate-300 text-sm">Contributing to a pioneering study on AI-supported wellbeing learning</span>
-</li>
-</ul>
-</div>
-<!-- Benefits -->
-<div class="bg-slate-900 border border-slate-800 rounded-xl p-6">
-<h3 class="text-lg font-bold mb-4 text-emerald-400">Why join (Benefits)</h3>
-<ul class="space-y-3">
-<li class="flex items-start gap-2">
-<svg class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path>
-</svg>
-<span class="text-slate-300 text-sm">Early access as one of the first learners to try this research-led innovation</span>
-</li>
-<li class="flex items-start gap-2">
-<svg class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path>
-</svg>
-<span class="text-slate-300 text-sm">Be part of a pioneer study shaping the future of wellbeing education</span>
-</li>
-<li class="flex items-start gap-2">
-<svg class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path>
-</svg>
-<span class="text-slate-300 text-sm">Learn frontier wellbeing skills that transfer into study, work, and life</span>
-</li>
-<li class="flex items-start gap-2">
-<svg class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path>
-</svg>
-<span class="text-slate-300 text-sm">Gain insights that help you understand your thinking patterns with clarity</span>
-</li>
-</ul>
-</div>
-</div>
-<div class="text-centre">
-<div class="flex items-center justify-center gap-4 flex-wrap mb-4">
-<a class="btn-primary bg-emerald-400 text-slate-950 px-8 py-3 rounded-lg font-semibold" href="https://forms.office.com/e/dXqrXireAH" rel="noopener" target="_blank">
-            Express interest in pilot study
-          </a>
-<a class="btn-secondary border border-slate-700 text-slate-200 px-8 py-3 rounded-lg font-semibold" href="https://forms.office.com/e/dXqrXireAH" rel="noopener" target="_blank">
-            Get notified about next cohort
-          </a>
-</div>
-<p class="text-slate-400 text-sm">Response within 3 to 5 business days</p>
-</div>
-</div>
-</section>
-<!-- FAQ Section -->
-<section class="py-20 px-6 bg-slate-950" id="faq">
-<div class="max-w-4xl mx-auto">
-<div class="text-centre mb-14">
-<h2 class="text-4xl font-bold mb-6">Frequently asked questions</h2>
-<p class="text-slate-400">Questions about participating or the research pilot? Find answers below.</p>
-</div>
-<div class="space-y-5" id="faq-accordion">
-<!-- Questions will be rendered here by JavaScript -->
-</div>
-</div>
-</section>
-<!-- Footer -->
-<footer class="py-12 px-6 border-t border-slate-800">
-<div class="max-w-6xl mx-auto flex flex-col md:flex-row md:items-centre md:justify-between gap-4 text-centre md:text-left">
-<div>
-<div class="text-slate-400 text-sm mb-2">© 2025 Wellbeing Builder • Research-led innovation</div>
-<div class="text-slate-500 text-sm max-w-2xl">Developed by a PhD researcher at UCD School of Medicine exploring how wellbeing can be learned and practised as a real skill</div>
-</div>
-<div class="flex flex-col md:flex-row items-centre gap-3 mt-4 md:mt-0"><a class="text-emerald-300 hover:text-emerald-200 text-sm transition-colors" href="#pilot">Information for participants</a><span class="hidden md:inline-block">|</span><a class="text-emerald-300 hover:text-emerald-200 text-sm transition-colors" href="mailto:yao.xie@ucdconnect.ie">Contact</a></div>
-</div>
-</footer>
-<script>
-    // Accessible Accordion for FAQ
-    const faqs = [
-      {
-        q: "How much time does this take?",
-        a: "The pilot is designed for flexibility. You will engage with short scenario based sessions that take 20 to 30 minutes each. The first cohort runs as a 7 day programme where you choose when to complete your sessions each day, with foundational learning as the required starting point. The 3 questionnaires take approximately 10 to 15 minutes total. No rigid schedule required."
-      },
-      {
-        q: "How much time does this take?",
-        a: "The pilot is designed for flexibility. You will engage with short scenario based sessions that take 20 to 30 minutes each. The first cohort runs as a 7 day programme where you choose when to complete your sessions each day, with foundational learning as the required starting point. The 3 questionnaires take approximately 10 to 15 minutes total. No rigid schedule required."
-      },
-      {
-        q: "What about privacy and data?",
-        a: "Your privacy is completely protected. The AI engine is science core based and does not store or access personal data. You will complete 3 research questionnaires, but these are anonymised and used only for understanding the effectiveness of the wellbeing practise approach. No personal information is shared with third parties. All research follows strict ethical guidelines approved by UCD."
-      },
-      {
-        q: "Do I need prior knowledge about wellbeing?",
-        a: "No. Stage 1 covers all foundational concepts. Whether you are new to wellbeing thinking or you have experience, the platform meets you where you are. The scenarios are designed to work for different starting points."
-      },
-      {
-        q: "How does the AI actually work?",
-        a: "The AI provides personalised reflection prompts and feedback based on your responses in scenarios. It is science core based and designed to help you notice patterns in your thinking, reveal blind spots, and deepen your insights. It is not replacing human judgement. It is supporting your own reflection process without requiring or storing personal information."
-      },
-      {
-        q: "What happens after the pilot ends?",
-        a: "You will have completed a full learning cycle and gained real skills. We will gather feedback to refine the platform before broader launch. Early pilots stay connected for ongoing research and may get priority access to future versions."
-      },
-      {
-        q: "Who can actually join?",
-        a: "We are inviting young adults aged 18 to 30, with priority for healthcare students and those in high-pressure transitions. If you are curious about wellbeing as a learnable skill and interested in contributing to research, we would like to hear from you."
-      },
-      {
-        q: "Will this replace professional mental health support?",
-        a: "No. Wellbeing Builder is a skill development platform, not clinical treatment. If you are experiencing mental health challenges, professional support from a counsellor or therapist is important. This platform complements but does not replace professional care."
-      }
-    ];
+        </a>
+        <a href="builder/" class="card-hover block bg-slate-900 border border-slate-800 rounded-xl p-6">
+          <p class="text-xs uppercase tracking-wide text-emerald-400 mb-2">Pillar 2</p>
+          <h3 class="text-lg font-semibold mb-2">Prototype</h3>
+          <p class="text-slate-400 text-sm">
+            A scenario-based prototype where users practise oversight and well-being skills in AI-mediated situations.
+          </p>
+        </a>
+        <a href="library/" class="card-hover block bg-slate-900 border border-slate-800 rounded-xl p-6">
+          <p class="text-xs uppercase tracking-wide text-emerald-400 mb-2">Pillar 3</p>
+          <h3 class="text-lg font-semibold mb-2">Documentation</h3>
+          <p class="text-slate-400 text-sm">
+            Whitepapers, diagrams, and references that document the models, design choices, and pilot learnings.
+          </p>
+        </a>
+      </div>
+    </section>
 
-    function escapeHtml(str) {
-      if (!str) return '';
-      return str.replace(/&/g, '&amp;')
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;')
-                .replace(/"/g, '&quot;')
-                .replace(/'/g, '&#39;');
-    }
+    <!-- Who this is for -->
+    <section class="max-w-6xl mx-auto mb-12">
+      <h2 class="text-xl font-semibold mb-3">Who this is for</h2>
+      <p class="text-slate-300 text-sm mb-6 max-w-3xl">
+        ContextWell Lab is designed for teams and people who sit at the intersection of AI, care, and responsibility.
+      </p>
+      <div class="flex flex-wrap gap-3 text-xs">
+        <span class="px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-slate-200">AI labs</span>
+        <span class="px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-slate-200">Safety & governance teams</span>
+        <span class="px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-slate-200">Mental health & education orgs</span>
+        <span class="px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-slate-200">Researchers & practitioners</span>
+      </div>
+    </section>
+  </main>
 
-    const faqAccordion = document.getElementById('faq-accordion');
-    faqs.forEach((faq, idx) => {
-      const faqId = `faq-${idx}`;
-      const card = document.createElement('div');
-      card.className = 'border border-slate-800 rounded-xl bg-slate-900 overflow-hidden';
-      card.innerHTML = `
-        <button
-          class="flex w-full justify-between items-center px-6 py-5 text-left font-semibold text-lg text-emerald-300 hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 transition-colors group"
-          aria-expanded="false"
-          aria-controls="${faqId}-panel"
-          id="${faqId}-button"
-          tabindex="0"
-        >
-          <span>${escapeHtml(faq.q)}</span>
-          <svg class="w-5 h-5 ml-3 text-emerald-300 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
-        </button>
-        <div
-          id="${faqId}-panel"
-          class="max-h-0 overflow-hidden transition-all duration-300 text-base text-slate-300 px-6 bg-slate-950"
-          aria-labelledby="${faqId}-button"
-        >
-          <div class="py-4">${escapeHtml(faq.a)}</div>
-        </div>
-      `;
-      faqAccordion.appendChild(card);
-    });
-
-    // Accessibility & Keyboard navigation
-    faqAccordion.addEventListener('click', event => {
-      const btn = event.target.closest('button');
-      if (!btn) return;
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', !expanded);
-      const panel = btn.parentElement.querySelector('div');
-      if (!expanded) {
-        panel.style.maxHeight = panel.scrollHeight + 24 + 'px';
-        btn.querySelector('svg').style.transform = 'rotate(180deg)';
-      } else {
-        panel.style.maxHeight = '0px';
-        btn.querySelector('svg').style.transform = '';
-      }
-    });
-
-    // Keyboard navigation: Enter/Space toggles
-    faqAccordion.addEventListener('keydown', event => {
-      if ((event.key === 'Enter' || event.key === ' ') && document.activeElement.tagName === 'BUTTON') {
-        document.activeElement.click();
-        event.preventDefault();
-      }
-    });
-  </script>
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 py-6 px-6 mt-4">
+    <div class="max-w-6xl mx-auto text-xs text-slate-500 flex flex-col md:flex-row items-center justify-between gap-2">
+      <div>© ContextWell™ Lab — Human-centered AI oversight & well-being capacity building.</div>
+    </div>
+  </footer>
 </body>
 </html>
