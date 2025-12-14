@@ -1,40 +1,45 @@
 /* =========================================================
-   ContextWell Lab — Global Styles
-   Purpose: Stable visual system for all pages
+   ContextWell Lab — Global Style System
+   Purpose: One source of truth for layout, typography, and tone
    ========================================================= */
 
 /* -------------------------
-   Fonts
+   Font
    ------------------------- */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 
 /* -------------------------
-   Root variables (design tokens)
+   Design tokens
    ------------------------- */
 :root {
-  /* Colors */
-  --cw-bg: #020617;              /* slate-950 */
+  /* Core colours */
+  --cw-bg: #020617;                /* slate-950 */
+  --cw-surface: #020617;
   --cw-panel: #020617;
-  --cw-border: #1e293b;          /* slate-800 */
-  --cw-text: #e5e7eb;            /* slate-200 */
-  --cw-text-muted: #94a3b8;      /* slate-400 */
-  --cw-accent: #34d399;          /* emerald-400 */
+  --cw-border: #1e293b;            /* slate-800 */
+
+  --cw-text-main: #f1f5f9;         /* slate-100 */
+  --cw-text-body: #cbd5e1;         /* slate-300 */
+  --cw-text-muted: #94a3b8;        /* slate-400 */
+
+  --cw-accent: #34d399;            /* emerald-400 */
 
   /* Typography */
-  --cw-font: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --cw-line: 1.6;
+  --cw-font: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --cw-line-height: 1.65;
 
   /* Layout */
   --cw-max-width: 768px;
-  --cw-radius: 14px;
+  --cw-radius-sm: 10px;
+  --cw-radius-md: 14px;
 
-  /* Spacing rhythm */
-  --cw-section-gap: 3rem;
-  --cw-card-gap: 1.25rem;
+  /* Rhythm */
+  --cw-section-gap: 3.5rem;
+  --cw-card-gap: 1.5rem;
 }
 
 /* -------------------------
-   Base
+   Base reset
    ------------------------- */
 html {
   scroll-behavior: smooth;
@@ -43,49 +48,70 @@ html {
 body {
   font-family: var(--cw-font);
   background-color: var(--cw-bg);
-  color: var(--cw-text);
-  line-height: var(--cw-line);
+  color: var(--cw-text-body);
+  line-height: var(--cw-line-height);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
+::selection {
+  background-color: rgba(52, 211, 153, 0.25);
+}
+
 /* -------------------------
-   Typography
+   Typography system
    ------------------------- */
-h1, h2, h3, h4 {
-  color: #f8fafc; /* slate-50 */
+h1,
+h2,
+h3,
+h4 {
+  color: var(--cw-text-main);
   font-weight: 600;
   letter-spacing: -0.01em;
 }
 
 h1 {
-  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  margin-bottom: 1rem;
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 1.55rem;
+  margin-bottom: 0.75rem;
 }
 
 h3 {
-  font-size: 1.125rem;
+  font-size: 1.15rem;
+  margin-bottom: 0.25rem;
 }
 
 p {
-  color: var(--cw-text-muted);
+  color: var(--cw-text-body);
+  font-size: 0.95rem;
+}
+
+p + p {
+  margin-top: 0.75rem;
 }
 
 strong {
-  color: var(--cw-text);
+  color: var(--cw-text-main);
   font-weight: 600;
 }
 
 /* Lists */
 ul {
-  color: var(--cw-text-muted);
+  color: var(--cw-text-body);
 }
 
 li::marker {
   color: var(--cw-accent);
+}
+
+/* Small text */
+.muted {
+  color: var(--cw-text-muted);
+  font-size: 0.85rem;
 }
 
 /* -------------------------
@@ -100,13 +126,13 @@ a:hover {
   color: var(--cw-accent);
 }
 
-/* Accessible focus */
+/* Focus (accessibility) */
 a:focus-visible,
 button:focus-visible,
 summary:focus-visible {
   outline: 2px solid var(--cw-accent);
   outline-offset: 2px;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 /* -------------------------
@@ -121,39 +147,76 @@ summary:focus-visible {
 }
 
 /* -------------------------
-   Cards
+   Card system
    ------------------------- */
 .card {
-  background-color: #020617;
+  background-color: var(--cw-panel);
   border: 1px solid var(--cw-border);
-  border-radius: var(--cw-radius);
-  padding: 1rem;
+  border-radius: var(--cw-radius-md);
+  padding: 1.25rem;
 }
 
 .card + .card {
   margin-top: var(--cw-card-gap);
 }
 
+.card-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--cw-accent);
+  margin-bottom: 0.25rem;
+}
+
+.card-body {
+  color: var(--cw-text-muted);
+  font-size: 0.9rem;
+}
+
 /* -------------------------
-   Buttons / CTAs
+   Button / CTA
    ------------------------- */
 .btn {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.65rem 1rem;
-  border-radius: 12px;
+  padding: 0.65rem 1.1rem;
+  border-radius: var(--cw-radius-sm);
   border: 1px solid var(--cw-border);
-  background-color: #020617;
-  font-size: 0.875rem;
+  background-color: var(--cw-panel);
+  color: var(--cw-text-main);
+  font-size: 0.85rem;
   font-weight: 500;
-  color: var(--cw-text);
   transition: border-color 0.15s ease, color 0.15s ease;
 }
 
 .btn:hover {
   border-color: var(--cw-accent);
   color: var(--cw-accent);
+}
+
+/* CTA cards */
+.cta-card {
+  border: 1px solid var(--cw-border);
+  border-radius: var(--cw-radius-md);
+  background-color: var(--cw-panel);
+  padding: 1.25rem;
+  transition: border-color 0.15s ease;
+}
+
+.cta-card:hover {
+  border-color: var(--cw-accent);
+}
+
+.cta-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--cw-text-main);
+}
+
+.cta-desc {
+  font-size: 0.8rem;
+  color: var(--cw-text-muted);
+  margin-top: 0.25rem;
 }
 
 /* -------------------------
@@ -163,14 +226,14 @@ summary:focus-visible {
   height: 1px;
   background-color: var(--cw-border);
   border: none;
-  margin: 2rem 0;
+  margin: 2.5rem 0;
 }
 
 /* -------------------------
-   Small text
+   Footer helpers
    ------------------------- */
-.muted {
+.footer-text {
+  font-size: 0.75rem;
   color: var(--cw-text-muted);
-  font-size: 0.875rem;
 }
 
