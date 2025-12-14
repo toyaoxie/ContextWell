@@ -1,28 +1,17 @@
 <!-- =========================================================
 HEADER (Global Navigation)
 Purpose: top fixed navigation + desktop dropdown + mobile drawer
-Dependencies: TailwindCSS (already in your pages)
 ========================================================= -->
 <header class="fixed top-0 inset-x-0 bg-slate-950/95 border-b border-slate-800 backdrop-blur z-50">
 
-  <!-- =========================================================
-  NAV BAR ROW
-  Contains: logo, mobile toggle, desktop nav links
-  ========================================================== -->
   <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
-    <!-- =========================================================
-    LOGO / HOME LINK
-    Change: brand name or root path here
-    ========================================================== -->
+    <!-- Logo -->
     <a href="/contextwell/" class="text-xl font-bold text-emerald-400">
       ContextWell Lab
     </a>
 
-    <!-- =========================================================
-    MOBILE TOGGLE BUTTON
-    Action: opens/closes the mobile panel (#site-nav)
-    ========================================================== -->
+    <!-- Mobile toggle -->
     <button
       id="nav-toggle"
       class="md:hidden inline-flex items-center justify-center rounded-lg border border-slate-800 bg-slate-900 px-3 py-2 text-slate-200 hover:border-emerald-400 hover:text-emerald-400"
@@ -34,183 +23,116 @@ Dependencies: TailwindCSS (already in your pages)
       <span class="text-sm font-semibold">Menu</span>
     </button>
 
-    <!-- =========================================================
-    DESKTOP NAVIGATION (md and up)
-    Notes:
-    - Use direct links for top-level items
-    - Dropdowns use group hover with NO hover gap (fixed)
-    ========================================================== -->
+    <!-- Desktop nav -->
     <div class="hidden md:flex items-center gap-6 text-sm">
 
-      <!-- Top-level links -->
       <a href="/contextwell/" class="text-slate-300 hover:text-emerald-400">Overview</a>
       <a href="/contextwell/about/" class="text-slate-300 hover:text-emerald-400">About</a>
 
-      <!-- =========================================================
-      DESKTOP DROPDOWN: PROJECTS
-      Fix: hover-gap removed by using top-full + pt-2 wrapper
-      Change: submenu links here
-      ========================================================== -->
+      <!-- Projects -->
       <div class="relative group">
-        <a
-          href="/contextwell/projects/"
-          class="inline-flex items-center gap-2 text-slate-300 hover:text-emerald-400"
-        >
-          Projects
-          <span class="text-slate-500 group-hover:text-emerald-400">▾</span>
+        <a href="/contextwell/projects/" class="inline-flex items-center gap-2 text-slate-300 hover:text-emerald-400">
+          Projects <span class="text-slate-500 group-hover:text-emerald-400">▾</span>
         </a>
-
-        <!-- Dropdown wrapper (keeps hover continuous) -->
         <div class="absolute left-0 top-full pt-2 z-50">
-          <div
-            class="w-56 rounded-xl border border-slate-800 bg-slate-950/98 shadow-xl backdrop-blur
-                   opacity-0 invisible group-hover:opacity-100 group-hover:visible
-                   transition duration-150"
-          >
+          <div class="w-56 rounded-xl border border-slate-800 bg-slate-950/98 shadow-xl backdrop-blur
+                      opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
             <div class="p-2">
-              <a
-                href="/contextwell/projects/doctoral-project/"
-                class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400"
-              >
+              <a href="/contextwell/projects/doctoral-project/"
+                 class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400">
                 Doctoral Project
               </a>
-
-              <!-- Optional: add more projects here -->
-              <!--
-              <a href="/contextwell/projects/another-project/"
-                 class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400">
-                Another Project
-              </a>
-              -->
             </div>
           </div>
         </div>
       </div>
 
-      <!-- =========================================================
-      DESKTOP DROPDOWN: SOLUTIONS
-      Fix: hover-gap removed same way
-      Change: submenu links here
-      ========================================================== -->
+      <!-- Solutions -->
       <div class="relative group">
-        <a
-          href="/contextwell/solutions/"
-          class="inline-flex items-center gap-2 text-slate-300 hover:text-emerald-400"
-        >
-          Solutions
-          <span class="text-slate-500 group-hover:text-emerald-400">▾</span>
+        <a href="/contextwell/solutions/" class="inline-flex items-center gap-2 text-slate-300 hover:text-emerald-400">
+          Solutions <span class="text-slate-500 group-hover:text-emerald-400">▾</span>
         </a>
-
         <div class="absolute left-0 top-full pt-2 z-50">
-          <div
-            class="w-64 rounded-xl border border-slate-800 bg-slate-950/98 shadow-xl backdrop-blur
-                   opacity-0 invisible group-hover:opacity-100 group-hover:visible
-                   transition duration-150"
-          >
+          <div class="w-64 rounded-xl border border-slate-800 bg-slate-950/98 shadow-xl backdrop-blur
+                      opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
             <div class="p-2">
-              <a
-                href="/contextwell/solutions/well-being-builder/"
-                class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400"
-              >
+              <a href="/contextwell/solutions/well-being-builder/"
+                 class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400">
                 Well-being Builder
               </a>
-
-              <!-- Optional: add more solutions here -->
-              <!--
-              <a href="/contextwell/solutions/another-solution/"
-                 class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400">
-                Another Solution
-              </a>
-              -->
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Top-level links -->
       <a href="/contextwell/library/" class="text-slate-300 hover:text-emerald-400">Library</a>
-      <a href="/contextwell/for-organisations/" class="text-slate-300 hover:text-emerald-400">Collaborate</a>
+
+      <!-- Support -->
+      <div class="relative group">
+        <a href="/contextwell/support/" class="inline-flex items-center gap-2 text-slate-300 hover:text-emerald-400">
+          Support <span class="text-slate-500 group-hover:text-emerald-400">▾</span>
+        </a>
+        <div class="absolute left-0 top-full pt-2 z-50">
+          <div class="w-64 rounded-xl border border-slate-800 bg-slate-950/98 shadow-xl backdrop-blur
+                      opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
+            <div class="p-2">
+              <a href="/contextwell/support/#donate"
+                 class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400">
+                Donate
+              </a>
+              <a href="/contextwell/support/#sponsor"
+                 class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400">
+                Sponsor
+              </a>
+              <a href="/contextwell/support/#collaborate"
+                 class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400">
+                Collaborate
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </nav>
 
-  <!-- =========================================================
-  MOBILE NAVIGATION PANEL (hidden by default)
-  Notes:
-  - Toggled by #nav-toggle script below
-  - Use <details> for expandable subsections
-  ========================================================== -->
+  <!-- Mobile panel -->
   <div id="site-nav" class="md:hidden hidden border-t border-slate-800 bg-slate-950/95">
     <div class="max-w-7xl mx-auto px-6 py-4 space-y-2 text-sm">
 
-      <a href="/contextwell/" class="block rounded-lg px-3 py-2 text-slate-200 hover:bg-slate-900 hover:text-emerald-400">
-        Overview
-      </a>
+      <a href="/contextwell/" class="block rounded-lg px-3 py-2 text-slate-200 hover:bg-slate-900 hover:text-emerald-400">Overview</a>
+      <a href="/contextwell/about/" class="block rounded-lg px-3 py-2 text-slate-200 hover:bg-slate-900 hover:text-emerald-400">About</a>
 
-      <a href="/contextwell/about/" class="block rounded-lg px-3 py-2 text-slate-200 hover:bg-slate-900 hover:text-emerald-400">
-        About
-      </a>
-
-      <!-- Mobile: Projects -->
       <details class="rounded-lg border border-slate-800 bg-slate-950">
-        <summary class="cursor-pointer list-none px-3 py-2 text-slate-200 hover:text-emerald-400">
-          <span class="inline-flex items-center justify-between w-full">
-            <span>Projects</span><span class="text-slate-500">▾</span>
-          </span>
-        </summary>
+        <summary class="px-3 py-2 cursor-pointer text-slate-200 hover:text-emerald-400">Projects</summary>
         <div class="px-2 pb-2">
-          <a
-            href="/contextwell/projects/doctoral-project/"
-            class="block rounded-lg px-3 py-2 text-slate-300 hover:bg-slate-900 hover:text-emerald-400"
-          >
-            Doctoral Project
-          </a>
-          <a
-            href="/contextwell/projects/"
-            class="block rounded-lg px-3 py-2 text-slate-300 hover:bg-slate-900 hover:text-emerald-400"
-          >
-            All Projects
-          </a>
+          <a href="/contextwell/projects/doctoral-project/" class="block px-3 py-2 text-slate-300 hover:text-emerald-400">Doctoral Project</a>
         </div>
       </details>
 
-      <!-- Mobile: Solutions -->
       <details class="rounded-lg border border-slate-800 bg-slate-950">
-        <summary class="cursor-pointer list-none px-3 py-2 text-slate-200 hover:text-emerald-400">
-          <span class="inline-flex items-center justify-between w-full">
-            <span>Solutions</span><span class="text-slate-500">▾</span>
-          </span>
-        </summary>
+        <summary class="px-3 py-2 cursor-pointer text-slate-200 hover:text-emerald-400">Solutions</summary>
         <div class="px-2 pb-2">
-          <a
-            href="/contextwell/solutions/well-being-builder/"
-            class="block rounded-lg px-3 py-2 text-slate-300 hover:bg-slate-900 hover:text-emerald-400"
-          >
-            Well-being Builder
-          </a>
-          <a
-            href="/contextwell/solutions/"
-            class="block rounded-lg px-3 py-2 text-slate-300 hover:bg-slate-900 hover:text-emerald-400"
-          >
-            All Solutions
-          </a>
+          <a href="/contextwell/solutions/well-being-builder/" class="block px-3 py-2 text-slate-300 hover:text-emerald-400">Well-being Builder</a>
         </div>
       </details>
 
-      <a href="/contextwell/library/" class="block rounded-lg px-3 py-2 text-slate-200 hover:bg-slate-900 hover:text-emerald-400">
-        Library
-      </a>
+      <a href="/contextwell/library/" class="block rounded-lg px-3 py-2 text-slate-200 hover:bg-slate-900 hover:text-emerald-400">Library</a>
 
-      <a href="/contextwell/for-organisations/" class="block rounded-lg px-3 py-2 text-slate-200 hover:bg-slate-900 hover:text-emerald-400">
-        Collaborate
-      </a>
+      <details class="rounded-lg border border-slate-800 bg-slate-950">
+        <summary class="px-3 py-2 cursor-pointer text-slate-200 hover:text-emerald-400">Support</summary>
+        <div class="px-2 pb-2">
+          <a href="/contextwell/support/" class="block px-3 py-2 text-slate-300 hover:text-emerald-400">Support Overview</a>
+          <a href="/contextwell/support/#donate" class="block px-3 py-2 text-slate-300 hover:text-emerald-400">Donate</a>
+          <a href="/contextwell/support/#sponsor" class="block px-3 py-2 text-slate-300 hover:text-emerald-400">Sponsor</a>
+          <a href="/contextwell/support/#collaborate" class="block px-3 py-2 text-slate-300 hover:text-emerald-400">Collaborate</a>
+        </div>
+      </details>
 
     </div>
   </div>
 
-  <!-- =========================================================
-  MOBILE TOGGLE SCRIPT
-  Requirement: must be present for Menu button to work
-  ========================================================== -->
+  <!-- Mobile toggle -->
   <script>
     (function () {
       const toggle = document.getElementById("nav-toggle");
@@ -226,4 +148,3 @@ Dependencies: TailwindCSS (already in your pages)
   </script>
 
 </header>
-
