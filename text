@@ -1,0 +1,6 @@
+My GitHub Pages site is hosted at /contextwell/.
+Site structure uses directory-based routing with index.html in each folder.
+Global header and footer are injected from /contextwell/partials/header.html and /contextwell/partials/footer.html.
+Navigation paths must match these routes:
+/contextwell/, /contextwell/about/, /contextwell/projects/, /contextwell/projects/doctoral-project/, /contextwell/solutions/, /contextwell/solutions/well-being-builder/, /contextwell/library/, /contextwell/for-organisations/.
+Please update only the partials and keep links consistent with this routing.
