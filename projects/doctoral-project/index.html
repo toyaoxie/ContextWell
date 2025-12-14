@@ -32,6 +32,15 @@
     }
   </style>
 </head>
+  <script>
+  const BASE = "/contextwell";
+
+  fetch(`${BASE}/partials/header.html`)
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById("site-header").innerHTML = html;
+    });
+</script>
 
 <body class="bg-slate-950 text-slate-100">  
   <div id="site-header"></div>
