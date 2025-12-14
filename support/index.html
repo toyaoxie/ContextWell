@@ -8,7 +8,6 @@
     name="description"
     content="Support ContextWell Lab through donation, sponsorship, or collaboration. Help sustain open research and applied work on well-being and human oversight."
   />
-
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Tailwind (utility layer) -->
@@ -23,179 +22,247 @@
   <!-- Global header (injected) -->
   <div id="site-header"></div>
 
-  <!-- =========================
-       PAGE CONTENT
-       ========================= -->
-  <main class="pt-28 pb-16 px-6 max-w-5xl mx-auto">
-    <div class="text-container">
+  <main class="pt-28 pb-16 px-6 max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
 
-      <!-- Intro -->
-      <section class="section">
-        <h1>Support</h1>
-        <p>
-          ContextWell Lab is an independent, research-led initiative.
-          Support sustains the lab’s ability to operate, explore, and translate ideas into shared public value.
-        </p>
-        <p>
-          Support can take three complementary forms.
-        </p>
-      </section>
+      <!-- =========================
+           MAIN CONTENT
+           ========================= -->
+      <div class="lg:col-span-8">
 
-      <!-- Overview -->
-      <section class="section">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <!-- Hero -->
+        <section class="section">
+          <p class="muted uppercase tracking-wider">Support</p>
 
-          <a href="#donate" class="cta-card">
-            <div class="cta-title">Donate</div>
-            <div class="cta-desc">
-              Support the lab’s continued existence and open work.
+          <h1 class="mt-2">Sustain open work on well-being and human oversight</h1>
+
+          <p class="mt-4">
+            ContextWell Lab is an independent, research-led initiative.
+            Support sustains the lab’s ability to operate, explore, and translate ideas into shared public value
+            in AI mediated environments.
+          </p>
+
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <a class="btn" href="#donate">Donate</a>
+            <a class="btn" href="#sponsor">Sponsor or fund a strand</a>
+          </div>
+
+          <p class="muted mt-4">
+            Prefer collaboration over funding? Jump to <a href="#collaborate" class="hover:text-emerald-400">Collaborate</a>.
+          </p>
+        </section>
+
+        <!-- What support enables -->
+        <section class="section">
+          <h2>What your support enables</h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-5">
+            <div class="cta-card">
+              <div class="cta-title">Open frameworks</div>
+              <div class="cta-desc">Conceptual models, diagrams, and references that remain publicly accessible.</div>
             </div>
-          </a>
 
-          <a href="#sponsor" class="cta-card">
-            <div class="cta-title">Sponsor</div>
-            <div class="cta-desc">
-              Support a specific research strand or project line.
+            <div class="cta-card">
+              <div class="cta-title">Prototype learning systems</div>
+              <div class="cta-desc">Scenario based tools for practising judgment, clarity, and oversight under pressure.</div>
             </div>
-          </a>
 
-          <a href="#collaborate" class="cta-card">
-            <div class="cta-title">Collaborate</div>
-            <div class="cta-desc">
-              Work together to explore, develop, and produce.
+            <div class="cta-card">
+              <div class="cta-title">Translation into practice</div>
+              <div class="cta-desc">Pathways into education, health, and organisational environments.</div>
             </div>
-          </a>
+          </div>
+        </section>
 
+        <!-- Quick options (Donate / Sponsor / Collaborate cards) -->
+        <section class="section">
+          <h2>Ways to support</h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-5">
+            <a href="#donate" class="cta-card">
+              <div class="cta-title">Donate</div>
+              <div class="cta-desc">Support continued existence and open work.</div>
+            </a>
+
+            <a href="#sponsor" class="cta-card">
+              <div class="cta-title">Sponsor</div>
+              <div class="cta-desc">Support a research strand or project line.</div>
+            </a>
+
+            <a href="#collaborate" class="cta-card">
+              <div class="cta-title">Collaborate</div>
+              <div class="cta-desc">Work together to explore, develop, and produce.</div>
+            </a>
+          </div>
+        </section>
+
+        <!-- Donate -->
+        <section id="donate" class="section">
+          <div class="card">
+            <h2>Donate</h2>
+            <p class="muted">Support the lab’s continued existence and open work.</p>
+
+            <div class="mt-4">
+              <p>
+                Donations provide flexible support that sustains the core operations of ContextWell Lab.
+                They enable the lab to remain independent and to prioritise long-term human capacity
+                over short-term optimisation.
+              </p>
+
+              <p class="mt-4">Donations may contribute to:</p>
+              <ul class="list-disc list-inside mt-2">
+                <li>maintaining and refining open conceptual frameworks</li>
+                <li>developing and maintaining experimental prototypes</li>
+                <li>producing openly accessible educational and research resources</li>
+                <li>supporting exploratory work beyond conventional funding cycles</li>
+              </ul>
+
+              <!-- Suggested amounts (optional but helpful) -->
+              <div class="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div class="cta-card">
+                  <div class="cta-title">Small</div>
+                  <div class="cta-desc">A gesture of support that sustains continuity.</div>
+                </div>
+                <div class="cta-card">
+                  <div class="cta-title">Standard</div>
+                  <div class="cta-desc">Supports resources, documentation, and iteration.</div>
+                </div>
+                <div class="cta-card">
+                  <div class="cta-title">Major</div>
+                  <div class="cta-desc">Accelerates prototype and translation work.</div>
+                </div>
+              </div>
+
+              <div class="mt-5 flex flex-col sm:flex-row gap-3">
+                <a
+                  href="PUT_YOUR_DONATION_LINK_HERE"
+                  target="_blank"
+                  rel="noopener"
+                  class="btn"
+                >
+                  Make a donation
+                </a>
+                <a href="#sponsor" class="btn">Prefer sponsorship?</a>
+              </div>
+
+              <p class="muted mt-4">
+                If you prefer, you can also support by sponsoring a defined strand of work (see below).
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Sponsor -->
+        <section id="sponsor" class="section">
+          <div class="card">
+            <h2>Sponsor</h2>
+            <p class="muted">Support a specific research strand or project line.</p>
+
+            <div class="mt-4">
+              <p>
+                Sponsorship is designed for organisations, foundations, or programmes
+                seeking to support a defined area of work within ContextWell Lab.
+                Unlike donations, sponsorship is typically directed toward a specific research question,
+                project line, or development phase.
+              </p>
+
+              <p class="mt-4">Sponsorship may support:</p>
+              <ul class="list-disc list-inside mt-2">
+                <li>a defined research or conceptual programme</li>
+                <li>pilot studies or prototype development</li>
+                <li>evaluation, documentation, and dissemination activities</li>
+                <li>capacity-building initiatives aligned with shared priorities</li>
+              </ul>
+
+              <div class="mt-5">
+                <h3>To start efficiently</h3>
+                <p class="muted mt-2">
+                  In your message, include: your context, the strand you want to support, timeframe, and any constraints.
+                </p>
+              </div>
+
+              <div class="mt-5 flex flex-col sm:flex-row gap-3">
+                <a href="mailto:CONTACT_EMAIL@example.com" class="btn">Discuss sponsorship</a>
+                <a href="#collaborate" class="btn">Consider collaboration</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Collaborate -->
+        <section id="collaborate" class="section">
+          <div class="card">
+            <h2>Collaborate</h2>
+            <p class="muted">Work together to explore, develop, and produce.</p>
+
+            <div class="mt-4">
+              <p>
+                Collaboration is a core mode of operation for ContextWell Lab.
+                The lab works with individuals and organisations interested in advancing
+                well-being, judgment, and human oversight in complex and AI mediated environments.
+              </p>
+
+              <p class="mt-4">
+                Collaborations are research-informed, exploratory, and practice-oriented.
+                They are designed to generate shared understanding, test ideas in real contexts,
+                and translate insights into usable outputs.
+              </p>
+
+              <p class="mt-4">Typical collaboration formats include:</p>
+              <ul class="list-disc list-inside mt-2">
+                <li>research partnerships and co-authored studies</li>
+                <li>pilot projects in educational, health, or organisational settings</li>
+                <li>conceptual design and framework development</li>
+                <li>advisory work on well-being and human oversight</li>
+                <li>translation of research insights into tools, protocols, or learning systems</li>
+              </ul>
+
+              <div class="mt-5">
+                <h3>What to include in a proposal</h3>
+                <p class="muted mt-2">
+                  Share the context, what you want to test or build, who is involved, and what success would look like.
+                </p>
+              </div>
+
+              <div class="mt-5">
+                <a href="mailto:CONTACT_EMAIL@example.com" class="btn">Propose a collaboration</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Closing -->
+        <section class="section">
+          <p class="muted">
+            Support for ContextWell Lab contributes to a broader effort to treat well-being and human oversight
+            as foundational capacities for societies navigating technological complexity.
+          </p>
+        </section>
+
+      </div>
+
+      <!-- =========================
+           STICKY SIDEBAR (desktop)
+           ========================= -->
+      <aside class="hidden lg:block lg:col-span-4">
+        <div class="sticky top-28 border border-slate-800 rounded-xl bg-slate-950/60 backdrop-blur p-5">
+          <div class="text-sm font-semibold text-slate-100">On this page</div>
+
+          <nav class="mt-3 space-y-2 text-sm">
+            <a href="#donate" class="block text-slate-300 hover:text-emerald-400">Donate</a>
+            <a href="#sponsor" class="block text-slate-300 hover:text-emerald-400">Sponsor</a>
+            <a href="#collaborate" class="block text-slate-300 hover:text-emerald-400">Collaborate</a>
+          </nav>
+
+          <div class="mt-5 border-t border-slate-800 pt-4">
+            <div class="muted">Quick actions</div>
+            <div class="mt-3 flex flex-col gap-2">
+              <a class="btn" href="PUT_YOUR_DONATION_LINK_HERE" target="_blank" rel="noopener">Donate link</a>
+              <a class="btn" href="mailto:CONTACT_EMAIL@example.com">Email</a>
+            </div>
+          </div>
         </div>
-      </section>
-
-      <!-- Donate -->
-      <section id="donate" class="section">
-        <h2>Donate</h2>
-
-        <p>
-          Donations provide flexible support that sustains the core operations of ContextWell Lab.
-          They enable the lab to remain independent and to prioritise long-term human capacity over short-term optimisation.
-        </p>
-
-        <p>
-          Donations may contribute to:
-        </p>
-
-        <ul class="list-disc list-inside">
-          <li>maintaining and refining open conceptual frameworks</li>
-          <li>developing and maintaining experimental prototypes</li>
-          <li>producing openly accessible educational and research resources</li>
-          <li>supporting exploratory work beyond conventional funding cycles</li>
-        </ul>
-
-        <p>
-          This form of support is especially suited to individuals who value open inquiry,
-          public-interest research, and the careful development of ideas.
-        </p>
-
-        <div class="mt-4">
-          <a
-            href="PUT_YOUR_DONATION_LINK_HERE"
-            target="_blank"
-            rel="noopener"
-            class="btn"
-          >
-            Make a donation
-          </a>
-        </div>
-      </section>
-
-      <!-- Sponsor -->
-      <section id="sponsor" class="section">
-        <h2>Sponsor</h2>
-
-        <p>
-          Sponsorship is designed for organisations, foundations, or programmes
-          seeking to support a defined area of work within ContextWell Lab.
-        </p>
-
-        <p>
-          Unlike donations, sponsorship is typically directed toward a specific research question,
-          project line, or development phase.
-        </p>
-
-        <p>
-          Sponsorship may support:
-        </p>
-
-        <ul class="list-disc list-inside">
-          <li>a defined research or conceptual programme</li>
-          <li>pilot studies or prototype development</li>
-          <li>evaluation, documentation, and dissemination activities</li>
-          <li>capacity-building initiatives aligned with shared priorities</li>
-        </ul>
-
-        <p>
-          Sponsorship arrangements are developed through dialogue
-          and shaped by mutual goals, scope, and constraints.
-        </p>
-
-        <div class="mt-4">
-          <a
-            href="mailto:CONTACT_EMAIL@example.com"
-            class="btn"
-          >
-            Discuss sponsorship
-          </a>
-        </div>
-      </section>
-
-      <!-- Collaborate -->
-      <section id="collaborate" class="section">
-        <h2>Collaborate</h2>
-
-        <p>
-          Collaboration is a core mode of operation for ContextWell Lab.
-          The lab works with individuals and organisations interested in advancing
-          well-being, judgment, and human oversight in complex and AI mediated environments.
-        </p>
-
-        <p>
-          Collaborations are research-informed, exploratory, and practice-oriented.
-          They are designed to generate shared understanding, test ideas in real contexts,
-          and translate insights into usable outputs.
-        </p>
-
-        <p>
-          Typical collaboration formats include:
-        </p>
-
-        <ul class="list-disc list-inside">
-          <li>research partnerships and co-authored studies</li>
-          <li>pilot projects in educational, health, or organisational settings</li>
-          <li>conceptual design and framework development</li>
-          <li>advisory work on well-being and human oversight</li>
-          <li>translation of research insights into tools, protocols, or learning systems</li>
-        </ul>
-
-        <p>
-          Collaborations may be project-based, time-limited, or exploratory,
-          depending on mutual aims and practical constraints.
-        </p>
-
-        <div class="mt-4">
-          <a
-            href="mailto:CONTACT_EMAIL@example.com"
-            class="btn"
-          >
-            Propose a collaboration
-          </a>
-        </div>
-      </section>
-
-      <!-- Closing -->
-      <section class="section">
-        <p class="muted">
-          Support for ContextWell Lab contributes to a broader effort to treat well-being
-          and human oversight as foundational capacities for societies navigating technological complexity.
-        </p>
-      </section>
+      </aside>
 
     </div>
   </main>
@@ -208,4 +275,3 @@
 
 </body>
 </html>
-
