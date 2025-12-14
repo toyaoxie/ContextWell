@@ -1,16 +1,138 @@
 <header class="fixed top-0 inset-x-0 bg-slate-950/95 border-b border-slate-800 backdrop-blur z-50">
   <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-    <a href="/contextwell/" class="text-xl font-bold text-emerald-400">
-      ContextWell Lab
-    </a>
-    <div class="flex flex-wrap items-center gap-6 text-sm">
+    <a href="/contextwell/" class="text-xl font-bold text-emerald-400">ContextWell Lab</a>
+
+    <!-- Mobile toggle -->
+    <button
+      id="nav-toggle"
+      class="md:hidden inline-flex items-center justify-center rounded-lg border border-slate-800 bg-slate-900 px-3 py-2 text-slate-200 hover:border-emerald-400 hover:text-emerald-400"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      type="button"
+    >
+      <span class="text-sm font-semibold">Menu</span>
+    </button>
+
+    <!-- Desktop nav -->
+    <div class="hidden md:flex flex-wrap items-center gap-6 text-sm" id="site-nav-desktop">
       <a href="/contextwell/" class="text-slate-300 hover:text-emerald-400">Overview</a>
       <a href="/contextwell/about/" class="text-slate-300 hover:text-emerald-400">About</a>
-      <a href="/contextwell/projects/" class="text-slate-300 hover:text-emerald-400">Projects</a>
-      <a href="/contextwell/builder/" class="text-slate-300 hover:text-emerald-400">Solutions</a>
+
+      <!-- Projects dropdown -->
+      <div class="relative group">
+        <a href="/contextwell/projects/" class="text-slate-300 hover:text-emerald-400 inline-flex items-center gap-2">
+          Projects
+          <span class="text-slate-500 group-hover:text-emerald-400">▾</span>
+        </a>
+        <div
+          class="absolute left-0 mt-3 w-56 rounded-xl border border-slate-800 bg-slate-950/98 shadow-xl backdrop-blur hidden group-hover:block"
+        >
+          <div class="p-2">
+            <a
+              href="/contextwell/projects/doctoral-project/"
+              class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400"
+            >
+              Doctoral Project
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Solutions dropdown -->
+      <div class="relative group">
+        <a href="/contextwell/solutions/" class="text-slate-300 hover:text-emerald-400 inline-flex items-center gap-2">
+          Solutions
+          <span class="text-slate-500 group-hover:text-emerald-400">▾</span>
+        </a>
+        <div
+          class="absolute left-0 mt-3 w-60 rounded-xl border border-slate-800 bg-slate-950/98 shadow-xl backdrop-blur hidden group-hover:block"
+        >
+          <div class="p-2">
+            <a
+              href="/contextwell/solutions/well-being-builder/"
+              class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400"
+            >
+              Well-being Builder
+            </a>
+          </div>
+        </div>
+      </div>
+
       <a href="/contextwell/library/" class="text-slate-300 hover:text-emerald-400">Library</a>
       <a href="/contextwell/for-organisations/" class="text-slate-300 hover:text-emerald-400">Collaborate</a>
     </div>
   </nav>
+
+  <!-- Mobile nav panel -->
+  <div id="site-nav" class="md:hidden hidden border-t border-slate-800 bg-slate-950/95">
+    <div class="max-w-7xl mx-auto px-6 py-4 space-y-2 text-sm">
+      <a href="/contextwell/" class="block rounded-lg px-3 py-2 text-slate-200 hover:bg-slate-900 hover:text-emerald-400">Overview</a>
+      <a href="/contextwell/about/" class="block rounded-lg px-3 py-2 text-slate-200 hover:bg-slate-900 hover:text-emerald-400">About</a>
+
+      <!-- Projects (mobile) -->
+      <details class="rounded-lg border border-slate-800 bg-slate-950">
+        <summary class="cursor-pointer list-none px-3 py-2 text-slate-200 hover:text-emerald-400">
+          <span class="inline-flex items-center justify-between w-full">
+            <span>Projects</span><span class="text-slate-500">▾</span>
+          </span>
+        </summary>
+        <div class="px-2 pb-2">
+          <a
+            href="/contextwell/projects/doctoral-project/"
+            class="block rounded-lg px-3 py-2 text-slate-300 hover:bg-slate-900 hover:text-emerald-400"
+          >
+            Doctoral Project
+          </a>
+          <a
+            href="/contextwell/projects/"
+            class="block rounded-lg px-3 py-2 text-slate-300 hover:bg-slate-900 hover:text-emerald-400"
+          >
+            All Projects
+          </a>
+        </div>
+      </details>
+
+      <!-- Solutions (mobile) -->
+      <details class="rounded-lg border border-slate-800 bg-slate-950">
+        <summary class="cursor-pointer list-none px-3 py-2 text-slate-200 hover:text-emerald-400">
+          <span class="inline-flex items-center justify-between w-full">
+            <span>Solutions</span><span class="text-slate-500">▾</span>
+          </span>
+        </summary>
+        <div class="px-2 pb-2">
+          <a
+            href="/contextwell/solutions/well-being-builder/"
+            class="block rounded-lg px-3 py-2 text-slate-300 hover:bg-slate-900 hover:text-emerald-400"
+          >
+            Well-being Builder
+          </a>
+          <a
+            href="/contextwell/solutions/"
+            class="block rounded-lg px-3 py-2 text-slate-300 hover:bg-slate-900 hover:text-emerald-400"
+          >
+            All Solutions
+          </a>
+        </div>
+      </details>
+
+      <a href="/contextwell/library/" class="block rounded-lg px-3 py-2 text-slate-200 hover:bg-slate-900 hover:text-emerald-400">Library</a>
+      <a href="/contextwell/for-organisations/" class="block rounded-lg px-3 py-2 text-slate-200 hover:bg-slate-900 hover:text-emerald-400">Collaborate</a>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const toggle = document.getElementById("nav-toggle");
+      const panel = document.getElementById("site-nav");
+      if (!toggle || !panel) return;
+
+      toggle.addEventListener("click", () => {
+        const isOpen = !panel.classList.contains("hidden");
+        panel.classList.toggle("hidden");
+        toggle.setAttribute("aria-expanded", String(!isOpen));
+      });
+    })();
+  </script>
 </header>
 
