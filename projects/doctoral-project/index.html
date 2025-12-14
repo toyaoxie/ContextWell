@@ -32,17 +32,10 @@
     }
   </style>
 </head>
-  <script>
-  const BASE = "/contextwell";
 
-  fetch(`${BASE}/partials/header.html`)
-    .then(response => response.text())
-    .then(html => {
-      document.getElementById("site-header").innerHTML = html;
-    });
-</script>
+<body class="bg-slate-950 text-slate-100">
 
-<body class="bg-slate-950 text-slate-100">  
+  <!-- Header slot (loads /contextwell/partials/header.html) -->
   <div id="site-header"></div>
 
   <main id="top" class="pt-28 pb-16 px-6">
@@ -113,7 +106,7 @@
             <div class="bg-slate-950 border border-slate-800 rounded-xl p-5">
               <p class="text-xs uppercase tracking-wide text-emerald-400 mb-2">Key integration</p>
               <p class="text-slate-300 text-sm">
-                Well being efficacy and human oversight are treated as two perspectives on the same underlying capacity requirement. They differ primarily in framing, human functioning versus governance and systems, while sharing a common functional core.
+                Well-being efficacy and human oversight are treated as two perspectives on the same underlying capacity requirement. They differ primarily in framing, human functioning versus governance and systems, while sharing a common functional core.
               </p>
             </div>
 
@@ -149,7 +142,7 @@
         <!-- Foundation -->
         <section id="foundation" class="bg-slate-900 border border-slate-800 rounded-xl p-6">
           <p class="text-xs uppercase tracking-wide text-emerald-400 mb-2">Conceptual foundation</p>
-          <h2 class="text-xl font-semibold mb-3">Well being as a functional capacity</h2>
+          <h2 class="text-xl font-semibold mb-3">Well-being as a functional capacity</h2>
           <div class="space-y-3 text-slate-300 text-sm">
             <p>ContextWell positions well-being as a functional capacity rather than a transient emotional state.</p>
             <p>Instead of asking only whether an individual feels well, the project asks what capacities enable an individual to sustain judgment, emotional stability, and action across diverse and demanding contexts.</p>
@@ -165,7 +158,7 @@
           <h2 class="text-xl font-semibold mb-3">Human oversight and well-being efficacy</h2>
           <div class="space-y-3 text-slate-300 text-sm">
             <p>Shared capacity demands. A central clarification in ContextWell is that the underlying demands of well-being efficacy and human oversight are substantively aligned.</p>
-            <p>Well being efficacy refers to the internal functional capacity that allows individuals to remain clear, emotionally stable, and action capable within context. Human oversight refers to the situational expression of that same capacity, particularly in environments shaped by systems, institutions, or AI.</p>
+            <p>Well-being efficacy refers to the internal functional capacity that allows individuals to remain clear, emotionally stable, and action capable within context. Human oversight refers to the situational expression of that same capacity, particularly in environments shaped by systems, institutions, or AI.</p>
             <p>The distinction between the two is analytical in nature and unified in substance. In practice, both depend on similar capabilities such as maintaining judgment under pressure, differentiating between system influence and personal responsibility, and sustaining agency in constrained environments.</p>
             <p>When this capacity is insufficient, individuals experience reduced agency, increased strain, and responsibility confusion. When it is sufficient, oversight remains operational and well-being is experienced as functional stability rather than comfort.</p>
           </div>
@@ -333,8 +326,6 @@
             <a class="block px-3 py-2 rounded-lg border border-slate-800 bg-slate-950 hover:border-emerald-400 hover:text-emerald-400" href="#supervision">Supervision</a>
             <a class="block px-3 py-2 rounded-lg border border-slate-800 bg-slate-950 hover:border-emerald-400 hover:text-emerald-400" href="#contact">Contact</a>
           </div>
-
-          
         </div>
       </aside>
 
@@ -350,7 +341,20 @@
     </div>
   </footer>
 
+  <!-- Load shared header AFTER the container exists -->
+  <script>
+    const BASE = "/contextwell";
+    fetch(`${BASE}/partials/header.html`)
+      .then(r => r.text())
+      .then(html => {
+        const el = document.getElementById("site-header");
+        if (el) el.innerHTML = html;
+      })
+      .catch(err => console.error("Header load failed:", err));
+  </script>
+
 </body>
 </html>
+
 
 
