@@ -8,185 +8,333 @@
         content="ContextWell Lab advances research and innovation dedicated to building a well-being driven world, strengthening human capacity in AI mediated environments.">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    html { scroll-behavior: smooth; }
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
     }
-    .text-container {
-        max-width: 768px; /* md:max-w-4xl */
-    }
+    .text-container { max-width: 768px; }
   </style>
 </head>
+
 <body class="bg-slate-950 text-slate-100">
+
+  <!-- =========================
+       GLOBAL HEADER (About active)
+       ========================= -->
   <header class="fixed top-0 inset-x-0 bg-slate-950/95 border-b border-slate-800 backdrop-blur z-50">
     <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="../index.html" class="text-xl font-bold text-emerald-400">ContextWell Lab</a>
-      <div class="flex flex-wrap items-center gap-6 text-sm">
-        <!-- NAVIGATION -->
-        <a href="../index.html" class="text-slate-300 hover:text-emerald-400">Overview</a>
-        <a href="../about/" class="text-slate-100 font-medium hover:text-emerald-400">About</a>
-        <a href="../frameworks/" class="text-slate-300 hover:text-emerald-400">Work</a>
-        <a href="../builder/" class="text-slate-300 hover:text-emerald-400">Solutions</a>
-        <a href="../library/" class="text-slate-300 hover:text-emerald-400">Library</a>
-        <a href="../for-organisations/" class="text-slate-300 hover:text-emerald-400">Collaborate</a>
+
+      <!-- Logo -->
+      <a href="/contextwell/" class="text-xl font-bold text-emerald-400">
+        ContextWell Lab
+      </a>
+
+      <!-- Mobile toggle -->
+      <button
+        id="nav-toggle"
+        class="md:hidden inline-flex items-center justify-center rounded-lg border border-slate-800 bg-slate-900 px-3 py-2 text-slate-200 hover:border-emerald-400 hover:text-emerald-400"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        type="button"
+      >
+        <span class="text-sm font-semibold">Menu</span>
+      </button>
+
+      <!-- Desktop navigation -->
+      <div class="hidden md:flex items-center gap-6 text-sm">
+
+        <!-- Overview -->
+        <a href="/contextwell/" class="text-slate-300 hover:text-emerald-400">Overview</a>
+
+        <!-- About (active) -->
+        <a href="/contextwell/about/" class="text-slate-100 font-medium hover:text-emerald-400">About</a>
+
+        <!-- Projects dropdown -->
+        <div class="relative group">
+          <a
+            href="/contextwell/projects/"
+            class="inline-flex items-center gap-2 text-slate-300 hover:text-emerald-400"
+          >
+            Projects
+            <span class="text-slate-500 group-hover:text-emerald-400">▾</span>
+          </a>
+          <div
+            class="absolute left-0 mt-3 w-56 rounded-xl border border-slate-800 bg-slate-950/98 shadow-xl backdrop-blur hidden group-hover:block"
+          >
+            <div class="p-2">
+              <a
+                href="/contextwell/projects/doctoral-project/"
+                class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400"
+              >
+                Doctoral Project
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solutions dropdown -->
+        <div class="relative group">
+          <a
+            href="/contextwell/solutions/"
+            class="inline-flex items-center gap-2 text-slate-300 hover:text-emerald-400"
+          >
+            Solutions
+            <span class="text-slate-500 group-hover:text-emerald-400">▾</span>
+          </a>
+          <div
+            class="absolute left-0 mt-3 w-64 rounded-xl border border-slate-800 bg-slate-950/98 shadow-xl backdrop-blur hidden group-hover:block"
+          >
+            <div class="p-2">
+              <a
+                href="/contextwell/solutions/well-being-builder/"
+                class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400"
+              >
+                Well-being Builder
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Library -->
+        <a href="/contextwell/library/" class="text-slate-300 hover:text-emerald-400">Library</a>
+
+        <!-- Collaborate -->
+        <a href="/contextwell/for-organisations/" class="text-slate-300 hover:text-emerald-400">Collaborate</a>
       </div>
     </nav>
+
+    <!-- Mobile navigation panel -->
+    <div id="site-nav" class="md:hidden hidden border-t border-slate-800 bg-slate-950/95">
+      <div class="max-w-7xl mx-auto px-6 py-4 space-y-2 text-sm">
+        <a href="/contextwell/" class="block rounded-lg px-3 py-2 text-slate-200 hover:bg-slate-900 hover:text-emerald-400">Overview</a>
+        <a href="/contextwell/about/" class="block rounded-lg px-3 py-2 text-slate-100 font-medium bg-slate-900 border border-slate-800">About</a>
+
+        <details class="rounded-lg border border-slate-800 bg-slate-950">
+          <summary class="cursor-pointer list-none px-3 py-2 text-slate-200 hover:text-emerald-400">
+            <span class="inline-flex items-center justify-between w-full">
+              <span>Projects</span><span class="text-slate-500">▾</span>
+            </span>
+          </summary>
+          <div class="px-2 pb-2">
+            <a
+              href="/contextwell/projects/doctoral-project/"
+              class="block rounded-lg px-3 py-2 text-slate-300 hover:bg-slate-900 hover:text-emerald-400"
+            >
+              Doctoral Project
+            </a>
+            <a
+              href="/contextwell/projects/"
+              class="block rounded-lg px-3 py-2 text-slate-300 hover:bg-slate-900 hover:text-emerald-400"
+            >
+              All Projects
+            </a>
+          </div>
+        </details>
+
+        <details class="rounded-lg border border-slate-800 bg-slate-950">
+          <summary class="cursor-pointer list-none px-3 py-2 text-slate-200 hover:text-emerald-400">
+            <span class="inline-flex items-center justify-between w-full">
+              <span>Solutions</span><span class="text-slate-500">▾</span>
+            </span>
+          </summary>
+          <div class="px-2 pb-2">
+            <a
+              href="/contextwell/solutions/well-being-builder/"
+              class="block rounded-lg px-3 py-2 text-slate-300 hover:bg-slate-900 hover:text-emerald-400"
+            >
+              Well-being Builder
+            </a>
+            <a
+              href="/contextwell/solutions/"
+              class="block rounded-lg px-3 py-2 text-slate-300 hover:bg-slate-900 hover:text-emerald-400"
+            >
+              All Solutions
+            </a>
+          </div>
+        </details>
+
+        <a href="/contextwell/library/" class="block rounded-lg px-3 py-2 text-slate-200 hover:bg-slate-900 hover:text-emerald-400">Library</a>
+        <a href="/contextwell/for-organisations/" class="block rounded-lg px-3 py-2 text-slate-200 hover:bg-slate-900 hover:text-emerald-400">Collaborate</a>
+      </div>
+    </div>
+
+    <!-- Mobile toggle script -->
+    <script>
+      (function () {
+        const toggle = document.getElementById("nav-toggle");
+        const panel = document.getElementById("site-nav");
+        if (!toggle || !panel) return;
+
+        toggle.addEventListener("click", () => {
+          const isOpen = !panel.classList.contains("hidden");
+          panel.classList.toggle("hidden");
+          toggle.setAttribute("aria-expanded", String(!isOpen));
+        });
+      })();
+    </script>
   </header>
 
+  <!-- =========================
+       PAGE CONTENT
+       ========================= -->
   <main class="pt-28 pb-16 px-6 max-w-5xl mx-auto">
     <div class="text-container">
-    
-    <!-- Mission -->
-    <section class="mb-10">
-      <h1 class="text-3xl md:text-4xl font-bold mb-4">Mission</h1>
-      <p class="text-slate-300 text-sm mb-3">
-        ContextWell Lab advances research and innovation dedicated to building a well-being driven world.
-      </p>
-      <p class="text-slate-300 text-sm mb-3">
-        The lab investigates how human clarity, stability, and judgment can become foundational capacities for societies operating within AI mediated environments.
-      </p>
-      <p class="text-slate-300 text-sm mb-3">
-        Its work contributes to the global effort to ensure that technological progress is aligned with human flourishing and collective resilience.
-      </p>
-    </section>
 
-    <!-- Purpose -->
-    <section class="mb-10">
-      <h2 class="text-2xl font-semibold mb-3">Purpose</h2>
-      <p class="text-slate-300 text-sm mb-3">
-        Rapid transformations in artificial intelligence and digital ecosystems are reshaping how individuals learn, work, and make decisions.
-      </p>
-      <p class="text-slate-300 text-sm mb-3">
-        These shifts expose a critical structural gap. Human capacity has not evolved at the same pace as technological complexity.
-      </p>
-      <p class="text-slate-300 text-sm mb-3">
-        ContextWell Lab addresses this gap by developing conceptual systems, practical tools, and applied pathways that strengthen human capacity in contexts of uncertainty.
-      </p>
-      <p class="text-slate-300 text-sm mb-3">
-        The lab positions well-being and oversight as essential components of societal infrastructure.
-      </p>
-    </section>
+      <!-- Mission -->
+      <section class="mb-10">
+        <h1 class="text-3xl md:text-4xl font-bold mb-4">Mission</h1>
+        <p class="text-slate-300 text-sm mb-3">
+          ContextWell Lab advances research and innovation dedicated to building a well-being driven world.
+        </p>
+        <p class="text-slate-300 text-sm mb-3">
+          The lab investigates how human clarity, stability, and judgment can become foundational capacities for societies operating within AI mediated environments.
+        </p>
+        <p class="text-slate-300 text-sm mb-3">
+          Its work contributes to the global effort to ensure that technological progress is aligned with human flourishing and collective resilience.
+        </p>
+      </section>
 
-    <!-- Scope of Work -->
-    <section class="mb-10">
-      <h2 class="text-2xl font-semibold mb-4">Scope of Work</h2>
-      
-      <h3 class="text-xl font-semibold mb-2 text-emerald-400">Research and conceptual frameworks</h3>
-      <p class="text-slate-300 text-sm mb-4">
-        The lab develops structured models that explain contextual well-being, well-being efficacy, and the mechanisms that influence human oversight and contextual intelligence.
-      </p>
+      <!-- Purpose -->
+      <section class="mb-10">
+        <h2 class="text-2xl font-semibold mb-3">Purpose</h2>
+        <p class="text-slate-300 text-sm mb-3">
+          Rapid transformations in artificial intelligence and digital ecosystems are reshaping how individuals learn, work, and make decisions.
+        </p>
+        <p class="text-slate-300 text-sm mb-3">
+          These shifts expose a critical structural gap. Human capacity has not evolved at the same pace as technological complexity.
+        </p>
+        <p class="text-slate-300 text-sm mb-3">
+          ContextWell Lab addresses this gap by developing conceptual systems, practical tools, and applied pathways that strengthen human capacity in contexts of uncertainty.
+        </p>
+        <p class="text-slate-300 text-sm mb-3">
+          The lab positions well-being and oversight as essential components of societal infrastructure.
+        </p>
+      </section>
 
-      <h3 class="text-xl font-semibold mb-2 text-emerald-400">Design and prototyping</h3>
-      <p class="text-slate-300 text-sm mb-4">
-        It creates experimental systems and reflective environments that allow individuals to practise decision making, self regulation, and contextual interpretation in realistic scenarios.
-      </p>
+      <!-- Scope of Work -->
+      <section class="mb-10">
+        <h2 class="text-2xl font-semibold mb-4">Scope of Work</h2>
 
-      <h3 class="text-xl font-semibold mb-2 text-emerald-400">Application and impact development</h3>
-      <p class="text-slate-300 text-sm mb-4">
-        The lab explores pathways for translation into education, health, organisational development, and responsible AI governance. The work aims to support scalable and evidence informed solutions that can be adopted across diverse sectors.
-      </p>
-    </section>
+        <h3 class="text-xl font-semibold mb-2 text-emerald-400">Research and conceptual frameworks</h3>
+        <p class="text-slate-300 text-sm mb-4">
+          The lab develops structured models that explain contextual well-being, well-being efficacy, and the mechanisms that influence human oversight and contextual intelligence.
+        </p>
 
-    <!-- Rationale -->
-    <section class="mb-10">
-      <h2 class="text-2xl font-semibold mb-3">Rationale</h2>
-      <p class="text-slate-300 text-sm mb-3">
-        Global systems face rising cognitive, emotional, and structural demands. AI mediated contexts intensify information flow, accelerate decision cycles, and heighten uncertainty.
-      </p>
-      <p class="text-slate-300 text-sm mb-3">
-        Traditional well-being models are not designed for these environments. Oversight is often reduced to compliance rather than understood as a capability.
-      </p>
-      <p class="text-slate-300 text-sm mb-3">
-        ContextWell Lab contributes a renewed approach. It treats human capacity as dynamic, contextual, and trainable.
-      </p>
-      <p class="text-slate-300 text-sm mb-3">
-        This orientation supports healthier learning systems, more resilient organisations, and more ethical technological deployment.
-      </p>
-    </section>
+        <h3 class="text-xl font-semibold mb-2 text-emerald-400">Design and prototyping</h3>
+        <p class="text-slate-300 text-sm mb-4">
+          It creates experimental systems and reflective environments that allow individuals to practise decision making, self regulation, and contextual interpretation in realistic scenarios.
+        </p>
 
-    <!-- Institutional Positioning -->
-    <section class="mb-10">
-      <h2 class="text-2xl font-semibold mb-3">Institutional Positioning</h2>
-      <p class="text-slate-300 text-sm mb-3">
-        ContextWell Lab operates as an independent research and innovation space. Its foundations draw from interdisciplinary inquiry, including public health, behavioural science, complexity studies, and AI ethics.
-      </p>
-      <p class="text-slate-300 text-sm mb-3">
-        The lab’s agenda is aligned with global priorities related to:
-      </p>
-      <ul class="list-disc list-inside text-slate-400 text-sm space-y-1 ml-4">
-        <li>human centred AI</li>
-        <li>digital well-being</li>
-        <li>education and workforce preparation</li>
-        <li>health promoting systems</li>
-        <li>social resilience</li>
-      </ul>
-      <p class="text-slate-300 text-sm mt-3">
-        The work seeks coherence with international dialogues shaping the future of technology and human development.
-      </p>
-    </section>
+        <h3 class="text-xl font-semibold mb-2 text-emerald-400">Application and impact development</h3>
+        <p class="text-slate-300 text-sm mb-4">
+          The lab explores pathways for translation into education, health, organisational development, and responsible AI governance. The work aims to support scalable and evidence informed solutions that can be adopted across diverse sectors.
+        </p>
+      </section>
 
-    <!-- Development Trajectory -->
-    <section class="mb-10">
-      <h2 class="text-2xl font-semibold mb-4">Development Trajectory</h2>
-      <p class="text-slate-300 text-sm mb-3">The lab is structured around a progressive architecture:</p>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        
-        <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
-          <h3 class="text-lg font-semibold mb-1 text-emerald-400">Foundation</h3>
-          <p class="text-slate-400 text-sm">
-            Establishing core frameworks, evidence informed models, and conceptual mechanisms.
-          </p>
+      <!-- Rationale -->
+      <section class="mb-10">
+        <h2 class="text-2xl font-semibold mb-3">Rationale</h2>
+        <p class="text-slate-300 text-sm mb-3">
+          Global systems face rising cognitive, emotional, and structural demands. AI mediated contexts intensify information flow, accelerate decision cycles, and heighten uncertainty.
+        </p>
+        <p class="text-slate-300 text-sm mb-3">
+          Traditional well-being models are not designed for these environments. Oversight is often reduced to compliance rather than understood as a capability.
+        </p>
+        <p class="text-slate-300 text-sm mb-3">
+          ContextWell Lab contributes a renewed approach. It treats human capacity as dynamic, contextual, and trainable.
+        </p>
+        <p class="text-slate-300 text-sm mb-3">
+          This orientation supports healthier learning systems, more resilient organisations, and more ethical technological deployment.
+        </p>
+      </section>
+
+      <!-- Institutional Positioning -->
+      <section class="mb-10">
+        <h2 class="text-2xl font-semibold mb-3">Institutional Positioning</h2>
+        <p class="text-slate-300 text-sm mb-3">
+          ContextWell Lab operates as an independent research and innovation space. Its foundations draw from interdisciplinary inquiry, including public health, behavioural science, complexity studies, and AI ethics.
+        </p>
+        <p class="text-slate-300 text-sm mb-3">
+          The lab’s agenda is aligned with global priorities related to:
+        </p>
+        <ul class="list-disc list-inside text-slate-400 text-sm space-y-1 ml-4">
+          <li>human centred AI</li>
+          <li>digital well-being</li>
+          <li>education and workforce preparation</li>
+          <li>health promoting systems</li>
+          <li>social resilience</li>
+        </ul>
+        <p class="text-slate-300 text-sm mt-3">
+          The work seeks coherence with international dialogues shaping the future of technology and human development.
+        </p>
+      </section>
+
+      <!-- Development Trajectory -->
+      <section class="mb-10">
+        <h2 class="text-2xl font-semibold mb-4">Development Trajectory</h2>
+        <p class="text-slate-300 text-sm mb-3">The lab is structured around a progressive architecture:</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
+            <h3 class="text-lg font-semibold mb-1 text-emerald-400">Foundation</h3>
+            <p class="text-slate-400 text-sm">
+              Establishing core frameworks, evidence informed models, and conceptual mechanisms.
+            </p>
+          </div>
+
+          <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
+            <h3 class="text-lg font-semibold mb-1 text-emerald-400">Experimentation</h3>
+            <p class="text-slate-400 text-sm">
+              Building scenario based prototypes and reflective tools to test how human capacity can be observed, strengthened, and transferred.
+            </p>
+          </div>
+
+          <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
+            <h3 class="text-lg font-semibold mb-1 text-emerald-400">Translation</h3>
+            <p class="text-slate-400 text-sm">
+              Developing pathways that link the lab’s concepts to applied environments including universities, organisations, and governance structures.
+            </p>
+          </div>
+
+          <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
+            <h3 class="text-lg font-semibold mb-1 text-emerald-400">Long-term impact</h3>
+            <p class="text-slate-400 text-sm">
+              Contributing to global discourse and system level innovation that supports well-being as a driver of societal progress.
+            </p>
+          </div>
         </div>
-        
-        <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
-          <h3 class="text-lg font-semibold mb-1 text-emerald-400">Experimentation</h3>
-          <p class="text-slate-400 text-sm">
-            Building scenario based prototypes and reflective tools to test how human capacity can be observed, strengthened, and transferred.
-          </p>
-        </div>
+      </section>
 
-        <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
-          <h3 class="text-lg font-semibold mb-1 text-emerald-400">Translation</h3>
-          <p class="text-slate-400 text-sm">
-            Developing pathways that link the lab’s concepts to applied environments including universities, organisations, and governance structures.
-          </p>
-        </div>
-
-        <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
-          <h3 class="text-lg font-semibold mb-1 text-emerald-400">Long-term impact</h3>
-          <p class="text-slate-400 text-sm">
-            Contributing to global discourse and system level innovation that supports well-being as a driver of societal progress.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Vision -->
-    <section class="mb-10">
-      <h2 class="text-2xl font-semibold mb-3">Vision</h2>
-      <p class="text-slate-300 text-sm mb-3">ContextWell Lab envisions a future where:</p>
-      <ul class="list-disc list-inside text-slate-400 text-sm space-y-1 ml-4">
-        <li>well-being is recognised as strategic infrastructure</li>
-        <li>human oversight is understood as a core capacity</li>
-        <li>AI systems are designed to reinforce human clarity and ethical judgment</li>
-        <li>learning and organisational environments cultivate resilience and contextual intelligence</li>
-        <li>societies invest in the human capacities required to navigate complexity</li>
-      </ul>
-      <p class="text-slate-300 text-sm mt-3">
-        This vision guides the lab’s research priorities and long-term commitments.
-      </p>
-    </section>
-
-    <!-- REMOVED COLLABORATION SECTION -->
+      <!-- Vision -->
+      <section class="mb-2">
+        <h2 class="text-2xl font-semibold mb-3">Vision</h2>
+        <p class="text-slate-300 text-sm mb-3">ContextWell Lab envisions a future where:</p>
+        <ul class="list-disc list-inside text-slate-400 text-sm space-y-1 ml-4">
+          <li>well-being is recognised as strategic infrastructure</li>
+          <li>human oversight is understood as a core capacity</li>
+          <li>AI systems are designed to reinforce human clarity and ethical judgment</li>
+          <li>learning and organisational environments cultivate resilience and contextual intelligence</li>
+          <li>societies invest in the human capacities required to navigate complexity</li>
+        </ul>
+        <p class="text-slate-300 text-sm mt-3">
+          This vision guides the lab’s research priorities and long-term commitments.
+        </p>
+      </section>
 
     </div>
   </main>
 
-  <footer class="border-t border-slate-800 py-6 px-6 mt-4 text-xs text-slate-500">
-    <div class="max-w-6xl mx-auto flex items-center justify-between">
-      <span>© ContextWell™ Lab</span>
-      <a href="../index.html" class="hover:text-emerald-400">Back to Overview</a>
+  <!-- =========================
+       FOOTER (simple, consistent)
+       ========================= -->
+  <footer class="border-t border-slate-800 py-6 px-6 mt-4">
+    <div class="max-w-6xl mx-auto text-xs text-slate-500 flex flex-col md:flex-row items-center justify-between gap-2">
+      <div>© ContextWell™ Lab supporting well-being optimisation across complex scenarios and real world contexts</div>
+      <div><a class="hover:text-emerald-400" href="/contextwell/">Back to Overview</a></div>
     </div>
   </footer>
+
 </body>
 </html>
+
