@@ -20,53 +20,42 @@
         0 10px 10px -5px rgba(15, 23, 42, 0.6);
     }
     .audience-card {
-        background-color: #1e293b; /* slate-800 */
-        border: 1px solid #334155; /* slate-700 */
-        border-radius: 0.5rem;
-        padding: 1.25rem;
-        margin-bottom: 1rem;
+      background-color: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 0.5rem;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
     }
     .audience-card h3 {
-        font-size: 1rem;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-        color: #f8fafc; /* slate-50 */
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #f8fafc;
     }
     .audience-card p {
-        font-size: 0.875rem;
-        color: #94a3b8; /* slate-400 */
+      font-size: 0.875rem;
+      color: #94a3b8;
     }
     .tag-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
     .tag-item {
-        padding: 0.25rem 0.75rem;
-        border-radius: 9999px;
-        background-color: #0f172a; /* slate-900 */
-        border: 1px solid #334155; /* slate-700 */
-        font-size: 0.75rem;
-        color: #e2e8f0; /* slate-200 */
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      background-color: #0f172a;
+      border: 1px solid #334155;
+      font-size: 0.75rem;
+      color: #e2e8f0;
     }
   </style>
 </head>
+
 <body class="bg-slate-950 text-slate-100">
-  <!-- Header -->
-  <header class="fixed top-0 inset-x-0 bg-slate-950/95 border-b border-slate-800 backdrop-blur z-50">
-    <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="./" class="text-xl font-bold text-emerald-400">ContextWell Lab</a>
-      <div class="flex flex-wrap items-center gap-6 text-sm">
-        <!-- NAVIGATION -->
-        <a href="./" class="text-slate-100 font-medium hover:text-emerald-400">Overview</a>
-        <a href="about/" class="text-slate-300 hover:text-emerald-400">About</a>
-        <a href="frameworks/" class="text-slate-300 hover:text-emerald-400">Work</a>
-        <a href="builder/" class="text-slate-300 hover:text-emerald-400">Solutions</a>
-        <a href="library/" class="text-slate-300 hover:text-emerald-400">Library</a>
-        <a href="for-organisations/" class="text-slate-300 hover:text-emerald-400">Collaborate</a>
-      </div>
-    </nav>
-  </header>
+
+  <!-- Shared Header (loaded from /contextwell/partials/header.html) -->
+  <div id="site-header"></div>
 
   <main class="pt-28 pb-16 px-6">
     <!-- Hero Section -->
@@ -74,27 +63,27 @@
       <p class="inline-block mb-4 px-4 py-1 rounded-full border border-slate-800 bg-slate-900 text-xs text-slate-300">
         Research led • Early stage lab
       </p>
-      <!-- HEADING -->
+
       <h1 class="text-4xl md:text-5xl font-bold mb-4">
         Designing the architectures of well-being in human systems
       </h1>
-      <!-- SDG TAG UPDATED -->
+
       <p class="text-xs uppercase tracking-wide text-emerald-400 mb-4">
         Building human capacity for UN SDG 3 (Well-being) & SDG 4 (Education)
       </p>
-      <!-- SUBHEADING -->
+
       <p class="text-lg text-slate-300 mb-6 max-w-3xl">
         ContextWell Lab creates conceptual models and tailored solutions that strengthen well-being capacity in individuals, teams, and organisational environments.
       </p>
+
       <div class="flex flex-wrap gap-4 mb-6">
-        <!-- NEW WHITEPAPER BUTTON ADDED -->
-        <a href="library/index.html" class="bg-emerald-400 text-slate-950 px-6 py-3 rounded-lg font-semibold text-sm hover:bg-emerald-300">
+        <a href="/contextwell/library/" class="bg-emerald-400 text-slate-950 px-6 py-3 rounded-lg font-semibold text-sm hover:bg-emerald-300">
           View Whitepaper
         </a>
       </div>
     </section>
 
-    <!-- What ContextWell Is - UPDATED -->
+    <!-- What ContextWell Is -->
     <section class="max-w-4xl mx-auto mb-16">
       <h2 class="text-xl font-semibold mb-3">What ContextWell Lab is</h2>
       <p class="text-slate-300 text-sm mb-2">
@@ -108,49 +97,52 @@
       </p>
     </section>
 
-    <!-- Three Pillars - SIMPLIFIED AND UPDATED -->
+    <!-- Three Pillars -->
     <section class="max-w-6xl mx-auto mb-16">
       <h2 class="text-xl font-semibold mb-4">Three Pillars of ContextWell Lab</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-        <!-- Pillar 1: Foundations and Theory -->
-        <a href="frameworks/" class="card-hover block bg-slate-900 border border-slate-800 rounded-xl p-6">
+        <a href="/contextwell/projects/" class="card-hover block bg-slate-900 border border-slate-800 rounded-xl p-6">
           <p class="text-xs uppercase tracking-wide text-emerald-400 mb-2">Foundations and Theory</p>
-          <h3 class="text-lg font-semibold mb-2">Structured frameworks explaining how well-being capacity functions across people, organisations, and environments.</h3>
+          <h3 class="text-lg font-semibold mb-2">
+            Structured frameworks explaining how well-being capacity functions across people, organisations, and environments.
+          </h3>
           <p class="text-slate-400 text-sm mt-3">
             This pillar provides the conceptual structure that guides everything we build.
           </p>
         </a>
 
-        <!-- Pillar 2: Translation and Practice -->
-        <a href="builder/" class="card-hover block bg-slate-900 border border-slate-800 rounded-xl p-6">
+        <a href="/contextwell/solutions/" class="card-hover block bg-slate-900 border border-slate-800 rounded-xl p-6">
           <p class="text-xs uppercase tracking-wide text-emerald-400 mb-2">Translation and Practice</p>
-          <h3 class="text-lg font-semibold mb-2">Context specific solutions that build well-being capacity in real settings, supported by design, prototyping, and applied research.</h3>
+          <h3 class="text-lg font-semibold mb-2">
+            Context specific solutions that build well-being capacity in real settings, supported by design, prototyping, and applied research.
+          </h3>
           <p class="text-slate-400 text-sm mt-3">
             This is the continuous process that turns theory into usable forms and tests ideas in real-world complexity.
           </p>
         </a>
 
-        <!-- Pillar 3: Evidence and Continuity -->
-        <a href="library/" class="card-hover block bg-slate-900 border border-slate-800 rounded-xl p-6">
+        <a href="/contextwell/library/" class="card-hover block bg-slate-900 border border-slate-800 rounded-xl p-6">
           <p class="text-xs uppercase tracking-wide text-emerald-400 mb-2">Evidence and Continuity</p>
-          <h3 class="text-lg font-semibold mb-2">Evaluation, insights, and long term learning that demonstrate impact and guide sustainable development.</h3>
+          <h3 class="text-lg font-semibold mb-2">
+            Evaluation, insights, and long term learning that demonstrate impact and guide sustainable development.
+          </h3>
           <p class="text-slate-400 text-sm mt-3">
             This generates the body of knowledge created through pilots and research outputs that ensure the system evolves with each cycle.
           </p>
         </a>
+
       </div>
     </section>
 
-    <!-- Who this is for - NEW COMPREHENSIVE SECTION -->
+    <!-- Who this is for -->
     <section class="max-w-6xl mx-auto mb-12">
       <h2 class="text-xl font-semibold mb-3">Who this is for</h2>
-      
+
       <p class="text-slate-300 text-sm mb-6 max-w-3xl">
         ContextWell Lab works with organisations and professionals who are exploring how human capacities evolve in AI-mediated environments.
       </p>
 
-      <!-- Section detailing who the work is relevant to -->
       <h3 class="text-base font-semibold text-emerald-400 mb-3">Our work is relevant to groups who are:</h3>
       <ul class="list-disc list-inside text-slate-400 text-sm space-y-2 mb-8 ml-4">
         <li>designing the future of learning, training, and capability development</li>
@@ -161,69 +153,73 @@
         <li>developing new models for human–AI collaboration and governance</li>
       </ul>
 
-      <!-- Examples of communities -->
       <h3 class="text-base font-semibold text-emerald-400 mb-3">Examples of communities that engage with our work:</h3>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        
-        <!-- People, Culture, and Organisational Development teams -->
+
         <div class="audience-card">
           <h3>People, Culture, and Organisational Development teams</h3>
-          <p>
-            exploring capability frameworks beyond traditional soft skills.
-          </p>
+          <p>exploring capability frameworks beyond traditional soft skills.</p>
         </div>
 
-        <!-- Learning & Development and Higher Education institutions -->
         <div class="audience-card">
           <h3>Learning & Development and Higher Education institutions</h3>
-          <p>
-            building future-proof curricula for the AI era.
-          </p>
+          <p>building future-proof curricula for the AI era.</p>
         </div>
 
-        <!-- UPDATED CARD 3: Healthcare, mental health, and care organisations -->
         <div class="audience-card">
           <h3>Healthcare, mental health, and care organisations</h3>
-          <p>
-            where human judgment, emotional stability, and reflection are essential.
-          </p>
+          <p>where human judgment, emotional stability, and reflection are essential.</p>
         </div>
 
-        <!-- AI ethics, safety, and governance groups -->
         <div class="audience-card">
           <h3>AI ethics, safety, and governance groups</h3>
-          <p>
-            seeking ways to operationalise human oversight as a trainable capacity.
-          </p>
+          <p>seeking ways to operationalise human oversight as a trainable capacity.</p>
         </div>
 
-        <!-- Innovation labs and future-of-work units -->
         <div class="audience-card">
           <h3>Innovation labs and future-of-work units</h3>
-          <p>
-            studying how AI reshapes human capability systems.
-          </p>
+          <p>studying how AI reshapes human capability systems.</p>
         </div>
 
-        <!-- Professional coaches, trainers, and facilitators -->
         <div class="audience-card">
           <h3>Professional coaches, trainers, and facilitators</h3>
-          <p>
-            who integrate research-backed frameworks into their practice.
-          </p>
+          <p>who integrate research-backed frameworks into their practice.</p>
         </div>
+
       </div>
-      
     </section>
   </main>
 
   <!-- Footer -->
   <footer class="border-t border-slate-800 py-6 px-6 mt-4">
     <div class="max-w-6xl mx-auto text-xs text-slate-500 flex flex-col md:flex-row items-center justify-between gap-2">
-      <!-- FOOTER TEXT UPDATED HERE -->
       <div>© ContextWell™ Lab — supporting well-being optimisation across complex scenarios and real-world contexts</div>
     </div>
   </footer>
+
+  <!-- Load shared header AFTER the DOM exists -->
+  <script>
+    (function () {
+      const BASE = "/contextwell";
+      const mount = document.getElementById("site-header");
+      if (!mount) return;
+
+      fetch(`${BASE}/partials/header.html`, { cache: "no-store" })
+        .then(r => r.text())
+        .then(html => { mount.innerHTML = html; })
+        .catch(err => {
+          console.error("Header load failed:", err);
+          // Optional: fallback minimal link
+          mount.innerHTML = `
+            <div class="fixed top-0 inset-x-0 bg-slate-950/95 border-b border-slate-800 backdrop-blur z-50">
+              <div class="max-w-7xl mx-auto px-6 py-4">
+                <a href="/contextwell/" class="text-xl font-bold text-emerald-400">ContextWell Lab</a>
+              </div>
+            </div>`;
+        });
+    })();
+  </script>
+
 </body>
 </html>
