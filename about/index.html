@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- =========================================================
+       HEAD
+       Purpose: SEO + responsive meta + Tailwind + base styles
+       ========================================================= -->
   <meta charset="UTF-8" />
   <title>About ContextWell Lab: Mission & Purpose</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,27 +12,39 @@
     name="description"
     content="ContextWell Lab advances research and innovation dedicated to building a well-being driven world, strengthening human capacity in AI mediated environments."
   />
+
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
     html { scroll-behavior: smooth; }
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
     }
     .text-container { max-width: 768px; }
+
+    /* =========================================================
+       Touch dropdown support
+       Purpose: allow iPad/touch devices to open dropdowns via JS
+       (dd-open is toggled by initHeaderNav())
+       ========================================================= */
+    .dd-open [data-dd-panel] {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
   </style>
 </head>
 
 <body class="bg-slate-950 text-slate-100">
 
-  <!-- =========================
+  <!-- =========================================================
        GLOBAL HEADER (Injected)
-       Source: /contextwell/partials/header.html
-       ========================= -->
+       Purpose: load /contextwell/partials/header.html into this slot
+       ========================================================= -->
   <div id="site-header"></div>
 
-  <!-- =========================
+  <!-- =========================================================
        PAGE CONTENT
-       ========================= -->
+       ========================================================= -->
   <main class="pt-28 pb-16 px-6 max-w-5xl mx-auto">
     <div class="text-container">
 
@@ -205,35 +221,104 @@
     </div>
   </main>
 
-  <!-- =========================
+  <!-- =========================================================
        GLOBAL FOOTER (Injected)
-       Source: /contextwell/partials/footer.html
-       ========================= -->
+       Purpose: load /contextwell/partials/footer.html into this slot
+       ========================================================= -->
   <div id="site-footer"></div>
 
-  <!-- =========================
-       Partials loader
-       ========================= -->
+  <!-- =========================================================
+       PARTIALS LOADER + NAV INIT (Critical)
+       Purpose:
+         1) Inject header and footer
+         2) After header injection, bind mobile Menu click handlers
+         3) Enable iPad touch dropdown open/close behavior
+       ========================================================= -->
   <script>
     (function () {
       const base = "/contextwell";
       const headerMount = document.getElementById("site-header");
       const footerMount = document.getElementById("site-footer");
 
-      async function inject(selectorEl, url) {
-        if (!selectorEl) return;
+      function initHeaderNav() {
+        // Mobile drawer toggle
+        const toggle = document.getElementById("nav-toggle");
+        const panel = document.getElementById("site-nav");
+
+        if (toggle && panel) {
+          // Prevent duplicate binding if script runs again
+          if (!toggle.dataset.bound) {
+            toggle.addEventListener("click", () => {
+              const isOpen = !panel.classList.contains("hidden");
+              panel.classList.toggle("hidden");
+              toggle.setAttribute("aria-expanded", String(!isOpen));
+            });
+            toggle.dataset.bound = "1";
+          }
+        }
+
+        // iPad / touch dropdowns (Projects, Solutions, Support)
+        const isTouch = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
+        if (!isTouch) return;
+
+        const dropdowns = document.querySelectorAll("[data-dd]");
+        if (!dropdowns.length) return;
+
+        function closeAll(except) {
+          dropdowns.forEach(dd => {
+            if (dd === except) return;
+            dd.classList.remove("dd-open");
+          });
+        }
+
+        dropdowns.forEach(dd => {
+          const trigger = dd.querySelector("[data-dd-trigger]");
+          const panel = dd.querySelector("[data-dd-panel]");
+          if (!trigger || !panel) return;
+
+          if (trigger.dataset.bound) return;
+
+          trigger.addEventListener("click", (e) => {
+            const isOpen = dd.classList.contains("dd-open");
+            if (!isOpen) {
+              e.preventDefault(); // first tap opens dropdown
+              closeAll(dd);
+              dd.classList.add("dd-open");
+            } else {
+              dd.classList.remove("dd-open"); // second tap follows link
+            }
+          });
+
+          trigger.dataset.bound = "1";
+        });
+
+        // Click outside closes
+        document.addEventListener("click", (e) => {
+          const inside = e.target.closest("[data-dd]");
+          if (!inside) closeAll();
+        });
+
+        // Escape closes
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") closeAll();
+        });
+      }
+
+      async function inject(el, url, after) {
+        if (!el) return;
         try {
-          const res = await fetch(url, { cache: "no-cache" });
+          const res = await fetch(url, { cache: "no-store" });
           if (!res.ok) throw new Error("Failed to load: " + url);
-          selectorEl.innerHTML = await res.text();
+          el.innerHTML = await res.text();
+          if (typeof after === "function") after();
         } catch (e) {
-          selectorEl.innerHTML = "";
+          el.innerHTML = "";
           console.warn(e);
         }
       }
 
-      // Inject partials
-      inject(headerMount, base + "/partials/header.html");
+      // Inject partials (IMPORTANT: init nav AFTER header injection)
+      inject(headerMount, base + "/partials/header.html", initHeaderNav);
       inject(footerMount, base + "/partials/footer.html");
     })();
   </script>
