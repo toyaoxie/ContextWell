@@ -342,16 +342,93 @@
   </footer>
 
   <!-- Load shared header AFTER the container exists -->
-  <script>
+ <style>
+  .dd-open [data-dd-panel] {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+</style>
+
+<script>
+  (function () {
     const BASE = "/contextwell";
-    fetch(`${BASE}/partials/header.html`)
-      .then(r => r.text())
-      .then(html => {
-        const el = document.getElementById("site-header");
-        if (el) el.innerHTML = html;
-      })
-      .catch(err => console.error("Header load failed:", err));
-  </script>
+
+    async function inject(el, url) {
+      if (!el) return;
+      try {
+        const res = await fetch(url, { cache: "no-store" });
+        if (!res.ok) throw new Error("Failed to load: " + url);
+        el.innerHTML = await res.text();
+      } catch (e) {
+        console.warn(e);
+        el.innerHTML = "";
+      }
+    }
+
+    function setupDelegatedNav() {
+      document.addEventListener("click", function (e) {
+        const toggle = e.target.closest("#nav-toggle");
+        if (!toggle) return;
+
+        const panel = document.getElementById("site-nav");
+        if (!panel) return;
+
+        const isOpen = !panel.classList.contains("hidden");
+        panel.classList.toggle("hidden");
+        toggle.setAttribute("aria-expanded", String(!isOpen));
+      });
+
+      document.addEventListener("click", function (e) {
+        const trigger = e.target.closest("[data-dd-trigger]");
+        if (!trigger) return;
+
+        const isTouch = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
+        if (!isTouch) return;
+
+        const dd = trigger.closest("[data-dd]");
+        if (!dd) return;
+
+        if (!dd.classList.contains("dd-open")) {
+          e.preventDefault();
+          document.querySelectorAll("[data-dd].dd-open").forEach(x => {
+            if (x !== dd) x.classList.remove("dd-open");
+          });
+          dd.classList.add("dd-open");
+        } else {
+          dd.classList.remove("dd-open");
+        }
+      });
+
+      document.addEventListener("click", function (e) {
+        const isTouch = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
+        if (!isTouch) return;
+
+        const inside = e.target.closest("[data-dd]");
+        if (inside) return;
+
+        document.querySelectorAll("[data-dd].dd-open").forEach(dd => dd.classList.remove("dd-open"));
+      });
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key !== "Escape") return;
+        document.querySelectorAll("[data-dd].dd-open").forEach(dd => dd.classList.remove("dd-open"));
+      });
+    }
+
+    function boot() {
+      setupDelegatedNav();
+      inject(document.getElementById("site-header"), BASE + "/partials/header.html");
+      inject(document.getElementById("site-footer"), BASE + "/partials/footer.html");
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", boot);
+    } else {
+      boot();
+    }
+  })();
+</script>
+
 
 </body>
 </html>
