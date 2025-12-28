@@ -199,27 +199,105 @@
   </footer>
 
   <!-- Load shared header AFTER the DOM exists -->
-  <script>
-    (function () {
-      const BASE = "/contextwell";
+ <style>
+  /* Touch dropdown support (iPad) */
+  .dd-open [data-dd-panel] {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+</style>
+
+<script>
+  (function () {
+    const BASE = "/contextwell";
+
+    // Inject header HTML
+    async function injectHeader() {
       const mount = document.getElementById("site-header");
       if (!mount) return;
 
-      fetch(`${BASE}/partials/header.html`, { cache: "no-store" })
-        .then(r => r.text())
-        .then(html => { mount.innerHTML = html; })
-        .catch(err => {
-          console.error("Header load failed:", err);
-          // Optional: fallback minimal link
-          mount.innerHTML = `
-            <div class="fixed top-0 inset-x-0 bg-slate-950/95 border-b border-slate-800 backdrop-blur z-50">
-              <div class="max-w-7xl mx-auto px-6 py-4">
-                <a href="/contextwell/" class="text-xl font-bold text-emerald-400">ContextWell Lab</a>
-              </div>
-            </div>`;
-        });
-    })();
-  </script>
+      try {
+        const res = await fetch(`${BASE}/partials/header.html`, { cache: "no-store" });
+        if (!res.ok) throw new Error("Failed to load header");
+        mount.innerHTML = await res.text();
+      } catch (err) {
+        console.error("Header load failed:", err);
+        mount.innerHTML = `
+          <div class="fixed top-0 inset-x-0 bg-slate-950/95 border-b border-slate-800 backdrop-blur z-50">
+            <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+              <a href="/contextwell/" class="text-xl font-bold text-emerald-400">ContextWell Lab</a>
+            </div>
+          </div>`;
+      }
+    }
+
+    // Delegated nav behavior (works even when header is injected later)
+    function setupDelegatedNav() {
+      // Mobile drawer toggle
+      document.addEventListener("click", function (e) {
+        const toggle = e.target.closest("#nav-toggle");
+        if (!toggle) return;
+
+        const panel = document.getElementById("site-nav");
+        if (!panel) return;
+
+        const isOpen = !panel.classList.contains("hidden");
+        panel.classList.toggle("hidden");
+        toggle.setAttribute("aria-expanded", String(!isOpen));
+      });
+
+      // iPad / touch dropdowns
+      document.addEventListener("click", function (e) {
+        const trigger = e.target.closest("[data-dd-trigger]");
+        if (!trigger) return;
+
+        const isTouch = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
+        if (!isTouch) return;
+
+        const dd = trigger.closest("[data-dd]");
+        if (!dd) return;
+
+        if (!dd.classList.contains("dd-open")) {
+          e.preventDefault();
+          document.querySelectorAll("[data-dd].dd-open").forEach(x => {
+            if (x !== dd) x.classList.remove("dd-open");
+          });
+          dd.classList.add("dd-open");
+        } else {
+          dd.classList.remove("dd-open");
+        }
+      });
+
+      // Click outside closes touch dropdowns
+      document.addEventListener("click", function (e) {
+        const isTouch = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
+        if (!isTouch) return;
+
+        const inside = e.target.closest("[data-dd]");
+        if (inside) return;
+
+        document.querySelectorAll("[data-dd].dd-open").forEach(dd => dd.classList.remove("dd-open"));
+      });
+
+      // Escape closes dropdowns
+      document.addEventListener("keydown", function (e) {
+        if (e.key !== "Escape") return;
+        document.querySelectorAll("[data-dd].dd-open").forEach(dd => dd.classList.remove("dd-open"));
+      });
+    }
+
+    function boot() {
+      setupDelegatedNav();
+      injectHeader();
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", boot);
+    } else {
+      boot();
+    }
+  })();
+</script>
 
 </body>
 </html>
