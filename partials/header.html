@@ -1,6 +1,6 @@
 <!-- =========================================================
-HEADER (Global Navigation)
-Purpose: top fixed navigation + desktop dropdown + mobile drawer
+HEADER (Global Navigation) — HTML only
+Do NOT place <script> or <style> here when loading via fetch+innerHTML
 ========================================================= -->
 <header class="fixed top-0 inset-x-0 bg-slate-950/95 border-b border-slate-800 backdrop-blur z-50">
 
@@ -41,19 +41,15 @@ Purpose: top fixed navigation + desktop dropdown + mobile drawer
           <div data-dd-panel
                class="w-64 rounded-xl border border-slate-800 bg-slate-950/98 shadow-xl backdrop-blur
                       opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
-
             <div class="p-2 space-y-1">
-
               <a href="/contextwell/projects/doctoral-project/"
                  class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400 transition">
                 Doctoral Project
               </a>
-
               <a href="/contextwell/projects/autonomous-evolution/"
                  class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400 transition">
                 #AutonomousEvolution
               </a>
-
             </div>
           </div>
         </div>
@@ -153,71 +149,5 @@ Purpose: top fixed navigation + desktop dropdown + mobile drawer
     </div>
   </div>
 
-  <style>
-    /* Enable dropdown visibility when opened via touch */
-    .dd-open [data-dd-panel] {
-      opacity: 1 !important;
-      visibility: visible !important;
-    }
-  </style>
-
-  <script>
-    (function () {
-      // -------- Mobile drawer toggle --------
-      const toggle = document.getElementById("nav-toggle");
-      const mobilePanel = document.getElementById("site-nav");
-
-      if (toggle && mobilePanel) {
-        toggle.addEventListener("click", () => {
-          const isOpen = !mobilePanel.classList.contains("hidden");
-          mobilePanel.classList.toggle("hidden");
-          toggle.setAttribute("aria-expanded", String(!isOpen));
-        });
-      }
-
-      // -------- Touch-friendly dropdowns (iPad / touch devices) --------
-      // Only activate on touch/pointer-coarse devices to avoid fighting hover on desktop.
-      const isTouch = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
-      if (!isTouch) return;
-
-      const dropdowns = document.querySelectorAll("[data-dd]");
-      if (!dropdowns.length) return;
-
-      function closeAll(except) {
-        dropdowns.forEach(dd => {
-          if (dd === except) return;
-          dd.classList.remove("dd-open");
-        });
-      }
-
-      dropdowns.forEach(dd => {
-        const trigger = dd.querySelector("[data-dd-trigger]");
-        const panel = dd.querySelector("[data-dd-panel]");
-        if (!trigger || !panel) return;
-
-        trigger.addEventListener("click", (e) => {
-          const isOpen = dd.classList.contains("dd-open");
-          if (!isOpen) {
-            e.preventDefault();     // first tap opens dropdown
-            closeAll(dd);
-            dd.classList.add("dd-open");
-          } else {
-            dd.classList.remove("dd-open"); // second tap follows link
-          }
-        });
-      });
-
-      // Click outside closes
-      document.addEventListener("click", (e) => {
-        const inside = e.target.closest("[data-dd]");
-        if (!inside) closeAll();
-      });
-
-      // Escape closes
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") closeAll();
-      });
-    })();
-  </script>
-
 </header>
+
