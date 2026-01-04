@@ -1,1 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Library – ContextWell Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Library supporting ContextWell Lab’s research, problem framing, and system design across human capacity, well-being, and oversight in intelligent systems."
+  />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+    }
+    .text-container { max-width: 768px; }
+
+    /* touch dropdown support */
+    .dd-open [data-dd-panel] {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-950 text-slate-100" id="top">
+
+  <!-- =========================================================
+       GLOBAL HEADER (Injected)
+       ========================================================= -->
+  <div id="site-header"></div>
+
+  <!-- =========================================================
+       PAGE CONTENT
+       ========================================================= -->
+  <main class="pt-28 pb-16 px-6 max-w-5xl mx-auto">
+    <div class="text-container">
+
+      <!-- Intro -->
+      <section class="mb-10">
+        <h1 class="text-3xl md:text-4xl font-bold mb-4">Library</h1>
+        <p class="text-slate-300 text-sm mb-3">
+          This library is the knowledge base underlying ContextWell Lab’s research
+          and problem framing.
+        </p>
+        <p class="text-slate-300 text-sm">
+          It brings together core publications and reference materials that inform
+          how we approach human capacity, well-being, and oversight in intelligent systems.
+        </p>
+      </section>
+
+      <!-- =========================================================
+           FEATURED
+           ========================================================= -->
+      <section class="mb-10">
+        <h2 class="text-2xl font-semibold mb-4">Featured</h2>
+
+        <a href="https://doi.org/10.5281/zenodo.18121093"
+           class="block rounded-xl border border-slate-800 bg-slate-900 p-4 hover:border-emerald-400 transition">
+          <div class="text-sm font-semibold text-slate-100">
+            Well-Being as Embedded Infrastructure in the Intelligence Era
+          </div>
+          <div class="text-xs text-slate-400 mt-1">
+            White paper · 2026 · DOI: 10.5281/zenodo.18121093
+          </div>
+          <div class="text-xs text-slate-400 mt-2">
+            A structural framing of well-being and human oversight as infrastructure
+            for governable intelligent systems.
+          </div>
+        </a>
+      </section>
+
+      <!-- =========================================================
+           PUBLICATIONS
+           ========================================================= -->
+      <section class="mb-10">
+        <h2 class="text-2xl font-semibold mb-4">Publications</h2>
+
+        <div class="space-y-4">
+
+          <!-- WHO -->
+          <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
+            <div class="text-sm font-semibold text-slate-100">
+              Towards an inclusive digital health ecosystem
+            </div>
+            <div class="text-xs text-slate-400 mt-1">
+              Bulletin of the World Health Organization · 2024
+            </div>
+            <p class="text-xs text-slate-400 mt-2">
+              Positions digital inclusion as a structural requirement for equitable digital health systems.
+            </p>
+            <div class="mt-3 flex gap-2">
+              <a href="https://pubmed.ncbi.nlm.nih.gov/39882496/"
+                 class="text-xs rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 hover:border-emerald-400 transition">
+                PubMed
+              </a>
+              <a href="https://cdn.who.int/media/docs/default-source/bulletin/online-first/blt.24.292020.pdf"
+                 class="text-xs rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 hover:border-emerald-400 transition">
+                PDF
+              </a>
+            </div>
+          </div>
+
+          <!-- JMIR -->
+          <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
+            <div class="text-sm font-semibold text-slate-100">
+              Barriers and Facilitators of International Health Care Students’ Well-Being in Higher Education:
+              Protocol for a Systematic Integrative Review
+            </div>
+            <div class="text-xs text-slate-400 mt-1">
+              JMIR Research Protocols · 2024
+            </div>
+            <p class="text-xs text-slate-400 mt-2">
+              Protocol outlining methods for examining contextual factors shaping international health care students’ well-being.
+            </p>
+            <div class="mt-3">
+              <a href="https://www.researchprotocols.org/2024/1/e59927/"
+                 class="text-xs rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 hover:border-emerald-400 transition">
+                View article
+              </a>
+            </div>
+          </div>
+
+          <!-- PLOS ONE -->
+          <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
+            <div class="text-sm font-semibold text-slate-100">
+              Artificial intelligence for contextual well-being: Protocol for an exploratory sequential mixed methods study with medical students as a social microcosm
+            </div>
+            <div class="text-xs text-slate-400 mt-1">
+              PLOS ONE · 2025
+            </div>
+            <p class="text-xs text-slate-400 mt-2">
+              Introduces an exploratory sequential mixed-methods design to operationalise contextual well-being with AI in medical education.
+            </p>
+            <div class="mt-3">
+              <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0321426"
+                 class="text-xs rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 hover:border-emerald-400 transition">
+                View article
+              </a>
+            </div>
+          </div>
+
+          <!-- Irish Journal -->
+          <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
+            <div class="text-sm font-semibold text-slate-100">
+              General practice professionals’ perspectives on cardiovascular risk assessment in patients diagnosed with mental health disorders:
+              an embedded mixed-methods study
+            </div>
+            <div class="text-xs text-slate-400 mt-1">
+              Irish Journal of Psychological Medicine · 2025
+            </div>
+            <p class="text-xs text-slate-400 mt-2">
+              Explores how cardiovascular risk assessment is approached in general practice for patients with mental health disorders.
+            </p>
+            <div class="mt-3">
+              <a href="https://www.cambridge.org/core/product/0C43D8EE8EB4D026E4D993454020AB5A/core-reader"
+                 class="text-xs rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 hover:border-emerald-400 transition">
+                View article
+              </a>
+            </div>
+          </div>
+
+          <!-- arXiv -->
+          <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
+            <div class="text-sm font-semibold text-slate-100">
+              Beyond Procedural Compliance: Human Oversight as a Dimension of Well-being Efficacy in AI Governance
+            </div>
+            <div class="text-xs text-slate-400 mt-1">
+              arXiv · 2025 · arXiv:2512.13768
+            </div>
+            <p class="text-xs text-slate-400 mt-2">
+              Reframes human oversight as a trainable capacity linking regulatory intent with human capability development.
+            </p>
+            <div class="mt-3 flex gap-2">
+              <a href="https://arxiv.org/abs/2512.13768"
+                 class="text-xs rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 hover:border-emerald-400 transition">
+                arXiv
+              </a>
+              <a href="https://www.arxiv.org/pdf/2512.13768"
+                 class="text-xs rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 hover:border-emerald-400 transition">
+                PDF
+              </a>
+            </div>
+          </div>
+
+          <!-- AIES -->
+          <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
+            <div class="text-sm font-semibold text-slate-100">
+              AI Contextual Framework: A Zoning Approach to Ethical AI Deployment
+            </div>
+            <div class="text-xs text-slate-400 mt-1">
+              AAAI/ACM Conference on AI, Ethics, and Society (AIES) · 2025
+            </div>
+            <p class="text-xs text-slate-400 mt-2">
+              Proposes a zoning-based framework for context-sensitive ethical AI deployment.
+            </p>
+            <div class="mt-3 flex gap-2">
+              <a href="https://ojs.aaai.org/index.php/AIES/article/view/36801"
+                 class="text-xs rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 hover:border-emerald-400 transition">
+                View article
+              </a>
+              <a href="https://ojs.aaai.org/index.php/AIES/article/download/36801/38939/40876"
+                 class="text-xs rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 hover:border-emerald-400 transition">
+                PDF
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- =========================================================
+       GLOBAL FOOTER (Injected)
+       ========================================================= -->
+  <div id="site-footer"></div>
+
+  <!-- =========================================================
+       PARTIALS LOADER (same as other pages)
+       ========================================================= -->
+  <script>
+    (function () {
+      const BASE = "/contextwell";
+
+      async function inject(el, url) {
+        if (!el) return;
+        try {
+          const res = await fetch(url, { cache: "no-store" });
+          if (!res.ok) throw new Error("Failed to load: " + url);
+          el.innerHTML = await res.text();
+        } catch (e) {
+          console.warn(e);
+        }
+      }
+
+      function boot() {
+        inject(document.getElementById("site-header"), BASE + "/partials/header.html");
+        inject(document.getElementById("site-footer"), BASE + "/partials/footer.html");
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", boot);
+      } else {
+        boot();
+      }
+    })();
+  </script>
+
+</body>
+</html>
 
