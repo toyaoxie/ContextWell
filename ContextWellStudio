@@ -1,1 +1,1575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ContextWell Lab — Human-Centered AI, Digital Literacy & Institutional Resilience</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white: #FAFAF8;
+    --off-white: #F4F3F0;
+    --light-gray: #E8E7E3;
+    --mid-gray: #9B9A97;
+    --charcoal: #2C2C2A;
+    --near-black: #16160F;
+    --navy: #0F1E3C;
+    --muted-blue: #2D5B8E;
+    --light-blue: #E8EFF7;
+    --accent-blue: #3B6FA0;
+    --serif: 'Instrument Serif', Georgia, serif;
+    --sans: 'Geist', system-ui, sans-serif;
+    --mono: 'Geist Mono', monospace;
+  }
 
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    background: var(--white);
+    color: var(--charcoal);
+    font-family: var(--sans);
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(250,250,248,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--light-gray);
+    padding: 0 48px;
+    height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: var(--sans); font-weight: 600; font-size: 14px;
+    color: var(--near-black); letter-spacing: 0.02em; text-decoration: none;
+  }
+  .nav-logo span { color: var(--muted-blue); }
+  .nav-links {
+    display: flex; gap: 36px; list-style: none;
+  }
+  .nav-links a {
+    font-size: 13px; color: var(--charcoal); text-decoration: none;
+    letter-spacing: 0.02em; font-weight: 400;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--muted-blue); }
+  .nav-cta {
+    background: var(--navy); color: #fff;
+    padding: 8px 20px; border-radius: 4px;
+    font-size: 13px; font-weight: 500; text-decoration: none;
+    letter-spacing: 0.02em; transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--muted-blue); }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    padding: 160px 48px 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .hero-left {}
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--light-blue); border: 1px solid #C8D8EA;
+    color: var(--muted-blue); border-radius: 2px;
+    padding: 6px 14px; font-size: 11px; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+  .hero-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-blue); }
+  .hero-h1 {
+    font-family: var(--serif);
+    font-size: clamp(36px, 4.5vw, 58px);
+    line-height: 1.12;
+    color: var(--near-black);
+    margin-bottom: 28px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  .hero-h1 em { font-style: italic; color: var(--muted-blue); }
+  .hero-sub {
+    font-size: 17px; line-height: 1.7; color: #5A5A58;
+    max-width: 480px; margin-bottom: 48px; font-weight: 300;
+  }
+  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 56px; }
+  .btn-primary {
+    background: var(--navy); color: #fff;
+    padding: 13px 26px; border-radius: 4px;
+    font-family: var(--sans); font-size: 14px; font-weight: 500;
+    text-decoration: none; letter-spacing: 0.02em;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--muted-blue); transform: translateY(-1px); }
+  .btn-secondary {
+    background: transparent; color: var(--navy);
+    padding: 13px 26px; border-radius: 4px;
+    font-family: var(--sans); font-size: 14px; font-weight: 500;
+    text-decoration: none; letter-spacing: 0.02em;
+    border: 1.5px solid var(--navy);
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .btn-secondary:hover { background: var(--navy); color: #fff; transform: translateY(-1px); }
+  .btn-ghost {
+    background: transparent; color: var(--muted-blue);
+    padding: 12px 24px; border-radius: 4px;
+    font-family: var(--sans); font-size: 13px; font-weight: 500;
+    text-decoration: none; letter-spacing: 0.02em;
+    border: 1px solid #C8D8EA;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .btn-ghost:hover { background: var(--light-blue); }
+
+  .hero-affiliations {
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+    font-size: 12px; color: var(--mid-gray); letter-spacing: 0.06em;
+  }
+  .hero-affiliations .sep { color: var(--light-gray); }
+  .aff-tag { font-weight: 500; color: #777674; }
+
+  .hero-right {
+    position: relative;
+  }
+  .hero-diagram {
+    width: 100%; aspect-ratio: 1;
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .diagram-svg { width: 100%; max-width: 420px; }
+
+  /* ─── SECTION COMMONS ─── */
+  section { padding: 100px 48px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted-blue);
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::before {
+    content: ''; display: block; width: 24px; height: 1px;
+    background: var(--accent-blue);
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(28px, 3.5vw, 42px);
+    color: var(--near-black); font-weight: 400;
+    line-height: 1.2; letter-spacing: -0.01em;
+    margin-bottom: 20px;
+  }
+  .section-desc {
+    font-size: 17px; color: #5A5A58; line-height: 1.7;
+    max-width: 600px; font-weight: 300;
+  }
+
+  /* ─── DIVIDER ─── */
+  .divider { height: 1px; background: var(--light-gray); max-width: 1100px; margin: 0 auto; }
+
+  /* ─── CHALLENGE SECTION ─── */
+  .challenge { background: var(--off-white); }
+  .challenge-header { margin-bottom: 64px; }
+  .challenge-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px;
+    background: var(--light-gray);
+    border: 1px solid var(--light-gray);
+  }
+  .challenge-card {
+    background: var(--white); padding: 36px 28px;
+    transition: background 0.2s;
+    cursor: default;
+  }
+  .challenge-card:hover { background: var(--light-blue); }
+  .challenge-num {
+    font-family: var(--mono); font-size: 11px; color: var(--mid-gray);
+    letter-spacing: 0.06em; margin-bottom: 20px; display: block;
+  }
+  .challenge-icon {
+    width: 32px; height: 32px; margin-bottom: 20px;
+    color: var(--muted-blue);
+  }
+  .challenge-card h3 {
+    font-family: var(--sans); font-size: 14px; font-weight: 600;
+    color: var(--near-black); margin-bottom: 12px; letter-spacing: 0.01em;
+    line-height: 1.3;
+  }
+  .challenge-card p {
+    font-size: 13.5px; color: #6B6B68; line-height: 1.65;
+  }
+
+  /* ─── WHY SECTION ─── */
+  .why { background: var(--navy); }
+  .why .section-label { color: #7BA3CC; }
+  .why .section-label::before { background: #5B87B3; }
+  .why .section-title { color: var(--white); }
+  .why-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+    margin-top: 64px;
+  }
+  .why-col {}
+  .why-item {
+    padding: 28px 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .why-item:first-child { border-top: none; padding-top: 0; }
+  .why-item h4 {
+    font-size: 14px; font-weight: 600; color: #E8EFF7;
+    margin-bottom: 10px; letter-spacing: 0.01em;
+  }
+  .why-item p { font-size: 14px; color: #8B9BAD; line-height: 1.7; }
+  .why-stat {
+    margin-top: 64px; padding-top: 48px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;
+  }
+  .why-stat-item {}
+  .why-stat-num {
+    font-family: var(--serif); font-size: 42px; color: #7BA3CC;
+    font-weight: 400; line-height: 1; margin-bottom: 8px;
+  }
+  .why-stat-label { font-size: 13px; color: #6B7E93; line-height: 1.4; }
+
+  /* ─── SERVICES ─── */
+  .services {}
+  .services-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 64px;
+  }
+  .services-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+    background: var(--light-gray);
+    border: 1px solid var(--light-gray);
+  }
+  .service-card {
+    background: var(--white); padding: 44px 40px;
+    transition: background 0.2s;
+    position: relative;
+  }
+  .service-card:hover { background: #FAFBFF; }
+  .service-type {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted-blue);
+    margin-bottom: 20px; display: block;
+  }
+  .service-card h3 {
+    font-family: var(--serif); font-size: 24px; font-weight: 400;
+    color: var(--near-black); margin-bottom: 16px; line-height: 1.2;
+  }
+  .service-card > p {
+    font-size: 14.5px; color: #5A5A58; line-height: 1.7; margin-bottom: 24px;
+  }
+  .service-features {
+    list-style: none; margin-bottom: 32px;
+  }
+  .service-features li {
+    font-size: 13.5px; color: #777674; padding: 6px 0;
+    border-bottom: 1px solid var(--light-gray);
+    display: flex; align-items: flex-start; gap: 8px;
+    line-height: 1.4;
+  }
+  .service-features li::before {
+    content: '→'; color: var(--muted-blue); flex-shrink: 0;
+    font-size: 12px; margin-top: 2px;
+  }
+  .service-audience {
+    font-size: 12px; color: var(--mid-gray); margin-bottom: 28px;
+    padding: 10px 14px; background: var(--off-white);
+    border-radius: 2px;
+  }
+  .service-audience strong { color: #777674; font-weight: 500; }
+  .service-cta {
+    font-size: 13px; font-weight: 500; color: var(--muted-blue);
+    text-decoration: none; letter-spacing: 0.02em;
+    display: inline-flex; align-items: center; gap: 6px;
+    transition: gap 0.2s;
+  }
+  .service-cta:hover { gap: 10px; }
+  .service-card.featured { background: var(--navy); }
+  .service-card.featured .service-type { color: #7BA3CC; }
+  .service-card.featured h3 { color: var(--white); }
+  .service-card.featured > p { color: #8B9BAD; }
+  .service-card.featured .service-features li { color: #7B8A9A; border-color: rgba(255,255,255,0.08); }
+  .service-card.featured .service-features li::before { color: #7BA3CC; }
+  .service-card.featured .service-audience { background: rgba(255,255,255,0.06); color: #6B7E93; }
+  .service-card.featured .service-audience strong { color: #8B9BAD; }
+  .service-card.featured .service-cta { color: #7BA3CC; }
+
+  /* ─── APPROACH ─── */
+  .approach { background: var(--off-white); }
+  .approach-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    margin-top: 64px; border: 1px solid var(--light-gray);
+    background: var(--light-gray);
+  }
+  .approach-pillar {
+    background: var(--white); padding: 40px 28px;
+    transition: background 0.2s;
+  }
+  .approach-pillar:hover { background: var(--light-blue); }
+  .pillar-num {
+    font-family: var(--mono); font-size: 28px; font-weight: 400;
+    color: var(--light-gray); margin-bottom: 24px; line-height: 1;
+    display: block;
+  }
+  .approach-pillar h3 {
+    font-family: var(--sans); font-size: 14px; font-weight: 600;
+    color: var(--near-black); margin-bottom: 12px;
+    line-height: 1.3; letter-spacing: 0.01em;
+  }
+  .approach-pillar p { font-size: 13.5px; color: #6B6B68; line-height: 1.65; }
+
+  /* ─── WHITEPAPER ─── */
+  .whitepaper {}
+  .wp-inner {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+    align-items: center;
+  }
+  .wp-mockup {
+    position: relative;
+  }
+  .wp-cover {
+    background: var(--navy);
+    padding: 48px 40px; border-radius: 2px;
+    position: relative; overflow: hidden;
+    box-shadow: 20px 20px 60px rgba(15,30,60,0.15), 0 4px 20px rgba(0,0,0,0.1);
+  }
+  .wp-cover::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 40px,
+      rgba(255,255,255,0.02) 40px,
+      rgba(255,255,255,0.02) 41px
+    );
+  }
+  .wp-cover-label {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #5B87B3; margin-bottom: 32px;
+  }
+  .wp-cover-title {
+    font-family: var(--serif); font-size: 22px; font-weight: 400;
+    color: var(--white); line-height: 1.25; margin-bottom: 24px;
+  }
+  .wp-cover-title em { font-style: italic; color: #7BA3CC; }
+  .wp-cover-sub {
+    font-size: 12px; color: #5B7A96; line-height: 1.6; margin-bottom: 36px;
+  }
+  .wp-cover-meta {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+    font-family: var(--mono); font-size: 10px; color: #4A6070;
+    letter-spacing: 0.06em;
+  }
+  .wp-content {}
+  .wp-content .section-label { margin-bottom: 16px; }
+  .wp-content .section-title { margin-bottom: 20px; }
+  .wp-abstract {
+    font-size: 15px; color: #5A5A58; line-height: 1.75; margin-bottom: 32px;
+    font-weight: 300;
+  }
+  .wp-themes {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 36px;
+  }
+  .theme-tag {
+    font-size: 12px; background: var(--light-blue);
+    color: var(--muted-blue); padding: 5px 12px;
+    border-radius: 2px; border: 1px solid #C8D8EA;
+    letter-spacing: 0.03em;
+  }
+
+  /* ─── PROTOTYPE ─── */
+  .prototype { background: var(--off-white); }
+  .proto-header { margin-bottom: 48px; }
+  .proto-notice {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #FFF8E7; border: 1px solid #E8D99A;
+    color: #7A6830; border-radius: 2px;
+    padding: 8px 16px; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.04em; margin-bottom: 40px;
+  }
+  .proto-grid {
+    display: grid; grid-template-columns: 5fr 4fr; gap: 40px;
+    align-items: start;
+  }
+  .proto-mockup-wrap {
+    background: var(--white); border: 1px solid var(--light-gray);
+    border-radius: 4px; overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+  }
+  .proto-bar {
+    background: #F0EFEB; padding: 10px 16px;
+    display: flex; align-items: center; gap: 6px;
+    border-bottom: 1px solid var(--light-gray);
+  }
+  .proto-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .proto-url {
+    flex: 1; background: var(--white); border: 1px solid var(--light-gray);
+    border-radius: 100px; padding: 3px 12px;
+    font-family: var(--mono); font-size: 10px; color: var(--mid-gray);
+    margin-left: 8px;
+  }
+  .proto-screen { padding: 28px; }
+  .proto-screen-header {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 24px;
+  }
+  .proto-screen-title {
+    font-size: 13px; font-weight: 600; color: var(--near-black);
+  }
+  .proto-badge-sm {
+    font-size: 10px; background: #EAF0F7; color: var(--muted-blue);
+    padding: 3px 8px; border-radius: 2px; font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+  .proto-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+  .proto-card-sm {
+    background: var(--off-white); border: 1px solid var(--light-gray);
+    border-radius: 3px; padding: 16px;
+  }
+  .proto-card-sm-label { font-size: 10px; color: var(--mid-gray); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px; }
+  .proto-card-sm-val { font-family: var(--mono); font-size: 18px; color: var(--muted-blue); font-weight: 500; }
+  .proto-card-sm-sub { font-size: 11px; color: var(--mid-gray); margin-top: 3px; }
+  .proto-chart { height: 80px; position: relative; margin-bottom: 16px; }
+  .proto-chart-bg {
+    position: absolute; inset: 0;
+    background: var(--off-white); border: 1px solid var(--light-gray);
+    border-radius: 3px; overflow: hidden;
+  }
+  .proto-info { }
+  .proto-info h3 {
+    font-size: 17px; font-weight: 600; color: var(--near-black);
+    margin-bottom: 12px;
+  }
+  .proto-info p {
+    font-size: 14px; color: #6B6B68; line-height: 1.7; margin-bottom: 20px;
+  }
+  .proto-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
+  .proto-tag {
+    font-size: 11px; color: #6B6B68; background: var(--white);
+    border: 1px solid var(--light-gray); padding: 4px 10px; border-radius: 2px;
+  }
+
+  /* ─── ABOUT (lab-first) ─── */
+  .about {}
+  .about-inner {
+    display: grid; grid-template-columns: 3fr 4fr; gap: 80px;
+    align-items: start;
+  }
+  .about-left {}
+  .about-lab-mark {
+    width: 88px; height: 88px;
+    background: var(--navy); border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 24px;
+  }
+  .lab-mark-inner { text-align: center; }
+  .lab-mark-cw {
+    display: block;
+    font-family: var(--serif); font-size: 26px; color: #7BA3CC;
+    font-weight: 400; line-height: 1; letter-spacing: -0.02em;
+  }
+  .lab-mark-label {
+    display: block;
+    font-family: var(--mono); font-size: 8px; color: #4A6070;
+    letter-spacing: 0.14em; margin-top: 3px;
+  }
+  .about-name {
+    font-family: var(--serif); font-size: 24px; color: var(--near-black);
+    font-weight: 400; margin-bottom: 8px;
+  }
+  .about-title { font-size: 13px; color: var(--mid-gray); line-height: 1.5; }
+  .about-tags {
+    display: flex; flex-wrap: wrap; gap: 6px; margin-top: 28px;
+  }
+  .about-tag {
+    font-size: 11px; padding: 5px 12px;
+    border: 1px solid var(--light-gray); border-radius: 2px;
+    color: #6B6B68; letter-spacing: 0.03em;
+  }
+  .about-right {}
+  .about-body {
+    font-size: 16px; color: #5A5A58; line-height: 1.8; margin-bottom: 36px;
+    font-weight: 300;
+  }
+  .about-body p + p { margin-top: 20px; }
+
+  /* Founder card */
+  .about-founder { margin-bottom: 36px; }
+  .founder-divider {
+    display: flex; align-items: center; gap: 16px; margin-bottom: 20px;
+  }
+  .founder-divider::before, .founder-divider::after {
+    content: ''; flex: 1; height: 1px; background: var(--light-gray);
+  }
+  .founder-divider-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--mid-gray); white-space: nowrap;
+  }
+  .founder-card {
+    display: flex; gap: 20px; align-items: flex-start;
+    padding: 24px 28px; background: var(--off-white);
+    border: 1px solid var(--light-gray); border-radius: 2px;
+  }
+  .founder-avatar {
+    width: 52px; height: 52px; flex-shrink: 0;
+    background: var(--light-blue); border: 1px solid #C8D8EA;
+    border-radius: 2px; display: flex; align-items: center; justify-content: center;
+  }
+  .founder-initials {
+    font-family: var(--serif); font-size: 18px; color: var(--muted-blue);
+    font-weight: 400;
+  }
+  .founder-info {}
+  .founder-name {
+    font-size: 15px; font-weight: 600; color: var(--near-black); margin-bottom: 3px;
+  }
+  .founder-role {
+    font-size: 12.5px; color: var(--mid-gray); margin-bottom: 10px;
+    letter-spacing: 0.01em;
+  }
+  .founder-bio {
+    font-size: 13.5px; color: #6B6B68; line-height: 1.65;
+  }
+
+  .about-affiliations {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+    background: var(--light-gray); border: 1px solid var(--light-gray);
+  }
+  .affil-item {
+    padding: 16px 20px; background: var(--white);
+  }
+  .affil-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid-gray); margin-bottom: 4px; }
+  .affil-name { font-size: 13.5px; font-weight: 500; color: var(--charcoal); }
+
+  /* ─── FINAL CTA ─── */
+  .final-cta {
+    background: var(--navy);
+    text-align: center; padding: 120px 48px;
+  }
+  .final-cta .section-label { justify-content: center; }
+  .final-cta .section-label::before { display: none; }
+  .final-cta .section-title { color: var(--white); margin: 0 auto 20px; max-width: 640px; }
+  .final-cta-sub { font-size: 17px; color: #7B8A9A; max-width: 480px; margin: 0 auto 52px; line-height: 1.7; font-weight: 300; }
+  .final-cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-white {
+    background: var(--white); color: var(--navy);
+    padding: 14px 28px; border-radius: 4px;
+    font-size: 14px; font-weight: 600; text-decoration: none;
+    letter-spacing: 0.02em; transition: all 0.2s;
+  }
+  .btn-white:hover { background: var(--light-blue); transform: translateY(-1px); }
+  .btn-outline-white {
+    background: transparent; color: var(--white);
+    padding: 13px 28px; border-radius: 4px;
+    font-size: 14px; font-weight: 500; text-decoration: none;
+    letter-spacing: 0.02em; border: 1.5px solid rgba(255,255,255,0.3);
+    transition: all 0.2s;
+  }
+  .btn-outline-white:hover { border-color: rgba(255,255,255,0.7); transform: translateY(-1px); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--near-black); padding: 56px 48px 40px;
+  }
+  .footer-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-brand {}
+  .footer-logo {
+    font-family: var(--sans); font-weight: 600; font-size: 14px;
+    color: var(--white); letter-spacing: 0.02em; margin-bottom: 12px;
+  }
+  .footer-logo span { color: #5B87B3; }
+  .footer-tagline { font-size: 13px; color: #4A5060; line-height: 1.6; max-width: 240px; }
+  .footer-col h4 { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #4A5060; margin-bottom: 20px; }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 12px; }
+  .footer-col a { font-size: 13px; color: #5A6070; text-decoration: none; transition: color 0.2s; }
+  .footer-col a:hover { color: #8B9BAD; }
+  .footer-bottom {
+    max-width: 1100px; margin: 0 auto;
+    padding-top: 28px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-copy { font-size: 12px; color: #3A4050; }
+  .footer-social { display: flex; gap: 16px; align-items: center; }
+  .footer-social a { color: #3A4050; transition: color 0.2s; }
+  .footer-social a:hover { color: #7BA3CC; }
+  .qr-placeholder {
+    width: 56px; height: 56px; background: #1A1E28;
+    border: 1px solid #2A2E3A; border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column;
+  }
+  .qr-grid {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px;
+    width: 36px; height: 36px;
+  }
+  .qr-px {
+    border-radius: 0.5px;
+  }
+
+  /* ─── WHO THIS IS FOR ─── */
+  .for-whom { background: var(--white); }
+  .for-whom-header { margin-bottom: 64px; }
+  .whom-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+    background: var(--light-gray); border: 1px solid var(--light-gray);
+  }
+  .whom-card {
+    background: var(--white); padding: 36px 30px;
+    transition: background 0.2s;
+  }
+  .whom-card:hover { background: var(--light-blue); }
+  .whom-icon {
+    width: 40px; height: 40px;
+    background: var(--light-blue); border: 1px solid #C8D8EA;
+    border-radius: 4px; display: flex; align-items: center; justify-content: center;
+    color: var(--muted-blue); margin-bottom: 20px;
+  }
+  .whom-card h3 {
+    font-size: 14px; font-weight: 600; color: var(--near-black);
+    margin-bottom: 10px; line-height: 1.3;
+  }
+  .whom-card p { font-size: 13.5px; color: #5A5A58; line-height: 1.65; margin-bottom: 16px; }
+  .whom-fit {
+    font-size: 11.5px; color: var(--muted-blue); background: var(--light-blue);
+    border: 1px solid #C8D8EA; border-radius: 2px;
+    padding: 6px 12px; line-height: 1.4;
+  }
+
+  /* ─── SOCIAL PROOF ─── */
+  .social-proof { background: var(--off-white); }
+  .sp-header { margin-bottom: 52px; }
+  .sp-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px;
+    background: var(--light-gray); border: 1px solid var(--light-gray);
+    margin-bottom: 2px;
+  }
+  .sp-card {
+    background: var(--white); padding: 28px 24px;
+    transition: background 0.2s;
+  }
+  .sp-card:hover { background: #FAFBFF; }
+  .sp-card--affil { border-top: 3px solid var(--navy); }
+  .sp-card--event { border-top: 3px solid var(--muted-blue); }
+  .sp-card-label {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--mid-gray); margin-bottom: 8px;
+  }
+  .sp-card-title {
+    font-size: 14px; font-weight: 600; color: var(--near-black);
+    margin-bottom: 10px; line-height: 1.3;
+  }
+  .sp-card-desc { font-size: 13px; color: #6B6B68; line-height: 1.65; }
+  .sp-quote-row {
+    display: grid; grid-template-columns: 3fr 2fr; gap: 2px;
+    background: var(--light-gray); border: 1px solid var(--light-gray);
+    border-top: none;
+  }
+  .sp-quote-block {
+    background: var(--navy); padding: 32px 36px;
+  }
+  .sp-quote-text {
+    font-family: var(--serif); font-size: 17px; font-style: italic;
+    color: #C8D8EA; line-height: 1.6; margin-bottom: 16px; font-weight: 400;
+  }
+  .sp-quote-attr {
+    font-family: var(--mono); font-size: 11px; color: #4A6070;
+    letter-spacing: 0.05em;
+  }
+  .sp-pilot-block {
+    background: var(--white); padding: 32px 36px;
+  }
+  .sp-pilot-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--mid-gray); margin-bottom: 16px;
+  }
+  .sp-pilots { display: flex; flex-wrap: wrap; gap: 8px; }
+  .sp-pilot-tag {
+    font-size: 12.5px; color: var(--muted-blue);
+    background: var(--light-blue); border: 1px solid #C8D8EA;
+    padding: 6px 14px; border-radius: 2px; letter-spacing: 0.02em;
+  }
+
+  /* ─── PROCESS ─── */
+  .process { background: var(--white); }
+  .process-header { margin-bottom: 64px; }
+  .process-steps {
+    display: flex; flex-direction: column; gap: 0;
+    border: 1px solid var(--light-gray); border-radius: 2px;
+    overflow: hidden; margin-bottom: 48px;
+  }
+  .process-step {
+    display: grid; grid-template-columns: 80px 1fr;
+    align-items: start; gap: 0;
+    background: var(--white); transition: background 0.2s;
+    border-bottom: 1px solid var(--light-gray);
+  }
+  .process-step:last-child { border-bottom: none; }
+  .process-step:hover { background: var(--off-white); }
+  .process-step-num {
+    font-family: var(--mono); font-size: 11px; font-weight: 500;
+    color: var(--mid-gray); letter-spacing: 0.06em;
+    padding: 32px 0 32px 32px;
+    border-right: 1px solid var(--light-gray);
+    display: flex; align-items: flex-start; justify-content: flex-start;
+    position: relative;
+  }
+  .process-step-num::after {
+    content: ''; position: absolute; right: -5px; top: 38px;
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--white); border: 1.5px solid var(--muted-blue);
+  }
+  .process-step:hover .process-step-num::after { background: var(--muted-blue); }
+  .process-step-content { padding: 32px 36px; }
+  .process-step-content h3 {
+    font-size: 15px; font-weight: 600; color: var(--near-black);
+    margin-bottom: 10px; line-height: 1.3;
+  }
+  .process-step-content p { font-size: 14px; color: #5A5A58; line-height: 1.7; margin-bottom: 12px; }
+  .process-step-meta {
+    font-family: var(--mono); font-size: 11px; color: var(--mid-gray);
+    letter-spacing: 0.04em;
+  }
+  .process-connector { display: none; }
+  .process-cta-row {
+    display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+  }
+  .process-note { font-size: 13px; color: var(--mid-gray); font-style: italic; }
+
+  /* ─── SERVICE OUTCOMES ─── */
+  .service-outcomes {
+    display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px;
+  }
+  .outcome-tag {
+    font-size: 11.5px; font-weight: 500;
+    background: rgba(255,255,255,0.08); color: #7BA3CC;
+    border: 1px solid rgba(123,163,204,0.3);
+    padding: 4px 10px; border-radius: 2px; letter-spacing: 0.02em;
+  }
+  .service-card:not(.featured) .outcome-tag {
+    background: var(--light-blue); color: var(--muted-blue);
+    border-color: #C8D8EA;
+  }
+
+  /* responsive additions */
+  @media (max-width: 1024px) {
+    .whom-grid { grid-template-columns: 1fr 1fr; }
+    .sp-grid { grid-template-columns: 1fr 1fr; }
+    .sp-quote-row { grid-template-columns: 1fr; }
+    .process-step { grid-template-columns: 60px 1fr; }
+  }
+  @media (max-width: 640px) {
+    .whom-grid { grid-template-columns: 1fr; }
+    .sp-grid { grid-template-columns: 1fr; }
+    .process-step { grid-template-columns: 1fr; }
+    .process-step-num { border-right: none; border-bottom: 1px solid var(--light-gray); padding: 20px 24px 12px; }
+    .process-step-num::after { display: none; }
+    .process-step-content { padding: 20px 24px; }
+  }
+
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-badge { animation: fadeUp 0.6s ease both; }
+  .hero-h1 { animation: fadeUp 0.6s ease 0.1s both; }
+  .hero-sub { animation: fadeUp 0.6s ease 0.2s both; }
+  .hero-ctas { animation: fadeUp 0.6s ease 0.3s both; }
+  .hero-affiliations { animation: fadeUp 0.6s ease 0.4s both; }
+  .hero-right { animation: fadeUp 0.6s ease 0.2s both; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    section { padding: 72px 24px; }
+    .hero { grid-template-columns: 1fr; padding: 120px 24px 72px; gap: 48px; }
+    .hero-right { display: none; }
+    .challenge-grid { grid-template-columns: 1fr 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .approach-grid { grid-template-columns: 1fr 1fr; }
+    .wp-inner { grid-template-columns: 1fr; }
+    .proto-grid { grid-template-columns: 1fr; }
+    .about-inner { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .challenge-grid { grid-template-columns: 1fr; }
+    .approach-grid { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr; }
+    .hero-ctas { flex-direction: column; }
+    .final-cta-buttons { flex-direction: column; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">CONTEXT<span>WELL</span> <span style="font-weight:300;color:var(--mid-gray);font-size:12px;letter-spacing:0.06em;">LAB</span></a>
+  <ul class="nav-links">
+    <li><a href="#challenge">The Challenge</a></li>
+    <li><a href="#for-whom">Who It's For</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">How It Works</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Book a Session</a>
+</nav>
+
+<!-- HERO -->
+<section style="padding:0;">
+  <div class="hero">
+    <div class="hero-left">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Independent Research Initiative · Dublin, Ireland
+      </div>
+      <h1 class="hero-h1">
+        Human-Centered AI,<br>
+        Digital Literacy &amp;<br>
+        <em>Institutional Resilience</em>
+      </h1>
+      <p class="hero-sub">
+        Research-informed workshops, strategic briefings, and institutional insight services for organizations navigating the human dimensions of AI transition.
+      </p>
+      <div class="hero-ctas">
+        <a href="#services" class="btn-primary">Book Workshop</a>
+        <a href="#contact" class="btn-secondary">Strategic Briefing</a>
+        <a href="#whitepaper" class="btn-ghost">↓ Download White Paper</a>
+      </div>
+      <div class="hero-affiliations">
+        <span class="aff-tag">ContextWell Lab</span>
+        <span class="sep">·</span>
+        <span class="aff-tag">Independent Research Initiative</span>
+        <span class="sep">·</span>
+        <span class="aff-tag">Dublin, Ireland</span>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-diagram">
+        <svg class="diagram-svg" viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background grid -->
+          <defs>
+            <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
+              <path d="M 42 0 L 0 0 0 42" fill="none" stroke="#E8E7E3" stroke-width="0.5"/>
+            </pattern>
+          </defs>
+          <rect width="420" height="420" fill="url(#grid)"/>
+          <!-- Central node -->
+          <circle cx="210" cy="210" r="56" fill="#0F1E3C" stroke="#2D5B8E" stroke-width="1.5"/>
+          <text x="210" y="205" text-anchor="middle" font-family="Geist, sans-serif" font-size="10" fill="#7BA3CC" letter-spacing="1">HUMAN</text>
+          <text x="210" y="220" text-anchor="middle" font-family="Geist, sans-serif" font-size="10" fill="#7BA3CC" letter-spacing="1">CENTERED</text>
+          <text x="210" y="235" text-anchor="middle" font-family="Geist, sans-serif" font-size="10" fill="#5B87B3" letter-spacing="0.5">AI</text>
+          <!-- Orbit ring -->
+          <circle cx="210" cy="210" r="110" stroke="#C8D8EA" stroke-width="1" stroke-dasharray="4 6"/>
+          <!-- Orbit nodes -->
+          <!-- Digital Literacy - top -->
+          <line x1="210" y1="100" x2="210" y2="155" stroke="#C8D8EA" stroke-width="1"/>
+          <circle cx="210" cy="84" r="28" fill="#F4F3F0" stroke="#C8D8EA" stroke-width="1"/>
+          <text x="210" y="81" text-anchor="middle" font-family="Geist, sans-serif" font-size="8" fill="#2D5B8E" letter-spacing="0.5">DIGITAL</text>
+          <text x="210" y="93" text-anchor="middle" font-family="Geist, sans-serif" font-size="8" fill="#2D5B8E" letter-spacing="0.5">LITERACY</text>
+          <!-- Institutional - right -->
+          <line x1="320" y1="210" x2="265" y2="210" stroke="#C8D8EA" stroke-width="1"/>
+          <circle cx="336" cy="210" r="28" fill="#F4F3F0" stroke="#C8D8EA" stroke-width="1"/>
+          <text x="336" y="207" text-anchor="middle" font-family="Geist, sans-serif" font-size="7.5" fill="#2D5B8E" letter-spacing="0.5">INSTITUTIONAL</text>
+          <text x="336" y="218" text-anchor="middle" font-family="Geist, sans-serif" font-size="7.5" fill="#2D5B8E" letter-spacing="0.5">RESILIENCE</text>
+          <!-- Governance - bottom -->
+          <line x1="210" y1="320" x2="210" y2="265" stroke="#C8D8EA" stroke-width="1"/>
+          <circle cx="210" cy="336" r="28" fill="#F4F3F0" stroke="#C8D8EA" stroke-width="1"/>
+          <text x="210" y="333" text-anchor="middle" font-family="Geist, sans-serif" font-size="8" fill="#2D5B8E" letter-spacing="0.5">AI</text>
+          <text x="210" y="344" text-anchor="middle" font-family="Geist, sans-serif" font-size="8" fill="#2D5B8E" letter-spacing="0.5">GOVERNANCE</text>
+          <!-- Research - left -->
+          <line x1="100" y1="210" x2="155" y2="210" stroke="#C8D8EA" stroke-width="1"/>
+          <circle cx="84" cy="210" r="28" fill="#F4F3F0" stroke="#C8D8EA" stroke-width="1"/>
+          <text x="84" y="207" text-anchor="middle" font-family="Geist, sans-serif" font-size="8" fill="#2D5B8E" letter-spacing="0.5">RESEARCH</text>
+          <text x="84" y="218" text-anchor="middle" font-family="Geist, sans-serif" font-size="8" fill="#2D5B8E" letter-spacing="0.5">INFORMED</text>
+          <!-- Diagonal connectors -->
+          <line x1="248" y1="172" x2="290" y2="130" stroke="#E8EFF7" stroke-width="1"/>
+          <line x1="172" y1="172" x2="130" y2="130" stroke="#E8EFF7" stroke-width="1"/>
+          <line x1="248" y1="248" x2="290" y2="290" stroke="#E8EFF7" stroke-width="1"/>
+          <line x1="172" y1="248" x2="130" y2="290" stroke="#E8EFF7" stroke-width="1"/>
+          <!-- Corner accent nodes -->
+          <circle cx="120" cy="120" r="8" fill="none" stroke="#E8E7E3" stroke-width="1"/>
+          <circle cx="300" cy="120" r="8" fill="none" stroke="#E8E7E3" stroke-width="1"/>
+          <circle cx="300" cy="300" r="8" fill="none" stroke="#E8E7E3" stroke-width="1"/>
+          <circle cx="120" cy="300" r="8" fill="none" stroke="#E8E7E3" stroke-width="1"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHALLENGE SECTION -->
+<section class="challenge" id="challenge">
+  <div class="container">
+    <div class="challenge-header">
+      <div class="section-label">The Challenge</div>
+      <h2 class="section-title">Institutions Are Facing a<br><em style="font-style:italic;">Human Systems Transition</em></h2>
+      <p class="section-desc">The pace of AI development has outrun most institutional capacity to absorb, govern, and respond meaningfully. The challenge is not technological — it is human, organizational, and systemic.</p>
+    </div>
+    <div class="challenge-grid">
+      <div class="challenge-card">
+        <span class="challenge-num">01</span>
+        <svg class="challenge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        <h3>AI Transition Complexity</h3>
+        <p>Institutions across higher education, public services, and international organizations face compounding pressures from AI adoption that outpace existing governance structures, decision-making frameworks, and human capacity to adapt.</p>
+      </div>
+      <div class="challenge-card">
+        <span class="challenge-num">02</span>
+        <svg class="challenge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        <h3>Digital Literacy Challenges</h3>
+        <p>Uneven levels of digital and AI literacy create institutional fragility. When staff, faculty, and leadership lack shared frameworks for understanding AI, strategic coherence erodes and institutional risk increases significantly.</p>
+      </div>
+      <div class="challenge-card">
+        <span class="challenge-num">03</span>
+        <svg class="challenge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>
+        <h3>Human Oversight &amp; Governance</h3>
+        <p>Meaningful human oversight of AI systems requires more than policy. It demands the cultivation of judgment, critical capacity, and institutional cultures that can hold complexity — capacities that take time and intentional investment to build.</p>
+      </div>
+      <div class="challenge-card">
+        <span class="challenge-num">04</span>
+        <svg class="challenge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+        <h3>Institutional Resilience Pressures</h3>
+        <p>Organizations are simultaneously expected to innovate faster, operate leaner, and maintain public trust — often without adequate investment in the human infrastructure that makes resilience possible during periods of systemic disruption.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO THIS IS FOR -->
+<section class="for-whom" id="for-whom">
+  <div class="container">
+    <div class="for-whom-header">
+      <div class="section-label">Who This Is For</div>
+      <h2 class="section-title">Built for Institutions<br>Navigating AI Transition</h2>
+      <p class="section-desc">These services are designed for organizations that take AI seriously — not as hype to manage, but as a genuine transition requiring human systems investment.</p>
+    </div>
+    <div class="whom-grid">
+      <div class="whom-card">
+        <div class="whom-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+        </div>
+        <h3>Universities &amp; Higher Education</h3>
+        <p>Institutions building institutional AI policy, upskilling faculty and staff, and preparing students for AI-mediated professional environments.</p>
+        <div class="whom-fit">Great fit for: workshops, training content, institutional reports</div>
+      </div>
+      <div class="whom-card">
+        <div class="whom-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </div>
+        <h3>International &amp; Multilateral Organizations</h3>
+        <p>UN agencies, development bodies, and international NGOs needing credible AI literacy and governance frameworks for diverse, policy-sensitive contexts.</p>
+        <div class="whom-fit">Great fit for: executive briefings, white papers, strategic advisory</div>
+      </div>
+      <div class="whom-card">
+        <div class="whom-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3>NGOs &amp; Civil Society Organizations</h3>
+        <p>Mission-driven organizations that need to engage responsibly with AI — without the resources for enterprise solutions, but with the need for real strategic clarity.</p>
+        <div class="whom-fit">Great fit for: workshops, training content development</div>
+      </div>
+      <div class="whom-card">
+        <div class="whom-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+        </div>
+        <h3>Public Institutions &amp; Government Bodies</h3>
+        <p>Agencies and departments navigating AI procurement, public accountability, and the challenge of building staff capacity under constrained timelines and budgets.</p>
+        <div class="whom-fit">Great fit for: executive briefings, governance frameworks</div>
+      </div>
+      <div class="whom-card">
+        <div class="whom-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <h3>Innovation Ecosystems &amp; Accelerators</h3>
+        <p>Programmes, hubs, and networks that want to equip founders, fellows, and partners with grounded, practical AI literacy — beyond the hype, into what actually matters.</p>
+        <div class="whom-fit">Great fit for: workshops, training modules, event sessions</div>
+      </div>
+      <div class="whom-card">
+        <div class="whom-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 17H5a2 2 0 00-2 2v2"/><path d="M15 17h4a2 2 0 012 2v2"/><rect x="9" y="11" width="6" height="6" rx="1"/><path d="M9 11V7a3 3 0 016 0v4"/></svg>
+        </div>
+        <h3>Digital Transformation Teams</h3>
+        <p>Internal teams leading AI adoption initiatives who need external research credibility, structured frameworks, and practical tools their leadership will trust and use.</p>
+        <div class="whom-fit">Great fit for: briefings, training content, strategic reports</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY SECTION -->
+<section class="why">
+  <div class="container">
+    <div class="section-label">Why Now</div>
+    <h2 class="section-title">Why Human-Centered AI Matters</h2>
+    <div class="why-grid">
+      <div class="why-col">
+        <div class="why-item">
+          <h4>Accelerating AI Adoption Without Readiness Infrastructure</h4>
+          <p>Institutions are being asked to integrate AI tools into core operations faster than they can develop the literacy, governance structures, and human capacity to do so safely and strategically.</p>
+        </div>
+        <div class="why-item">
+          <h4>Human Judgment Under Systemic Complexity</h4>
+          <p>When AI mediates decisions and information flows, the quality of human judgment becomes more consequential, not less. Protecting and developing judgment capacity is a strategic institutional imperative.</p>
+        </div>
+        <div class="why-item">
+          <h4>Governance and Oversight Challenges</h4>
+          <p>Regulatory frameworks, ethical guidelines, and organizational policies are all lagging behind actual AI deployment. Institutions that invest now in governance literacy will navigate emerging requirements with greater agility.</p>
+        </div>
+      </div>
+      <div class="why-col">
+        <div class="why-item">
+          <h4>Institutional Uncertainty and Fragility</h4>
+          <p>AI transition amplifies existing institutional tensions — around authority, trust, transparency, and accountability. Unaddressed, these tensions reduce cohesion and increase operational risk at precisely the moment when coherence matters most.</p>
+        </div>
+        <div class="why-item">
+          <h4>Future Readiness as Competitive Positioning</h4>
+          <p>Institutions that build genuine AI literacy and resilient human systems now will be significantly better positioned for partnership, funding, and leadership opportunities as the governance landscape matures globally.</p>
+        </div>
+        <div class="why-item">
+          <h4>Responsible Innovation as Institutional Identity</h4>
+          <p>Increasingly, institutional stakeholders — students, staff, funders, and regulators — expect organizations to demonstrate not just AI adoption, but responsible, thoughtful, and human-centered approaches to AI integration.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES SECTION -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-header">
+      <div>
+        <div class="section-label">Services</div>
+        <h2 class="section-title">Designed for Institutional Impact</h2>
+      </div>
+      <p style="font-size:15px;color:#6B6B68;max-width:320px;line-height:1.7;text-align:right;">Each service is grounded in active research and designed for institutions navigating real AI transition challenges.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card featured">
+        <span class="service-type">Flagship Service</span>
+        <h3>AI &amp; Digital Literacy Workshops</h3>
+        <p>Practical workshop experiences that build real AI and digital literacy across institutional teams — staff, faculty, and leadership — so your organization can make informed decisions about AI rather than reactive ones.</p>
+        <ul class="service-features">
+          <li>Online and on-site delivery for institutional contexts</li>
+          <li>Tailored to institutional sector, audience, and strategic priorities</li>
+          <li>Responsible AI frameworks and critical digital literacy methods</li>
+          <li>Practical tools for navigating AI adoption decisions</li>
+        </ul>
+        <div class="service-outcomes">
+          <span class="outcome-tag">↑ AI literacy across teams</span>
+          <span class="outcome-tag">↑ Oversight capacity</span>
+          <span class="outcome-tag">↓ Implementation confusion</span>
+        </div>
+        <div class="service-audience"><strong>Ideal for:</strong> Universities, NGOs, public institutions, international organizations, transformation teams</div>
+        <a href="#contact" class="service-cta">Book a Workshop →</a>
+      </div>
+      <div class="service-card">
+        <span class="service-type">Content Development</span>
+        <h3>Training Content Development</h3>
+        <p>Custom learning resources your institution can deploy at scale — built from active research, designed for your specific audience, and structured to produce durable understanding rather than one-off awareness.</p>
+        <ul class="service-features">
+          <li>AI literacy modules for staff and student audiences</li>
+          <li>Digital literacy educational materials and curricula</li>
+          <li>Institutional learning resources and toolkits</li>
+          <li>Responsible AI training content and case studies</li>
+        </ul>
+        <div class="service-outcomes">
+          <span class="outcome-tag">↑ Org-wide readiness</span>
+          <span class="outcome-tag">↑ Responsible adoption</span>
+          <span class="outcome-tag">↓ Knowledge gaps</span>
+        </div>
+        <div class="service-audience"><strong>Ideal for:</strong> HR and L&amp;D teams, academic departments, training providers, innovation offices</div>
+        <a href="#contact" class="service-cta">Request Service →</a>
+      </div>
+      <div class="service-card">
+        <span class="service-type">Strategic Advisory</span>
+        <h3>Executive Strategic Briefings</h3>
+        <p>Focused sessions for institutional leadership that translate what is actually happening in AI — the research, the policy landscape, the governance pressures — into strategic clarity your team can act on.</p>
+        <ul class="service-features">
+          <li>AI transition strategy sessions for senior leadership</li>
+          <li>Governance and oversight frameworks for institutional context</li>
+          <li>Horizon scanning and strategic intelligence synthesis</li>
+          <li>Pre-meeting briefing preparation for high-stakes engagements</li>
+        </ul>
+        <div class="service-outcomes">
+          <span class="outcome-tag">↑ Leadership confidence</span>
+          <span class="outcome-tag">↑ Strategic clarity</span>
+          <span class="outcome-tag">↓ Decision uncertainty</span>
+        </div>
+        <div class="service-audience"><strong>Ideal for:</strong> Boards, executive leadership, innovation directors, policy-adjacent stakeholders</div>
+        <a href="#contact" class="service-cta">Schedule Briefing →</a>
+      </div>
+      <div class="service-card">
+        <span class="service-type">Research &amp; Intelligence</span>
+        <h3>Research &amp; Insight Reports</h3>
+        <p>Strategic intelligence products — white papers, sector analyses, policy briefs — that give your institution a well-grounded, credible basis for decisions, proposals, and public-facing AI commitments.</p>
+        <ul class="service-features">
+          <li>Thematic white papers and policy briefs</li>
+          <li>Sector-specific institutional analysis</li>
+          <li>Strategic intelligence and landscape reports</li>
+          <li>Research synthesis for grant applications and proposals</li>
+        </ul>
+        <div class="service-outcomes">
+          <span class="outcome-tag">↑ Institutional credibility</span>
+          <span class="outcome-tag">↑ Grant readiness</span>
+          <span class="outcome-tag">↑ Policy positioning</span>
+        </div>
+        <div class="service-audience"><strong>Ideal for:</strong> Research offices, policy teams, foundations, UNDP-style organizations, think tanks</div>
+        <a href="#contact" class="service-cta">Request Report →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH SECTION -->
+<section class="approach">
+  <div class="container">
+    <div class="section-label">Approach</div>
+    <h2 class="section-title">A Research-Informed<br>Institutional Approach</h2>
+    <p class="section-desc">Four interlocking pillars that together constitute a coherent framework for institutional AI transition — grounded in academic research and designed for practical application.</p>
+    <div class="approach-grid">
+      <div class="approach-pillar">
+        <span class="pillar-num">01</span>
+        <h3>Human-Centered AI</h3>
+        <p>Positioning human agency, judgment, and wellbeing as foundational design constraints — not afterthoughts — in how institutions adopt, deploy, and govern AI systems. Grounded in ongoing doctoral research at University College Dublin.</p>
+      </div>
+      <div class="approach-pillar">
+        <span class="pillar-num">02</span>
+        <h3>Digital Literacy &amp; Human Capacity</h3>
+        <p>Building the conceptual frameworks and practical skills that enable individuals and institutions to engage critically and constructively with AI — moving beyond surface-level familiarity toward genuine, durable literacy.</p>
+      </div>
+      <div class="approach-pillar">
+        <span class="pillar-num">03</span>
+        <h3>Institutional Resilience</h3>
+        <p>Strengthening the organizational conditions — culture, process, relationships, and structures — that allow institutions to absorb disruption, maintain coherence, and adapt with strategic intentionality during periods of rapid AI change.</p>
+      </div>
+      <div class="approach-pillar">
+        <span class="pillar-num">04</span>
+        <h3>Systems-Level Insight</h3>
+        <p>Analyzing AI challenges not as isolated technical events but as complex systemic phenomena — attending to feedback loops, emergent effects, stakeholder interdependencies, and the institutional conditions that shape AI outcomes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF / LEGITIMACY BAR -->
+<section class="social-proof" id="credentials">
+  <div class="container">
+    <div class="sp-header">
+      <div class="section-label">Credentials &amp; Context</div>
+      <h2 class="section-title">Grounded in Research,<br>Connected to Practice</h2>
+    </div>
+    <div class="sp-grid">
+      <div class="sp-card sp-card--affil">
+        <div class="sp-card-label">Research Grounding</div>
+        <div class="sp-card-title">Doctoral Research at University College Dublin</div>
+        <div class="sp-card-desc">Founded by an active PhD researcher whose dissertation spans wellbeing, AI systems, digital literacy, and institutional design. Research informs every engagement.</div>
+      </div>
+      <div class="sp-card sp-card--event">
+        <div class="sp-card-label">Research Publication</div>
+        <div class="sp-card-title">Working Paper: Well-Being as Infrastructure</div>
+        <div class="sp-card-desc">Conceptual framework paper on human systems, AI governance, and institutional resilience. Available on request for academic and institutional audiences.</div>
+      </div>
+    </div>
+    <div class="sp-quote-row">
+      <div class="sp-quote-block">
+        <div class="sp-quote-text">"The challenge is not getting institutions to adopt AI — it is ensuring they retain the human judgment and oversight capacity to do so responsibly. That requires investment in human systems, not just technology."</div>
+        <div class="sp-quote-attr">— Yao Xie, Research Working Paper, 2025</div>
+      </div>
+      <div class="sp-pilot-block">
+        <div class="sp-pilot-label">Currently Available For</div>
+        <div class="sp-pilots">
+          <span class="sp-pilot-tag">Pilot Workshops</span>
+          <span class="sp-pilot-tag">Research Collaborations</span>
+          <span class="sp-pilot-tag">Speaking Engagements</span>
+          <span class="sp-pilot-tag">Advisory Engagements</span>
+          <span class="sp-pilot-tag">UNDP-Style Contracts</span>
+          <span class="sp-pilot-tag">Grant Co-Applications</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS SECTION -->
+<section class="process" id="process">
+  <div class="container">
+    <div class="process-header">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title">How an Engagement Works</h2>
+      <p class="section-desc">A clear, low-friction path from first conversation to institutional impact — designed to respect your time and organizational context from the first step.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-step-num">01</div>
+        <div class="process-step-content">
+          <h3>Strategic Discovery Conversation</h3>
+          <p>A focused 45–60 minute conversation to understand your institutional context, the specific AI challenges you're facing, and what a useful engagement would look like. No obligation. Genuinely useful regardless of next steps.</p>
+          <div class="process-step-meta">~1 hour · Online or in-person · Dublin available</div>
+        </div>
+      </div>
+      <div class="process-connector"></div>
+      <div class="process-step">
+        <div class="process-step-num">02</div>
+        <div class="process-step-content">
+          <h3>Context-Specific Workshop or Briefing</h3>
+          <p>A tailored workshop, executive briefing, or training session designed around your institution's actual needs — not a generic programme. Materials, framing, and depth adjusted to your audience and objectives.</p>
+          <div class="process-step-meta">Half-day to full-day · Online or on-site · Custom scope</div>
+        </div>
+      </div>
+      <div class="process-connector"></div>
+      <div class="process-step">
+        <div class="process-step-num">03</div>
+        <div class="process-step-content">
+          <h3>Institutional Recommendations</h3>
+          <p>A concise written summary of key insights, priority actions, and recommended next steps — grounded in your specific context and framed for institutional decision-making rather than generic best-practice lists.</p>
+          <div class="process-step-meta">Written report · Actionable · Decision-ready</div>
+        </div>
+      </div>
+      <div class="process-connector"></div>
+      <div class="process-step">
+        <div class="process-step-num">04</div>
+        <div class="process-step-content">
+          <h3>Optional: Ongoing Advisory Support</h3>
+          <p>For institutions that want continued research-informed perspective as their AI transition evolves — a light, flexible advisory relationship focused on keeping your human systems in view as things change.</p>
+          <div class="process-step-meta">Retainer or project basis · Quarterly or as-needed</div>
+        </div>
+      </div>
+    </div>
+    <div class="process-cta-row">
+      <a href="#contact" class="btn-primary">Start with a Discovery Conversation</a>
+      <span class="process-note">No commitment required. Most people find the first conversation useful on its own.</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHITEPAPER SECTION -->
+<section class="whitepaper" id="whitepaper">
+  <div class="container">
+    <div class="wp-inner">
+      <div class="wp-mockup">
+        <div class="wp-cover">
+          <div class="wp-cover-label">Research Paper · 2025</div>
+          <div class="wp-cover-title">Well-Being as Embedded Infrastructure in the <em>Intelligence Era</em></div>
+          <div class="wp-cover-sub">A strategic conceptual framework exploring human judgment, agency, institutional resilience, and systemic conditions in AI-mediated environments. Implications for governance, policy, and institutional design.</div>
+          <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:32px;">
+            <div style="background:rgba(45,91,142,0.15);border:1px solid rgba(45,91,142,0.3);border-radius:2px;padding:5px 12px;font-size:10px;color:#5B87B3;letter-spacing:0.05em;">Human-AI Interaction</div>
+            <div style="background:rgba(45,91,142,0.15);border:1px solid rgba(45,91,142,0.3);border-radius:2px;padding:5px 12px;font-size:10px;color:#5B87B3;letter-spacing:0.05em;">Institutional Systems</div>
+            <div style="background:rgba(45,91,142,0.15);border:1px solid rgba(45,91,142,0.3);border-radius:2px;padding:5px 12px;font-size:10px;color:#5B87B3;letter-spacing:0.05em;">Governance</div>
+          </div>
+          <div class="wp-cover-meta">
+            CONTEXTWELL LAB · DUBLIN, IRELAND<br>
+            RESEARCH WORKING PAPER · 2025
+          </div>
+        </div>
+      </div>
+      <div class="wp-content">
+        <div class="section-label">Featured Insight</div>
+        <h2 class="section-title">Well-Being as Embedded Infrastructure</h2>
+        <p class="wp-abstract">
+          This paper argues that well-being is not a soft outcome to be measured after the fact — it is part of the infrastructure that makes responsible AI adoption possible. When the human systems needed for judgment, oversight, and institutional coherence are undermined, AI governance fails regardless of how good the policy documents are.
+        </p>
+        <p class="wp-abstract" style="margin-top:-12px;">
+          Drawing on systems theory, political philosophy, and AI governance literature, the framework has direct implications for how institutions design human-AI interaction, build oversight capacity, and develop organizational cultures capable of navigating sustained AI transition.
+        </p>
+        <div class="wp-themes">
+          <span class="theme-tag">Human Agency</span>
+          <span class="theme-tag">AI Governance</span>
+          <span class="theme-tag">Systemic Well-Being</span>
+          <span class="theme-tag">Institutional Design</span>
+          <span class="theme-tag">Oversight Mechanisms</span>
+          <span class="theme-tag">Resilience Theory</span>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="#" class="btn-primary">Download White Paper</a>
+          <a href="#contact" class="btn-ghost">Request Institutional Brief</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROTOTYPE SECTION -->
+<section class="prototype" id="prototype">
+  <div class="container">
+    <div class="proto-header">
+      <div class="section-label">Prototype Exploration</div>
+      <h2 class="section-title">Early-Stage Research Prototype</h2>
+      <div class="proto-notice">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Research prototype — not a commercial product
+      </div>
+    </div>
+    <div class="proto-grid">
+      <div class="proto-mockup-wrap">
+        <div class="proto-bar">
+          <div class="proto-dot" style="background:#E8D5D5;"></div>
+          <div class="proto-dot" style="background:#E8E2D5;"></div>
+          <div class="proto-dot" style="background:#D5E8D8;"></div>
+          <div class="proto-url">prototype.yaoxie.research / contextual-wellbeing</div>
+        </div>
+        <div class="proto-screen">
+          <div class="proto-screen-header">
+            <span class="proto-screen-title">Institutional Context Dashboard</span>
+            <span class="proto-badge-sm">PROTOTYPE · ALPHA</span>
+          </div>
+          <div class="proto-cards">
+            <div class="proto-card-sm">
+              <div class="proto-card-sm-label">Literacy Index</div>
+              <div class="proto-card-sm-val">74.2</div>
+              <div class="proto-card-sm-sub">Institutional baseline</div>
+            </div>
+            <div class="proto-card-sm">
+              <div class="proto-card-sm-label">Resilience Score</div>
+              <div class="proto-card-sm-val">61.8</div>
+              <div class="proto-card-sm-sub">System health estimate</div>
+            </div>
+          </div>
+          <div style="margin-bottom:16px;">
+            <svg width="100%" height="80" viewBox="0 0 400 80" preserveAspectRatio="none">
+              <rect width="400" height="80" fill="#F4F3F0" rx="3"/>
+              <polyline points="0,60 50,52 100,48 150,38 200,42 250,32 300,28 350,20 400,18"
+                fill="none" stroke="#2D5B8E" stroke-width="1.5" stroke-linejoin="round"/>
+              <polyline points="0,60 50,52 100,48 150,38 200,42 250,32 300,28 350,20 400,18"
+                fill="url(#grad)" stroke="none" opacity="0.1"/>
+              <defs>
+                <linearGradient id="grad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#2D5B8E"/>
+                  <stop offset="100%" stop-color="#2D5B8E" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <text x="8" y="14" font-family="Geist Mono, monospace" font-size="9" fill="#9B9A97">Adaptive Capacity Trajectory</text>
+            </svg>
+          </div>
+          <div style="background:#F4F3F0;border:1px solid #E8E7E3;border-radius:3px;padding:14px 16px;">
+            <div style="font-size:10px;color:#9B9A97;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;">System Signals</div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              <div style="font-size:11px;color:#2D5B8E;background:#E8EFF7;border:1px solid #C8D8EA;padding:3px 8px;border-radius:2px;">Agency ↑</div>
+              <div style="font-size:11px;color:#2D5B8E;background:#E8EFF7;border:1px solid #C8D8EA;padding:3px 8px;border-radius:2px;">Literacy ↑</div>
+              <div style="font-size:11px;color:#7A6830;background:#FFF8E7;border:1px solid #E8D99A;padding:3px 8px;border-radius:2px;">Oversight △</div>
+              <div style="font-size:11px;color:#6B6B68;background:#F4F3F0;border:1px solid #E8E7E3;padding:3px 8px;border-radius:2px;">Coherence →</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="proto-info">
+        <h3>Contextual Wellbeing &amp; Institutional Insight</h3>
+        <p>An early-stage research-informed prototype exploring how contextual wellbeing indicators, human-centered system signals, and institutional insight approaches might be made legible and actionable for organizations navigating AI transition.</p>
+        <p>This exploration is not a commercial product. It is a research artifact — a proof-of-concept in service of a larger inquiry into what institutional AI readiness might look like when human conditions are treated as primary data.</p>
+        <div class="proto-tags">
+          <span class="proto-tag">Research Prototype</span>
+          <span class="proto-tag">Conceptual Framework</span>
+          <span class="proto-tag">Human Systems</span>
+          <span class="proto-tag">Institutional Insight</span>
+          <span class="proto-tag">Early Stage</span>
+        </div>
+        <a href="#contact" class="btn-ghost">Discuss the Research</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-left">
+        <div class="about-lab-mark">
+          <div class="lab-mark-inner">
+            <span class="lab-mark-cw">CW</span>
+            <span class="lab-mark-label">LAB</span>
+          </div>
+        </div>
+        <div class="about-name">ContextWell Lab</div>
+        <div class="about-title">Independent Research Initiative<br>Dublin, Ireland</div>
+        <div class="about-tags">
+          <span class="about-tag">Research Initiative</span>
+          <span class="about-tag">Independent</span>
+          <span class="about-tag">AI Governance</span>
+          <span class="about-tag">Digital Literacy</span>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="section-label">About the Lab</div>
+        <div class="about-body">
+          <p>ContextWell Lab is an independent research-informed initiative exploring human-centered AI, institutional resilience, and digital literacy in the intelligence era. We work with universities, public institutions, NGOs, and international organizations to build the human systems capacity that responsible AI adoption actually requires.</p>
+          <p>Our work sits at the intersection of active doctoral research and practical institutional engagement — translating what is known about human systems under technological transition into workshops, briefings, and strategic intelligence that organizations can act on.</p>
+          <p>We are interested in the gap between policy and practice: the distance between what governance frameworks say institutions should do and what they are actually equipped to do. Closing that gap is the work.</p>
+        </div>
+
+        <div class="about-founder">
+          <div class="founder-divider">
+            <span class="founder-divider-label">Founded by</span>
+          </div>
+          <div class="founder-card">
+            <div class="founder-avatar"><span class="founder-initials">YX</span></div>
+            <div class="founder-info">
+              <div class="founder-name">Yao Xie</div>
+              <div class="founder-role">PhD Researcher, University College Dublin</div>
+              <div class="founder-bio">Doctoral research focused on wellbeing, AI systems, digital literacy, and institutional design. Engaged with Dublin's emerging AI and innovation ecosystem.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-affiliations">
+          <div class="affil-item">
+            <div class="affil-label">Founder</div>
+            <div class="affil-name">PhD Researcher, UCD</div>
+          </div>
+          <div class="affil-item">
+            <div class="affil-label">Research Focus</div>
+            <div class="affil-name">Human-Centered AI &amp; Digital Literacy</div>
+          </div>
+          <div class="affil-item">
+            <div class="affil-label">Location</div>
+            <div class="affil-name">Dublin, Ireland</div>
+          </div>
+          <div class="affil-item">
+            <div class="affil-label">Status</div>
+            <div class="affil-name">Open to Collaborators &amp; Fellows</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="contact">
+  <div class="container">
+    <div class="section-label" style="justify-content:center;">Work With Us</div>
+    <h2 class="section-title" style="margin:0 auto 20px;">Let's Explore<br><em style="font-style:italic;color:#7BA3CC;">Human-Centered Futures</em></h2>
+    <p class="final-cta-sub">Whether you are planning a workshop, building institutional AI strategy, or seeking research-informed insight — ContextWell Lab welcomes the conversation.</p>
+    <div class="final-cta-buttons">
+      <a href="mailto:hello@contextwelllab.ie" class="btn-white">Book Workshop</a>
+      <a href="mailto:hello@contextwelllab.ie" class="btn-outline-white">Schedule Strategic Briefing</a>
+      <a href="#whitepaper" class="btn-outline-white">Download White Paper</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">CONTEXT<span>WELL</span> <span style="font-weight:300;opacity:0.4;font-size:11px;letter-spacing:0.06em;">LAB</span></div>
+      <p class="footer-tagline">An independent initiative exploring human-centered AI, digital literacy, and institutional resilience. Founded by a UCD PhD researcher.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">AI &amp; Digital Literacy Workshops</a></li>
+        <li><a href="#services">Training Content Development</a></li>
+        <li><a href="#services">Executive Strategic Briefings</a></li>
+        <li><a href="#services">Research &amp; Insight Reports</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Research</h4>
+      <ul>
+        <li><a href="#whitepaper">White Paper</a></li>
+        <li><a href="#prototype">Prototype</a></li>
+        <li><a href="#about">About the Lab</a></li>
+        <li><a href="#credentials">Credentials</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="mailto:hello@contextwelllab.ie">hello@contextwelllab.ie</a></li>
+        <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+        <li><a href="https://ucd.ie" target="_blank">UCD Research</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 ContextWell Lab · Dublin, Ireland · Founded by Yao Xie</div>
+    <div class="footer-social">
+      <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+      <div class="qr-placeholder">
+        <div class="qr-grid">
+          <div class="qr-px" style="background:#2A3040;grid-column:1/span 2;grid-row:1/span 2;border-radius:1px;"></div>
+          <div class="qr-px" style="background:#2A3040;"></div>
+          <div class="qr-px" style="background:#2A3040;grid-column:4/span 2;grid-row:1/span 2;border-radius:1px;"></div>
+          <div class="qr-px" style="background:#2A3040;grid-column:1/span 2;grid-row:4/span 2;border-radius:1px;"></div>
+          <div class="qr-px" style="background:#2A3040;grid-column:3;grid-row:3;"></div>
+          <div class="qr-px" style="background:#2A3040;grid-column:5;grid-row:5;border-radius:1px;"></div>
+          <div class="qr-px" style="background:#2A3040;grid-column:4;grid-row:4;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Smooth reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.challenge-card, .service-card, .approach-pillar, .why-item, .affil-item, .whom-card, .sp-card, .process-step').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+
+  document.querySelectorAll('.challenge-card').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.08}s`;
+  });
+  document.querySelectorAll('.approach-pillar').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.08}s`;
+  });
+  document.querySelectorAll('.service-card').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.1}s`;
+  });
+  document.querySelectorAll('.whom-card').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.07}s`;
+  });
+  document.querySelectorAll('.sp-card').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.07}s`;
+  });
+  document.querySelectorAll('.process-step').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.1}s`;
+  });
+</script>
+
+</body>
+</html>
