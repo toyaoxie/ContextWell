@@ -790,6 +790,268 @@
   }
 
 
+  /* ─── LEGITIMACY BAR ─── */
+  .legit-bar {
+    background: var(--near-black);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 14px 48px;
+  }
+  .legit-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+  }
+  .legit-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: #3A4050; white-space: nowrap;
+  }
+  .legit-items { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .legit-item { font-size: 13px; color: #5A6878; font-weight: 400; }
+  .legit-sep { color: #2A3040; font-size: 12px; }
+
+  /* ─── PACKAGED OFFERS ─── */
+  .packages { background: var(--white); }
+  .packages-header { margin-bottom: 56px; }
+  .packages-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+    background: var(--light-gray); border: 1px solid var(--light-gray);
+    margin-bottom: 2px;
+  }
+  .pkg-card {
+    background: var(--white); padding: 36px 32px;
+    display: flex; flex-direction: column;
+    transition: background 0.2s;
+  }
+  .pkg-card:hover { background: #FAFBFF; }
+  .pkg-card--featured { background: var(--navy); }
+  .pkg-card--featured:hover { background: #0F2244; }
+  .pkg-top {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 20px;
+  }
+  .pkg-tag {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted-blue);
+    background: var(--light-blue); border: 1px solid #C8D8EA;
+    padding: 4px 10px; border-radius: 2px;
+  }
+  .pkg-card--featured .pkg-tag {
+    background: rgba(123,163,204,0.15); color: #7BA3CC;
+    border-color: rgba(123,163,204,0.3);
+  }
+  .pkg-duration {
+    font-family: var(--mono); font-size: 11px; color: var(--mid-gray);
+    letter-spacing: 0.05em;
+  }
+  .pkg-card--featured .pkg-duration { color: #5B7A96; }
+  .pkg-title {
+    font-family: var(--serif); font-size: 22px; font-weight: 400;
+    color: var(--near-black); margin-bottom: 12px; line-height: 1.2;
+  }
+  .pkg-card--featured .pkg-title { color: var(--white); }
+  .pkg-desc {
+    font-size: 14px; color: #5A5A58; line-height: 1.7; margin-bottom: 24px;
+  }
+  .pkg-card--featured .pkg-desc { color: #8B9BAD; }
+  .pkg-includes-label {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--mid-gray); margin-bottom: 12px;
+  }
+  .pkg-card--featured .pkg-includes-label { color: #4A6070; }
+  .pkg-includes {
+    list-style: none; margin-bottom: 24px; flex: 1;
+  }
+  .pkg-includes li {
+    font-size: 13.5px; color: #5A5A58; padding: 7px 0;
+    border-bottom: 1px solid var(--light-gray);
+    display: flex; align-items: flex-start; gap: 8px; line-height: 1.4;
+  }
+  .pkg-includes li::before {
+    content: '✓'; color: var(--muted-blue); flex-shrink: 0;
+    font-size: 12px; margin-top: 1px; font-weight: 600;
+  }
+  .pkg-card--featured .pkg-includes li {
+    color: #7B8A9A; border-color: rgba(255,255,255,0.07);
+  }
+  .pkg-card--featured .pkg-includes li::before { color: #5B87B3; }
+  .pkg-meta {
+    background: var(--off-white); border: 1px solid var(--light-gray);
+    border-radius: 2px; padding: 14px 16px;
+    display: flex; flex-direction: column; gap: 6px;
+    margin-bottom: 24px;
+  }
+  .pkg-card--featured .pkg-meta {
+    background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.08);
+  }
+  .pkg-meta-item { font-size: 12.5px; color: #6B6B68; }
+  .pkg-meta-label {
+    font-weight: 600; color: var(--charcoal); margin-right: 6px;
+  }
+  .pkg-card--featured .pkg-meta-item { color: #5A6878; }
+  .pkg-card--featured .pkg-meta-label { color: #8B9BAD; }
+  .pkg-cta {
+    font-size: 13.5px; font-weight: 600; color: var(--muted-blue);
+    text-decoration: none; letter-spacing: 0.02em;
+    display: inline-flex; align-items: center; gap: 6px;
+    transition: gap 0.2s;
+    margin-top: auto;
+  }
+  .pkg-cta:hover { gap: 10px; }
+  .pkg-card--featured .pkg-cta { color: #7BA3CC; }
+  .packages-note {
+    background: var(--off-white); border: 1px solid var(--light-gray);
+    border-top: none; padding: 16px 24px;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 24px; flex-wrap: wrap;
+  }
+  .packages-note-inner {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 13.5px; color: #6B6B68;
+  }
+  .packages-note-inner svg { color: var(--mid-gray); flex-shrink: 0; margin-top: 1px; }
+  .packages-note-inner a { color: var(--muted-blue); text-decoration: none; }
+  .packages-note-inner a:hover { text-decoration: underline; }
+  .packages-deck-cta { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+  .deck-download-btn {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: var(--navy); color: #fff;
+    padding: 9px 18px; border-radius: 4px;
+    font-size: 13px; font-weight: 500; text-decoration: none;
+    letter-spacing: 0.02em; transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .deck-download-btn:hover { background: var(--muted-blue); }
+  .deck-note { font-size: 11.5px; color: var(--mid-gray); font-style: italic; }
+  @media (max-width: 768px) {
+    .packages-note { flex-direction: column; }
+    .packages-deck-cta { flex-wrap: wrap; }
+  }
+
+  @media (max-width: 1024px) {
+    .packages-grid { grid-template-columns: 1fr; }
+    .legit-bar { padding: 14px 24px; }
+  }
+
+  /* ─── DIGITAL LITERACY ─── */
+  .digital-literacy { background: var(--off-white); }
+  .dl-header { margin-bottom: 56px; }
+
+  .dl-intro-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+    margin-bottom: 48px; padding-bottom: 48px;
+    border-bottom: 1px solid var(--light-gray);
+  }
+  .dl-intro-text p {
+    font-size: 15px; color: #5A5A58; line-height: 1.75; font-weight: 300;
+  }
+  .dl-intro-text p + p { margin-top: 16px; }
+  .dl-context-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--mid-gray); margin-bottom: 14px;
+  }
+  .dl-context-list { display: flex; flex-wrap: wrap; gap: 8px; }
+  .dl-tag {
+    font-size: 12.5px; color: var(--muted-blue);
+    background: var(--white); border: 1px solid #C8D8EA;
+    padding: 6px 14px; border-radius: 2px;
+  }
+
+  .dl-modules-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px;
+    background: var(--light-gray); border: 1px solid var(--light-gray);
+    margin-bottom: 2px;
+  }
+  .dl-module {
+    background: var(--white); padding: 32px 26px;
+    transition: background 0.2s;
+  }
+  .dl-module:hover { background: var(--light-blue); }
+  .dl-module-num {
+    font-family: var(--mono); font-size: 11px; font-weight: 500;
+    color: var(--muted-blue); letter-spacing: 0.1em;
+    background: var(--light-blue); border: 1px solid #C8D8EA;
+    width: 28px; height: 28px; border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 18px;
+  }
+  .dl-module h3 {
+    font-size: 14px; font-weight: 600; color: var(--near-black);
+    margin-bottom: 10px; line-height: 1.3;
+  }
+  .dl-module > p { font-size: 13.5px; color: #5A5A58; line-height: 1.65; margin-bottom: 16px; }
+  .dl-module-items {
+    list-style: none; margin-bottom: 18px;
+  }
+  .dl-module-items li {
+    font-size: 13px; color: #6B6B68; padding: 5px 0;
+    border-bottom: 1px solid var(--light-gray);
+    display: flex; align-items: flex-start; gap: 7px; line-height: 1.4;
+  }
+  .dl-module-items li::before {
+    content: '→'; color: var(--muted-blue); flex-shrink: 0;
+    font-size: 11px; margin-top: 2px;
+  }
+  .dl-module-format {
+    font-family: var(--mono); font-size: 10.5px; color: var(--mid-gray);
+    letter-spacing: 0.03em; line-height: 1.5;
+    padding: 10px 12px; background: var(--off-white);
+    border: 1px solid var(--light-gray); border-radius: 2px;
+  }
+
+  .dl-deliverables-row {
+    display: grid; grid-template-columns: 200px 1fr; gap: 48px;
+    background: var(--white); border: 1px solid var(--light-gray);
+    border-top: none; padding: 40px;
+    margin-bottom: 40px; align-items: start;
+  }
+  .dl-deliverables-list {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+  }
+  .dl-deliverable {
+    display: flex; gap: 12px; align-items: flex-start;
+  }
+  .dl-deliverable-icon {
+    width: 32px; height: 32px; flex-shrink: 0;
+    background: var(--light-blue); border: 1px solid #C8D8EA;
+    border-radius: 3px; display: flex; align-items: center; justify-content: center;
+    color: var(--muted-blue);
+  }
+  .dl-deliverable-name {
+    font-size: 13px; font-weight: 600; color: var(--near-black);
+    margin-bottom: 3px; line-height: 1.3;
+  }
+  .dl-deliverable-desc { font-size: 12px; color: #777674; line-height: 1.5; }
+  .dl-cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* ─── SERVICE CARD DELIVERABLES BLOCK ─── */
+  .deliverables-block {
+    margin-bottom: 20px;
+    padding: 16px 18px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(123,163,204,0.2);
+    border-radius: 2px;
+  }
+  .service-card:not(.featured) .deliverables-block {
+    background: var(--off-white);
+    border-color: var(--light-gray);
+  }
+  .deliverables-label {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: #5B87B3; margin-bottom: 10px;
+  }
+  .service-card:not(.featured) .deliverables-label { color: var(--mid-gray); }
+  .deliverables-grid {
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+  .deliverable-item {
+    font-size: 11.5px; padding: 4px 10px; border-radius: 2px;
+    background: rgba(255,255,255,0.08); color: #9BB8D4;
+    border: 1px solid rgba(123,163,204,0.2);
+  }
+  .service-card:not(.featured) .deliverable-item {
+    background: var(--white); color: #6B6B68;
+    border-color: var(--light-gray);
+  }
+
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
@@ -801,7 +1063,6 @@
   .hero-affiliations { animation: fadeUp 0.6s ease 0.4s both; }
   .hero-right { animation: fadeUp 0.6s ease 0.2s both; }
 
-  /* ─── RESPONSIVE ─── */
   @media (max-width: 1024px) {
     nav { padding: 0 24px; }
     .nav-links { display: none; }
@@ -816,6 +1077,10 @@
     .proto-grid { grid-template-columns: 1fr; }
     .about-inner { grid-template-columns: 1fr; }
     .footer-inner { grid-template-columns: 1fr 1fr; }
+    .dl-intro-row { grid-template-columns: 1fr; gap: 32px; }
+    .dl-modules-grid { grid-template-columns: 1fr 1fr; }
+    .dl-deliverables-row { grid-template-columns: 1fr; }
+    .dl-deliverables-list { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 640px) {
     .challenge-grid { grid-template-columns: 1fr; }
@@ -823,6 +1088,8 @@
     .footer-inner { grid-template-columns: 1fr; }
     .hero-ctas { flex-direction: column; }
     .final-cta-buttons { flex-direction: column; align-items: center; }
+    .dl-modules-grid { grid-template-columns: 1fr; }
+    .dl-deliverables-list { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -832,13 +1099,13 @@
 <nav>
   <a href="#" class="nav-logo">CONTEXT<span>WELL</span> <span style="font-weight:300;color:var(--mid-gray);font-size:12px;letter-spacing:0.06em;">LAB</span></a>
   <ul class="nav-links">
-    <li><a href="#challenge">The Challenge</a></li>
-    <li><a href="#for-whom">Who It's For</a></li>
+    <li><a href="#packages">Ways to Work Together</a></li>
     <li><a href="#services">Services</a></li>
+    <li><a href="#digital-literacy">Digital Literacy</a></li>
     <li><a href="#process">How It Works</a></li>
     <li><a href="#about">About</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Book a Session</a>
+  <a href="#contact" class="nav-cta">Book a 30-Min Call</a>
 </nav>
 
 <!-- HERO -->
@@ -847,25 +1114,25 @@
     <div class="hero-left">
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
-        Independent Research Initiative · Dublin, Ireland
+        Now accepting workshop &amp; advisory engagements · Dublin, Ireland
       </div>
       <h1 class="hero-h1">
-        Human-Centered AI,<br>
-        Digital Literacy &amp;<br>
-        <em>Institutional Resilience</em>
+        Helping Institutions<br>
+        Navigate AI Transition<br>
+        <em>Responsibly</em>
       </h1>
       <p class="hero-sub">
-        Research-informed workshops, strategic briefings, and institutional insight services for organizations navigating the human dimensions of AI transition.
+        Workshops, AI literacy programmes, and strategic briefings for universities, NGOs, public institutions, and innovation ecosystems — so your teams can adopt AI with confidence, not confusion.
       </p>
       <div class="hero-ctas">
-        <a href="#services" class="btn-primary">Book Workshop</a>
-        <a href="#contact" class="btn-secondary">Strategic Briefing</a>
+        <a href="#packages" class="btn-primary">See What We Offer</a>
+        <a href="#contact" class="btn-secondary">Book a 30-Min Call</a>
         <a href="#whitepaper" class="btn-ghost">↓ Download White Paper</a>
       </div>
       <div class="hero-affiliations">
-        <span class="aff-tag">ContextWell Lab</span>
+        <span class="aff-tag">AI Literacy &amp; Institutional Transition Advisory</span>
         <span class="sep">·</span>
-        <span class="aff-tag">Independent Research Initiative</span>
+        <span class="aff-tag">Research-Informed</span>
         <span class="sep">·</span>
         <span class="aff-tag">Dublin, Ireland</span>
       </div>
@@ -919,6 +1186,122 @@
           <circle cx="300" cy="300" r="8" fill="none" stroke="#E8E7E3" stroke-width="1"/>
           <circle cx="120" cy="300" r="8" fill="none" stroke="#E8E7E3" stroke-width="1"/>
         </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEGITIMACY BAR -->
+<div class="legit-bar">
+  <div class="container">
+    <div class="legit-inner">
+      <span class="legit-label">Engaged with</span>
+      <div class="legit-items">
+        <span class="legit-item">University College Dublin</span>
+        <span class="legit-sep">—</span>
+        <span class="legit-item">NovaUCD</span>
+        <span class="legit-sep">—</span>
+        <span class="legit-item">Dublin Tech Week</span>
+        <span class="legit-sep">—</span>
+        <span class="legit-item">28Digital</span>
+        <span class="legit-sep">—</span>
+        <span class="legit-item">EU Innovation Ecosystem</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PACKAGED OFFERS -->
+<section class="packages" id="packages">
+  <div class="container">
+    <div class="packages-header">
+      <div class="section-label">Ways to Work Together</div>
+      <h2 class="section-title">Three Ways to Start</h2>
+      <p class="section-desc">Concrete, scoped engagements you can commission now. Each is designed to produce immediate value — not a lengthy discovery process.</p>
+    </div>
+    <div class="packages-grid">
+
+      <div class="pkg-card">
+        <div class="pkg-top">
+          <div class="pkg-tag">Entry Point</div>
+          <div class="pkg-duration">90 minutes</div>
+        </div>
+        <h3 class="pkg-title">Executive AI Briefing</h3>
+        <p class="pkg-desc">A focused leadership session that cuts through AI noise — giving your senior team a clear, honest picture of what AI means for your institution right now, and what decisions you actually need to make.</p>
+        <div class="pkg-includes-label">What's included</div>
+        <ul class="pkg-includes">
+          <li>AI landscape briefing tailored to your sector</li>
+          <li>Key institutional risks and opportunities</li>
+          <li>Governance and oversight considerations</li>
+          <li>Facilitated Q&amp;A with leadership team</li>
+          <li>Written summary PDF with key takeaways</li>
+        </ul>
+        <div class="pkg-meta">
+          <div class="pkg-meta-item"><span class="pkg-meta-label">Format</span> Online or in-person</div>
+          <div class="pkg-meta-item"><span class="pkg-meta-label">Audience</span> Senior leadership, boards, directors</div>
+          <div class="pkg-meta-item"><span class="pkg-meta-label">Ideal for</span> Universities, NGOs, public bodies</div>
+        </div>
+        <a href="#contact" class="pkg-cta">Book This Briefing →</a>
+      </div>
+
+      <div class="pkg-card pkg-card--featured">
+        <div class="pkg-top">
+          <div class="pkg-tag">Most Popular</div>
+          <div class="pkg-duration">Half-day</div>
+        </div>
+        <h3 class="pkg-title">AI Literacy Workshop</h3>
+        <p class="pkg-desc">A practical, hands-on workshop that gives your team a shared foundation for understanding AI — what it can and can't do, how to use it responsibly, and how to make decisions about it without being left behind.</p>
+        <div class="pkg-includes-label">What's included</div>
+        <ul class="pkg-includes">
+          <li>Facilitated half-day session (3–4 hrs)</li>
+          <li>Tailored to your team's role and context</li>
+          <li>Responsible AI frameworks and practical tools</li>
+          <li>Participant workbooks and reference materials</li>
+          <li>Post-session recommendations document</li>
+        </ul>
+        <div class="pkg-meta">
+          <div class="pkg-meta-item"><span class="pkg-meta-label">Format</span> Online or on-site</div>
+          <div class="pkg-meta-item"><span class="pkg-meta-label">Audience</span> Faculty, staff, innovation teams, NGO teams</div>
+          <div class="pkg-meta-item"><span class="pkg-meta-label">Ideal for</span> Any institution navigating AI adoption</div>
+        </div>
+        <a href="#contact" class="pkg-cta">Book This Workshop →</a>
+      </div>
+
+      <div class="pkg-card">
+        <div class="pkg-top">
+          <div class="pkg-tag">Strategic</div>
+          <div class="pkg-duration">2–3 weeks</div>
+        </div>
+        <h3 class="pkg-title">AI Readiness Diagnostic</h3>
+        <p class="pkg-desc">A structured assessment of where your institution actually stands on AI readiness — identifying capability gaps, literacy levels, and governance blind spots, with a clear roadmap for what to prioritize.</p>
+        <div class="pkg-includes-label">What's included</div>
+        <ul class="pkg-includes">
+          <li>Stakeholder interviews (key staff &amp; leadership)</li>
+          <li>Digital literacy capability mapping</li>
+          <li>Governance and oversight gap analysis</li>
+          <li>Written recommendations report</li>
+          <li>Presentation of findings to leadership</li>
+        </ul>
+        <div class="pkg-meta">
+          <div class="pkg-meta-item"><span class="pkg-meta-label">Format</span> Remote-first, with on-site option</div>
+          <div class="pkg-meta-item"><span class="pkg-meta-label">Audience</span> Leadership and operations teams</div>
+          <div class="pkg-meta-item"><span class="pkg-meta-label">Ideal for</span> Institutions planning AI strategy or investment</div>
+        </div>
+        <a href="#contact" class="pkg-cta">Request a Diagnostic →</a>
+      </div>
+
+    </div>
+    <div class="packages-note">
+      <div class="packages-note-inner">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span>Need something different? Training content development, custom programmes, and ongoing advisory are also available. <a href="#services">See all services →</a></span>
+      </div>
+      <div class="packages-deck-cta">
+        <a href="ContextWell_Lab_Capability_Deck.pdf" download class="deck-download-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Capability Deck (PDF)
+        </a>
+        <span class="deck-note">6-page PDF — forward to colleagues or procurement</span>
       </div>
     </div>
   </div>
@@ -1028,34 +1411,34 @@
 <section class="why">
   <div class="container">
     <div class="section-label">Why Now</div>
-    <h2 class="section-title">Why Human-Centered AI Matters</h2>
+    <h2 class="section-title">The Moment Institutions<br>Cannot Afford to Wait</h2>
     <div class="why-grid">
       <div class="why-col">
         <div class="why-item">
-          <h4>Accelerating AI Adoption Without Readiness Infrastructure</h4>
-          <p>Institutions are being asked to integrate AI tools into core operations faster than they can develop the literacy, governance structures, and human capacity to do so safely and strategically.</p>
+          <h4>AI adoption is outpacing readiness</h4>
+          <p>Teams are using AI tools before institutions have the literacy, frameworks, or oversight capacity to support that use responsibly. The gap widens every quarter.</p>
         </div>
         <div class="why-item">
-          <h4>Human Judgment Under Systemic Complexity</h4>
-          <p>When AI mediates decisions and information flows, the quality of human judgment becomes more consequential, not less. Protecting and developing judgment capacity is a strategic institutional imperative.</p>
+          <h4>Governance is lagging deployment</h4>
+          <p>Regulatory requirements and accountability expectations are tightening. Institutions that build governance literacy now will adapt faster — and with less risk — as frameworks mature.</p>
         </div>
         <div class="why-item">
-          <h4>Governance and Oversight Challenges</h4>
-          <p>Regulatory frameworks, ethical guidelines, and organizational policies are all lagging behind actual AI deployment. Institutions that invest now in governance literacy will navigate emerging requirements with greater agility.</p>
+          <h4>Training budgets exist, but the right content doesn't</h4>
+          <p>Most off-the-shelf AI training is either too technical, too generic, or too superficial for institutional contexts. There is a real gap for credible, practical, context-sensitive provision.</p>
         </div>
       </div>
       <div class="why-col">
         <div class="why-item">
-          <h4>Institutional Uncertainty and Fragility</h4>
-          <p>AI transition amplifies existing institutional tensions — around authority, trust, transparency, and accountability. Unaddressed, these tensions reduce cohesion and increase operational risk at precisely the moment when coherence matters most.</p>
+          <h4>Literacy gaps create institutional risk</h4>
+          <p>When staff, faculty, and leadership have very different levels of AI understanding, coherent institutional response becomes impossible — and individual errors carry organizational consequences.</p>
         </div>
         <div class="why-item">
-          <h4>Future Readiness as Competitive Positioning</h4>
-          <p>Institutions that build genuine AI literacy and resilient human systems now will be significantly better positioned for partnership, funding, and leadership opportunities as the governance landscape matures globally.</p>
+          <h4>Stakeholders expect responsible AI</h4>
+          <p>Students, funders, regulators, and partner organizations increasingly scrutinize how institutions engage with AI. Demonstrable oversight and responsible adoption are becoming baseline expectations.</p>
         </div>
         <div class="why-item">
-          <h4>Responsible Innovation as Institutional Identity</h4>
-          <p>Increasingly, institutional stakeholders — students, staff, funders, and regulators — expect organizations to demonstrate not just AI adoption, but responsible, thoughtful, and human-centered approaches to AI integration.</p>
+          <h4>Early movers gain lasting advantage</h4>
+          <p>Institutions that invest in AI readiness now will be significantly better positioned for funding, partnerships, and leadership as AI governance becomes a standard institutional requirement.</p>
         </div>
       </div>
     </div>
@@ -1101,12 +1484,25 @@
           <li>Institutional learning resources and toolkits</li>
           <li>Responsible AI training content and case studies</li>
         </ul>
+        <div class="deliverables-block">
+          <div class="deliverables-label">Typical Deliverables</div>
+          <div class="deliverables-grid">
+            <span class="deliverable-item">Facilitator guides</span>
+            <span class="deliverable-item">Learner toolkits</span>
+            <span class="deliverable-item">Online modules</span>
+            <span class="deliverable-item">Slide decks</span>
+            <span class="deliverable-item">Assessment tools</span>
+            <span class="deliverable-item">Implementation guides</span>
+            <span class="deliverable-item">Digital literacy frameworks</span>
+            <span class="deliverable-item">Workshop curricula</span>
+          </div>
+        </div>
         <div class="service-outcomes">
           <span class="outcome-tag">↑ Org-wide readiness</span>
           <span class="outcome-tag">↑ Responsible adoption</span>
           <span class="outcome-tag">↓ Knowledge gaps</span>
         </div>
-        <div class="service-audience"><strong>Ideal for:</strong> HR and L&amp;D teams, academic departments, training providers, innovation offices</div>
+        <div class="service-audience"><strong>Ideal for:</strong> HR and L&amp;D teams, academic departments, training providers, innovation offices, development organizations</div>
         <a href="#contact" class="service-cta">Request Service →</a>
       </div>
       <div class="service-card">
@@ -1149,32 +1545,202 @@
   </div>
 </section>
 
+<!-- DIGITAL LITERACY CAPACITY BUILDING SECTION -->
+<section class="digital-literacy" id="digital-literacy">
+  <div class="container">
+    <div class="dl-header">
+      <div class="section-label">Digital Literacy Capacity Building</div>
+      <h2 class="section-title">Practical Training for<br><em>Real Learning Contexts</em></h2>
+      <p class="section-desc">Accessible, learner-centered digital literacy training designed for organizations working in diverse contexts — including low-resource environments, mixed-capability teams, and settings where AI adoption is early-stage or uneven.</p>
+    </div>
+
+    <div class="dl-intro-row">
+      <div class="dl-intro-text">
+        <p>Digital literacy is not a single skill — it is a cluster of practical capabilities that people need to participate confidently in AI-mediated environments. Our capacity building work is built around that reality: training that meets learners where they are, uses language they can engage with, and produces skills they can apply immediately.</p>
+        <p>This work is especially relevant for development organizations, educational institutions, and public bodies that are expanding digital access and need training materials and facilitators equipped for the human side of that transition.</p>
+      </div>
+      <div class="dl-context-tags">
+        <div class="dl-context-tag-group">
+          <div class="dl-context-label">Contexts We Design For</div>
+          <div class="dl-context-list">
+            <span class="dl-tag">Low-resource environments</span>
+            <span class="dl-tag">Mixed-capability teams</span>
+            <span class="dl-tag">Early-stage AI adoption</span>
+            <span class="dl-tag">Multilingual audiences</span>
+            <span class="dl-tag">Community education settings</span>
+            <span class="dl-tag">Frontline staff training</span>
+            <span class="dl-tag">NGO and development contexts</span>
+            <span class="dl-tag">Higher education transition</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dl-modules-grid">
+      <div class="dl-module">
+        <div class="dl-module-num">A</div>
+        <h3>Foundational Digital Literacy</h3>
+        <p>Core skills for navigating digital environments — understanding data, online safety, evaluating information sources, and using digital tools with confidence and critical awareness.</p>
+        <ul class="dl-module-items">
+          <li>What digital literacy means in practice</li>
+          <li>Navigating information and misinformation</li>
+          <li>Data privacy and personal digital safety</li>
+          <li>Using digital tools effectively in your context</li>
+        </ul>
+        <div class="dl-module-format">Available as: self-paced modules · facilitated workshop · blended learning</div>
+      </div>
+      <div class="dl-module">
+        <div class="dl-module-num">B</div>
+        <h3>AI Literacy for Non-Technical Audiences</h3>
+        <p>Plain-language, practically-oriented AI literacy training for staff, educators, and community members who need to understand and engage with AI tools — without a technical background.</p>
+        <ul class="dl-module-items">
+          <li>How AI systems work in accessible terms</li>
+          <li>Where AI helps and where it fails</li>
+          <li>Recognizing AI-generated content</li>
+          <li>Responsible use in professional and community contexts</li>
+        </ul>
+        <div class="dl-module-format">Available as: facilitated workshop · learner toolkit · train-the-trainer</div>
+      </div>
+      <div class="dl-module">
+        <div class="dl-module-num">C</div>
+        <h3>Responsible AI for Educators &amp; Facilitators</h3>
+        <p>Specialized training for teachers, trainers, and facilitators who need to support others through digital and AI transitions — including how to introduce AI topics ethically and inclusively.</p>
+        <ul class="dl-module-items">
+          <li>Pedagogical approaches to AI and digital literacy</li>
+          <li>Ethical framing for diverse learner groups</li>
+          <li>Inclusive facilitation practices</li>
+          <li>Adapting materials for local contexts</li>
+        </ul>
+        <div class="dl-module-format">Available as: train-the-trainer programme · facilitator guide · curriculum resource</div>
+      </div>
+      <div class="dl-module">
+        <div class="dl-module-num">D</div>
+        <h3>Institutional Digital Readiness</h3>
+        <p>Organization-level assessment and planning support — helping institutions understand where their teams are in the digital literacy spectrum and what training investment is most needed and feasible.</p>
+        <ul class="dl-module-items">
+          <li>Digital literacy needs assessment</li>
+          <li>Staff readiness mapping</li>
+          <li>Training roadmap development</li>
+          <li>Resource and implementation planning</li>
+        </ul>
+        <div class="dl-module-format">Available as: consultancy engagement · written assessment report · workshop</div>
+      </div>
+    </div>
+
+    <div class="dl-deliverables-row">
+      <div class="dl-deliverables-label">
+        <div class="section-label" style="margin-bottom:8px;">Training Deliverables</div>
+        <p style="font-size:14px;color:#6B6B68;line-height:1.6;">All engagements produce concrete, usable outputs — not just sessions.</p>
+      </div>
+      <div class="dl-deliverables-list">
+        <div class="dl-deliverable">
+          <div class="dl-deliverable-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div>
+            <div class="dl-deliverable-name">Facilitator Guides</div>
+            <div class="dl-deliverable-desc">Complete session plans with timing, instructions, and facilitation notes</div>
+          </div>
+        </div>
+        <div class="dl-deliverable">
+          <div class="dl-deliverable-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <div>
+            <div class="dl-deliverable-name">Learner Toolkits</div>
+            <div class="dl-deliverable-desc">Participant-facing materials they can keep and reference after the session</div>
+          </div>
+        </div>
+        <div class="dl-deliverable">
+          <div class="dl-deliverable-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div>
+            <div class="dl-deliverable-name">Slide Decks &amp; Presentations</div>
+            <div class="dl-deliverable-desc">Editable, branded slide resources for workshop and classroom delivery</div>
+          </div>
+        </div>
+        <div class="dl-deliverable">
+          <div class="dl-deliverable-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <div>
+            <div class="dl-deliverable-name">Online &amp; Asynchronous Modules</div>
+            <div class="dl-deliverable-desc">Self-paced digital content suitable for distributed or remote learners</div>
+          </div>
+        </div>
+        <div class="dl-deliverable">
+          <div class="dl-deliverable-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          </div>
+          <div>
+            <div class="dl-deliverable-name">Assessment Tools</div>
+            <div class="dl-deliverable-desc">Pre/post assessments and knowledge checks to measure learning outcomes</div>
+          </div>
+        </div>
+        <div class="dl-deliverable">
+          <div class="dl-deliverable-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <div>
+            <div class="dl-deliverable-name">Digital Literacy Frameworks</div>
+            <div class="dl-deliverable-desc">Conceptual frameworks adapted to your institutional or national context</div>
+          </div>
+        </div>
+        <div class="dl-deliverable">
+          <div class="dl-deliverable-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          </div>
+          <div>
+            <div class="dl-deliverable-name">Implementation Guides</div>
+            <div class="dl-deliverable-desc">Step-by-step guidance for rolling out training programmes internally</div>
+          </div>
+        </div>
+        <div class="dl-deliverable">
+          <div class="dl-deliverable-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div>
+            <div class="dl-deliverable-name">Train-the-Trainer Resources</div>
+            <div class="dl-deliverable-desc">Materials and guidance enabling local facilitators to deliver independently</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dl-cta-row">
+      <a href="#contact" class="btn-primary">Discuss a Training Programme</a>
+      <a href="#contact" class="btn-secondary">Request a Deliverables Proposal</a>
+    </div>
+  </div>
+</section>
+
 <!-- APPROACH SECTION -->
 <section class="approach">
   <div class="container">
     <div class="section-label">Approach</div>
     <h2 class="section-title">A Research-Informed<br>Institutional Approach</h2>
-    <p class="section-desc">Four interlocking pillars that together constitute a coherent framework for institutional AI transition — grounded in academic research and designed for practical application.</p>
+    <p class="section-desc">Four principles that shape how we design every workshop, training programme, briefing, and report — grounded in research and built for practical application.</p>
     <div class="approach-grid">
       <div class="approach-pillar">
         <span class="pillar-num">01</span>
         <h3>Human-Centered AI</h3>
-        <p>Positioning human agency, judgment, and wellbeing as foundational design constraints — not afterthoughts — in how institutions adopt, deploy, and govern AI systems. Grounded in ongoing doctoral research at University College Dublin.</p>
+        <p>AI adoption works better when people are treated as the primary consideration — not an afterthought. We design training and advisory around what human beings actually need to work well alongside AI: clarity, judgment, and meaningful oversight.</p>
       </div>
       <div class="approach-pillar">
         <span class="pillar-num">02</span>
         <h3>Digital Literacy &amp; Human Capacity</h3>
-        <p>Building the conceptual frameworks and practical skills that enable individuals and institutions to engage critically and constructively with AI — moving beyond surface-level familiarity toward genuine, durable literacy.</p>
+        <p>Real digital literacy is practical. It means people can actually use digital tools safely, evaluate AI-generated content critically, and make informed decisions in their specific role and context — not just pass a quiz about it.</p>
       </div>
       <div class="approach-pillar">
         <span class="pillar-num">03</span>
         <h3>Institutional Resilience</h3>
-        <p>Strengthening the organizational conditions — culture, process, relationships, and structures — that allow institutions to absorb disruption, maintain coherence, and adapt with strategic intentionality during periods of rapid AI change.</p>
+        <p>Organizations absorb AI transition better when they have invested in their people and processes — not just their tools. We help institutions build the internal capacity they need to stay coherent and effective as AI continues to change their environment.</p>
       </div>
       <div class="approach-pillar">
         <span class="pillar-num">04</span>
         <h3>Systems-Level Insight</h3>
-        <p>Analyzing AI challenges not as isolated technical events but as complex systemic phenomena — attending to feedback loops, emergent effects, stakeholder interdependencies, and the institutional conditions that shape AI outcomes.</p>
+        <p>AI challenges rarely have a single cause or a single fix. We help institutions see the broader picture — how different pressures interact, where the real bottlenecks are, and where training and advisory investment will have the most practical impact.</p>
       </div>
     </div>
   </div>
@@ -1317,86 +1883,6 @@
   </div>
 </section>
 
-<!-- PROTOTYPE SECTION -->
-<section class="prototype" id="prototype">
-  <div class="container">
-    <div class="proto-header">
-      <div class="section-label">Prototype Exploration</div>
-      <h2 class="section-title">Early-Stage Research Prototype</h2>
-      <div class="proto-notice">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        Research prototype — not a commercial product
-      </div>
-    </div>
-    <div class="proto-grid">
-      <div class="proto-mockup-wrap">
-        <div class="proto-bar">
-          <div class="proto-dot" style="background:#E8D5D5;"></div>
-          <div class="proto-dot" style="background:#E8E2D5;"></div>
-          <div class="proto-dot" style="background:#D5E8D8;"></div>
-          <div class="proto-url">prototype.yaoxie.research / contextual-wellbeing</div>
-        </div>
-        <div class="proto-screen">
-          <div class="proto-screen-header">
-            <span class="proto-screen-title">Institutional Context Dashboard</span>
-            <span class="proto-badge-sm">PROTOTYPE · ALPHA</span>
-          </div>
-          <div class="proto-cards">
-            <div class="proto-card-sm">
-              <div class="proto-card-sm-label">Literacy Index</div>
-              <div class="proto-card-sm-val">74.2</div>
-              <div class="proto-card-sm-sub">Institutional baseline</div>
-            </div>
-            <div class="proto-card-sm">
-              <div class="proto-card-sm-label">Resilience Score</div>
-              <div class="proto-card-sm-val">61.8</div>
-              <div class="proto-card-sm-sub">System health estimate</div>
-            </div>
-          </div>
-          <div style="margin-bottom:16px;">
-            <svg width="100%" height="80" viewBox="0 0 400 80" preserveAspectRatio="none">
-              <rect width="400" height="80" fill="#F4F3F0" rx="3"/>
-              <polyline points="0,60 50,52 100,48 150,38 200,42 250,32 300,28 350,20 400,18"
-                fill="none" stroke="#2D5B8E" stroke-width="1.5" stroke-linejoin="round"/>
-              <polyline points="0,60 50,52 100,48 150,38 200,42 250,32 300,28 350,20 400,18"
-                fill="url(#grad)" stroke="none" opacity="0.1"/>
-              <defs>
-                <linearGradient id="grad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#2D5B8E"/>
-                  <stop offset="100%" stop-color="#2D5B8E" stop-opacity="0"/>
-                </linearGradient>
-              </defs>
-              <text x="8" y="14" font-family="Geist Mono, monospace" font-size="9" fill="#9B9A97">Adaptive Capacity Trajectory</text>
-            </svg>
-          </div>
-          <div style="background:#F4F3F0;border:1px solid #E8E7E3;border-radius:3px;padding:14px 16px;">
-            <div style="font-size:10px;color:#9B9A97;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;">System Signals</div>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;">
-              <div style="font-size:11px;color:#2D5B8E;background:#E8EFF7;border:1px solid #C8D8EA;padding:3px 8px;border-radius:2px;">Agency ↑</div>
-              <div style="font-size:11px;color:#2D5B8E;background:#E8EFF7;border:1px solid #C8D8EA;padding:3px 8px;border-radius:2px;">Literacy ↑</div>
-              <div style="font-size:11px;color:#7A6830;background:#FFF8E7;border:1px solid #E8D99A;padding:3px 8px;border-radius:2px;">Oversight △</div>
-              <div style="font-size:11px;color:#6B6B68;background:#F4F3F0;border:1px solid #E8E7E3;padding:3px 8px;border-radius:2px;">Coherence →</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="proto-info">
-        <h3>Contextual Wellbeing &amp; Institutional Insight</h3>
-        <p>An early-stage research-informed prototype exploring how contextual wellbeing indicators, human-centered system signals, and institutional insight approaches might be made legible and actionable for organizations navigating AI transition.</p>
-        <p>This exploration is not a commercial product. It is a research artifact — a proof-of-concept in service of a larger inquiry into what institutional AI readiness might look like when human conditions are treated as primary data.</p>
-        <div class="proto-tags">
-          <span class="proto-tag">Research Prototype</span>
-          <span class="proto-tag">Conceptual Framework</span>
-          <span class="proto-tag">Human Systems</span>
-          <span class="proto-tag">Institutional Insight</span>
-          <span class="proto-tag">Early Stage</span>
-        </div>
-        <a href="#contact" class="btn-ghost">Discuss the Research</a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ABOUT SECTION -->
 <section class="about" id="about">
   <div class="container">
@@ -1468,12 +1954,15 @@
 <section class="final-cta" id="contact">
   <div class="container">
     <div class="section-label" style="justify-content:center;">Work With Us</div>
-    <h2 class="section-title" style="margin:0 auto 20px;">Let's Explore<br><em style="font-style:italic;color:#7BA3CC;">Human-Centered Futures</em></h2>
-    <p class="final-cta-sub">Whether you are planning a workshop, building institutional AI strategy, or seeking research-informed insight — ContextWell Lab welcomes the conversation.</p>
+    <h2 class="section-title" style="margin:0 auto 20px;">Ready to Start?<br><em style="font-style:italic;color:#7BA3CC;">Let's Talk.</em></h2>
+    <p class="final-cta-sub">Book a free 30-minute discovery call. We'll understand your context, discuss what would be most useful, and agree next steps — no obligation, no jargon.</p>
     <div class="final-cta-buttons">
-      <a href="mailto:hello@contextwelllab.ie" class="btn-white">Book Workshop</a>
-      <a href="mailto:hello@contextwelllab.ie" class="btn-outline-white">Schedule Strategic Briefing</a>
-      <a href="#whitepaper" class="btn-outline-white">Download White Paper</a>
+      <a href="mailto:hello@contextwelllab.ie" class="btn-white">Book a 30-Min Discovery Call</a>
+      <a href="mailto:hello@contextwelllab.ie" class="btn-outline-white">Request a Proposal</a>
+      <a href="ContextWell_Lab_Capability_Deck.pdf" download class="btn-outline-white" style="display:inline-flex;align-items:center;gap:6px;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Capability Deck
+      </a>
     </div>
   </div>
 </section>
@@ -1544,7 +2033,7 @@
     });
   }, { threshold: 0.08 });
 
-  document.querySelectorAll('.challenge-card, .service-card, .approach-pillar, .why-item, .affil-item, .whom-card, .sp-card, .process-step').forEach(el => {
+  document.querySelectorAll('.challenge-card, .service-card, .approach-pillar, .why-item, .affil-item, .whom-card, .sp-card, .process-step, .dl-module, .dl-deliverable, .pkg-card').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
@@ -1565,6 +2054,15 @@
   });
   document.querySelectorAll('.sp-card').forEach((el, i) => {
     el.style.transitionDelay = `${i * 0.07}s`;
+  });
+  document.querySelectorAll('.pkg-card').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.1}s`;
+  });
+  document.querySelectorAll('.dl-module').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.08}s`;
+  });
+  document.querySelectorAll('.dl-deliverable').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.05}s`;
   });
   document.querySelectorAll('.process-step').forEach((el, i) => {
     el.style.transitionDelay = `${i * 0.1}s`;
