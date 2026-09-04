@@ -174,6 +174,41 @@
       </div>
     </section>
 
+    <section class="max-w-6xl mx-auto mb-16">
+      <div class="rounded-xl border border-slate-800 bg-slate-900 p-6 md:p-8">
+        <p class="text-xs uppercase tracking-wide text-emerald-400 mb-2">Research Network</p>
+        <h2 class="text-2xl font-semibold mb-3">Collaborating across research and practice</h2>
+        <p class="max-w-3xl text-sm text-slate-300 mb-5">
+          ContextWell’s Research Network brings together five research partners and affiliate organisations advancing human capacity, well-being, and responsible AI.
+        </p>
+        <a href="/contextwell/network/" class="inline-flex rounded-lg bg-emerald-400 px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-emerald-300">
+          Explore the Research Network →
+        </a>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto mb-16">
+      <h2 class="text-xl font-semibold mb-4">Get Involved</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <a href="/contextwell/network/#get-involved" class="card-hover block rounded-xl border border-slate-800 bg-slate-900 p-6 hover:border-emerald-400">
+          <h3 class="text-lg font-semibold mb-2">Join the Research Network</h3>
+          <p class="text-sm text-slate-400">Connect your research, practice, or organisation with the ContextWell Research Network.</p>
+        </a>
+        <a href="/contextwell/for-organisations/" class="card-hover block rounded-xl border border-slate-800 bg-slate-900 p-6 hover:border-emerald-400">
+          <h3 class="text-lg font-semibold mb-2">Collaborate with ContextWell</h3>
+          <p class="text-sm text-slate-400">Explore commissioned research and advisory work with ContextWell Lab.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto mb-16">
+      <div class="flex flex-wrap items-end justify-between gap-4 mb-4">
+        <h2 class="text-xl font-semibold">Latest News</h2>
+        <a href="/contextwell/news/" class="text-sm text-emerald-400 hover:text-emerald-300">View all news →</a>
+      </div>
+      <div data-news-container="latest" data-news-limit="3" data-news-compact="true" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+    </section>
+
     <!-- Emerging Research -->
     <section class="max-w-4xl mx-auto mb-16">
       <h2 class="text-xl font-semibold mb-3">Emerging Research</h2>
@@ -248,12 +283,7 @@
 
   </main>
 
-  <!-- Footer -->
-  <footer class="border-t border-slate-800 py-6 px-6 mt-4">
-    <div class="max-w-6xl mx-auto text-xs text-slate-500 flex flex-col md:flex-row items-center justify-between gap-2">
-      <div>© ContextWell™ Lab designing human capacity architectures for AI mediated environments</div>
-    </div>
-  </footer>
+  <div id="site-footer"></div>
 
   <!-- Load shared header AFTER the DOM exists -->
   <style>
@@ -268,23 +298,15 @@
     (function () {
       const BASE = "/contextwell";
 
-      // Inject header HTML
-      async function injectHeader() {
-        const mount = document.getElementById("site-header");
+      async function inject(mount, url) {
         if (!mount) return;
 
         try {
-          const res = await fetch(`${BASE}/partials/header.html`, { cache: "no-store" });
-          if (!res.ok) throw new Error("Failed to load header");
+          const res = await fetch(url, { cache: "no-store" });
+          if (!res.ok) throw new Error("Failed to load: " + url);
           mount.innerHTML = await res.text();
         } catch (err) {
-          console.error("Header load failed:", err);
-          mount.innerHTML = `
-            <div class="fixed top-0 inset-x-0 bg-slate-950/95 border-b border-slate-800 backdrop-blur z-50">
-              <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-                <a href="/contextwell/" class="text-xl font-bold text-emerald-400">ContextWell Lab</a>
-              </div>
-            </div>`;
+          console.warn("Partial load failed:", err);
         }
       }
 
@@ -345,7 +367,8 @@
 
       function boot() {
         setupDelegatedNav();
-        injectHeader();
+        inject(document.getElementById("site-header"), `${BASE}/partials/header.html`);
+        inject(document.getElementById("site-footer"), `${BASE}/partials/footer.html`);
       }
 
       if (document.readyState === "loading") {
@@ -355,7 +378,7 @@
       }
     })();
   </script>
+  <script src="/contextwell/assets/js/news-loader.js"></script>
 
 </body>
 </html>
-

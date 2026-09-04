@@ -46,55 +46,64 @@
   }
 
   /**
-   * Format date as "Jan 15, 2026"
+   * Format date as "Jan 2026"
    */
   function formatDate(dateStr) {
-    const date = new Date(dateStr);
+    const date = new Date(`${dateStr}-01T00:00:00`);
     return new Intl.DateTimeFormat("en-US", {
       year: "numeric",
       month: "short",
-      day: "numeric",
     }).format(date);
+  }
+
+  function escapeHtml(value) {
+    return String(value).replace(/[&<>"']/g, (character) => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;",
+    }[character]));
+  }
+
+  function safeUrl(value) {
+    return /^(?:https?:\/\/|\/contextwell\/)/.test(value) ? escapeHtml(value) : "#";
   }
 
   /**
    * Render a single news item
    */
   function renderNewsItem(item, isCompact = false) {
-    const hasImage = item.image && item.image.trim() !== "";
     const dateFormatted = formatDate(item.date);
+    const title = escapeHtml(item.title);
+    const category = escapeHtml(item.category);
+    const excerpt = escapeHtml(item.excerpt);
+    const url = safeUrl(item.url);
 
     if (isCompact) {
-      // Compact version for sidebar / latest news sections
       return `
-        <a href="${item.link}" class="block rounded-lg border border-slate-800 bg-slate-900 p-4 hover:border-emerald-400 transition">
-          <div class="text-xs text-slate-400 mb-2">${dateFormatted}</div>
-          <div class="text-sm font-semibold text-slate-100 line-clamp-2 mb-2">${item.title}</div>
-          <div class="text-xs text-slate-400 line-clamp-2">${item.description}</div>
-        </a>
+        <article class="rounded-xl border border-slate-800 bg-slate-900 p-5 hover:border-emerald-400 transition">
+          <div class="mb-3 flex items-center gap-2 text-xs">
+            <span class="rounded-full bg-emerald-400/10 px-2 py-1 font-semibold text-emerald-400">${category}</span>
+            <time class="text-slate-400">${dateFormatted}</time>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-100 mb-2">${title}</h3>
+          <p class="text-sm text-slate-400">${excerpt}</p>
+        </article>
       `;
     }
 
-    // Full version for news page
     return `
-      <article id="${item.id}" class="rounded-xl border border-slate-800 bg-slate-900 overflow-hidden hover:border-emerald-400 transition">
-        ${
-          hasImage
-            ? `<img src="${item.image}" alt="${item.title}" class="w-full h-48 object-cover bg-slate-800" />`
-            : `<div class="w-full h-48 bg-slate-800 flex items-center justify-center">
-            <div class="text-slate-600 text-sm">No image</div>
-          </div>`
-        }
-        <div class="p-6">
-          <div class="text-xs text-emerald-400 font-semibold mb-2">${dateFormatted}</div>
-          <a href="${item.link}" class="block">
-            <h3 class="text-xl font-semibold text-slate-100 mb-2 hover:text-emerald-400">${item.title}</h3>
-          </a>
-          <p class="text-slate-400 text-sm mb-4">${item.description}</p>
-          <a href="${item.link}" class="inline-block text-xs rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 text-slate-300 hover:border-emerald-400 hover:text-emerald-400 transition">
+      <article class="rounded-xl border border-slate-800 bg-slate-900 p-6 hover:border-emerald-400 transition">
+          <div class="mb-3 flex items-center gap-2 text-xs">
+            <span class="rounded-full bg-emerald-400/10 px-2 py-1 font-semibold text-emerald-400">${category}</span>
+            <time class="text-slate-400">${dateFormatted}</time>
+          </div>
+          <h3 class="text-xl font-semibold text-slate-100 mb-2">${title}</h3>
+          <p class="text-slate-400 text-sm mb-4">${excerpt}</p>
+          <a href="${url}" class="inline-block text-xs rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 text-slate-300 hover:border-emerald-400 hover:text-emerald-400 transition">
             Read more →
           </a>
-        </div>
       </article>
     `;
   }
