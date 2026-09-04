@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
 
-  <title>Support – ContextWell Lab</title>
+  <title>Donate – ContextWell Lab</title>
   <meta
     name="description"
-    content="Support ContextWell Lab through institutional sponsorship, community support, or applied partnerships. A research-led initiative advancing well-being and human oversight in AI mediated environments."
+    content="Donate to ContextWell Lab through institutional sponsorship, community donations, or applied partnerships. A research-led initiative advancing well-being and human oversight in AI mediated environments."
   />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -19,7 +19,7 @@
 
 <body class="bg-slate-950 text-slate-100">
 
-  <!-- Global header (injected by /assets/js/site.js) -->
+  <!-- Global header (injected by shared partial) -->
   <div id="site-header"></div>
 
   <main class="pt-28 pb-16 px-6 max-w-6xl mx-auto">
@@ -27,11 +27,12 @@
 
       <div class="lg:col-span-8">
         <section class="section">
-          <p class="muted uppercase tracking-wider">Support</p>
-          <h1 class="mt-2">Support ContextWell Lab</h1>
+          <p class="muted uppercase tracking-wider">Donate</p>
+          <h1 class="mt-2">Donate to ContextWell Lab</h1>
           <p class="mt-4">
             ContextWell Lab is a research-led initiative developing frameworks and prototypes that strengthen
-            well-being and human oversight as trainable capacities in AI mediated environments.
+            well-being and human oversight as trainable capacities in AI mediated environments. Your donation
+            provides direct financial support to the Lab.
           </p>
           <p class="mt-4">
             This page offers three pathways, depending on your role and intent.
@@ -42,10 +43,6 @@
             <a class="btn" href="#community">Community support</a>
             <a class="btn" href="#partnerships">Partnerships</a>
           </div>
-
-          <p class="muted mt-4">
-            Note: This page is routed at <strong>/contextwell/for-organisations/</strong> to match the current navigation structure.
-          </p>
         </section>
 
         <section class="section">
@@ -181,7 +178,7 @@
 
         <section class="section">
           <p class="muted">
-            Support for ContextWell Lab contributes to a broader effort to treat well-being and human oversight
+            Donations to ContextWell Lab contribute to a broader effort to treat well-being and human oversight
             as foundational capacities for societies navigating technological complexity.
           </p>
         </section>
@@ -209,8 +206,7 @@
           <div class="mt-5 border-t border-slate-800 pt-4">
             <div class="muted">Navigation</div>
             <div class="mt-3 flex flex-col gap-2">
-              <a class="btn" href="/contextwell/projects/">Projects</a>
-              <a class="btn" href="/contextwell/solutions/">Solutions</a>
+              <a class="btn" href="/contextwell/projects/">Research</a>
               <a class="btn" href="/contextwell/library/">Library</a>
             </div>
           </div>
@@ -220,11 +216,43 @@
     </div>
   </main>
 
-  <!-- Global footer (injected by /assets/js/site.js) -->
+  <!-- Global footer (injected by shared partial) -->
   <div id="site-footer"></div>
 
-  <!-- Global JS -->
-  <script src="/contextwell/assets/js/site.js"></script>
+  <!-- Partials Loader -->
+  <script>
+    (function () {
+      const BASE = "/contextwell";
+
+      async function inject(el, url) {
+        if (!el) return;
+        try {
+          const res = await fetch(url, { cache: "no-store" });
+          if (!res.ok) throw new Error("Failed to load: " + url);
+          el.innerHTML = await res.text();
+        } catch (error) {
+          console.warn(error);
+        }
+      }
+
+      function boot() {
+        inject(document.getElementById("site-header"), `${BASE}/partials/header.html`);
+        inject(document.getElementById("site-footer"), `${BASE}/partials/footer.html`);
+      }
+
+      document.addEventListener("click", function (event) {
+        const toggle = event.target.closest("#nav-toggle");
+        if (!toggle) return;
+        const panel = document.getElementById("site-nav");
+        if (!panel) return;
+        const isOpen = !panel.classList.contains("hidden");
+        panel.classList.toggle("hidden");
+        toggle.setAttribute("aria-expanded", String(!isOpen));
+      });
+
+      document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", boot) : boot();
+    })();
+  </script>
 </body>
 </html>
 
