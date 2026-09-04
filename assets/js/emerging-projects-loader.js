@@ -6,8 +6,7 @@
  *
  * Supported fields per item (all optional except title):
  *   title, shortDescription, whyItMatters, stage, priority,
- *   supportNeeded (array), collaborationOpportunity, interestCTA
- * Legacy fields (still supported): researchArea, description, significance, seeking, url
+ *   supportNeeded (array), collaborationOpportunity, interestCTA, url
  */
 
 (function () {
@@ -51,14 +50,10 @@
    * Render a single emerging project card
    */
   function renderProjectCard(item) {
-    const stage = item.stage || item.researchArea || "";
-    const description = item.shortDescription || item.description || "";
-    const whyItMatters = item.whyItMatters || item.significance || "";
-    const supportNeeded = Array.isArray(item.supportNeeded)
-      ? item.supportNeeded
-      : Array.isArray(item.seeking)
-      ? item.seeking
-      : [];
+    const stage = item.stage || "";
+    const description = item.shortDescription || "";
+    const whyItMatters = item.whyItMatters || "";
+    const supportNeeded = Array.isArray(item.supportNeeded) ? item.supportNeeded : [];
     const supportNeededText = supportNeeded.map(escapeHtml).join(" · ");
     const url = typeof item.url === "string" ? item.url.trim() : "";
     const ctaHref = url !== "" ? escapeHtml(url) : `mailto:${CONTACT_EMAIL}`;
