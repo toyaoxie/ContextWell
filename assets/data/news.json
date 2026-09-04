@@ -1,0 +1,56 @@
+[
+  {
+    "id": "news-001",
+    "date": "2026-09-20",
+    "title": "ContextWell Lab Joins IASEAI as an Affiliate",
+    "description": "ContextWell Lab is pleased to announce that it has joined the International Association for Safe & Ethical AI (IASEAI) as an affiliate. This affiliation connects ContextWell Lab with an international community working to advance safe and ethical AI through research, policy, education, and collaboration.",
+    "image": "/contextwell/assets/images/news-iaseai.jpg",
+    "link": "/contextwell/news/#news-001",
+    "featured": true
+  },
+  {
+    "id": "news-002",
+    "date": "2026-05-19",
+    "title": "ContextWell Lab Launches New Research Initiative",
+    "description": "Announcing our latest research program focused on embedding well-being as infrastructure in educational systems across three continents.",
+    "image": "/contextwell/assets/images/news-research-initiative.jpg",
+    "link": "/contextwell/news/#news-002",
+    "featured": true
+  },
+  {
+    "id": "news-003",
+    "date": "2026-04-15",
+    "title": "White Paper Published: Well-Being as Embedded Infrastructure",
+    "description": "Our foundational white paper is now available on Zenodo, outlining the structural framing of well-being and human oversight as infrastructure for AI-mediated systems.",
+    "image": "/contextwell/assets/images/news-whitepaper.jpg",
+    "link": "https://doi.org/10.5281/zenodo.18121093",
+    "featured": true
+  },
+  {
+    "id": "news-004",
+    "date": "2026-03-10",
+    "title": "Healthcare Partners Join ContextWell Collaboration",
+    "description": "Leading healthcare institutions commit to pilot capacity-building programs designed by ContextWell Lab, bringing research into practice across clinical settings.",
+    "image": "/contextwell/assets/images/news-healthcare.jpg",
+    "link": "/contextwell/news/#news-004",
+    "featured": false
+  },
+  {
+    "id": "news-005",
+    "date": "2026-02-05",
+    "title": "New Publication in PLOS ONE",
+    "description": "Our exploratory sequential mixed-methods study on AI for contextual well-being in medical education is now published and open access.",
+    "image": "/contextwell/assets/images/news-plos.jpg",
+    "link": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0321426",
+    "featured": false
+  },
+  {
+    "id": "news-006",
+    "date": "2026-01-20",
+    "title": "ContextWell Joins Global Well-Being Alliance",
+    "description": "We are proud to become a founding member of the International Alliance for Well-being in Intelligent Systems, advancing coordinated research and policy.",
+    "image": "/contextwell/assets/images/news-alliance.jpg",
+    "link": "/contextwell/news/#news-006",
+    "featured": false
+  }
+]
