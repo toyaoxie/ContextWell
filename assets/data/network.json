@@ -1,0 +1,32 @@
+[
+  {
+    "name": "University College Dublin (UCD)",
+    "location": "Dublin, Ireland",
+    "url": "https://www.ucd.ie/",
+    "relationship": "Research Partner"
+  },
+  {
+    "name": "University College Cork (UCC)",
+    "location": "Cork, Ireland",
+    "url": "https://www.ucc.ie/",
+    "relationship": "Research Partner"
+  },
+  {
+    "name": "Imperial College London",
+    "location": "London, UK",
+    "url": "https://www.imperial.ac.uk/",
+    "relationship": "Research Partner"
+  },
+  {
+    "name": "Malawi eHealth Research Centre",
+    "location": "Malawi",
+    "url": "https://www.mwrec.org/",
+    "relationship": "Research Partner"
+  },
+  {
+    "name": "International Association for Safe & Ethical AI (IASEAI)",
+    "location": "Global / online",
+    "url": "https://iaseai.org/",
+    "relationship": "Affiliate Organisation"
+  }
+]

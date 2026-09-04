@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Research & Advisory Services – ContextWell Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="ContextWell Lab provides commissioned research and advisory services for organisations working at the intersection of well-being, human capacity, and AI-mediated systems." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; }
+    .dd-open [data-dd-panel] { opacity: 1 !important; visibility: visible !important; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100">
+  <div id="site-header"></div>
+
+  <main class="max-w-6xl mx-auto px-6 pt-28 pb-16">
+    <section class="mb-16 max-w-3xl">
+      <p class="text-xs uppercase tracking-wide text-emerald-400 mb-3">For Organisations</p>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Research &amp; Advisory Services</h1>
+      <p class="text-lg text-slate-300">
+        ContextWell Lab undertakes commissioned research and advisory work for organisations seeking to strengthen well-being, human capacity, and oversight in complex AI-mediated environments.
+      </p>
+    </section>
+
+    <section class="mb-16">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <article class="rounded-xl border border-slate-800 bg-slate-900 p-6 hover:border-emerald-400 transition">
+          <h2 class="text-xl font-semibold mb-4">Commissioned Research</h2>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li>Research design</li><li>Evidence synthesis</li><li>Stakeholder analysis</li><li>Qualitative research</li><li>Mixed methods</li><li>Evaluation</li>
+          </ul>
+        </article>
+        <article class="rounded-xl border border-slate-800 bg-slate-900 p-6 hover:border-emerald-400 transition">
+          <h2 class="text-xl font-semibold mb-4">Well-being Advisory</h2>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li>Contextual well-being assessment</li><li>Well-being strategy</li><li>Intervention design</li><li>Organisational well-being</li><li>Educational well-being</li><li>Evaluation</li>
+          </ul>
+        </article>
+        <article class="rounded-xl border border-slate-800 bg-slate-900 p-6 hover:border-emerald-400 transition">
+          <h2 class="text-xl font-semibold mb-4">Research Translation</h2>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li>Framework development</li><li>Research reports</li><li>Policy/practice recommendations</li><li>Evidence-to-practice translation</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="rounded-xl border border-slate-800 bg-slate-900 p-6 md:p-8">
+      <h2 class="text-2xl font-semibold mb-3">Start a conversation</h2>
+      <p class="max-w-3xl text-sm text-slate-300 mb-5">Discuss how ContextWell can support your research, strategy, or translation needs.</p>
+      <a href="mailto:yao.xie@ucdconnect.ie?subject=ContextWell%20Research%20Project" class="inline-flex rounded-lg bg-emerald-400 px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-emerald-300">
+        Discuss a Research Project →
+      </a>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    (function () {
+      const BASE = "/contextwell";
+      async function inject(el, url) {
+        if (!el) return;
+        try {
+          const res = await fetch(url, { cache: "no-store" });
+          if (!res.ok) throw new Error("Failed to load: " + url);
+          el.innerHTML = await res.text();
+        } catch (error) {
+          console.warn(error);
+        }
+      }
+      function boot() {
+        inject(document.getElementById("site-header"), `${BASE}/partials/header.html`);
+        inject(document.getElementById("site-footer"), `${BASE}/partials/footer.html`);
+      }
+      document.addEventListener("click", function (event) {
+        const toggle = event.target.closest("#nav-toggle");
+        if (!toggle) return;
+        const panel = document.getElementById("site-nav");
+        if (!panel) return;
+        const isOpen = !panel.classList.contains("hidden");
+        panel.classList.toggle("hidden");
+        toggle.setAttribute("aria-expanded", String(!isOpen));
+      });
+      document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", boot) : boot();
+    })();
+  </script>
+</body>
+</html>
