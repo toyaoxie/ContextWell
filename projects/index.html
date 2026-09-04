@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Projects – ContextWell Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Current research projects and emerging research opportunities from ContextWell Lab, spanning human capacity, well-being, and oversight in AI mediated environments."
+  />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+    }
+    .card-hover { transition: all 0.3s ease; }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow:
+        0 20px 25px -5px rgba(16, 185, 129, 0.12),
+        0 10px 10px -5px rgba(15, 23, 42, 0.6);
+    }
+    .dd-open [data-dd-panel] {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-950 text-slate-100" id="top">
+
+  <!-- Global Header (injected) -->
+  <div id="site-header"></div>
+
+  <main class="pt-28 pb-16 px-6 max-w-6xl mx-auto">
+
+    <!-- Page Header -->
+    <section class="mb-14">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Projects</h1>
+      <p class="text-lg text-slate-300 max-w-3xl">
+        Active research projects and emerging research opportunities from ContextWell Lab.
+      </p>
+    </section>
+
+    <!-- Current / Active Research -->
+    <section class="mb-16">
+      <h2 class="text-xl font-semibold mb-4">Current Research</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <a href="/contextwell/projects/doctoral-project/" class="card-hover block bg-slate-900 border border-slate-800 rounded-xl p-6">
+          <p class="text-xs uppercase tracking-wide text-emerald-400 mb-2">Doctoral Research Project</p>
+          <h3 class="text-lg font-semibold mb-2">ContextWell Project Overview</h3>
+          <p class="text-slate-400 text-sm">
+            Harnessing AI to support sustainable human well-being capacity across AI mediated and non AI contexts.
+          </p>
+        </a>
+
+        <a href="/contextwell/projects/autonomous-evolution/" class="card-hover block bg-slate-900 border border-slate-800 rounded-xl p-6">
+          <p class="text-xs uppercase tracking-wide text-emerald-400 mb-2">Initiative</p>
+          <h3 class="text-lg font-semibold mb-2">#AutonomousEvolution</h3>
+          <p class="text-slate-400 text-sm">
+            A shared recognition of conscious participation in a world shaped by design.
+          </p>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Emerging Research -->
+    <section class="mb-16">
+      <h2 class="text-xl font-semibold mb-3">Emerging Research</h2>
+
+      <p class="text-slate-300 text-sm mb-3 max-w-3xl">
+        Selected research concepts at an early stage of development. We share these opportunities at a high level to facilitate research collaboration, funding discussions, and future project development.
+      </p>
+
+      <p class="text-slate-500 text-xs mb-6 max-w-3xl">
+        Research concepts are shared at a high level to facilitate collaboration and funding discussions. Detailed methodologies and unpublished intellectual property are not publicly disclosed.
+      </p>
+
+      <div data-emerging-research-container></div>
+    </section>
+
+  </main>
+
+  <!-- Global Footer (injected) -->
+  <div id="site-footer"></div>
+
+  <!-- Partials Loader -->
+  <script>
+    (function () {
+      const BASE = "/contextwell";
+
+      async function inject(el, url) {
+        if (!el) return;
+        try {
+          const res = await fetch(url, { cache: "no-store" });
+          if (!res.ok) throw new Error("Failed to load: " + url);
+          el.innerHTML = await res.text();
+        } catch (e) {
+          console.warn(e);
+        }
+      }
+
+      function boot() {
+        inject(document.getElementById("site-header"), BASE + "/partials/header.html");
+        inject(document.getElementById("site-footer"), BASE + "/partials/footer.html");
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", boot);
+      } else {
+        boot();
+      }
+    })();
+  </script>
+
+  <!-- Emerging Research Loader Script -->
+  <script src="/contextwell/assets/js/emerging-research-loader.js"></script>
+
+</body>
+</html>
