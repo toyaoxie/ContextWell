@@ -8,9 +8,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     html { scroll-behavior: smooth; }
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
-    }
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; }
     .card-hover { transition: all 0.3s ease; }
     .card-hover:hover {
       transform: translateY(-4px);
@@ -23,20 +21,10 @@
         radial-gradient(circle at top left, rgba(16,185,129,0.15), transparent 32%),
         radial-gradient(circle at bottom right, rgba(16,185,129,0.08), transparent 28%);
     }
-    .diagram-arrow::after {
-      content: "↓";
-      display: block;
-      margin-top: 0.5rem;
-      color: rgb(16 185 129);
-      font-size: 1.1rem;
-      line-height: 1;
-    }
-    .diagram-arrow:last-child::after { content: ""; }
   </style>
 </head>
 
 <body class="bg-slate-950 text-slate-100">
-
   <div id="site-header"></div>
 
   <main class="pt-28 pb-16 px-6">
@@ -229,14 +217,14 @@
       <div class="rounded-3xl border border-slate-800 bg-slate-900 p-6 md:p-8 lg:p-10">
         <p class="text-xs uppercase tracking-[0.28em] text-emerald-400 mb-3">From Research to Change</p>
         <h2 class="text-3xl md:text-4xl font-bold mb-8">From Research to Change</h2>
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-center items-center">
           <div class="rounded-2xl border border-slate-800 bg-slate-950 p-6"><div class="text-lg md:text-xl font-bold tracking-wide">RESEARCH</div></div>
-          <div class="flex items-center justify-center text-emerald-400 text-2xl md:text-3xl">↓</div>
+          <div class="hidden md:flex items-center justify-center text-emerald-400 text-3xl">→</div>
           <div class="rounded-2xl border border-slate-800 bg-slate-950 p-6"><div class="text-lg md:text-xl font-bold tracking-wide">DEVELOPMENT</div></div>
-          <div class="flex items-center justify-center text-emerald-400 text-2xl md:text-3xl">↓</div>
-          <div class="rounded-2xl border border-slate-800 bg-slate-950 p-6 md:col-span-1"><div class="text-lg md:text-xl font-bold tracking-wide">APPLICATION</div></div>
-          <div class="flex items-center justify-center text-emerald-400 text-2xl md:text-3xl">↓</div>
-          <div class="rounded-2xl border border-slate-800 bg-slate-950 p-6 md:col-span-1"><div class="text-lg md:text-xl font-bold tracking-wide">CHANGE</div></div>
+          <div class="hidden md:flex items-center justify-center text-emerald-400 text-3xl">→</div>
+          <div class="rounded-2xl border border-slate-800 bg-slate-950 p-6"><div class="text-lg md:text-xl font-bold tracking-wide">APPLICATION</div></div>
+          <div class="hidden md:flex items-center justify-center text-emerald-400 text-3xl">→</div>
+          <div class="rounded-2xl border border-slate-800 bg-slate-950 p-6"><div class="text-lg md:text-xl font-bold tracking-wide">CHANGE</div></div>
         </div>
         <p class="mt-8 text-sm md:text-base text-slate-300 max-w-4xl"><span class="font-semibold text-slate-100">Bridging Research &amp; Industry</span><br />We translate research into frameworks, methods, tools, and applications — and bring real-world challenges back into research.</p>
       </div>
@@ -258,17 +246,10 @@
 
   <div id="site-footer"></div>
 
-  <style>
-    .dd-open [data-dd-panel] {
-      opacity: 1 !important;
-      visibility: visible !important;
-    }
-  </style>
-
+  <style>.dd-open [data-dd-panel]{opacity:1 !important;visibility:visible !important;}</style>
   <script>
     (function () {
       const BASE = "/contextwell";
-
       async function inject(mount, url) {
         if (!mount) return;
         try {
@@ -279,7 +260,6 @@
           console.warn("Partial load failed:", err);
         }
       }
-
       function setupDelegatedNav() {
         document.addEventListener("click", function (e) {
           const toggle = e.target.closest("#nav-toggle");
@@ -290,7 +270,6 @@
           panel.classList.toggle("hidden");
           toggle.setAttribute("aria-expanded", String(!isOpen));
         });
-
         document.addEventListener("click", function (e) {
           const trigger = e.target.closest("[data-dd-trigger]");
           if (!trigger) return;
@@ -306,35 +285,25 @@
             dd.classList.remove("dd-open");
           }
         });
-
         document.addEventListener("click", function (e) {
           const isTouch = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
           if (!isTouch) return;
-          const inside = e.target.closest("[data-dd]");
-          if (inside) return;
+          if (e.target.closest("[data-dd]")) return;
           document.querySelectorAll("[data-dd].dd-open").forEach(dd => dd.classList.remove("dd-open"));
         });
-
         document.addEventListener("keydown", function (e) {
           if (e.key !== "Escape") return;
           document.querySelectorAll("[data-dd].dd-open").forEach(dd => dd.classList.remove("dd-open"));
         });
       }
-
       function boot() {
         setupDelegatedNav();
         inject(document.getElementById("site-header"), `${BASE}/partials/header.html`);
         inject(document.getElementById("site-footer"), `${BASE}/partials/footer.html`);
       }
-
-      if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", boot);
-      } else {
-        boot();
-      }
+      if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
     })();
   </script>
   <script src="/contextwell/assets/js/news-loader.js"></script>
-
 </body>
 </html>
