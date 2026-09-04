@@ -1,119 +1,129 @@
 /**
- * Emerging Research Loader — Static site-wide rendering
- * Purpose: Load emerging-research.json and render into any container with data-emerging-research-container
+ * Emerging Projects Loader — Static site-wide rendering
+ * Purpose: Load emerging-projects.json and render into any container with data-emerging-research-container
  * Usage: <div data-emerging-research-container></div>
- * Data: assets/data/emerging-research.json — an array of high-level research abstracts
+ * Data: assets/data/emerging-projects.json — an array of early-stage project abstracts
  */
 
 (function () {
   const BASE = "/contextwell";
-  const EMERGING_RESEARCH_JSON_URL = `${BASE}/assets/data/emerging-research.json`;
+  const EMERGING_PROJECTS_JSON_URL = `${BASE}/assets/data/emerging-projects.json`;
+  const LEGACY_EMERGING_RESEARCH_JSON_URL = `${BASE}/assets/data/emerging-research.json`;
   const CONTACT_EMAIL = "yao.xie@ucdconnect.ie";
 
-  // Cache to avoid multiple fetches
-  let cachedResearch = null;
+  let cachedProjects = null;
 
-  /**
-   * Fetch and parse emerging-research.json
-   */
+  function getValue(item, ...keys) {
+   for (const key of keys) {
+     if (!item || typeof item !== "object") return "";
+     if (item[key] !== undefined && item[key] !== null && item[key] !== "") return item[key];
+   }
+   return "";
+  }
+
   async function loadEmergingResearchData() {
-    if (cachedResearch) return cachedResearch;
-    try {
-      const res = await fetch(EMERGING_RESEARCH_JSON_URL, { cache: "no-store" });
-      if (!res.ok) throw new Error(`Failed to fetch emerging research: ${res.status}`);
-      cachedResearch = await res.json();
-      return cachedResearch;
-    } catch (err) {
-      console.warn("Error loading emerging research:", err);
-      return [];
-    }
+   if (cachedProjects) return cachedProjects;
+
+   const candidates = [EMERGING_PROJECTS_JSON_URL, LEGACY_EMERGING_RESEARCH_JSON_URL];
+   for (const url of candidates) {
+     try {
+       const res = await fetch(url, { cache: "no-store" });
+       if (!res.ok) continue;
+       cachedProjects = await res.json();
+       return Array.isArray(cachedProjects) ? cachedProjects : [];
+     } catch (err) {
+       console.warn("Error loading emerging projects:", err);
+     }
+   }
+
+   cachedProjects = [];
+   return [];
   }
 
-  /**
-   * Escape a value for safe interpolation into HTML
-   */
   function escapeHtml(value) {
-    if (typeof value !== "string") return "";
-    return value
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#39;");
+   if (typeof value !== "string") return "";
+   return value
+     .replace(/&/g, "&amp;")
+     .replace(/</g, "&lt;")
+     .replace(/>/g, "&gt;")
+     .replace(/"/g, "&quot;")
+     .replace(/'/g, "&#39;");
   }
 
-  /**
-   * Render a single research card
-   */
   function renderResearchCard(item) {
-    const seeking = Array.isArray(item.seeking)
-      ? item.seeking.map(escapeHtml).join(" · ")
-      : "";
-    const url = typeof item.url === "string" ? item.url.trim() : "";
-    const ctaHref = url !== "" ? escapeHtml(url) : `mailto:${CONTACT_EMAIL}`;
+   const title = escapeHtml(getValue(item, "title", "name") || "Emerging Project");
+   const stage = escapeHtml(getValue(item, "stage", "researchArea") || "Early-stage opportunity");
+   const shortDescription = escapeHtml(getValue(item, "shortDescription", "description") || "Early-stage concept under development.");
+   const whyItMatters = getValue(item, "whyItMatters", "significance");
+   const supportNeeded = getValue(item, "supportNeeded", "seeking");
+   const collaborationOpportunity = getValue(item, "collaborationOpportunity");
+   const interestCTA = getValue(item, "interestCTA", "ctaLabel", "cta") || "Get Involved";
+   const url = typeof item.url === "string" ? item.url.trim() : "";
+   const ctaHref = url !== "" ? escapeHtml(url) : `mailto:${CONTACT_EMAIL}`;
 
-    return `
-      <div class="card-hover bg-slate-900 border border-slate-800 rounded-xl p-6">
-        <p class="text-xs uppercase tracking-wide text-emerald-400 mb-2">${escapeHtml(item.researchArea)}</p>
-        <h3 class="text-lg font-semibold mb-2">${escapeHtml(item.title)}</h3>
-        <p class="text-xs text-slate-500 mb-3">${escapeHtml(item.stage)}</p>
-        <p class="text-slate-400 text-sm mb-4">${escapeHtml(item.description)}</p>
-        ${
-          item.significance
-            ? `<p class="text-sm mb-4"><span class="text-emerald-400 font-semibold">Why it matters:</span> <span class="text-slate-400">${escapeHtml(item.significance)}</span></p>`
-            : ""
-        }
-        ${
-          seeking
-            ? `<p class="text-xs text-slate-500 mb-4"><span class="text-slate-300 font-semibold">Currently seeking:</span> ${seeking}</p>`
-            : ""
-        }
-        <a href="${ctaHref}" class="inline-block text-xs rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 text-emerald-400 hover:border-emerald-400 transition">
-          Discuss this Research Opportunity →
-        </a>
-      </div>
-    `;
+   const supportText = Array.isArray(supportNeeded)
+     ? supportNeeded.map(String).join(" · ")
+     : (typeof supportNeeded === "string" ? supportNeeded : "");
+
+   return `
+     <div class="card-hover bg-slate-900 border border-slate-800 rounded-xl p-6">
+       <p class="text-xs uppercase tracking-wide text-emerald-400 mb-2">${stage}</p>
+       <h3 class="text-lg font-semibold mb-2">${title}</h3>
+       <p class="text-slate-400 text-sm mb-4">${shortDescription}</p>
+       ${
+         whyItMatters
+           ? `<p class="text-sm mb-4"><span class="text-emerald-400 font-semibold">Why it matters:</span> <span class="text-slate-400">${escapeHtml(String(whyItMatters))}</span></p>`
+           : ""
+       }
+       ${
+         supportText
+           ? `<p class="text-xs text-slate-500 mb-4"><span class="text-slate-300 font-semibold">Support needed:</span> ${escapeHtml(supportText)}</p>`
+           : ""
+       }
+       ${
+         collaborationOpportunity
+           ? `<p class="text-xs text-slate-500 mb-4"><span class="text-slate-300 font-semibold">Collaboration:</span> ${escapeHtml(String(collaborationOpportunity))}</p>`
+           : ""
+       }
+       <a href="${ctaHref}" class="inline-block text-xs rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 text-emerald-400 hover:border-emerald-400 transition">
+         ${escapeHtml(String(interestCTA))} →
+       </a>
+     </div>
+   `;
   }
 
-  /**
-   * Render emerging research into a container
-   */
   async function renderEmergingResearch(container) {
-    if (!container) return;
+   if (!container) return;
 
-    const limit = parseInt(container.dataset.emergingResearchLimit) || null;
+   const limit = parseInt(container.dataset.emergingResearchLimit) || null;
 
-    let items = await loadEmergingResearchData();
-    if (!Array.isArray(items)) items = [];
+   let items = await loadEmergingResearchData();
+   if (!Array.isArray(items)) items = [];
 
-    if (limit) {
-      items = items.slice(0, limit);
-    }
+   if (limit) {
+     items = items.slice(0, limit);
+   }
 
-    if (items.length === 0) {
-      // Empty state: leave the container clean with no cards, placeholders, or errors.
-      container.innerHTML = "";
-      return;
-    }
+   if (items.length === 0) {
+     container.innerHTML = "";
+     return;
+   }
 
-    container.innerHTML = `<div class="grid grid-cols-1 md:grid-cols-3 gap-6">${items
-      .map(renderResearchCard)
-      .join("")}</div>`;
+   container.innerHTML = `<div class="grid grid-cols-1 md:grid-cols-3 gap-6">${items
+     .map(renderResearchCard)
+     .join("")}</div>`;
   }
 
-  /**
-   * Initialize on DOMContentLoaded
-   */
   function init() {
-    document.querySelectorAll("[data-emerging-research-container]").forEach(renderEmergingResearch);
+   document.querySelectorAll("[data-emerging-research-container]").forEach(renderEmergingResearch);
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
+   document.addEventListener("DOMContentLoaded", init);
   } else {
-    init();
+   init();
   }
 
-  // Expose for manual re-render if needed
   window.CWEmergingResearch = { reload: init };
+  window.CWEmergingProjects = window.CWEmergingResearch;
 })();

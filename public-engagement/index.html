@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Public Engagement – ContextWell Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Public engagement initiatives, workshops, community participation, and open conversations from ContextWell Lab." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; }
+    .card-hover { transition: all 0.3s ease; }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -5px rgba(16, 185, 129, 0.12), 0 10px 10px -5px rgba(15, 23, 42, 0.6);
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100">
+  <div id="site-header"></div>
+
+  <main class="max-w-6xl mx-auto px-6 pt-28 pb-16">
+    <section class="mb-14 max-w-3xl">
+      <p class="text-xs uppercase tracking-wide text-emerald-400 mb-3">Public Engagement</p>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Participate in the lab’s public conversations</h1>
+      <p class="text-lg text-slate-300">
+        ContextWell Lab creates space for public dialogue, reflection, responses to emerging questions, and participation around well-being, human capacity, and AI-mediated systems.
+      </p>
+    </section>
+
+    <section class="mb-16 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <a href="/contextwell/projects/autonomous-evolution/" class="card-hover block rounded-xl border border-slate-800 bg-slate-900 p-6">
+        <p class="text-xs uppercase tracking-wide text-emerald-400 mb-2">Initiative</p>
+        <h2 class="text-xl font-semibold mb-2">Autonomous Evolution</h2>
+        <p class="text-sm text-slate-400">A shared recognition of conscious participation in a world shaped by design, kept as a public-facing exploratory initiative rather than a main research portfolio item.</p>
+      </a>
+
+      <a href="/contextwell/support/" class="card-hover block rounded-xl border border-slate-800 bg-slate-900 p-6">
+        <p class="text-xs uppercase tracking-wide text-emerald-400 mb-2">Support</p>
+        <h2 class="text-xl font-semibold mb-2">Support ContextWell Lab</h2>
+        <p class="text-sm text-slate-400">Contribute to the research, public work, and open resources that sustain the lab’s broader mission.</p>
+      </a>
+    </section>
+
+    <section class="mb-16 rounded-xl border border-slate-800 bg-slate-900 p-6 md:p-8">
+      <h2 class="text-2xl font-semibold mb-3">Public-facing pathways</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-slate-300">
+        <div class="rounded-xl border border-slate-800 bg-slate-950 p-5">
+          <h3 class="font-semibold text-slate-100 mb-2">Interest</h3>
+          <p class="text-slate-400">Share questions, ideas, or opportunities for collaboration.</p>
+        </div>
+        <div class="rounded-xl border border-slate-800 bg-slate-950 p-5">
+          <h3 class="font-semibold text-slate-100 mb-2">Feedback</h3>
+          <p class="text-slate-400">Join conversations on early-stage concepts and public-facing framing.</p>
+        </div>
+        <div class="rounded-xl border border-slate-800 bg-slate-950 p-5">
+          <h3 class="font-semibold text-slate-100 mb-2">Resources</h3>
+          <p class="text-slate-400">Explore public outputs, writing, and open questions from the lab.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="rounded-xl border border-slate-800 bg-slate-900 p-6 md:p-8">
+      <h2 class="text-2xl font-semibold mb-3">Stay connected</h2>
+      <div class="flex flex-wrap gap-4">
+        <a href="https://www.youtube.com/@wellcontext" class="inline-flex rounded-lg border border-slate-800 bg-slate-950 px-4 py-2 text-sm text-emerald-400 hover:border-emerald-400">YouTube · @wellcontext</a>
+        <a href="https://www.instagram.com/contextwelllab/" class="inline-flex rounded-lg border border-slate-800 bg-slate-950 px-4 py-2 text-sm text-emerald-400 hover:border-emerald-400">Instagram · @contextwelllab</a>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    (function () {
+      const BASE = "/contextwell";
+      async function inject(el, url) {
+        if (!el) return;
+        try {
+          const res = await fetch(url, { cache: "no-store" });
+          if (!res.ok) throw new Error("Failed to load: " + url);
+          el.innerHTML = await res.text();
+        } catch (error) {
+          console.warn(error);
+        }
+      }
+      function boot() {
+        inject(document.getElementById("site-header"), `${BASE}/partials/header.html`);
+        inject(document.getElementById("site-footer"), `${BASE}/partials/footer.html`);
+      }
+      document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", boot) : boot();
+    })();
+  </script>
+</body>
+</html>
