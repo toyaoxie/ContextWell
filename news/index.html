@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>News – ContextWell Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Latest news, research updates, and announcements from ContextWell Lab." />
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+    }
+    .dd-open [data-dd-panel] {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-950 text-slate-100" id="top">
+
+  <!-- Global Header (injected) -->
+  <div id="site-header"></div>
+
+  <!-- Main Content -->
+  <main class="pt-28 pb-16 px-6 max-w-6xl mx-auto">
+    
+    <!-- Page Header -->
+    <section class="mb-16">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">News & Updates</h1>
+      <p class="text-lg text-slate-300 max-w-3xl">
+        Stay informed about ContextWell Lab's latest research, partnerships, publications, and developments in human capacity and well-being infrastructure.
+      </p>
+    </section>
+
+    <!-- News Grid -->
+    <section class="mb-20">
+      <div data-news-container="all" data-news-compact="false"></div>
+    </section>
+
+  </main>
+
+  <!-- Global Footer (injected) -->
+  <div id="site-footer"></div>
+
+  <!-- Partials Loader + News Loader -->
+  <script>
+    (function () {
+      const BASE = "/contextwell";
+
+      // Load partials (header/footer)
+      async function inject(el, url) {
+        if (!el) return;
+        try {
+          const res = await fetch(url, { cache: "no-store" });
+          if (!res.ok) throw new Error("Failed to load: " + url);
+          el.innerHTML = await res.text();
+        } catch (e) {
+          console.warn(e);
+        }
+      }
+
+      function boot() {
+        inject(document.getElementById("site-header"), BASE + "/partials/header.html");
+        inject(document.getElementById("site-footer"), BASE + "/partials/footer.html");
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", boot);
+      } else {
+        boot();
+      }
+    })();
+  </script>
+
+  <!-- News Loader Script -->
+  <script src="/contextwell/assets/js/news-loader.js"></script>
+
+</body>
+</html>
