@@ -30,21 +30,37 @@
   }
 
   /**
+   * Escape a value for safe interpolation into HTML
+   */
+  function escapeHtml(value) {
+    if (typeof value !== "string") return "";
+    return value
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  /**
    * Render a single research card
    */
   function renderResearchCard(item) {
-    const seeking = Array.isArray(item.seeking) ? item.seeking.join(" · ") : "";
-    const ctaHref = item.url && item.url.trim() !== "" ? item.url : `mailto:${CONTACT_EMAIL}`;
+    const seeking = Array.isArray(item.seeking)
+      ? item.seeking.map(escapeHtml).join(" · ")
+      : "";
+    const url = typeof item.url === "string" ? item.url.trim() : "";
+    const ctaHref = url !== "" ? escapeHtml(url) : `mailto:${CONTACT_EMAIL}`;
 
     return `
       <div class="card-hover bg-slate-900 border border-slate-800 rounded-xl p-6">
-        <p class="text-xs uppercase tracking-wide text-emerald-400 mb-2">${item.researchArea || ""}</p>
-        <h3 class="text-lg font-semibold mb-2">${item.title || ""}</h3>
-        <p class="text-xs text-slate-500 mb-3">${item.stage || ""}</p>
-        <p class="text-slate-400 text-sm mb-4">${item.description || ""}</p>
+        <p class="text-xs uppercase tracking-wide text-emerald-400 mb-2">${escapeHtml(item.researchArea)}</p>
+        <h3 class="text-lg font-semibold mb-2">${escapeHtml(item.title)}</h3>
+        <p class="text-xs text-slate-500 mb-3">${escapeHtml(item.stage)}</p>
+        <p class="text-slate-400 text-sm mb-4">${escapeHtml(item.description)}</p>
         ${
           item.significance
-            ? `<p class="text-sm mb-4"><span class="text-emerald-400 font-semibold">Why it matters:</span> <span class="text-slate-400">${item.significance}</span></p>`
+            ? `<p class="text-sm mb-4"><span class="text-emerald-400 font-semibold">Why it matters:</span> <span class="text-slate-400">${escapeHtml(item.significance)}</span></p>`
             : ""
         }
         ${
