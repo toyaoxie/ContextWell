@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Public Engagement – ContextWell Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Public Engagement at ContextWell Lab: public-facing initiatives, participation pathways, and ways to shape emerging research, including #AutonomousEvolution." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; }
+    .card-hover { transition: all 0.3s ease; }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow:
+        0 20px 25px -5px rgba(16, 185, 129, 0.12),
+        0 10px 10px -5px rgba(15, 23, 42, 0.6);
+    }
+    .dd-open [data-dd-panel] { opacity: 1 !important; visibility: visible !important; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100">
+  <div id="site-header"></div>
+
+  <main class="max-w-6xl mx-auto px-6 pt-28 pb-16">
+    <section class="mb-14 max-w-3xl">
+      <p class="text-xs uppercase tracking-wide text-emerald-400 mb-3">ContextWell Lab</p>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Public Engagement</h1>
+      <p class="text-lg text-slate-300">
+        Public-facing initiatives and participation pathways for people who want to explore, discuss, and help shape ContextWell Lab's work.
+      </p>
+    </section>
+
+    <!-- Autonomous Evolution -->
+    <section class="mb-16">
+      <h2 class="text-xl font-semibold mb-4">Public Initiatives</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <a href="/contextwell/projects/autonomous-evolution/" class="card-hover block bg-slate-900 border border-slate-800 rounded-xl p-6">
+          <p class="text-xs uppercase tracking-wide text-emerald-400 mb-2">Public Engagement Initiative</p>
+          <h3 class="text-lg font-semibold mb-2">#AutonomousEvolution</h3>
+          <p class="text-slate-400 text-sm">
+            A shared recognition of conscious participation in a world shaped by design.
+          </p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Emerging Projects pathway -->
+    <section class="mb-16 rounded-xl border border-slate-800 bg-slate-900 p-6 md:p-8">
+      <p class="text-xs uppercase tracking-wide text-emerald-400 mb-2">Help Shape Our Work</p>
+      <h2 class="text-2xl font-semibold mb-3">Get involved with Emerging Projects</h2>
+      <p class="max-w-3xl text-sm text-slate-300 mb-5">
+        ContextWell Lab's Emerging Projects are early-stage ideas that develop through public interest, feedback, expertise, and collaboration. Explore current opportunities and let us know how you would like to contribute.
+      </p>
+      <a href="/contextwell/projects/#emerging" class="inline-flex rounded-lg bg-emerald-400 px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-emerald-300">
+        Explore Emerging Projects →
+      </a>
+    </section>
+
+    <!-- Follow / social -->
+    <section class="mb-4">
+      <h2 class="text-xl font-semibold mb-4">Follow ContextWell Lab</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <a href="https://www.youtube.com/@wellcontext" target="_blank" rel="noopener"
+           class="card-hover block bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-emerald-400">
+          <p class="text-xs uppercase tracking-wide text-emerald-400 mb-2">Video</p>
+          <h3 class="text-lg font-semibold">YouTube · @wellcontext</h3>
+        </a>
+        <a href="https://www.instagram.com/contextwelllab/" target="_blank" rel="noopener"
+           class="card-hover block bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-emerald-400">
+          <p class="text-xs uppercase tracking-wide text-emerald-400 mb-2">Community</p>
+          <h3 class="text-lg font-semibold">Instagram · @contextwelllab</h3>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    (function () {
+      const BASE = "/contextwell";
+      async function inject(el, url) {
+        if (!el) return;
+        try {
+          const res = await fetch(url, { cache: "no-store" });
+          if (!res.ok) throw new Error("Failed to load: " + url);
+          el.innerHTML = await res.text();
+        } catch (error) {
+          console.warn(error);
+        }
+      }
+      function boot() {
+        inject(document.getElementById("site-header"), `${BASE}/partials/header.html`);
+        inject(document.getElementById("site-footer"), `${BASE}/partials/footer.html`);
+      }
+      document.addEventListener("click", function (event) {
+        const toggle = event.target.closest("#nav-toggle");
+        if (!toggle) return;
+        const panel = document.getElementById("site-nav");
+        if (!panel) return;
+        const isOpen = !panel.classList.contains("hidden");
+        panel.classList.toggle("hidden");
+        toggle.setAttribute("aria-expanded", String(!isOpen));
+      });
+      document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", boot) : boot();
+    })();
+  </script>
+</body>
+</html>
