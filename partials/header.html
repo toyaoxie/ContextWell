@@ -33,12 +33,17 @@ Do NOT place <script> or <style> here when loading via fetch+innerHTML
       <div class="relative group js-dd" data-dd>
         <a href="/contextwell/projects/"
            data-dd-trigger
+           role="button"
+           aria-haspopup="menu"
+           aria-expanded="false"
            class="inline-flex items-center gap-2 text-slate-300 hover:text-emerald-400 transition">
-          Research <span class="text-slate-500 group-hover:text-emerald-400">▾</span>
+          Research <span class="text-slate-500 group-hover:text-emerald-400" aria-hidden="true">▾</span>
         </a>
 
         <div class="absolute left-0 top-full pt-2 z-50">
           <div data-dd-panel
+               role="menu"
+               aria-label="Research submenu"
                class="w-64 rounded-xl border border-slate-800 bg-slate-950/98 shadow-xl backdrop-blur
                       opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
             <div class="p-2 space-y-1">
