@@ -21,6 +21,14 @@
         radial-gradient(circle at top left, rgba(16,185,129,0.15), transparent 32%),
         radial-gradient(circle at bottom right, rgba(16,185,129,0.08), transparent 28%);
     }
+    /* mobile performance: lighter glow */
+    @media (max-width: 640px) {
+      .grid-glow {
+        background:
+          radial-gradient(circle at top left, rgba(16,185,129,0.10), transparent 28%),
+          radial-gradient(circle at bottom right, rgba(16,185,129,0.05), transparent 24%);
+      }
+    }
   </style>
 </head>
 
@@ -35,8 +43,8 @@
           <p class="inline-block mb-5 px-4 py-1 rounded-full border border-slate-800 bg-slate-900 text-xs text-slate-300">Research led • Independent laboratory</p>
           <p class="text-sm uppercase tracking-[0.28em] text-emerald-400 mb-3">ContextWell Lab</p>
           <p class="text-2xl md:text-3xl font-semibold text-slate-100 mb-3">Bridging Research &amp; Industry</p>
-          <h1 class="text-5xl md:text-7xl font-bold leading-[0.95] tracking-tight mb-5">Shaping What Comes Next.</h1>
-          <p class="text-xl md:text-2xl font-semibold text-slate-200 max-w-4xl mb-6">Building Well-Being as Human Infrastructure in Digital Transition.</p>
+          <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] md:leading-[0.95] tracking-tight mb-4 md:mb-5">Shaping What Comes Next.</h1>
+          <p class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-200 max-w-4xl mb-5 md:mb-6">Building Well-Being as Human Infrastructure in Digital Transition.</p>
           <p class="text-base md:text-lg text-slate-300 max-w-3xl mb-8">An independent research laboratory exploring how well-being and human capacity can shape the contexts in which people and systems develop.</p>
           <a href="/contextwell/projects/" class="inline-flex items-center rounded-lg bg-emerald-400 px-6 py-3 text-sm font-semibold text-slate-950 hover:bg-emerald-300 transition">Explore Research →</a>
         </div>
@@ -44,12 +52,21 @@
         <div class="lg:col-span-4">
           <div class="rounded-2xl border border-slate-800 bg-slate-900/80 p-5 md:p-6 grid-glow">
             <div class="text-xs uppercase tracking-[0.28em] text-emerald-400 mb-4">The idea</div>
-            <div class="space-y-3 text-sm text-slate-200">
-              <div class="rounded-xl border border-slate-800 bg-slate-950 px-4 py-3">Context</div>
-              <div class="text-center text-emerald-400 text-lg">↓</div>
-              <div class="rounded-xl border border-emerald-400/30 bg-emerald-400/10 px-4 py-3 font-semibold text-emerald-300">Well-being</div>
-              <div class="text-center text-emerald-400 text-lg">↓</div>
-              <div class="rounded-xl border border-slate-800 bg-slate-950 px-4 py-3">Human Capacity</div>
+            <div class="text-sm text-slate-200">
+              <div class="sm:hidden space-y-3">
+                <div class="rounded-xl border border-slate-800 bg-slate-950 px-4 py-3 text-center">Context</div>
+                <div class="text-center text-emerald-400 text-lg">↓</div>
+                <div class="rounded-xl border border-emerald-400/30 bg-emerald-400/10 px-4 py-3 font-semibold text-emerald-300 text-center">Well-being</div>
+                <div class="text-center text-emerald-400 text-lg">↓</div>
+                <div class="rounded-xl border border-slate-800 bg-slate-950 px-4 py-3 text-center">Human Capacity</div>
+              </div>
+              <div class="hidden sm:flex items-center justify-between gap-3">
+                <div class="flex-1 rounded-xl border border-slate-800 bg-slate-950 px-4 py-3 text-center">Context</div>
+                <div class="text-emerald-400 text-lg">→</div>
+                <div class="flex-1 rounded-xl border border-emerald-400/30 bg-emerald-400/10 px-4 py-3 font-semibold text-emerald-300 text-center">Well-being</div>
+                <div class="text-emerald-400 text-lg">→</div>
+                <div class="flex-1 rounded-xl border border-slate-800 bg-slate-950 px-4 py-3 text-center">Human Capacity</div>
+              </div>
             </div>
           </div>
         </div>
@@ -218,13 +235,21 @@
         <p class="text-xs uppercase tracking-[0.28em] text-emerald-400 mb-3">From Research to Change</p>
         <h2 class="text-3xl md:text-4xl font-bold mb-8">From Research to Change</h2>
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-center items-center">
-          <div class="rounded-2xl border border-slate-800 bg-slate-950 p-6"><div class="text-lg md:text-xl font-bold tracking-wide">RESEARCH</div></div>
+          <div class="md:hidden rounded-2xl border border-slate-800 bg-slate-950 p-5"><div class="text-base font-bold tracking-wide">RESEARCH</div></div>
+          <div class="md:hidden text-emerald-400 text-2xl">↓</div>
+          <div class="md:hidden rounded-2xl border border-slate-800 bg-slate-950 p-5"><div class="text-base font-bold tracking-wide">DEVELOPMENT</div></div>
+          <div class="md:hidden text-emerald-400 text-2xl">↓</div>
+          <div class="md:hidden rounded-2xl border border-slate-800 bg-slate-950 p-5"><div class="text-base font-bold tracking-wide">APPLICATION</div></div>
+          <div class="md:hidden text-emerald-400 text-2xl">↓</div>
+          <div class="md:hidden rounded-2xl border border-slate-800 bg-slate-950 p-5"><div class="text-base font-bold tracking-wide">CHANGE</div></div>
+
+          <div class="hidden md:block rounded-2xl border border-slate-800 bg-slate-950 p-6"><div class="text-lg md:text-xl font-bold tracking-wide">RESEARCH</div></div>
           <div class="hidden md:flex items-center justify-center text-emerald-400 text-3xl">→</div>
-          <div class="rounded-2xl border border-slate-800 bg-slate-950 p-6"><div class="text-lg md:text-xl font-bold tracking-wide">DEVELOPMENT</div></div>
+          <div class="hidden md:block rounded-2xl border border-slate-800 bg-slate-950 p-6"><div class="text-lg md:text-xl font-bold tracking-wide">DEVELOPMENT</div></div>
           <div class="hidden md:flex items-center justify-center text-emerald-400 text-3xl">→</div>
-          <div class="rounded-2xl border border-slate-800 bg-slate-950 p-6"><div class="text-lg md:text-xl font-bold tracking-wide">APPLICATION</div></div>
+          <div class="hidden md:block rounded-2xl border border-slate-800 bg-slate-950 p-6"><div class="text-lg md:text-xl font-bold tracking-wide">APPLICATION</div></div>
           <div class="hidden md:flex items-center justify-center text-emerald-400 text-3xl">→</div>
-          <div class="rounded-2xl border border-slate-800 bg-slate-950 p-6"><div class="text-lg md:text-xl font-bold tracking-wide">CHANGE</div></div>
+          <div class="hidden md:block rounded-2xl border border-slate-800 bg-slate-950 p-6"><div class="text-lg md:text-xl font-bold tracking-wide">CHANGE</div></div>
         </div>
         <p class="mt-8 text-sm md:text-base text-slate-300 max-w-4xl"><span class="font-semibold text-slate-100">Bridging Research &amp; Industry</span><br />We translate research into frameworks, methods, tools, and applications — and bring real-world challenges back into research.</p>
       </div>
@@ -237,7 +262,7 @@
         <p class="text-xl md:text-2xl font-semibold text-slate-200 mb-6">Building Well-Being as Human Infrastructure in Digital Transition.</p>
         <div class="flex flex-wrap justify-center gap-3">
           <a href="/contextwell/for-organisations/" class="inline-flex items-center rounded-lg bg-emerald-400 px-5 py-3 text-sm font-semibold text-slate-950 hover:bg-emerald-300">Work With Us →</a>
-          <a href="/contextwell/support/" class="inline-flex items-center rounded-lg border border-slate-800 bg-slate-950 px-5 py-3 text-sm font-semibold text-slate-200 hover:border-emerald-400 hover:text-emerald-400">Support the Lab →</a>
+          <a href="/contextwell/support/" class="inline-flex items-center rounded-lg border border-slate-800 bg-slate-950 px-5 py-3 text-sm font-semibold text-slate-200 hover:border-emerald-400 hover:text-emerald-400 transition">Support the Lab →</a>
         </div>
       </div>
     </section>
