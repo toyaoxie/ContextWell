@@ -24,13 +24,21 @@
     }
   </script>
   <script src="https://cdn.tailwindcss.com" defer></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .dd-open [data-dd-panel] {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+  </style>
 </head>
 
-<body class="bg-slate-950 text-slate-100">
+<body class="bg-slate-950 text-slate-100" id="top">
   <div id="site-header"></div>
 
   <main class="pt-28 pb-16 px-6">
 
+    <!-- Hero -->
     <section class="max-w-7xl mx-auto mb-16 md:mb-20">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-end">
         <div class="lg:col-span-8">
@@ -40,7 +48,10 @@
           <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] md:leading-[0.95] tracking-tight mb-4 md:mb-5">Shaping What Comes Next.</h1>
           <p class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-200 max-w-4xl mb-5 md:mb-6">Building Well-Being as Human Infrastructure in Digital Transition.</p>
           <p class="text-base md:text-lg text-slate-300 max-w-3xl mb-8">ContextWell Lab is an independent research laboratory committed to a well-being-driven world.</p>
-          <a href="/contextwell/projects/" class="inline-flex items-center rounded-lg bg-emerald-400 px-6 py-3 text-sm font-semibold text-slate-950 hover:bg-emerald-300 transition">Explore Research <span aria-hidden="true">→</span></a>
+          <div class="flex flex-wrap gap-3">
+            <a href="/contextwell/projects/" class="inline-flex items-center rounded-lg bg-emerald-400 px-6 py-3 text-sm font-semibold text-slate-950 hover:bg-emerald-300 transition">Explore Research <span aria-hidden="true">→</span></a>
+            <a href="/contextwell/about/" class="inline-flex items-center rounded-lg border border-slate-800 bg-slate-900 px-6 py-3 text-sm font-semibold text-slate-200 hover:border-emerald-400 hover:text-emerald-400 transition">About the Lab</a>
+          </div>
         </div>
 
         <div class="lg:col-span-4">
@@ -67,418 +78,88 @@
       </div>
     </section>
 
+    <!-- Well-being upstream, not measured afterward (static, no scroll-jack) -->
     <section class="max-w-7xl mx-auto mb-16 md:mb-20">
       <div class="max-w-3xl mb-8">
         <h2 class="text-3xl md:text-4xl font-bold mb-4">What if well-being could guide what we build?</h2>
         <p class="text-slate-300 text-base md:text-lg">Not only something we measure afterwards — but something we build into the context from the beginning.</p>
       </div>
 
-      <!-- CONTEXTWELL UPSTREAM VISUALISATION (continuous scroll-driven composition) -->
-      <div class="cw-upstream" aria-label="Move well-being upstream" data-progress="early">
-
-        <div class="cw-upstream-stage">
-
-          <p class="cw-upstream-kicker">CONVENTIONAL</p>
-
-          <div class="cw-upstream-development" aria-label="Development sequence">
-            <span>DESIGN</span>
-            <span>BUILD</span>
-            <span>DEVELOP</span>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="rounded-2xl border border-slate-800 bg-slate-900 p-6 md:p-8">
+          <p class="text-xs uppercase tracking-[0.2em] text-slate-500 mb-4">Conventional</p>
+          <div class="flex items-center gap-2 text-sm text-slate-300 mb-6">
+            <span class="rounded-lg border border-slate-800 bg-slate-950 px-3 py-2">Design</span>
+            <span class="text-slate-600" aria-hidden="true">→</span>
+            <span class="rounded-lg border border-slate-800 bg-slate-950 px-3 py-2">Build</span>
+            <span class="text-slate-600" aria-hidden="true">→</span>
+            <span class="rounded-lg border border-slate-800 bg-slate-950 px-3 py-2">Develop</span>
           </div>
-
-          <!-- ONE AND ONLY ONE WELL-BEING -->
-          <div class="cw-upstream-wellbeing" aria-label="Well-being">
-            <span class="cw-upstream-wellbeing-title">WELL-BEING</span>
-            <span class="cw-upstream-wellbeing-note">MEASURED AFTERWARDS</span>
-            <span class="cw-upstream-condition">GUIDING CONDITION</span>
-          </div>
-
-          <p class="cw-upstream-framework">CONTEXTWELL</p>
-
-          <div class="cw-upstream-rule" aria-hidden="true"></div>
-
-          <div class="cw-upstream-domains" aria-label="Contexts of influence">
-            <span>CONTEXT</span>
-            <span>PEOPLE</span>
-            <span>LEARNING</span>
-            <span>ORGANISATIONS</span>
-            <span>TECHNOLOGY</span>
-            <span>ENVIRONMENT</span>
-            <span>HUMAN CAPACITY</span>
-          </div>
-
-          <div class="cw-upstream-final">
-            <p class="cw-upstream-final-title">MOVE WELL-BEING UPSTREAM</p>
-            <p class="cw-upstream-final-subtitle">WELL-BEING IS NOT THE CENTRE. IT IS THE CONDITION.</p>
-          </div>
-
+          <p class="text-sm text-slate-400">Well-being is <span class="text-slate-200 font-semibold">measured afterwards</span> — a downstream outcome, checked once the system is already built.</p>
         </div>
 
+        <div class="rounded-2xl border border-emerald-400/30 bg-emerald-400/5 p-6 md:p-8">
+          <p class="text-xs uppercase tracking-[0.2em] text-emerald-400 mb-4">ContextWell</p>
+          <p class="text-lg font-semibold text-emerald-300 mb-4">Well-being as the guiding condition</p>
+          <div class="flex flex-wrap gap-2 text-xs text-slate-300 mb-6">
+            <span class="rounded-full border border-slate-800 bg-slate-950 px-3 py-1">Context</span>
+            <span class="rounded-full border border-slate-800 bg-slate-950 px-3 py-1">People</span>
+            <span class="rounded-full border border-slate-800 bg-slate-950 px-3 py-1">Learning</span>
+            <span class="rounded-full border border-slate-800 bg-slate-950 px-3 py-1">Organisations</span>
+            <span class="rounded-full border border-slate-800 bg-slate-950 px-3 py-1">Technology</span>
+            <span class="rounded-full border border-slate-800 bg-slate-950 px-3 py-1">Environment</span>
+            <span class="rounded-full border border-slate-800 bg-slate-950 px-3 py-1">Human Capacity</span>
+          </div>
+          <p class="text-sm text-slate-300">Well-being is not the centre. It is the <span class="text-emerald-300 font-semibold">condition</span> that shapes every context above, from the start.</p>
+        </div>
       </div>
     </section>
 
+    <!-- Research Portfolio -->
     <section class="max-w-7xl mx-auto mb-16 md:mb-20">
       <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
         <div>
           <p class="text-xs uppercase tracking-[0.28em] text-emerald-400 mb-2">Research Portfolio</p>
           <h2 class="text-3xl md:text-4xl font-bold mb-3">Building the foundations for well-being-driven development.</h2>
         </div>
-        <a href="/contextwell/projects/" class="text-sm text-emerald-400 hover:text-emerald-300">View Project Portfolio <span aria-hidden="true">→</span></a>
+        <a href="/contextwell/projects/" class="text-sm text-emerald-400 hover:text-emerald-300 whitespace-nowrap">View Project Portfolio <span aria-hidden="true">→</span></a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <a href="/contextwell/projects/doctoral-project/" class="card-hover block bg-slate-900 border border-slate-800 rounded-xl p-6">
+          <p class="text-xs uppercase tracking-wide text-emerald-400 mb-2">Doctoral Research · University College Dublin</p>
+          <h3 class="text-lg font-semibold mb-2">Spectrum of Contextual Well-being Framework (SCWF)</h3>
+          <p class="text-slate-400 text-sm">
+            Harnessing AI to support sustainable human well-being capacity across AI mediated and non AI contexts.
+          </p>
+        </a>
+
+        <a href="/contextwell/solutions/well-being-builder/" class="card-hover block bg-slate-900 border border-slate-800 rounded-xl p-6">
+          <p class="text-xs uppercase tracking-wide text-emerald-400 mb-2">Applied Pilot</p>
+          <h3 class="text-lg font-semibold mb-2">Well-being Builder</h3>
+          <p class="text-slate-400 text-sm">
+            A research-led platform that trains people to practise well-being as a skill through short scenarios and AI-supported reflection.
+          </p>
+        </a>
       </div>
     </section>
+
+    <!-- News -->
+    <section class="max-w-7xl mx-auto mb-16 md:mb-20">
+      <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
+        <div>
+          <p class="text-xs uppercase tracking-[0.28em] text-emerald-400 mb-2">Latest</p>
+          <h2 class="text-3xl md:text-4xl font-bold mb-3">News &amp; Updates</h2>
+        </div>
+        <a href="/contextwell/news/" class="text-sm text-emerald-400 hover:text-emerald-300 whitespace-nowrap">View All News <span aria-hidden="true">→</span></a>
+      </div>
+
+      <div data-news-container="latest" data-news-limit="3" data-news-compact="false"></div>
+    </section>
+
   </main>
 
   <div id="site-footer"></div>
-
-  <style>
-    /* =========================================================
-       CONTEXTWELL — UPSTREAM VISUALISATION
-       Editorial spatial transformation
-       ========================================================= */
-
-    .cw-upstream {
-      --cw-upstream-ease: cubic-bezier(0.16, 1, 0.3, 1);
-      position: relative;
-      width: 100%;
-      max-width: 1180px;
-      margin: 0 auto;
-      color: rgb(248 250 252);
-    }
-
-    .cw-upstream-stage {
-      position: relative;
-      min-height: 115vh;
-      overflow: clip;
-      isolation: isolate;
-    }
-
-    .cw-upstream-kicker {
-      position: absolute;
-      top: 10vh;
-      left: 0;
-      margin: 0;
-      font-size: 0.68rem;
-      line-height: 1;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: rgb(148 163 184);
-      transition:
-        opacity 700ms var(--cw-upstream-ease),
-        transform 1000ms var(--cw-upstream-ease);
-    }
-
-    .cw-upstream-development {
-      position: absolute;
-      left: 0;
-      top: 25vh;
-      display: grid;
-      gap: 0.05em;
-      margin: 0;
-      font-size: clamp(2.8rem, 7.2vw, 7.5rem);
-      font-weight: 500;
-      line-height: 0.9;
-      letter-spacing: -0.055em;
-      will-change: transform;
-      transition: transform 1000ms var(--cw-upstream-ease);
-    }
-
-    .cw-upstream-development span {
-      display: block;
-      white-space: nowrap;
-    }
-
-    .cw-upstream-wellbeing {
-      position: absolute;
-      right: 0;
-      top: 58vh;
-      display: grid;
-      gap: 0.45rem;
-      width: max-content;
-      max-width: 24rem;
-      text-align: left;
-      will-change: transform;
-      transition: transform 1100ms var(--cw-upstream-ease);
-    }
-
-    .cw-upstream-wellbeing-title {
-      display: block;
-      font-size: clamp(1.9rem, 4vw, 4.2rem);
-      font-weight: 500;
-      line-height: 0.95;
-      letter-spacing: -0.045em;
-      white-space: nowrap;
-    }
-
-    .cw-upstream-wellbeing-note {
-      display: block;
-      font-size: 0.67rem;
-      line-height: 1.2;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgb(148 163 184);
-      transition:
-        opacity 500ms ease,
-        transform 700ms var(--cw-upstream-ease);
-    }
-
-    .cw-upstream-condition {
-      display: block;
-      font-size: 0.67rem;
-      line-height: 1.2;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgb(148 163 184);
-      opacity: 0;
-      transform: translateY(0.4rem);
-      transition:
-        opacity 500ms ease,
-        transform 700ms var(--cw-upstream-ease);
-    }
-
-    .cw-upstream-framework {
-      position: absolute;
-      left: 0;
-      top: 67vh;
-      margin: 0;
-      font-size: 0.68rem;
-      line-height: 1;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: rgb(148 163 184);
-      opacity: 0;
-      transform: translateY(0.5rem);
-      transition:
-        opacity 700ms var(--cw-upstream-ease),
-        transform 900ms var(--cw-upstream-ease);
-    }
-
-    .cw-upstream-rule {
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 71vh;
-      height: 1px;
-      background: rgb(71 85 105 / 0.65);
-      transform-origin: left center;
-      transform: scaleX(0);
-      transition: transform 1200ms var(--cw-upstream-ease);
-    }
-
-    .cw-upstream-domains {
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 75vh;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      gap: 0.5rem 1.4rem;
-      margin: 0;
-      max-width: 980px;
-      opacity: 0;
-      transform: translateY(1rem);
-      transition:
-        opacity 700ms var(--cw-upstream-ease),
-        transform 900ms var(--cw-upstream-ease);
-    }
-
-    .cw-upstream-domains span {
-      font-size: clamp(0.7rem, 1vw, 0.85rem);
-      line-height: 1.3;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgb(148 163 184);
-    }
-
-    .cw-upstream-final {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 6vh;
-      display: grid;
-      gap: 0.8rem;
-      margin: 0;
-      opacity: 0;
-      transform: translateY(1.2rem);
-      transition:
-        opacity 900ms var(--cw-upstream-ease),
-        transform 1100ms var(--cw-upstream-ease);
-    }
-
-    .cw-upstream-final-title {
-      margin: 0;
-      font-size: clamp(2rem, 5vw, 5.2rem);
-      font-weight: 500;
-      line-height: 0.95;
-      letter-spacing: -0.055em;
-    }
-
-    .cw-upstream-final-subtitle {
-      max-width: 52rem;
-      margin: 0;
-      font-size: clamp(0.72rem, 1vw, 0.88rem);
-      line-height: 1.5;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: rgb(148 163 184);
-    }
-
-    /* =========================================================
-       PROGRESSIVE STATES
-       ========================================================= */
-
-    .cw-upstream[data-progress="early"] .cw-upstream-wellbeing {
-      transform: translate3d(0, 0, 0);
-    }
-
-    .cw-upstream[data-progress="middle"] .cw-upstream-wellbeing {
-      transform: translate3d(clamp(-32rem, -32vw, -17rem), clamp(-21rem, -25vh, -10rem), 0);
-    }
-
-    .cw-upstream[data-progress="late"] .cw-upstream-wellbeing {
-      transform: translate3d(clamp(-30rem, -30vw, -15rem), clamp(-26rem, -31vh, -14rem), 0);
-    }
-
-    .cw-upstream[data-progress="late"] .cw-upstream-wellbeing-note {
-      opacity: 0;
-      transform: translateY(-0.2rem);
-    }
-
-    .cw-upstream[data-progress="late"] .cw-upstream-condition {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .cw-upstream[data-progress="middle"] .cw-upstream-development {
-      transform: translate3d(0, clamp(3rem, 8vh, 6rem), 0);
-    }
-
-    .cw-upstream[data-progress="late"] .cw-upstream-development {
-      transform: translate3d(0, clamp(4rem, 10vh, 7rem), 0);
-    }
-
-    .cw-upstream[data-progress="late"] .cw-upstream-framework {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .cw-upstream[data-progress="late"] .cw-upstream-rule {
-      transform: scaleX(1);
-    }
-
-    .cw-upstream[data-progress="late"] .cw-upstream-domains {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .cw-upstream[data-progress="late"] .cw-upstream-kicker {
-      opacity: 0.18;
-      transform: translateY(-0.3rem);
-    }
-
-    .cw-upstream[data-progress="final"] .cw-upstream-final {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .cw-upstream[data-progress="final"] .cw-upstream-domains {
-      opacity: 0.38;
-    }
-
-    .cw-upstream[data-progress="final"] .cw-upstream-framework {
-      opacity: 0.42;
-    }
-
-    .cw-upstream[data-progress="final"] .cw-upstream-kicker {
-      opacity: 0.08;
-    }
-
-    /* =========================================================
-       MOBILE
-       ========================================================= */
-
-    @media (max-width: 700px) {
-      .cw-upstream-stage {
-        min-height: 125vh;
-      }
-
-      .cw-upstream-kicker {
-        top: 7vh;
-      }
-
-      .cw-upstream-development {
-        left: 0;
-        top: 23vh;
-        font-size: clamp(2.8rem, 15vw, 5rem);
-      }
-
-      .cw-upstream-wellbeing {
-        left: 0;
-        right: auto;
-        top: 55vh;
-      }
-
-      .cw-upstream-wellbeing-title {
-        font-size: clamp(2rem, 11vw, 3.6rem);
-      }
-
-      .cw-upstream[data-progress="middle"] .cw-upstream-wellbeing {
-        transform: translate3d(0, -18vh, 0);
-      }
-
-      .cw-upstream[data-progress="late"] .cw-upstream-wellbeing {
-        transform: translate3d(0, -28vh, 0);
-      }
-
-      .cw-upstream[data-progress="middle"] .cw-upstream-development {
-        transform: translate3d(0, 5vh, 0);
-      }
-
-      .cw-upstream[data-progress="late"] .cw-upstream-development {
-        transform: translate3d(0, 9vh, 0);
-      }
-
-      .cw-upstream-framework {
-        top: 73vh;
-      }
-
-      .cw-upstream-rule {
-        top: 77vh;
-      }
-
-      .cw-upstream-domains {
-        top: 81vh;
-        gap: 0.6rem 1rem;
-      }
-
-      .cw-upstream-domains span {
-        font-size: 0.65rem;
-      }
-
-      .cw-upstream-final {
-        bottom: 5vh;
-      }
-
-      .cw-upstream-final-title {
-        font-size: clamp(2.1rem, 11vw, 3.5rem);
-      }
-
-      .cw-upstream-final-subtitle {
-        font-size: 0.65rem;
-        line-height: 1.55;
-      }
-    }
-
-    /* =========================================================
-       REDUCED MOTION
-       ========================================================= */
-
-    @media (prefers-reduced-motion: reduce) {
-      .cw-upstream * {
-        transition: none !important;
-      }
-    }
-  </style>
 
   <script>
     (function () {
@@ -544,98 +225,6 @@
         inject(document.getElementById("site-footer"), `${BASE}/partials/footer.html`);
       }
       if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
-    })();
-  </script>
-  <script>
-    (function () {
-      const root = document.querySelector(".cw-upstream");
-      if (!root) return;
-
-      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-      if (reducedMotion) {
-        root.setAttribute("data-progress", "final");
-        return;
-      }
-
-      let ticking = false;
-
-      function clamp(value, min, max) {
-        return Math.min(Math.max(value, min), max);
-      }
-
-      function smoothstep(value) {
-        return value * value * (3 - 2 * value);
-      }
-
-      function getProgress() {
-        const rect = root.getBoundingClientRect();
-        const viewport = window.innerHeight || document.documentElement.clientHeight;
-
-        const start = viewport * 0.82;
-        const end = -rect.height * 0.28;
-
-        const raw = (start - rect.top) / (start - end);
-
-        return clamp(raw, 0, 1);
-      }
-
-      function update() {
-        ticking = false;
-
-        const progress = getProgress();
-
-        let state;
-
-        if (progress < 0.34) {
-          state = "early";
-        } else if (progress < 0.68) {
-          state = "middle";
-        } else if (progress < 0.88) {
-          state = "late";
-        } else {
-          state = "final";
-        }
-
-        root.setAttribute("data-progress", state);
-
-        const visualProgress = smoothstep(progress);
-        root.style.setProperty("--cw-progress", visualProgress.toFixed(4));
-      }
-
-      function requestUpdate() {
-        if (ticking) return;
-        ticking = true;
-        window.requestAnimationFrame(update);
-      }
-
-      function onResize() {
-        requestUpdate();
-      }
-
-      let active = false;
-
-      const observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          if (!active) {
-            active = true;
-            update();
-            window.addEventListener("scroll", requestUpdate, { passive: true });
-            window.addEventListener("resize", onResize);
-          }
-        });
-      }, { threshold: 0.01, rootMargin: "20% 0px 20% 0px" });
-
-      observer.observe(root);
-
-      const initialRect = root.getBoundingClientRect();
-      if (initialRect.top < window.innerHeight && initialRect.bottom > 0) {
-        active = true;
-        update();
-        window.addEventListener("scroll", requestUpdate, { passive: true });
-        window.addEventListener("resize", onResize);
-      }
     })();
   </script>
   <script src="/contextwell/assets/js/news-loader.js"></script>
