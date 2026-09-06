@@ -40,7 +40,7 @@
           <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] md:leading-[0.95] tracking-tight mb-4 md:mb-5">Shaping What Comes Next.</h1>
           <p class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-200 max-w-4xl mb-5 md:mb-6">Building Well-Being as Human Infrastructure in Digital Transition.</p>
           <p class="text-base md:text-lg text-slate-300 max-w-3xl mb-8">ContextWell Lab is an independent research laboratory committed to a well-being-driven world.</p>
-          <a href="/contextwell/projects/" class="inline-flex items-center rounded-lg bg-emerald-400 px-6 py-3 text-sm font-semibold text-slate-950 hover:bg-emerald-300 transition">Explore Research <span aria-hidden="true" class="ml-2">→</span></a>
+          <a href="/contextwell/projects/" class="inline-flex items-center rounded-lg bg-emerald-400 px-6 py-3 text-sm font-semibold text-slate-950 hover:bg-emerald-300 transition">Explore Research <span aria-hidden="true">→</span></a>
         </div>
 
         <div class="lg:col-span-4">
@@ -73,56 +73,47 @@
         <p class="text-slate-300 text-base md:text-lg">Not only something we measure afterwards — but something we build into the context from the beginning.</p>
       </div>
 
-      <!-- CONTEXTWELL UPSTREAM EDITORIAL VISUALISATION -->
-      <div class="cw-upstream-editorial" aria-label="Moving well-being upstream">
-        <div class="cw-upstream-editorial-stage cw-upstream-editorial-state-1">
-          <div class="cw-upstream-editorial-composition cw-upstream-editorial-composition--conventional">
-            <div class="cw-upstream-editorial-kicker">CONVENTIONAL</div>
-            <div class="cw-upstream-editorial-body">
-              <div class="cw-upstream-editorial-stack">
-                <span class="cw-upstream-editorial-term">DESIGN</span>
-                <span class="cw-upstream-editorial-term">BUILD</span>
-                <span class="cw-upstream-editorial-term">DEVELOP</span>
-              </div>
-              <div class="cw-upstream-editorial-depth">
-                <span class="cw-upstream-editorial-depth-label">WELL-BEING</span>
-                <span class="cw-upstream-editorial-depth-note">MEASURED AFTERWARDS</span>
-              </div>
-            </div>
+      <!-- CONTEXTWELL UPSTREAM VISUALISATION (continuous scroll-driven composition) -->
+      <div class="cw-upstream" aria-label="Move well-being upstream" data-progress="early">
+
+        <div class="cw-upstream-stage">
+
+          <p class="cw-upstream-kicker">CONVENTIONAL</p>
+
+          <div class="cw-upstream-development" aria-label="Development sequence">
+            <span>DESIGN</span>
+            <span>BUILD</span>
+            <span>DEVELOP</span>
           </div>
 
-          <div class="cw-upstream-editorial-divider" aria-hidden="true"><span></span></div>
-
-          <div class="cw-upstream-editorial-composition cw-upstream-editorial-composition--recomposed">
-            <div class="cw-upstream-editorial-kicker">RECOMPOSITION</div>
-            <div class="cw-upstream-editorial-body cw-upstream-editorial-body--recomposed">
-              <div class="cw-upstream-editorial-figure">
-                <div class="cw-upstream-editorial-figure-top">
-                  <span class="cw-upstream-editorial-figure-name">CONTEXTWELL</span>
-                  <span class="cw-upstream-editorial-figure-condition">WELL-BEING</span>
-                  <span class="cw-upstream-editorial-figure-note">GUIDING CONDITION</span>
-                </div>
-                <div class="cw-upstream-editorial-foundation" aria-hidden="true"><span></span></div>
-                <div class="cw-upstream-editorial-field">
-                  <span>CONTEXT</span>
-                  <span>PEOPLE</span>
-                  <span>LEARNING</span>
-                  <span>ORGANISATIONS</span>
-                  <span>TECHNOLOGY</span>
-                  <span>ENVIRONMENT</span>
-                  <span>HUMAN CAPACITY</span>
-                </div>
-              </div>
-            </div>
+          <!-- ONE AND ONLY ONE WELL-BEING -->
+          <div class="cw-upstream-wellbeing" aria-label="Well-being">
+            <span class="cw-upstream-wellbeing-title">WELL-BEING</span>
+            <span class="cw-upstream-wellbeing-note">MEASURED AFTERWARDS</span>
+            <span class="cw-upstream-condition">GUIDING CONDITION</span>
           </div>
+
+          <p class="cw-upstream-framework">CONTEXTWELL</p>
+
+          <div class="cw-upstream-rule" aria-hidden="true"></div>
+
+          <div class="cw-upstream-domains" aria-label="Contexts of influence">
+            <span>CONTEXT</span>
+            <span>PEOPLE</span>
+            <span>LEARNING</span>
+            <span>ORGANISATIONS</span>
+            <span>TECHNOLOGY</span>
+            <span>ENVIRONMENT</span>
+            <span>HUMAN CAPACITY</span>
+          </div>
+
+          <div class="cw-upstream-final">
+            <p class="cw-upstream-final-title">MOVE WELL-BEING UPSTREAM</p>
+            <p class="cw-upstream-final-subtitle">WELL-BEING IS NOT THE CENTRE. IT IS THE CONDITION.</p>
+          </div>
+
         </div>
 
-        <div class="cw-upstream-editorial-tension" aria-hidden="true"></div>
-
-        <div class="cw-upstream-editorial-argument">
-          <div class="cw-upstream-editorial-argument-title">MOVE WELL-BEING UPSTREAM</div>
-          <div class="cw-upstream-editorial-argument-subtitle">WELL-BEING IS NOT THE CENTRE. IT IS THE CONDITION.</div>
-        </div>
       </div>
     </section>
 
@@ -140,370 +131,351 @@
   <div id="site-footer"></div>
 
   <style>
-    /* CONTEXTWELL UPSTREAM EDITORIAL VISUALISATION */
-    .cw-upstream-editorial {
-      --cw-upstream-duration: 1000ms;
-      --cw-upstream-duration-strong: 1600ms;
-      --cw-upstream-stagger: 110ms;
+    /* =========================================================
+       CONTEXTWELL — UPSTREAM VISUALISATION
+       Editorial spatial transformation
+       ========================================================= */
+
+    .cw-upstream {
       --cw-upstream-ease: cubic-bezier(0.16, 1, 0.3, 1);
-      color: #f8fafc;
+      position: relative;
+      width: 100%;
       max-width: 1180px;
       margin: 0 auto;
-    }
-
-    .cw-upstream-editorial-stage {
-      display: grid;
-      grid-template-columns: minmax(0, 0.52fr) minmax(2rem, 0.08fr) minmax(0, 0.4fr);
-      gap: clamp(1.5rem, 3vw, 3rem);
-      align-items: start;
-      padding-top: .5rem;
-    }
-
-    .cw-upstream-editorial-kicker,
-    .cw-upstream-editorial-depth-note,
-    .cw-upstream-editorial-figure-note,
-    .cw-upstream-editorial-argument-subtitle {
-      font-size: .72rem;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: rgb(148 163 184);
-    }
-
-    .cw-upstream-editorial-kicker {
-      color: rgb(52 211 153 / .92);
-      margin-bottom: 1.1rem;
-    }
-
-    .cw-upstream-editorial-body {
-      display: grid;
-      gap: 1.3rem;
-      min-height: 18rem;
-    }
-
-    .cw-upstream-editorial-stack {
-      display: grid;
-      gap: .35rem;
-      align-content: start;
-    }
-
-    .cw-upstream-editorial-term {
-      display: block;
-      font-size: clamp(2.5rem, 5vw, 5.3rem);
-      line-height: .92;
-      font-weight: 600;
-      letter-spacing: -0.04em;
       color: rgb(248 250 252);
-      transform-origin: left top;
     }
 
-    .cw-upstream-editorial-depth {
-      display: grid;
-      gap: .28rem;
-      align-content: start;
-      padding-top: 1.15rem;
-    }
-
-    .cw-upstream-editorial-depth-label {
-      display: block;
-      font-size: clamp(1.1rem, 2vw, 1.6rem);
-      line-height: 1.05;
-      font-weight: 600;
-      letter-spacing: -0.03em;
-      color: rgb(226 232 240);
-    }
-
-    .cw-upstream-editorial-divider {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding-top: 1.35rem;
-    }
-
-    .cw-upstream-editorial-divider span,
-    .cw-upstream-editorial-foundation span {
-      display: block;
-      width: 100%;
-      height: 1px;
-      background: rgb(148 163 184 / .22);
-      transform: scaleX(0);
-      transform-origin: left center;
-      transition: transform var(--cw-upstream-duration-strong) var(--cw-upstream-ease);
-    }
-
-    .cw-upstream-editorial-composition--recomposed {
+    .cw-upstream-stage {
       position: relative;
-      padding-top: 1rem;
+      min-height: 115vh;
+      overflow: clip;
+      isolation: isolate;
     }
 
-    .cw-upstream-editorial-figure {
-      display: grid;
-      gap: 1.25rem;
-      min-height: 18rem;
-    }
-
-    .cw-upstream-editorial-figure-top {
-      display: grid;
-      gap: .3rem;
-    }
-
-    .cw-upstream-editorial-figure-name {
-      font-size: clamp(1.7rem, 3vw, 3rem);
+    .cw-upstream-kicker {
+      position: absolute;
+      top: 10vh;
+      left: 0;
+      margin: 0;
+      font-size: 0.68rem;
       line-height: 1;
-      letter-spacing: -0.04em;
-      font-weight: 600;
-      color: rgb(248 250 252);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgb(148 163 184);
+      transition:
+        opacity 700ms var(--cw-upstream-ease),
+        transform 1000ms var(--cw-upstream-ease);
     }
 
-    .cw-upstream-editorial-figure-condition {
-      font-size: clamp(1rem, 1.7vw, 1.35rem);
-      line-height: 1.1;
+    .cw-upstream-development {
+      position: absolute;
+      left: 0;
+      top: 25vh;
+      display: grid;
+      gap: 0.05em;
+      margin: 0;
+      font-size: clamp(2.8rem, 7.2vw, 7.5rem);
       font-weight: 500;
-      letter-spacing: -0.02em;
-      color: rgb(52 211 153 / .94);
+      line-height: 0.9;
+      letter-spacing: -0.055em;
+      will-change: transform;
+      transition: transform 1000ms var(--cw-upstream-ease);
     }
 
-    .cw-upstream-editorial-foundation {
-      padding-top: .55rem;
+    .cw-upstream-development span {
+      display: block;
+      white-space: nowrap;
     }
 
-    .cw-upstream-editorial-field {
+    .cw-upstream-wellbeing {
+      position: absolute;
+      right: 0;
+      top: 58vh;
       display: grid;
-      grid-template-columns: repeat(12, minmax(0, 1fr));
-      gap: .95rem 1rem;
-      padding-top: 1rem;
-      font-size: .78rem;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      color: rgb(203 213 225);
-      align-items: start;
-    }
-
-    .cw-upstream-editorial-field span:nth-child(1) { grid-column: 1 / 4; }
-    .cw-upstream-editorial-field span:nth-child(2) { grid-column: 5 / 8; }
-    .cw-upstream-editorial-field span:nth-child(3) { grid-column: 9 / 13; }
-    .cw-upstream-editorial-field span:nth-child(4) { grid-column: 2 / 7; }
-    .cw-upstream-editorial-field span:nth-child(5) { grid-column: 8 / 12; }
-    .cw-upstream-editorial-field span:nth-child(6) { grid-column: 1 / 6; }
-    .cw-upstream-editorial-field span:nth-child(7) { grid-column: 7 / 13; }
-
-    .cw-upstream-editorial-tension {
-      display: none;
-    }
-
-    .cw-upstream-editorial-argument {
-      margin-top: 2.35rem;
-      display: grid;
-      gap: .45rem;
-      max-width: 34rem;
-    }
-
-    .cw-upstream-editorial-argument-title {
-      font-size: clamp(1.35rem, 2.6vw, 2.35rem);
-      line-height: 1.05;
-      font-weight: 600;
-      letter-spacing: -0.03em;
-      text-transform: uppercase;
-      color: rgb(248 250 252);
-    }
-
-    .cw-upstream-editorial-argument-subtitle {
+      gap: 0.45rem;
+      width: max-content;
       max-width: 24rem;
+      text-align: left;
+      will-change: transform;
+      transition: transform 1100ms var(--cw-upstream-ease);
+    }
+
+    .cw-upstream-wellbeing-title {
+      display: block;
+      font-size: clamp(1.9rem, 4vw, 4.2rem);
+      font-weight: 500;
+      line-height: 0.95;
+      letter-spacing: -0.045em;
+      white-space: nowrap;
+    }
+
+    .cw-upstream-wellbeing-note {
+      display: block;
+      font-size: 0.67rem;
+      line-height: 1.2;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgb(148 163 184);
+      transition:
+        opacity 500ms ease,
+        transform 700ms var(--cw-upstream-ease);
+    }
+
+    .cw-upstream-condition {
+      display: block;
+      font-size: 0.67rem;
+      line-height: 1.2;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgb(148 163 184);
+      opacity: 0;
+      transform: translateY(0.4rem);
+      transition:
+        opacity 500ms ease,
+        transform 700ms var(--cw-upstream-ease);
+    }
+
+    .cw-upstream-framework {
+      position: absolute;
+      left: 0;
+      top: 67vh;
+      margin: 0;
+      font-size: 0.68rem;
+      line-height: 1;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgb(148 163 184);
+      opacity: 0;
+      transform: translateY(0.5rem);
+      transition:
+        opacity 700ms var(--cw-upstream-ease),
+        transform 900ms var(--cw-upstream-ease);
+    }
+
+    .cw-upstream-rule {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 71vh;
+      height: 1px;
+      background: rgb(71 85 105 / 0.65);
+      transform-origin: left center;
+      transform: scaleX(0);
+      transition: transform 1200ms var(--cw-upstream-ease);
+    }
+
+    .cw-upstream-domains {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 75vh;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.5rem 1.4rem;
+      margin: 0;
+      max-width: 980px;
+      opacity: 0;
+      transform: translateY(1rem);
+      transition:
+        opacity 700ms var(--cw-upstream-ease),
+        transform 900ms var(--cw-upstream-ease);
+    }
+
+    .cw-upstream-domains span {
+      font-size: clamp(0.7rem, 1vw, 0.85rem);
+      line-height: 1.3;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       color: rgb(148 163 184);
     }
 
-    .cw-upstream-editorial-composition,
-    .cw-upstream-editorial-divider,
-    .cw-upstream-editorial-argument {
+    .cw-upstream-final {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 6vh;
+      display: grid;
+      gap: 0.8rem;
+      margin: 0;
       opacity: 0;
-      transform: translateY(36px);
-      transition: opacity var(--cw-upstream-duration) var(--cw-upstream-ease), transform var(--cw-upstream-duration) var(--cw-upstream-ease);
+      transform: translateY(1.2rem);
+      transition:
+        opacity 900ms var(--cw-upstream-ease),
+        transform 1100ms var(--cw-upstream-ease);
     }
 
-    .cw-upstream-editorial .cw-upstream-editorial-term,
-    .cw-upstream-editorial .cw-upstream-editorial-depth-label,
-    .cw-upstream-editorial .cw-upstream-editorial-figure-name,
-    .cw-upstream-editorial .cw-upstream-editorial-figure-condition,
-    .cw-upstream-editorial .cw-upstream-editorial-figure-note,
-    .cw-upstream-editorial .cw-upstream-editorial-field span,
-    .cw-upstream-editorial .cw-upstream-editorial-kicker,
-    .cw-upstream-editorial .cw-upstream-editorial-depth-note,
-    .cw-upstream-editorial .cw-upstream-editorial-argument-subtitle {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity var(--cw-upstream-duration) var(--cw-upstream-ease), transform var(--cw-upstream-duration) var(--cw-upstream-ease);
+    .cw-upstream-final-title {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 5.2rem);
+      font-weight: 500;
+      line-height: 0.95;
+      letter-spacing: -0.055em;
     }
 
-    .cw-upstream-editorial .cw-upstream-editorial-kicker { transition-delay: 0ms; }
-    .cw-upstream-editorial .cw-upstream-editorial-term:nth-child(1) { transition-delay: calc(var(--cw-upstream-stagger) * 1); }
-    .cw-upstream-editorial .cw-upstream-editorial-term:nth-child(2) { transition-delay: calc(var(--cw-upstream-stagger) * 2); }
-    .cw-upstream-editorial .cw-upstream-editorial-term:nth-child(3) { transition-delay: calc(var(--cw-upstream-stagger) * 3); }
-    .cw-upstream-editorial .cw-upstream-editorial-depth-label { transition-delay: calc(var(--cw-upstream-stagger) * 4); }
-    .cw-upstream-editorial .cw-upstream-editorial-depth-note { transition-delay: calc(var(--cw-upstream-stagger) * 5); }
-    .cw-upstream-editorial .cw-upstream-editorial-figure-name { transition-delay: calc(var(--cw-upstream-stagger) * 4); }
-    .cw-upstream-editorial .cw-upstream-editorial-figure-condition { transition-delay: calc(var(--cw-upstream-stagger) * 5); }
-    .cw-upstream-editorial .cw-upstream-editorial-figure-note { transition-delay: calc(var(--cw-upstream-stagger) * 6); }
-    .cw-upstream-editorial .cw-upstream-editorial-field span:nth-child(1) { transition-delay: calc(var(--cw-upstream-stagger) * 7); }
-    .cw-upstream-editorial .cw-upstream-editorial-field span:nth-child(2) { transition-delay: calc(var(--cw-upstream-stagger) * 7.1); }
-    .cw-upstream-editorial .cw-upstream-editorial-field span:nth-child(3) { transition-delay: calc(var(--cw-upstream-stagger) * 7.2); }
-    .cw-upstream-editorial .cw-upstream-editorial-field span:nth-child(4) { transition-delay: calc(var(--cw-upstream-stagger) * 7.3); }
-    .cw-upstream-editorial .cw-upstream-editorial-field span:nth-child(5) { transition-delay: calc(var(--cw-upstream-stagger) * 7.4); }
-    .cw-upstream-editorial .cw-upstream-editorial-field span:nth-child(6) { transition-delay: calc(var(--cw-upstream-stagger) * 7.5); }
-    .cw-upstream-editorial .cw-upstream-editorial-field span:nth-child(7) { transition-delay: calc(var(--cw-upstream-stagger) * 7.6); }
+    .cw-upstream-final-subtitle {
+      max-width: 52rem;
+      margin: 0;
+      font-size: clamp(0.72rem, 1vw, 0.88rem);
+      line-height: 1.5;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgb(148 163 184);
+    }
 
-    .cw-upstream-editorial.is-visible .cw-upstream-editorial-composition,
-    .cw-upstream-editorial.is-visible .cw-upstream-editorial-divider,
-    .cw-upstream-editorial.is-visible .cw-upstream-editorial-argument,
-    .cw-upstream-editorial.is-visible .cw-upstream-editorial-kicker,
-    .cw-upstream-editorial.is-visible .cw-upstream-editorial-term,
-    .cw-upstream-editorial.is-visible .cw-upstream-editorial-depth-label,
-    .cw-upstream-editorial.is-visible .cw-upstream-editorial-depth-note,
-    .cw-upstream-editorial.is-visible .cw-upstream-editorial-figure-name,
-    .cw-upstream-editorial.is-visible .cw-upstream-editorial-figure-condition,
-    .cw-upstream-editorial.is-visible .cw-upstream-editorial-figure-note,
-    .cw-upstream-editorial.is-visible .cw-upstream-editorial-field span,
-    .cw-upstream-editorial.is-visible .cw-upstream-editorial-argument-subtitle {
+    /* =========================================================
+       PROGRESSIVE STATES
+       ========================================================= */
+
+    .cw-upstream[data-progress="early"] .cw-upstream-wellbeing {
+      transform: translate3d(0, 0, 0);
+    }
+
+    .cw-upstream[data-progress="middle"] .cw-upstream-wellbeing {
+      transform: translate3d(clamp(-32rem, -32vw, -17rem), clamp(-21rem, -25vh, -10rem), 0);
+    }
+
+    .cw-upstream[data-progress="late"] .cw-upstream-wellbeing {
+      transform: translate3d(clamp(-30rem, -30vw, -15rem), clamp(-26rem, -31vh, -14rem), 0);
+    }
+
+    .cw-upstream[data-progress="late"] .cw-upstream-wellbeing-note {
+      opacity: 0;
+      transform: translateY(-0.2rem);
+    }
+
+    .cw-upstream[data-progress="late"] .cw-upstream-condition {
       opacity: 1;
       transform: translateY(0);
     }
 
-    .cw-upstream-editorial.is-visible .cw-upstream-editorial-divider span,
-    .cw-upstream-editorial.is-visible .cw-upstream-editorial-foundation span {
+    .cw-upstream[data-progress="middle"] .cw-upstream-development {
+      transform: translate3d(0, clamp(3rem, 8vh, 6rem), 0);
+    }
+
+    .cw-upstream[data-progress="late"] .cw-upstream-development {
+      transform: translate3d(0, clamp(4rem, 10vh, 7rem), 0);
+    }
+
+    .cw-upstream[data-progress="late"] .cw-upstream-framework {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .cw-upstream[data-progress="late"] .cw-upstream-rule {
       transform: scaleX(1);
     }
 
-    .cw-upstream-editorial-state-1 .cw-upstream-editorial-composition--recomposed,
-    .cw-upstream-editorial-state-1 .cw-upstream-editorial-argument {
-      opacity: .08;
-      transform: translateY(20px);
-    }
-
-    .cw-upstream-editorial-state-2 .cw-upstream-editorial-composition--conventional {
-      transform: translateX(-10px);
-    }
-
-    .cw-upstream-editorial-state-2 .cw-upstream-editorial-composition--recomposed {
-      opacity: .3;
-      transform: translateY(10px);
-    }
-
-    .cw-upstream-editorial-state-3 .cw-upstream-editorial-composition--conventional {
-      opacity: .35;
-      transform: translateY(8px);
-    }
-
-    .cw-upstream-editorial-state-3 .cw-upstream-editorial-composition--recomposed {
-      opacity: .82;
-      transform: translateY(0);
-    }
-
-    .cw-upstream-editorial-state-4 .cw-upstream-editorial-composition--conventional {
-      opacity: .22;
-      transform: translateY(18px);
-    }
-
-    .cw-upstream-editorial-state-4 .cw-upstream-editorial-composition--recomposed {
-      opacity: 1;
-    }
-
-    .cw-upstream-editorial-state-5 .cw-upstream-editorial-composition--conventional {
-      opacity: .18;
-    }
-
-    .cw-upstream-editorial-state-5 .cw-upstream-editorial-composition--recomposed {
-      opacity: 1;
-    }
-
-    .cw-upstream-editorial-state-6 .cw-upstream-editorial-composition--conventional,
-    .cw-upstream-editorial-state-6 .cw-upstream-editorial-divider,
-    .cw-upstream-editorial-state-6 .cw-upstream-editorial-composition--recomposed {
-      opacity: .98;
-      transform: translateY(0);
-    }
-
-    .cw-upstream-editorial-state-6 .cw-upstream-editorial-argument {
+    .cw-upstream[data-progress="late"] .cw-upstream-domains {
       opacity: 1;
       transform: translateY(0);
     }
 
-    .cw-upstream-editorial-state-6 .cw-upstream-editorial-composition--conventional .cw-upstream-editorial-depth {
-      opacity: .68;
+    .cw-upstream[data-progress="late"] .cw-upstream-kicker {
+      opacity: 0.18;
+      transform: translateY(-0.3rem);
     }
 
-    @media (max-width: 1024px) {
-      .cw-upstream-editorial-stage {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+    .cw-upstream[data-progress="final"] .cw-upstream-final {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .cw-upstream[data-progress="final"] .cw-upstream-domains {
+      opacity: 0.38;
+    }
+
+    .cw-upstream[data-progress="final"] .cw-upstream-framework {
+      opacity: 0.42;
+    }
+
+    .cw-upstream[data-progress="final"] .cw-upstream-kicker {
+      opacity: 0.08;
+    }
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media (max-width: 700px) {
+      .cw-upstream-stage {
+        min-height: 125vh;
       }
 
-      .cw-upstream-editorial-divider {
-        padding-top: 0;
+      .cw-upstream-kicker {
+        top: 7vh;
       }
 
-      .cw-upstream-editorial-body,
-      .cw-upstream-editorial-figure {
-        min-height: 0;
+      .cw-upstream-development {
+        left: 0;
+        top: 23vh;
+        font-size: clamp(2.8rem, 15vw, 5rem);
+      }
+
+      .cw-upstream-wellbeing {
+        left: 0;
+        right: auto;
+        top: 55vh;
+      }
+
+      .cw-upstream-wellbeing-title {
+        font-size: clamp(2rem, 11vw, 3.6rem);
+      }
+
+      .cw-upstream[data-progress="middle"] .cw-upstream-wellbeing {
+        transform: translate3d(0, -18vh, 0);
+      }
+
+      .cw-upstream[data-progress="late"] .cw-upstream-wellbeing {
+        transform: translate3d(0, -28vh, 0);
+      }
+
+      .cw-upstream[data-progress="middle"] .cw-upstream-development {
+        transform: translate3d(0, 5vh, 0);
+      }
+
+      .cw-upstream[data-progress="late"] .cw-upstream-development {
+        transform: translate3d(0, 9vh, 0);
+      }
+
+      .cw-upstream-framework {
+        top: 73vh;
+      }
+
+      .cw-upstream-rule {
+        top: 77vh;
+      }
+
+      .cw-upstream-domains {
+        top: 81vh;
+        gap: 0.6rem 1rem;
+      }
+
+      .cw-upstream-domains span {
+        font-size: 0.65rem;
+      }
+
+      .cw-upstream-final {
+        bottom: 5vh;
+      }
+
+      .cw-upstream-final-title {
+        font-size: clamp(2.1rem, 11vw, 3.5rem);
+      }
+
+      .cw-upstream-final-subtitle {
+        font-size: 0.65rem;
+        line-height: 1.55;
       }
     }
 
-    @media (max-width: 767px) {
-      .cw-upstream-editorial-stage {
-        gap: 1.6rem;
-      }
-
-      .cw-upstream-editorial-term {
-        font-size: clamp(2.25rem, 14vw, 3.7rem);
-      }
-
-      .cw-upstream-editorial-depth-label {
-        font-size: clamp(1rem, 6vw, 1.35rem);
-      }
-
-      .cw-upstream-editorial-field {
-        grid-template-columns: 1fr;
-        gap: .75rem;
-      }
-
-      .cw-upstream-editorial-field span {
-        grid-column: auto !important;
-      }
-
-      .cw-upstream-editorial-argument {
-        margin-top: 2rem;
-      }
-    }
+    /* =========================================================
+       REDUCED MOTION
+       ========================================================= */
 
     @media (prefers-reduced-motion: reduce) {
-      .cw-upstream-editorial *,
-      .cw-upstream-editorial .cw-upstream-editorial-divider span,
-      .cw-upstream-editorial .cw-upstream-editorial-foundation span {
+      .cw-upstream * {
         transition: none !important;
-        animation: none !important;
-      }
-
-      .cw-upstream-editorial-composition,
-      .cw-upstream-editorial-divider,
-      .cw-upstream-editorial-argument,
-      .cw-upstream-editorial .cw-upstream-editorial-kicker,
-      .cw-upstream-editorial .cw-upstream-editorial-term,
-      .cw-upstream-editorial .cw-upstream-editorial-depth-label,
-      .cw-upstream-editorial .cw-upstream-editorial-depth-note,
-      .cw-upstream-editorial .cw-upstream-editorial-figure-name,
-      .cw-upstream-editorial .cw-upstream-editorial-figure-condition,
-      .cw-upstream-editorial .cw-upstream-editorial-figure-note,
-      .cw-upstream-editorial .cw-upstream-editorial-field span,
-      .cw-upstream-editorial .cw-upstream-editorial-argument-subtitle {
-        opacity: 1 !important;
-        transform: none !important;
-      }
-
-      .cw-upstream-editorial .cw-upstream-editorial-divider span,
-      .cw-upstream-editorial .cw-upstream-editorial-foundation span {
-        transform: scaleX(1) !important;
-      }
-
-      .cw-upstream-editorial-state-1 .cw-upstream-editorial-composition--recomposed,
-      .cw-upstream-editorial-state-1 .cw-upstream-editorial-argument {
-        opacity: 1 !important;
       }
     }
   </style>
@@ -576,75 +548,93 @@
   </script>
   <script>
     (function () {
-      const root = document.querySelector(".cw-upstream-editorial");
+      const root = document.querySelector(".cw-upstream");
       if (!root) return;
 
-      const states = ["is-stage-1", "is-stage-2", "is-stage-3", "is-stage-4", "is-stage-5", "is-stage-6"];
-      let started = false;
-      let raf = 0;
-      let prevProgress = -1;
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-      const setState = (index) => {
-        states.forEach((state, i) => root.classList.toggle(state, i === index));
-      };
-
-      const computeState = (progress) => {
-        if (progress < 0.16) return 0;
-        if (progress < 0.32) return 1;
-        if (progress < 0.5) return 2;
-        if (progress < 0.68) return 3;
-        if (progress < 0.84) return 4;
-        return 5;
-      };
-
-      const update = () => {
-        raf = 0;
-        const rect = root.getBoundingClientRect();
-        const viewport = window.innerHeight || document.documentElement.clientHeight;
-        const total = rect.height + viewport;
-        const progress = Math.max(0, Math.min(1, (viewport - rect.top) / total));
-        if (progress === prevProgress) return;
-        prevProgress = progress;
-        setState(computeState(progress));
-      };
-
-      const activate = () => {
-        if (started) return;
-        started = true;
-        root.classList.add("is-visible");
-        update();
-        window.addEventListener("scroll", onScroll, { passive: true });
-        window.addEventListener("resize", onResize);
-      };
-
-      const onScroll = () => {
-        if (raf) return;
-        raf = window.requestAnimationFrame(update);
-      };
-
-      const onResize = () => {
-        if (raf) window.cancelAnimationFrame(raf);
-        raf = window.requestAnimationFrame(update);
-      };
-
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        root.classList.add("is-visible", "is-stage-6");
+      if (reducedMotion) {
+        root.setAttribute("data-progress", "final");
         return;
       }
 
-      const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach((entry) => {
+      let ticking = false;
+
+      function clamp(value, min, max) {
+        return Math.min(Math.max(value, min), max);
+      }
+
+      function smoothstep(value) {
+        return value * value * (3 - 2 * value);
+      }
+
+      function getProgress() {
+        const rect = root.getBoundingClientRect();
+        const viewport = window.innerHeight || document.documentElement.clientHeight;
+
+        const start = viewport * 0.82;
+        const end = -rect.height * 0.28;
+
+        const raw = (start - rect.top) / (start - end);
+
+        return clamp(raw, 0, 1);
+      }
+
+      function update() {
+        ticking = false;
+
+        const progress = getProgress();
+
+        let state;
+
+        if (progress < 0.34) {
+          state = "early";
+        } else if (progress < 0.68) {
+          state = "middle";
+        } else if (progress < 0.88) {
+          state = "late";
+        } else {
+          state = "final";
+        }
+
+        root.setAttribute("data-progress", state);
+
+        const visualProgress = smoothstep(progress);
+        root.style.setProperty("--cw-progress", visualProgress.toFixed(4));
+      }
+
+      function requestUpdate() {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(update);
+      }
+
+      function onResize() {
+        requestUpdate();
+      }
+
+      let active = false;
+
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
           if (!entry.isIntersecting) return;
-          activate();
-          obs.unobserve(entry.target);
+          if (!active) {
+            active = true;
+            update();
+            window.addEventListener("scroll", requestUpdate, { passive: true });
+            window.addEventListener("resize", onResize);
+          }
         });
-      }, { threshold: 0.18 });
+      }, { threshold: 0.01, rootMargin: "20% 0px 20% 0px" });
 
       observer.observe(root);
 
-      const rect = root.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
-        activate();
+      const initialRect = root.getBoundingClientRect();
+      if (initialRect.top < window.innerHeight && initialRect.bottom > 0) {
+        active = true;
+        update();
+        window.addEventListener("scroll", requestUpdate, { passive: true });
+        window.addEventListener("resize", onResize);
       }
     })();
   </script>
