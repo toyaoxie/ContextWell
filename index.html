@@ -40,7 +40,7 @@
           <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] md:leading-[0.95] tracking-tight mb-4 md:mb-5">Shaping What Comes Next.</h1>
           <p class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-200 max-w-4xl mb-5 md:mb-6">Building Well-Being as Human Infrastructure in Digital Transition.</p>
           <p class="text-base md:text-lg text-slate-300 max-w-3xl mb-8">ContextWell Lab is an independent research laboratory committed to a well-being-driven world.</p>
-          <a href="/contextwell/projects/" class="inline-flex items-center rounded-lg bg-emerald-400 px-6 py-3 text-sm font-semibold text-slate-950 hover:bg-emerald-300 transition">Explore Research <span aria-hidden="true">→</span></a>
+          <a href="/contextwell/projects/" class="inline-flex items-center rounded-lg bg-emerald-400 px-6 py-3 text-sm font-semibold text-slate-950 hover:bg-emerald-300 transition">Explore Research <span aria-hidden="true" class="ml-2">→</span></a>
         </div>
 
         <div class="lg:col-span-4">
@@ -72,61 +72,57 @@
         <h2 class="text-3xl md:text-4xl font-bold mb-4">What if well-being could guide what we build?</h2>
         <p class="text-slate-300 text-base md:text-lg">Not only something we measure afterwards — but something we build into the context from the beginning.</p>
       </div>
-      <div class="cw-upstream" aria-label="Moving well-being upstream">
-        <div class="cw-upstream-header">
-          <span class="cw-upstream-eyebrow">THE SHIFT</span>
-          <span class="cw-upstream-title">FROM OUTCOME TO CONDITION</span>
-        </div>
 
-        <div class="cw-upstream-stage">
-
-          <div class="cw-upstream-conventional">
-            <span class="cw-upstream-label">CONVENTIONAL</span>
-
-            <div class="cw-upstream-sequence">
-              <span>DESIGN</span>
-              <span>BUILD</span>
-              <span>DEVELOP</span>
-            </div>
-
-            <div class="cw-upstream-after">
-              <strong>WELL-BEING</strong>
-              <small>MEASURED AFTERWARDS</small>
+      <!-- CONTEXTWELL UPSTREAM EDITORIAL VISUALISATION -->
+      <div class="cw-upstream-editorial" aria-label="Moving well-being upstream">
+        <div class="cw-upstream-editorial-stage cw-upstream-editorial-state-1">
+          <div class="cw-upstream-editorial-composition cw-upstream-editorial-composition--conventional">
+            <div class="cw-upstream-editorial-kicker">CONVENTIONAL</div>
+            <div class="cw-upstream-editorial-body">
+              <div class="cw-upstream-editorial-stack">
+                <span class="cw-upstream-editorial-term">DESIGN</span>
+                <span class="cw-upstream-editorial-term">BUILD</span>
+                <span class="cw-upstream-editorial-term">DEVELOP</span>
+              </div>
+              <div class="cw-upstream-editorial-depth">
+                <span class="cw-upstream-editorial-depth-label">WELL-BEING</span>
+                <span class="cw-upstream-editorial-depth-note">MEASURED AFTERWARDS</span>
+              </div>
             </div>
           </div>
 
-          <div class="cw-upstream-transition" aria-hidden="true">
-            <span></span>
-          </div>
+          <div class="cw-upstream-editorial-divider" aria-hidden="true"><span></span></div>
 
-          <div class="cw-upstream-contextwell">
-            <span class="cw-upstream-label">CONTEXTWELL</span>
-
-            <div class="cw-upstream-condition">
-              <strong>WELL-BEING</strong>
-              <small>GUIDING CONDITION</small>
+          <div class="cw-upstream-editorial-composition cw-upstream-editorial-composition--recomposed">
+            <div class="cw-upstream-editorial-kicker">RECOMPOSITION</div>
+            <div class="cw-upstream-editorial-body cw-upstream-editorial-body--recomposed">
+              <div class="cw-upstream-editorial-figure">
+                <div class="cw-upstream-editorial-figure-top">
+                  <span class="cw-upstream-editorial-figure-name">CONTEXTWELL</span>
+                  <span class="cw-upstream-editorial-figure-condition">WELL-BEING</span>
+                  <span class="cw-upstream-editorial-figure-note">GUIDING CONDITION</span>
+                </div>
+                <div class="cw-upstream-editorial-foundation" aria-hidden="true"><span></span></div>
+                <div class="cw-upstream-editorial-field">
+                  <span>CONTEXT</span>
+                  <span>PEOPLE</span>
+                  <span>LEARNING</span>
+                  <span>ORGANISATIONS</span>
+                  <span>TECHNOLOGY</span>
+                  <span>ENVIRONMENT</span>
+                  <span>HUMAN CAPACITY</span>
+                </div>
+              </div>
             </div>
-
-            <div class="cw-upstream-field" aria-hidden="true"></div>
-
-            <div class="cw-upstream-domains">
-              <span>CONTEXT</span>
-              <span>PEOPLE</span>
-              <span>LEARNING</span>
-              <span>ORGANISATIONS</span>
-              <span>TECHNOLOGY</span>
-              <span>ENVIRONMENT</span>
-              <span>HUMAN CAPACITY</span>
-            </div>
           </div>
-
         </div>
 
-        <div class="cw-upstream-conclusion">
-          <span>MOVE WELL-BEING UPSTREAM</span>
-          <small>WELL-BEING IS NOT THE CENTRE. IT IS THE CONDITION.</small>
-        </div>
+        <div class="cw-upstream-editorial-tension" aria-hidden="true"></div>
 
+        <div class="cw-upstream-editorial-argument">
+          <div class="cw-upstream-editorial-argument-title">MOVE WELL-BEING UPSTREAM</div>
+          <div class="cw-upstream-editorial-argument-subtitle">WELL-BEING IS NOT THE CENTRE. IT IS THE CONDITION.</div>
+        </div>
       </div>
     </section>
 
@@ -144,249 +140,370 @@
   <div id="site-footer"></div>
 
   <style>
-    .cw-upstream {
-      --cw-duration: 850ms;
-      --cw-line-duration: 1500ms;
-      --cw-gap: 180ms;
+    /* CONTEXTWELL UPSTREAM EDITORIAL VISUALISATION */
+    .cw-upstream-editorial {
+      --cw-upstream-duration: 1000ms;
+      --cw-upstream-duration-strong: 1600ms;
+      --cw-upstream-stagger: 110ms;
+      --cw-upstream-ease: cubic-bezier(0.16, 1, 0.3, 1);
       color: #f8fafc;
-      background: transparent;
+      max-width: 1180px;
+      margin: 0 auto;
     }
 
-    .cw-upstream-header {
+    .cw-upstream-editorial-stage {
       display: grid;
-      gap: .5rem;
-      margin-bottom: 2rem;
-    }
-
-    .cw-upstream-eyebrow,
-    .cw-upstream-label {
-      font-size: .7rem;
-      letter-spacing: .28em;
-      text-transform: uppercase;
-      color: rgb(52 211 153 / .88);
-    }
-
-    .cw-upstream-title {
-      font-size: .9rem;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: rgb(148 163 184);
-    }
-
-    .cw-upstream-stage {
-      display: grid;
-      grid-template-columns: minmax(0, 0.38fr) minmax(2rem, 1fr) minmax(0, 0.62fr);
-      gap: 1.25rem;
+      grid-template-columns: minmax(0, 0.52fr) minmax(2rem, 0.08fr) minmax(0, 0.4fr);
+      gap: clamp(1.5rem, 3vw, 3rem);
       align-items: start;
+      padding-top: .5rem;
     }
 
-    .cw-upstream-conventional {
-      display: grid;
-      gap: 1rem;
-      transition: opacity 1000ms ease-out;
-    }
-
-    .cw-upstream-sequence {
-      display: grid;
-      gap: .45rem;
-      font-size: .95rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: rgb(226 232 240);
-    }
-
-    .cw-upstream-after,
-    .cw-upstream-condition {
-      display: grid;
-      gap: .3rem;
-    }
-
-    .cw-upstream-after strong,
-    .cw-upstream-condition strong {
-      font-size: 1.05rem;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: rgb(248 250 252);
-    }
-
-    .cw-upstream-after small,
-    .cw-upstream-condition small {
+    .cw-upstream-editorial-kicker,
+    .cw-upstream-editorial-depth-note,
+    .cw-upstream-editorial-figure-note,
+    .cw-upstream-editorial-argument-subtitle {
       font-size: .72rem;
       letter-spacing: .2em;
       text-transform: uppercase;
       color: rgb(148 163 184);
     }
 
-    .cw-upstream-transition {
-      padding-top: 2.2rem;
+    .cw-upstream-editorial-kicker {
+      color: rgb(52 211 153 / .92);
+      margin-bottom: 1.1rem;
     }
 
-    .cw-upstream-transition span {
+    .cw-upstream-editorial-body {
+      display: grid;
+      gap: 1.3rem;
+      min-height: 18rem;
+    }
+
+    .cw-upstream-editorial-stack {
+      display: grid;
+      gap: .35rem;
+      align-content: start;
+    }
+
+    .cw-upstream-editorial-term {
+      display: block;
+      font-size: clamp(2.5rem, 5vw, 5.3rem);
+      line-height: .92;
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      color: rgb(248 250 252);
+      transform-origin: left top;
+    }
+
+    .cw-upstream-editorial-depth {
+      display: grid;
+      gap: .28rem;
+      align-content: start;
+      padding-top: 1.15rem;
+    }
+
+    .cw-upstream-editorial-depth-label {
+      display: block;
+      font-size: clamp(1.1rem, 2vw, 1.6rem);
+      line-height: 1.05;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: rgb(226 232 240);
+    }
+
+    .cw-upstream-editorial-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 1.35rem;
+    }
+
+    .cw-upstream-editorial-divider span,
+    .cw-upstream-editorial-foundation span {
       display: block;
       width: 100%;
       height: 1px;
       background: rgb(148 163 184 / .22);
       transform: scaleX(0);
       transform-origin: left center;
-      transition: transform 900ms ease-out;
-      transition-delay: calc(var(--cw-gap) * 4);
+      transition: transform var(--cw-upstream-duration-strong) var(--cw-upstream-ease);
     }
 
-    .cw-upstream-contextwell {
+    .cw-upstream-editorial-composition--recomposed {
+      position: relative;
+      padding-top: 1rem;
+    }
+
+    .cw-upstream-editorial-figure {
       display: grid;
-      gap: 1rem;
+      gap: 1.25rem;
+      min-height: 18rem;
     }
 
-    .cw-upstream-field {
-      height: 1px;
-      width: 100%;
-      background: rgba(52, 211, 153, 0.65);
-      transform: scaleX(0);
-      transform-origin: left center;
-      transition: transform var(--cw-line-duration) cubic-bezier(.22,.61,.36,1);
-      transition-delay: calc(var(--cw-gap) * 5.1);
-    }
-
-    .cw-upstream-domains {
+    .cw-upstream-editorial-figure-top {
       display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 1rem 1.25rem;
+      gap: .3rem;
+    }
+
+    .cw-upstream-editorial-figure-name {
+      font-size: clamp(1.7rem, 3vw, 3rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      color: rgb(248 250 252);
+    }
+
+    .cw-upstream-editorial-figure-condition {
+      font-size: clamp(1rem, 1.7vw, 1.35rem);
+      line-height: 1.1;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: rgb(52 211 153 / .94);
+    }
+
+    .cw-upstream-editorial-foundation {
+      padding-top: .55rem;
+    }
+
+    .cw-upstream-editorial-field {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: .95rem 1rem;
+      padding-top: 1rem;
       font-size: .78rem;
       letter-spacing: .15em;
       text-transform: uppercase;
       color: rgb(203 213 225);
+      align-items: start;
     }
 
-    .cw-upstream-domains span:nth-child(1) { grid-column: 1 / 4; }
-    .cw-upstream-domains span:nth-child(2) { grid-column: 5 / 8; }
-    .cw-upstream-domains span:nth-child(3) { grid-column: 9 / 13; }
-    .cw-upstream-domains span:nth-child(4) { grid-column: 2 / 7; }
-    .cw-upstream-domains span:nth-child(5) { grid-column: 8 / 12; }
-    .cw-upstream-domains span:nth-child(6) { grid-column: 1 / 6; }
-    .cw-upstream-domains span:nth-child(7) { grid-column: 7 / 13; }
+    .cw-upstream-editorial-field span:nth-child(1) { grid-column: 1 / 4; }
+    .cw-upstream-editorial-field span:nth-child(2) { grid-column: 5 / 8; }
+    .cw-upstream-editorial-field span:nth-child(3) { grid-column: 9 / 13; }
+    .cw-upstream-editorial-field span:nth-child(4) { grid-column: 2 / 7; }
+    .cw-upstream-editorial-field span:nth-child(5) { grid-column: 8 / 12; }
+    .cw-upstream-editorial-field span:nth-child(6) { grid-column: 1 / 6; }
+    .cw-upstream-editorial-field span:nth-child(7) { grid-column: 7 / 13; }
 
-    .cw-upstream-conclusion {
-      margin-top: 2.25rem;
+    .cw-upstream-editorial-tension {
+      display: none;
+    }
+
+    .cw-upstream-editorial-argument {
+      margin-top: 2.35rem;
       display: grid;
       gap: .45rem;
-      justify-items: start;
+      max-width: 34rem;
     }
 
-    .cw-upstream-conclusion > span {
-      font-size: clamp(1.2rem, 2vw, 1.8rem);
-      font-weight: 700;
-      letter-spacing: .06em;
+    .cw-upstream-editorial-argument-title {
+      font-size: clamp(1.35rem, 2.6vw, 2.35rem);
+      line-height: 1.05;
+      font-weight: 600;
+      letter-spacing: -0.03em;
       text-transform: uppercase;
       color: rgb(248 250 252);
     }
 
-    .cw-upstream-conclusion small {
-      font-size: .76rem;
-      letter-spacing: .16em;
-      text-transform: uppercase;
+    .cw-upstream-editorial-argument-subtitle {
+      max-width: 24rem;
       color: rgb(148 163 184);
     }
 
-    .cw-upstream .cw-upstream-label,
-    .cw-upstream .cw-upstream-sequence span,
-    .cw-upstream .cw-upstream-after,
-    .cw-upstream .cw-upstream-contextwell,
-    .cw-upstream .cw-upstream-condition,
-    .cw-upstream .cw-upstream-domains span,
-    .cw-upstream .cw-upstream-conclusion {
+    .cw-upstream-editorial-composition,
+    .cw-upstream-editorial-divider,
+    .cw-upstream-editorial-argument {
       opacity: 0;
-      transform: translateY(28px);
-      transition: opacity var(--cw-duration) ease-out, transform var(--cw-duration) ease-out;
+      transform: translateY(36px);
+      transition: opacity var(--cw-upstream-duration) var(--cw-upstream-ease), transform var(--cw-upstream-duration) var(--cw-upstream-ease);
     }
 
-    .cw-upstream .cw-upstream-label { transition-delay: 0ms; }
-    .cw-upstream .cw-upstream-sequence span:nth-child(1) { transition-delay: calc(var(--cw-gap) * 1); }
-    .cw-upstream .cw-upstream-sequence span:nth-child(2) { transition-delay: calc(var(--cw-gap) * 2); }
-    .cw-upstream .cw-upstream-sequence span:nth-child(3) { transition-delay: calc(var(--cw-gap) * 3); }
-    .cw-upstream .cw-upstream-after { transition-delay: calc(var(--cw-gap) * 4); }
-    .cw-upstream .cw-upstream-contextwell { transition-delay: calc(var(--cw-gap) * 4.7); }
-    .cw-upstream .cw-upstream-condition { transition-delay: calc(var(--cw-gap) * 5.2); }
-    .cw-upstream .cw-upstream-domains span:nth-child(1) { transition-delay: calc(var(--cw-gap) * 5.9); }
-    .cw-upstream .cw-upstream-domains span:nth-child(2) { transition-delay: calc(var(--cw-gap) * 6.1); }
-    .cw-upstream .cw-upstream-domains span:nth-child(3) { transition-delay: calc(var(--cw-gap) * 6.3); }
-    .cw-upstream .cw-upstream-domains span:nth-child(4) { transition-delay: calc(var(--cw-gap) * 6.5); }
-    .cw-upstream .cw-upstream-domains span:nth-child(5) { transition-delay: calc(var(--cw-gap) * 6.7); }
-    .cw-upstream .cw-upstream-domains span:nth-child(6) { transition-delay: calc(var(--cw-gap) * 6.9); }
-    .cw-upstream .cw-upstream-domains span:nth-child(7) { transition-delay: calc(var(--cw-gap) * 7.1); }
-    .cw-upstream .cw-upstream-conclusion { transition-delay: calc(var(--cw-gap) * 7.6); }
+    .cw-upstream-editorial .cw-upstream-editorial-term,
+    .cw-upstream-editorial .cw-upstream-editorial-depth-label,
+    .cw-upstream-editorial .cw-upstream-editorial-figure-name,
+    .cw-upstream-editorial .cw-upstream-editorial-figure-condition,
+    .cw-upstream-editorial .cw-upstream-editorial-figure-note,
+    .cw-upstream-editorial .cw-upstream-editorial-field span,
+    .cw-upstream-editorial .cw-upstream-editorial-kicker,
+    .cw-upstream-editorial .cw-upstream-editorial-depth-note,
+    .cw-upstream-editorial .cw-upstream-editorial-argument-subtitle {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity var(--cw-upstream-duration) var(--cw-upstream-ease), transform var(--cw-upstream-duration) var(--cw-upstream-ease);
+    }
 
-    .cw-upstream.is-visible .cw-upstream-label,
-    .cw-upstream.is-visible .cw-upstream-sequence span,
-    .cw-upstream.is-visible .cw-upstream-after,
-    .cw-upstream.is-visible .cw-upstream-contextwell,
-    .cw-upstream.is-visible .cw-upstream-condition,
-    .cw-upstream.is-visible .cw-upstream-domains span,
-    .cw-upstream.is-visible .cw-upstream-conclusion {
+    .cw-upstream-editorial .cw-upstream-editorial-kicker { transition-delay: 0ms; }
+    .cw-upstream-editorial .cw-upstream-editorial-term:nth-child(1) { transition-delay: calc(var(--cw-upstream-stagger) * 1); }
+    .cw-upstream-editorial .cw-upstream-editorial-term:nth-child(2) { transition-delay: calc(var(--cw-upstream-stagger) * 2); }
+    .cw-upstream-editorial .cw-upstream-editorial-term:nth-child(3) { transition-delay: calc(var(--cw-upstream-stagger) * 3); }
+    .cw-upstream-editorial .cw-upstream-editorial-depth-label { transition-delay: calc(var(--cw-upstream-stagger) * 4); }
+    .cw-upstream-editorial .cw-upstream-editorial-depth-note { transition-delay: calc(var(--cw-upstream-stagger) * 5); }
+    .cw-upstream-editorial .cw-upstream-editorial-figure-name { transition-delay: calc(var(--cw-upstream-stagger) * 4); }
+    .cw-upstream-editorial .cw-upstream-editorial-figure-condition { transition-delay: calc(var(--cw-upstream-stagger) * 5); }
+    .cw-upstream-editorial .cw-upstream-editorial-figure-note { transition-delay: calc(var(--cw-upstream-stagger) * 6); }
+    .cw-upstream-editorial .cw-upstream-editorial-field span:nth-child(1) { transition-delay: calc(var(--cw-upstream-stagger) * 7); }
+    .cw-upstream-editorial .cw-upstream-editorial-field span:nth-child(2) { transition-delay: calc(var(--cw-upstream-stagger) * 7.1); }
+    .cw-upstream-editorial .cw-upstream-editorial-field span:nth-child(3) { transition-delay: calc(var(--cw-upstream-stagger) * 7.2); }
+    .cw-upstream-editorial .cw-upstream-editorial-field span:nth-child(4) { transition-delay: calc(var(--cw-upstream-stagger) * 7.3); }
+    .cw-upstream-editorial .cw-upstream-editorial-field span:nth-child(5) { transition-delay: calc(var(--cw-upstream-stagger) * 7.4); }
+    .cw-upstream-editorial .cw-upstream-editorial-field span:nth-child(6) { transition-delay: calc(var(--cw-upstream-stagger) * 7.5); }
+    .cw-upstream-editorial .cw-upstream-editorial-field span:nth-child(7) { transition-delay: calc(var(--cw-upstream-stagger) * 7.6); }
+
+    .cw-upstream-editorial.is-visible .cw-upstream-editorial-composition,
+    .cw-upstream-editorial.is-visible .cw-upstream-editorial-divider,
+    .cw-upstream-editorial.is-visible .cw-upstream-editorial-argument,
+    .cw-upstream-editorial.is-visible .cw-upstream-editorial-kicker,
+    .cw-upstream-editorial.is-visible .cw-upstream-editorial-term,
+    .cw-upstream-editorial.is-visible .cw-upstream-editorial-depth-label,
+    .cw-upstream-editorial.is-visible .cw-upstream-editorial-depth-note,
+    .cw-upstream-editorial.is-visible .cw-upstream-editorial-figure-name,
+    .cw-upstream-editorial.is-visible .cw-upstream-editorial-figure-condition,
+    .cw-upstream-editorial.is-visible .cw-upstream-editorial-figure-note,
+    .cw-upstream-editorial.is-visible .cw-upstream-editorial-field span,
+    .cw-upstream-editorial.is-visible .cw-upstream-editorial-argument-subtitle {
       opacity: 1;
       transform: translateY(0);
     }
 
-    .cw-upstream.is-visible .cw-upstream-conventional {
-      opacity: .32;
-      transition-delay: calc(var(--cw-gap) * 5.3);
-    }
-
-    .cw-upstream.is-visible .cw-upstream-transition span,
-    .cw-upstream.is-visible .cw-upstream-field {
+    .cw-upstream-editorial.is-visible .cw-upstream-editorial-divider span,
+    .cw-upstream-editorial.is-visible .cw-upstream-editorial-foundation span {
       transform: scaleX(1);
     }
 
-    @media (max-width: 767px) {
-      .cw-upstream-stage {
+    .cw-upstream-editorial-state-1 .cw-upstream-editorial-composition--recomposed,
+    .cw-upstream-editorial-state-1 .cw-upstream-editorial-argument {
+      opacity: .08;
+      transform: translateY(20px);
+    }
+
+    .cw-upstream-editorial-state-2 .cw-upstream-editorial-composition--conventional {
+      transform: translateX(-10px);
+    }
+
+    .cw-upstream-editorial-state-2 .cw-upstream-editorial-composition--recomposed {
+      opacity: .3;
+      transform: translateY(10px);
+    }
+
+    .cw-upstream-editorial-state-3 .cw-upstream-editorial-composition--conventional {
+      opacity: .35;
+      transform: translateY(8px);
+    }
+
+    .cw-upstream-editorial-state-3 .cw-upstream-editorial-composition--recomposed {
+      opacity: .82;
+      transform: translateY(0);
+    }
+
+    .cw-upstream-editorial-state-4 .cw-upstream-editorial-composition--conventional {
+      opacity: .22;
+      transform: translateY(18px);
+    }
+
+    .cw-upstream-editorial-state-4 .cw-upstream-editorial-composition--recomposed {
+      opacity: 1;
+    }
+
+    .cw-upstream-editorial-state-5 .cw-upstream-editorial-composition--conventional {
+      opacity: .18;
+    }
+
+    .cw-upstream-editorial-state-5 .cw-upstream-editorial-composition--recomposed {
+      opacity: 1;
+    }
+
+    .cw-upstream-editorial-state-6 .cw-upstream-editorial-composition--conventional,
+    .cw-upstream-editorial-state-6 .cw-upstream-editorial-divider,
+    .cw-upstream-editorial-state-6 .cw-upstream-editorial-composition--recomposed {
+      opacity: .98;
+      transform: translateY(0);
+    }
+
+    .cw-upstream-editorial-state-6 .cw-upstream-editorial-argument {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .cw-upstream-editorial-state-6 .cw-upstream-editorial-composition--conventional .cw-upstream-editorial-depth {
+      opacity: .68;
+    }
+
+    @media (max-width: 1024px) {
+      .cw-upstream-editorial-stage {
         grid-template-columns: 1fr;
-        gap: 2.2rem;
+        gap: 2rem;
       }
 
-      .cw-upstream-transition {
+      .cw-upstream-editorial-divider {
         padding-top: 0;
       }
 
-      .cw-upstream-domains {
-        grid-template-columns: 1fr;
-        gap: .7rem;
+      .cw-upstream-editorial-body,
+      .cw-upstream-editorial-figure {
+        min-height: 0;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .cw-upstream-editorial-stage {
+        gap: 1.6rem;
       }
 
-      .cw-upstream-domains span {
+      .cw-upstream-editorial-term {
+        font-size: clamp(2.25rem, 14vw, 3.7rem);
+      }
+
+      .cw-upstream-editorial-depth-label {
+        font-size: clamp(1rem, 6vw, 1.35rem);
+      }
+
+      .cw-upstream-editorial-field {
+        grid-template-columns: 1fr;
+        gap: .75rem;
+      }
+
+      .cw-upstream-editorial-field span {
         grid-column: auto !important;
       }
 
-      .cw-upstream-conclusion {
+      .cw-upstream-editorial-argument {
         margin-top: 2rem;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .cw-upstream *,
-      .cw-upstream .cw-upstream-transition span,
-      .cw-upstream .cw-upstream-field {
+      .cw-upstream-editorial *,
+      .cw-upstream-editorial .cw-upstream-editorial-divider span,
+      .cw-upstream-editorial .cw-upstream-editorial-foundation span {
         transition: none !important;
         animation: none !important;
       }
 
-      .cw-upstream .cw-upstream-label,
-      .cw-upstream .cw-upstream-sequence span,
-      .cw-upstream .cw-upstream-after,
-      .cw-upstream .cw-upstream-contextwell,
-      .cw-upstream .cw-upstream-condition,
-      .cw-upstream .cw-upstream-domains span,
-      .cw-upstream .cw-upstream-conclusion {
+      .cw-upstream-editorial-composition,
+      .cw-upstream-editorial-divider,
+      .cw-upstream-editorial-argument,
+      .cw-upstream-editorial .cw-upstream-editorial-kicker,
+      .cw-upstream-editorial .cw-upstream-editorial-term,
+      .cw-upstream-editorial .cw-upstream-editorial-depth-label,
+      .cw-upstream-editorial .cw-upstream-editorial-depth-note,
+      .cw-upstream-editorial .cw-upstream-editorial-figure-name,
+      .cw-upstream-editorial .cw-upstream-editorial-figure-condition,
+      .cw-upstream-editorial .cw-upstream-editorial-figure-note,
+      .cw-upstream-editorial .cw-upstream-editorial-field span,
+      .cw-upstream-editorial .cw-upstream-editorial-argument-subtitle {
         opacity: 1 !important;
         transform: none !important;
       }
 
-      .cw-upstream .cw-upstream-transition span,
-      .cw-upstream .cw-upstream-field {
+      .cw-upstream-editorial .cw-upstream-editorial-divider span,
+      .cw-upstream-editorial .cw-upstream-editorial-foundation span {
         transform: scaleX(1) !important;
       }
 
-      .cw-upstream .cw-upstream-conventional {
-        opacity: .32 !important;
+      .cw-upstream-editorial-state-1 .cw-upstream-editorial-composition--recomposed,
+      .cw-upstream-editorial-state-1 .cw-upstream-editorial-argument {
+        opacity: 1 !important;
       }
     }
   </style>
@@ -459,43 +576,75 @@
   </script>
   <script>
     (function () {
-      const root = document.querySelector(".cw-upstream");
-
+      const root = document.querySelector(".cw-upstream-editorial");
       if (!root) return;
 
+      const states = ["is-stage-1", "is-stage-2", "is-stage-3", "is-stage-4", "is-stage-5", "is-stage-6"];
+      let started = false;
+      let raf = 0;
+      let prevProgress = -1;
+
+      const setState = (index) => {
+        states.forEach((state, i) => root.classList.toggle(state, i === index));
+      };
+
+      const computeState = (progress) => {
+        if (progress < 0.16) return 0;
+        if (progress < 0.32) return 1;
+        if (progress < 0.5) return 2;
+        if (progress < 0.68) return 3;
+        if (progress < 0.84) return 4;
+        return 5;
+      };
+
+      const update = () => {
+        raf = 0;
+        const rect = root.getBoundingClientRect();
+        const viewport = window.innerHeight || document.documentElement.clientHeight;
+        const total = rect.height + viewport;
+        const progress = Math.max(0, Math.min(1, (viewport - rect.top) / total));
+        if (progress === prevProgress) return;
+        prevProgress = progress;
+        setState(computeState(progress));
+      };
+
       const activate = () => {
+        if (started) return;
+        started = true;
         root.classList.add("is-visible");
+        update();
+        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("resize", onResize);
+      };
+
+      const onScroll = () => {
+        if (raf) return;
+        raf = window.requestAnimationFrame(update);
+      };
+
+      const onResize = () => {
+        if (raf) window.cancelAnimationFrame(raf);
+        raf = window.requestAnimationFrame(update);
       };
 
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        activate();
+        root.classList.add("is-visible", "is-stage-6");
         return;
       }
 
-      const observer = new IntersectionObserver(
-        (entries, obs) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-
-            activate();
-            obs.unobserve(entry.target);
-          });
-        },
-        {
-          threshold: 0.25
-        }
-      );
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          activate();
+          obs.unobserve(entry.target);
+        });
+      }, { threshold: 0.18 });
 
       observer.observe(root);
 
       const rect = root.getBoundingClientRect();
-
-      if (
-        rect.top < window.innerHeight &&
-        rect.bottom > 0
-      ) {
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
         activate();
-        observer.unobserve(root);
       }
     })();
   </script>
