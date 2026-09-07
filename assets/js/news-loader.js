@@ -71,6 +71,38 @@
   }
 
   /**
+   * Format date as "SEP 2026" (uppercase, matches editorial feed style)
+   */
+  function formatDateEditorial(dateStr) {
+    const date = new Date(`${dateStr}-01T00:00:00`);
+    return new Intl.DateTimeFormat("en-US", {
+      year: "numeric",
+      month: "short",
+    }).format(date).toUpperCase();
+  }
+
+  /**
+   * Render a single news item as a minimal editorial timeline row
+   * (date + category on the left, title as the main text, whole row clickable)
+   */
+  function renderNewsTimelineItem(item) {
+    const dateFormatted = formatDateEditorial(item.date);
+    const title = escapeHtml(item.title);
+    const category = escapeHtml(item.category).toUpperCase();
+    const url = safeUrl(item.url);
+
+    return `
+      <a href="${url}" class="group flex flex-col md:flex-row md:items-baseline gap-1.5 md:gap-6 py-4 border-b border-slate-800 hover:border-emerald-400/40 transition">
+        <div class="flex items-baseline gap-3 md:w-44 flex-shrink-0">
+          <time class="text-xs text-slate-500 tracking-wide">${dateFormatted}</time>
+          <span class="text-xs font-semibold text-emerald-400 tracking-wide">${category}</span>
+        </div>
+        <div class="text-sm text-slate-200 group-hover:text-emerald-400 transition">${title}</div>
+      </a>
+    `;
+  }
+
+  /**
    * Render a single news item
    */
   function renderNewsItem(item, isCompact = false) {
@@ -117,6 +149,7 @@
     const mode = container.dataset.newsContainer; // 'latest', 'all', 'featured'
     const limit = parseInt(container.dataset.newsLimit) || null;
     const compact = container.dataset.newsCompact === "true";
+    const style = container.dataset.newsStyle; // optional: 'timeline'
 
     let items = await loadNewsData();
     items = sortNewsChronologically(items);
@@ -128,6 +161,11 @@
 
     if (items.length === 0) {
       container.innerHTML = `<div class="text-slate-400 text-sm">No news items available.</div>`;
+      return;
+    }
+
+    if (style === "timeline") {
+      container.innerHTML = items.map(renderNewsTimelineItem).join("");
       return;
     }
 
