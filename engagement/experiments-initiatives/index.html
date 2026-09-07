@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Experiments &amp; Initiatives – ContextWell Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Named public-facing experiments and initiatives from ContextWell Lab, including #AutonomousEvolution." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; }
+    .card-hover { transition: all 0.3s ease; }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgba(16,185,129,0.12), 0 10px 10px -5px rgba(15,23,42,0.6); }
+    .dd-open [data-dd-panel] { opacity: 1 !important; visibility: visible !important; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100">
+  <div id="site-header"></div>
+
+  <main class="pt-28 pb-16 px-6 max-w-5xl mx-auto">
+    <section class="mb-10 max-w-3xl">
+      <p class="text-xs uppercase tracking-wide text-emerald-400 mb-3">Engagement</p>
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">Experiments &amp; Initiatives</h1>
+      <p class="text-slate-300 text-sm">
+        Named, public-facing initiatives — distinct from formal research projects — that invite
+        broad participation.
+      </p>
+    </section>
+
+    <section class="mb-10">
+      <a href="/contextwell/engagement/experiments-initiatives/autonomous-evolution/" class="card-hover block bg-slate-900 border border-slate-800 rounded-xl p-6 max-w-3xl">
+        <p class="text-xs uppercase tracking-wide text-emerald-400 mb-2">Public Initiative</p>
+        <h2 class="text-lg font-semibold mb-2">#AutonomousEvolution</h2>
+        <p class="text-slate-400 text-sm">
+          A shared recognition of conscious participation in a world shaped by design.
+        </p>
+      </a>
+    </section>
+
+    <section class="max-w-3xl">
+      <a href="/contextwell/engagement/" class="inline-flex items-center text-sm text-emerald-400 hover:text-emerald-300">← Back to Engagement</a>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    (function () {
+      const BASE = "/contextwell";
+      async function inject(el, url) {
+        if (!el) return;
+        try {
+          const res = await fetch(url, { cache: "no-store" });
+          if (!res.ok) throw new Error("Failed to load: " + url);
+          el.innerHTML = await res.text();
+        } catch (e) { console.warn(e); }
+      }
+      function boot() {
+        inject(document.getElementById("site-header"), BASE + "/partials/header.html");
+        inject(document.getElementById("site-footer"), BASE + "/partials/footer.html");
+      }
+      document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", boot) : boot();
+    })();
+  </script>
+</body>
+</html>

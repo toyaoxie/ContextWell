@@ -1,42 +1,42 @@
 [
-  {
-    "title": "ContextWell Lab Joins IASEAI as an Affiliate",
-    "date": "2026-09",
-    "category": "Research",
-    "excerpt": "ContextWell Lab has joined the International Association for Safe & Ethical AI, connecting its work with a global community advancing responsible AI.",
-    "url": "/contextwell/network/",
-    "featured": true
-  },
-  {
-    "title": "ContextWell Lab Launches New Research Initiative",
-    "date": "2026-05",
-    "category": "Research",
-    "excerpt": "A new research programme explores how well-being can be embedded as infrastructure in educational systems across three continents.",
-    "url": "/contextwell/projects/",
-    "featured": true
-  },
-  {
-    "title": "White Paper Published: Well-Being as Embedded Infrastructure",
-    "date": "2026-04",
-    "category": "Publication",
-    "excerpt": "Our foundational white paper outlines well-being and human oversight as infrastructure for AI-mediated systems.",
-    "url": "https://doi.org/10.5281/zenodo.18121092",
-    "featured": true
-  },
-  {
-    "title": "Healthcare Partners Join ContextWell Collaboration",
-    "date": "2026-03",
-    "category": "Research",
-    "excerpt": "Healthcare collaborators are exploring capacity-building programmes that bring ContextWell research into clinical settings.",
-    "url": "/contextwell/network/",
-    "featured": false
-  },
-  {
-    "title": "New Publication in PLOS ONE",
-    "date": "2026-02",
-    "category": "Publication",
-    "excerpt": "Our exploratory sequential mixed-methods study on AI for contextual well-being in medical education is now open access.",
-    "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0321426",
-    "featured": false
-  }
+    {
+        "title": "ContextWell Lab Joins IASEAI as an Affiliate",
+        "date": "2026-09",
+        "category": "Research",
+        "excerpt": "ContextWell Lab has joined the International Association for Safe & Ethical AI, connecting its work with a global community advancing responsible AI.",
+        "url": "/contextwell/network/",
+        "featured": true
+    },
+    {
+        "title": "ContextWell Lab Launches New Research Initiative",
+        "date": "2026-05",
+        "category": "Research",
+        "excerpt": "A new research programme explores how well-being can be embedded as infrastructure in educational systems across three continents.",
+        "url": "/contextwell/research/",
+        "featured": true
+    },
+    {
+        "title": "White Paper Published: Well-Being as Embedded Infrastructure",
+        "date": "2026-04",
+        "category": "Publication",
+        "excerpt": "Our foundational white paper outlines well-being and human oversight as infrastructure for AI-mediated systems.",
+        "url": "https://doi.org/10.5281/zenodo.18121092",
+        "featured": true
+    },
+    {
+        "title": "Healthcare Partners Join ContextWell Collaboration",
+        "date": "2026-03",
+        "category": "Research",
+        "excerpt": "Healthcare collaborators are exploring capacity-building programmes that bring ContextWell research into clinical settings.",
+        "url": "/contextwell/network/",
+        "featured": false
+    },
+    {
+        "title": "New Publication in PLOS ONE",
+        "date": "2026-02",
+        "category": "Publication",
+        "excerpt": "Our exploratory sequential mixed-methods study on AI for contextual well-being in medical education is now open access.",
+        "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0321426",
+        "featured": false
+    }
 ]

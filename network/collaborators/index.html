@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Collaborators – ContextWell Network</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Collaborators in the ContextWell Research Network: research partners and affiliate organisations advancing human capacity, well-being, and responsible AI." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; }
+    .dd-open [data-dd-panel] { opacity: 1 !important; visibility: visible !important; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100">
+  <div id="site-header"></div>
+
+  <main class="max-w-6xl mx-auto px-6 pt-28 pb-16">
+    <section class="mb-16 max-w-3xl">
+      <p class="text-xs uppercase tracking-wide text-emerald-400 mb-3">Network</p>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Collaborators</h1>
+      <p class="text-lg text-slate-300">
+        The ContextWell Research Network connects academic, research, and practice-based organisations working to strengthen human capacity, well-being, and oversight in AI-mediated environments.
+      </p>
+      <a href="/contextwell/network/" class="inline-flex items-center text-sm text-emerald-400 hover:text-emerald-300 mt-4">
+        ← Back to Network
+      </a>
+    </section>
+
+    <section class="mb-16">
+      <h2 class="text-2xl font-semibold mb-6">Current Network</h2>
+      <div id="network-members" class="grid grid-cols-1 md:grid-cols-2 gap-5"></div>
+    </section>
+
+    <section id="get-involved" class="rounded-xl border border-slate-800 bg-slate-900 p-6 md:p-8">
+      <h2 class="text-2xl font-semibold mb-3">Interested in joining?</h2>
+      <p class="max-w-3xl text-sm text-slate-300 mb-5">
+        We welcome researchers, practitioners, and organisations whose work connects with the research interests of ContextWell Lab.
+      </p>
+      <a href="mailto:yao.xie@ucdconnect.ie?subject=ContextWell%20Research%20Network%20Interest" class="inline-flex rounded-lg bg-emerald-400 px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-emerald-300">
+        Express Interest →
+      </a>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    (function () {
+      const BASE = "/contextwell";
+
+      async function inject(el, url) {
+        if (!el) return;
+        try {
+          const res = await fetch(url, { cache: "no-store" });
+          if (!res.ok) throw new Error("Failed to load: " + url);
+          el.innerHTML = await res.text();
+        } catch (error) {
+          console.warn(error);
+        }
+      }
+
+      function createMember(member) {
+        const card = document.createElement("article");
+        card.className = "rounded-xl border border-slate-800 bg-slate-900 p-6 hover:border-emerald-400 transition";
+        const relationship = document.createElement("p");
+        relationship.className = "text-xs uppercase tracking-wide text-emerald-400 mb-3";
+        relationship.textContent = member.relationship;
+        const name = document.createElement("h3");
+        name.className = "text-lg font-semibold mb-2";
+        const link = document.createElement("a");
+        const url = new URL(member.url, window.location.origin);
+        link.href = url.protocol === "https:" || url.protocol === "http:" ? url.href : "#";
+        link.target = "_blank";
+        link.rel = "noopener";
+        link.className = "hover:text-emerald-400";
+        link.textContent = member.name;
+        name.appendChild(link);
+        const location = document.createElement("p");
+        location.className = "text-sm text-slate-400";
+        location.textContent = member.location;
+        card.append(relationship, name, location);
+        return card;
+      }
+
+      async function loadNetwork() {
+        const container = document.getElementById("network-members");
+        try {
+          const res = await fetch(`${BASE}/assets/data/network.json`, { cache: "no-store" });
+          if (!res.ok) throw new Error("Failed to load network members");
+          const members = await res.json();
+          container.replaceChildren(...members.map(createMember));
+        } catch (error) {
+          console.warn(error);
+          container.textContent = "Network members are currently unavailable.";
+          container.className = "text-sm text-slate-400";
+        }
+      }
+
+      function boot() {
+        inject(document.getElementById("site-header"), `${BASE}/partials/header.html`);
+        inject(document.getElementById("site-footer"), `${BASE}/partials/footer.html`);
+        loadNetwork();
+      }
+
+      document.addEventListener("click", function (event) {
+        const toggle = event.target.closest("#nav-toggle");
+        if (!toggle) return;
+        const panel = document.getElementById("site-nav");
+        if (!panel) return;
+        const isOpen = !panel.classList.contains("hidden");
+        panel.classList.toggle("hidden");
+        toggle.setAttribute("aria-expanded", String(!isOpen));
+      });
+
+      document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", boot) : boot();
+    })();
+  </script>
+</body>
+</html>

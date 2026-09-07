@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Research Areas – ContextWell Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="The contexts ContextWell Lab studies: education, healthcare, work, organisations, communities, digital environments, AI, and public systems." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; }
+    .dd-open [data-dd-panel] { opacity: 1 !important; visibility: visible !important; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100">
+  <div id="site-header"></div>
+
+  <main class="pt-28 pb-16 px-6 max-w-5xl mx-auto">
+    <section class="mb-12 max-w-3xl">
+      <p class="text-xs uppercase tracking-wide text-emerald-400 mb-3">Research</p>
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">Research Areas</h1>
+      <p class="text-slate-300 text-sm">
+        One mission, many contexts. The context may change; the same questions guide us in each:
+        what human capacity matters here, and how is well-being embedded in the solution?
+      </p>
+    </section>
+
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-16">
+      <div class="rounded-xl border border-slate-800 bg-slate-900 p-5">
+        <h3 class="text-base font-semibold text-emerald-400 mb-2">Education</h3>
+        <p class="text-slate-400 text-sm">How learning environments shape judgement, adaptability, and capacity.</p>
+      </div>
+      <div class="rounded-xl border border-slate-800 bg-slate-900 p-5">
+        <h3 class="text-base font-semibold text-emerald-400 mb-2">Healthcare</h3>
+        <p class="text-slate-400 text-sm">Well-being and capacity for both patients and healthcare professionals.</p>
+      </div>
+      <div class="rounded-xl border border-slate-800 bg-slate-900 p-5">
+        <h3 class="text-base font-semibold text-emerald-400 mb-2">Work</h3>
+        <p class="text-slate-400 text-sm">How workplace conditions shape people's ability to decide and act.</p>
+      </div>
+      <div class="rounded-xl border border-slate-800 bg-slate-900 p-5">
+        <h3 class="text-base font-semibold text-emerald-400 mb-2">Organisations</h3>
+        <p class="text-slate-400 text-sm">Structures and practices that support or erode organisational well-being.</p>
+      </div>
+      <div class="rounded-xl border border-slate-800 bg-slate-900 p-5">
+        <h3 class="text-base font-semibold text-emerald-400 mb-2">Communities</h3>
+        <p class="text-slate-400 text-sm">How community context shapes participation and collective capacity.</p>
+      </div>
+      <div class="rounded-xl border border-slate-800 bg-slate-900 p-5">
+        <h3 class="text-base font-semibold text-emerald-400 mb-2">Digital environments</h3>
+        <p class="text-slate-400 text-sm">How digital tools and platforms shape everyday judgement and behaviour.</p>
+      </div>
+      <div class="rounded-xl border border-slate-800 bg-slate-900 p-5">
+        <h3 class="text-base font-semibold text-emerald-400 mb-2">AI</h3>
+        <p class="text-slate-400 text-sm">Human oversight and capacity in AI-mediated systems and decisions.</p>
+      </div>
+      <div class="rounded-xl border border-slate-800 bg-slate-900 p-5">
+        <h3 class="text-base font-semibold text-emerald-400 mb-2">Public systems</h3>
+        <p class="text-slate-400 text-sm">How policy and public infrastructure shape well-being at scale.</p>
+      </div>
+    </section>
+
+    <section class="max-w-3xl">
+      <a href="/contextwell/research/" class="inline-flex items-center text-sm text-emerald-400 hover:text-emerald-300">← Back to Research</a>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    (function () {
+      const BASE = "/contextwell";
+      async function inject(el, url) {
+        if (!el) return;
+        try {
+          const res = await fetch(url, { cache: "no-store" });
+          if (!res.ok) throw new Error("Failed to load: " + url);
+          el.innerHTML = await res.text();
+        } catch (e) { console.warn(e); }
+      }
+      function boot() {
+        inject(document.getElementById("site-header"), BASE + "/partials/header.html");
+        inject(document.getElementById("site-footer"), BASE + "/partials/footer.html");
+      }
+      document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", boot) : boot();
+    })();
+  </script>
+</body>
+</html>

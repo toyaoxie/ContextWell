@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Work with ContextWell – ContextWell Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Ways to work with ContextWell Lab: commission research, propose a research collaboration, partner with us, or license our frameworks and tools." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; }
+    .dd-open [data-dd-panel] { opacity: 1 !important; visibility: visible !important; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100" id="top">
+  <div id="site-header"></div>
+
+  <main class="pt-28 pb-16 px-6 max-w-6xl mx-auto">
+
+    <section class="mb-14 max-w-3xl">
+      <p class="text-xs uppercase tracking-wide text-emerald-400 mb-3">Research</p>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Work with ContextWell</h1>
+      <p class="text-lg text-slate-300">
+        Four ways to work with ContextWell Lab, depending on what you're trying to do.
+      </p>
+    </section>
+
+    <!-- Commission Research -->
+    <section id="commission" class="mb-16 scroll-mt-28">
+      <h2 class="text-xl font-semibold mb-3">Commission Research</h2>
+      <p class="text-slate-400 text-sm mb-6 max-w-3xl">
+        Commissioned research and advisory work for organisations seeking to strengthen well-being,
+        human capacity, and oversight in complex AI-mediated environments.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <article class="rounded-xl border border-slate-800 bg-slate-900 p-6 hover:border-emerald-400 transition">
+          <h3 class="text-base font-semibold mb-3">Commissioned Research</h3>
+          <ul class="space-y-1.5 text-sm text-slate-400">
+            <li>Research design</li><li>Evidence synthesis</li><li>Stakeholder analysis</li><li>Qualitative research</li><li>Mixed methods</li><li>Evaluation</li>
+          </ul>
+        </article>
+        <article class="rounded-xl border border-slate-800 bg-slate-900 p-6 hover:border-emerald-400 transition">
+          <h3 class="text-base font-semibold mb-3">Well-being Advisory</h3>
+          <ul class="space-y-1.5 text-sm text-slate-400">
+            <li>Contextual well-being assessment</li><li>Well-being strategy</li><li>Intervention design</li><li>Organisational well-being</li><li>Educational well-being</li><li>Evaluation</li>
+          </ul>
+        </article>
+      </div>
+      <a href="mailto:yao.xie@ucdconnect.ie?subject=ContextWell%20Commission%20Research" class="inline-flex rounded-lg bg-emerald-400 px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-emerald-300">
+        Discuss a Commission →
+      </a>
+    </section>
+
+    <!-- Propose Research -->
+    <section id="propose" class="mb-16 scroll-mt-28">
+      <h2 class="text-xl font-semibold mb-3">Propose Research</h2>
+      <p class="text-slate-400 text-sm mb-6 max-w-3xl">
+        Researchers, students, and practitioners can propose a question or project idea to explore
+        with ContextWell Lab — including thesis projects, visiting research, and joint studies.
+      </p>
+      <a href="mailto:yao.xie@ucdconnect.ie?subject=ContextWell%20Research%20Proposal" class="inline-flex rounded-lg border border-slate-800 bg-slate-900 px-4 py-2 text-sm font-semibold text-slate-200 hover:border-emerald-400 hover:text-emerald-400 transition">
+        Propose a Research Idea →
+      </a>
+    </section>
+
+    <!-- Collaborate -->
+    <section id="collaborate" class="mb-16 scroll-mt-28">
+      <h2 class="text-xl font-semibold mb-3">Collaborate</h2>
+      <p class="text-slate-400 text-sm mb-6 max-w-3xl">
+        For organisations and institutions interested in joint research partnerships — co-supervised
+        studies, shared data access, or cross-institutional projects — rather than commissioned,
+        one-off work.
+      </p>
+      <a href="mailto:yao.xie@ucdconnect.ie?subject=ContextWell%20Collaboration" class="inline-flex rounded-lg border border-slate-800 bg-slate-900 px-4 py-2 text-sm font-semibold text-slate-200 hover:border-emerald-400 hover:text-emerald-400 transition">
+        Discuss a Partnership →
+      </a>
+      <p class="text-xs text-slate-500 mt-4 max-w-3xl">
+        Looking for formal multi-partner consortiums instead? See <a href="/contextwell/network/consortiums/" class="text-emerald-400 hover:underline">Consortiums</a>.
+      </p>
+    </section>
+
+    <!-- Licensing & Commercialisation -->
+    <section id="licensing" class="mb-16 scroll-mt-28">
+      <h2 class="text-xl font-semibold mb-3">Licensing &amp; Commercialisation</h2>
+      <p class="text-slate-400 text-sm mb-6 max-w-3xl">
+        Organisations can license ContextWell Lab's frameworks and tools — including SCWF and
+        Well-being Builder — for their own internal use. Terms are discussed case by case.
+      </p>
+      <a href="mailto:yao.xie@ucdconnect.ie?subject=ContextWell%20Licensing%20Enquiry" class="inline-flex rounded-lg border border-slate-800 bg-slate-900 px-4 py-2 text-sm font-semibold text-slate-200 hover:border-emerald-400 hover:text-emerald-400 transition">
+        Enquire About Licensing →
+      </a>
+    </section>
+
+    <section class="max-w-3xl">
+      <a href="/contextwell/research/" class="inline-flex items-center text-sm text-emerald-400 hover:text-emerald-300">← Back to Research</a>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    (function () {
+      const BASE = "/contextwell";
+      async function inject(el, url) {
+        if (!el) return;
+        try {
+          const res = await fetch(url, { cache: "no-store" });
+          if (!res.ok) throw new Error("Failed to load: " + url);
+          el.innerHTML = await res.text();
+        } catch (e) { console.warn(e); }
+      }
+      function boot() {
+        inject(document.getElementById("site-header"), BASE + "/partials/header.html");
+        inject(document.getElementById("site-footer"), BASE + "/partials/footer.html");
+      }
+      document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", boot) : boot();
+    })();
+  </script>
+</body>
+</html>

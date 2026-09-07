@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Reports – ContextWell Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Applied research reports from ContextWell Lab for practitioners and partner organisations." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; }
+    .dd-open [data-dd-panel] { opacity: 1 !important; visibility: visible !important; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100">
+  <div id="site-header"></div>
+
+  <main class="pt-28 pb-16 px-6 max-w-5xl mx-auto">
+    <section class="mb-10 max-w-3xl">
+      <p class="text-xs uppercase tracking-wide text-emerald-400 mb-3">Knowledge</p>
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">Reports</h1>
+      <p class="text-slate-300 text-sm mb-3">
+        Applied research reports that translate ContextWell Lab's findings into practice for
+        partner organisations and the public.
+      </p>
+      <p class="text-slate-400 text-sm">
+        No reports are published yet. As commissioned research and pilots complete, findings will
+        be shared here.
+      </p>
+    </section>
+
+    <section class="rounded-xl border border-slate-800 bg-slate-900 p-6 md:p-8 max-w-3xl">
+      <h2 class="text-lg font-semibold mb-2">Looking for something specific?</h2>
+      <p class="text-slate-400 text-sm mb-5">Get in touch and we can point you to relevant publications or ongoing work.</p>
+      <a href="mailto:yao.xie@ucdconnect.ie?subject=ContextWell%20Reports%20Enquiry" class="inline-flex rounded-lg bg-emerald-400 px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-emerald-300">
+        Get in Touch →
+      </a>
+    </section>
+
+    <section class="mt-10 max-w-3xl">
+      <a href="/contextwell/knowledge/" class="inline-flex items-center text-sm text-emerald-400 hover:text-emerald-300">← Back to Knowledge</a>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    (function () {
+      const BASE = "/contextwell";
+      async function inject(el, url) {
+        if (!el) return;
+        try {
+          const res = await fetch(url, { cache: "no-store" });
+          if (!res.ok) throw new Error("Failed to load: " + url);
+          el.innerHTML = await res.text();
+        } catch (e) { console.warn(e); }
+      }
+      function boot() {
+        inject(document.getElementById("site-header"), BASE + "/partials/header.html");
+        inject(document.getElementById("site-footer"), BASE + "/partials/footer.html");
+      }
+      document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", boot) : boot();
+    })();
+  </script>
+</body>
+</html>

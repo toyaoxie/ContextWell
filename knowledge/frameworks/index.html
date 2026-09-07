@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Frameworks – ContextWell Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Structural frameworks underpinning ContextWell Lab's research, including the Spectrum of Contextual Well-being Framework (SCWF)." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; }
+    .dd-open [data-dd-panel] { opacity: 1 !important; visibility: visible !important; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100">
+  <div id="site-header"></div>
+
+  <main class="pt-28 pb-16 px-6 max-w-5xl mx-auto">
+    <section class="mb-10 max-w-3xl">
+      <p class="text-xs uppercase tracking-wide text-emerald-400 mb-3">Knowledge</p>
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">Frameworks</h1>
+      <p class="text-slate-300 text-sm">
+        The structural frameworks that underpin how ContextWell Lab studies and designs for
+        contextual well-being and human capacity.
+      </p>
+    </section>
+
+    <section class="mb-10 max-w-3xl">
+      <h2 class="text-xl font-semibold mb-4">Featured</h2>
+      <a href="https://doi.org/10.5281/zenodo.18121093"
+         class="block rounded-xl border border-slate-800 bg-slate-900 p-4 hover:border-emerald-400 transition">
+        <div class="text-sm font-semibold text-slate-100">
+          Well-Being as Embedded Infrastructure in the Intelligence Era
+        </div>
+        <div class="text-xs text-slate-400 mt-1">
+          White paper · 2026 · DOI: 10.5281/zenodo.18121093
+        </div>
+        <div class="text-xs text-slate-400 mt-2">
+          A structural framing of well-being and human oversight as infrastructure for governable
+          intelligent systems.
+        </div>
+      </a>
+    </section>
+
+    <section class="mb-10 max-w-3xl">
+      <h2 class="text-xl font-semibold mb-4">SCWF</h2>
+      <p class="text-slate-300 text-sm mb-3">
+        The Spectrum of Contextual Well-being Framework (SCWF) is ContextWell Lab's foundational
+        doctoral research project, identifying and understanding the conditions within a context
+        that shape well-being.
+      </p>
+      <a href="/contextwell/research/projects/#foundational" class="inline-flex rounded-lg border border-slate-800 bg-slate-900 px-4 py-2 text-sm font-semibold text-slate-200 hover:border-emerald-400 hover:text-emerald-400 transition">
+        View SCWF in Research Projects →
+      </a>
+    </section>
+
+    <section class="max-w-3xl">
+      <a href="/contextwell/knowledge/" class="inline-flex items-center text-sm text-emerald-400 hover:text-emerald-300">← Back to Knowledge</a>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    (function () {
+      const BASE = "/contextwell";
+      async function inject(el, url) {
+        if (!el) return;
+        try {
+          const res = await fetch(url, { cache: "no-store" });
+          if (!res.ok) throw new Error("Failed to load: " + url);
+          el.innerHTML = await res.text();
+        } catch (e) { console.warn(e); }
+      }
+      function boot() {
+        inject(document.getElementById("site-header"), BASE + "/partials/header.html");
+        inject(document.getElementById("site-footer"), BASE + "/partials/footer.html");
+      }
+      document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", boot) : boot();
+    })();
+  </script>
+</body>
+</html>

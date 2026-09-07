@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Resources – ContextWell Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Supporting reference material from ContextWell Lab for researchers, partners, and the public." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; }
+    .dd-open [data-dd-panel] { opacity: 1 !important; visibility: visible !important; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100">
+  <div id="site-header"></div>
+
+  <main class="pt-28 pb-16 px-6 max-w-5xl mx-auto">
+    <section class="mb-10 max-w-3xl">
+      <p class="text-xs uppercase tracking-wide text-emerald-400 mb-3">Knowledge</p>
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">Resources</h1>
+      <p class="text-slate-300 text-sm mb-5">
+        Supporting reference material for researchers, partners, and the public. This section is
+        being built out — in the meantime, our published work lives in Publications and Frameworks.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/contextwell/knowledge/publications/" class="inline-flex rounded-lg border border-slate-800 bg-slate-900 px-4 py-2 text-sm font-semibold text-slate-200 hover:border-emerald-400 hover:text-emerald-400 transition">Publications →</a>
+        <a href="/contextwell/knowledge/frameworks/" class="inline-flex rounded-lg border border-slate-800 bg-slate-900 px-4 py-2 text-sm font-semibold text-slate-200 hover:border-emerald-400 hover:text-emerald-400 transition">Frameworks →</a>
+      </div>
+    </section>
+
+    <section class="max-w-3xl">
+      <a href="/contextwell/knowledge/" class="inline-flex items-center text-sm text-emerald-400 hover:text-emerald-300">← Back to Knowledge</a>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    (function () {
+      const BASE = "/contextwell";
+      async function inject(el, url) {
+        if (!el) return;
+        try {
+          const res = await fetch(url, { cache: "no-store" });
+          if (!res.ok) throw new Error("Failed to load: " + url);
+          el.innerHTML = await res.text();
+        } catch (e) { console.warn(e); }
+      }
+      function boot() {
+        inject(document.getElementById("site-header"), BASE + "/partials/header.html");
+        inject(document.getElementById("site-footer"), BASE + "/partials/footer.html");
+      }
+      document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", boot) : boot();
+    })();
+  </script>
+</body>
+</html>

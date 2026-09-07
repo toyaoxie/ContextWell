@@ -24,60 +24,114 @@ Do NOT place <script> or <style> here when loading via fetch+innerHTML
     </button>
 
     <!-- Desktop nav -->
-    <div class="hidden md:flex items-center gap-6 text-sm">
+    <div class="hidden md:flex items-center gap-5 text-sm">
 
-      <a href="/contextwell/" class="text-slate-300 hover:text-emerald-400">Overview</a>
-      <a href="/contextwell/about/" class="text-slate-300 hover:text-emerald-400">About</a>
+      <a href="/contextwell/" class="text-slate-300 hover:text-emerald-400">Home</a>
 
-      <!-- Research -->
+      <!-- About -->
       <div class="relative group js-dd" data-dd>
-        <a href="/contextwell/projects/"
-           data-dd-trigger
-           role="button"
-           aria-haspopup="menu"
-           aria-expanded="false"
-           class="inline-flex items-center gap-2 text-slate-300 hover:text-emerald-400 transition">
-          Research <span class="text-slate-500 group-hover:text-emerald-400" aria-hidden="true">▾</span>
+        <a href="/contextwell/about/"
+           data-dd-trigger role="button" aria-haspopup="menu" aria-expanded="false"
+           class="inline-flex items-center gap-1 text-slate-300 hover:text-emerald-400 transition">
+          About <span class="text-slate-500 group-hover:text-emerald-400" aria-hidden="true">▾</span>
         </a>
-
         <div class="absolute left-0 top-full pt-2 z-50">
-          <div data-dd-panel
-               role="menu"
-               aria-label="Research submenu"
-               class="w-64 rounded-xl border border-slate-800 bg-slate-950/98 shadow-xl backdrop-blur
+          <div data-dd-panel role="menu" aria-label="About submenu"
+               class="w-56 rounded-xl border border-slate-800 bg-slate-950/98 shadow-xl backdrop-blur
                       opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
             <div class="p-2 space-y-1">
-              <a href="/contextwell/projects/#portfolio"
-                 class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400 transition">
-                Project Portfolio
-              </a>
-              <a href="/contextwell/projects/#emerging"
-                 class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400 transition">
-                Emerging Projects
-              </a>
-              <a href="/contextwell/projects/#services"
-                 class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400 transition">
-                Research Services
-              </a>
+              <a href="/contextwell/about/mission/" class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400 transition">Mission</a>
+              <a href="/contextwell/about/perspective/" class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400 transition">Perspective</a>
+              <a href="/contextwell/about/people/" class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400 transition">People</a>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Public Engagement -->
-      <a href="/contextwell/public-engagement/" class="text-slate-300 hover:text-emerald-400">Public Engagement</a>
+      <!-- Research -->
+      <div class="relative group js-dd" data-dd>
+        <a href="/contextwell/research/"
+           data-dd-trigger role="button" aria-haspopup="menu" aria-expanded="false"
+           class="inline-flex items-center gap-1 text-slate-300 hover:text-emerald-400 transition">
+          Research <span class="text-slate-500 group-hover:text-emerald-400" aria-hidden="true">▾</span>
+        </a>
+        <div class="absolute left-0 top-full pt-2 z-50">
+          <div data-dd-panel role="menu" aria-label="Research submenu"
+               class="w-64 rounded-xl border border-slate-800 bg-slate-950/98 shadow-xl backdrop-blur
+                      opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
+            <div class="p-2 space-y-1">
+              <a href="/contextwell/research/programme/" class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400 transition">Research Programme</a>
+              <a href="/contextwell/research/areas/" class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400 transition">Research Areas</a>
+              <a href="/contextwell/research/projects/" class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400 transition">Projects</a>
+              <a href="/contextwell/research/work-with-contextwell/" class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400 transition">Work with ContextWell</a>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <a href="/contextwell/network/" class="text-slate-300 hover:text-emerald-400">Network</a>
+      <!-- Engagement -->
+      <div class="relative group js-dd" data-dd>
+        <a href="/contextwell/engagement/"
+           data-dd-trigger role="button" aria-haspopup="menu" aria-expanded="false"
+           class="inline-flex items-center gap-1 text-slate-300 hover:text-emerald-400 transition">
+          Engagement <span class="text-slate-500 group-hover:text-emerald-400" aria-hidden="true">▾</span>
+        </a>
+        <div class="absolute left-0 top-full pt-2 z-50">
+          <div data-dd-panel role="menu" aria-label="Engagement submenu"
+               class="w-64 rounded-xl border border-slate-800 bg-slate-950/98 shadow-xl backdrop-blur
+                      opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
+            <div class="p-2 space-y-1">
+              <a href="/contextwell/engagement/public-engagement/" class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400 transition">Public Engagement</a>
+              <a href="/contextwell/engagement/research-communication/" class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400 transition">Research Communication</a>
+              <a href="/contextwell/engagement/experiments-initiatives/" class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400 transition">Experiments &amp; Initiatives</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Network -->
+      <div class="relative group js-dd" data-dd>
+        <a href="/contextwell/network/"
+           data-dd-trigger role="button" aria-haspopup="menu" aria-expanded="false"
+           class="inline-flex items-center gap-1 text-slate-300 hover:text-emerald-400 transition">
+          Network <span class="text-slate-500 group-hover:text-emerald-400" aria-hidden="true">▾</span>
+        </a>
+        <div class="absolute left-0 top-full pt-2 z-50">
+          <div data-dd-panel role="menu" aria-label="Network submenu"
+               class="w-56 rounded-xl border border-slate-800 bg-slate-950/98 shadow-xl backdrop-blur
+                      opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
+            <div class="p-2 space-y-1">
+              <a href="/contextwell/network/collaborators/" class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400 transition">Collaborators</a>
+              <a href="/contextwell/network/consortiums/" class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400 transition">Consortiums</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Knowledge -->
+      <div class="relative group js-dd" data-dd>
+        <a href="/contextwell/knowledge/"
+           data-dd-trigger role="button" aria-haspopup="menu" aria-expanded="false"
+           class="inline-flex items-center gap-1 text-slate-300 hover:text-emerald-400 transition">
+          Knowledge <span class="text-slate-500 group-hover:text-emerald-400" aria-hidden="true">▾</span>
+        </a>
+        <div class="absolute left-0 top-full pt-2 z-50">
+          <div data-dd-panel role="menu" aria-label="Knowledge submenu"
+               class="w-56 rounded-xl border border-slate-800 bg-slate-950/98 shadow-xl backdrop-blur
+                      opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
+            <div class="p-2 space-y-1">
+              <a href="/contextwell/knowledge/publications/" class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400 transition">Publications</a>
+              <a href="/contextwell/knowledge/reports/" class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400 transition">Reports</a>
+              <a href="/contextwell/knowledge/frameworks/" class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400 transition">Frameworks</a>
+              <a href="/contextwell/knowledge/resources/" class="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-900 hover:text-emerald-400 transition">Resources</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <a href="/contextwell/news/" class="text-slate-300 hover:text-emerald-400">News</a>
-
-      <!-- Library -->
-<a href="/contextwell/library/"
-   class="block rounded-lg px-3 py-2 text-slate-200 hover:bg-slate-900 hover:text-emerald-400">
-  Library
-</a>
-
-      <a href="/contextwell/about/#careers" class="text-slate-300 hover:text-emerald-400">Careers</a>
-      <a href="/contextwell/support/" class="text-slate-300 hover:text-emerald-400">Donate</a>
+      <a href="/contextwell/careers/" class="text-slate-300 hover:text-emerald-400">Careers</a>
+      <a href="/contextwell/support/" class="text-slate-300 hover:text-emerald-400">Support</a>
 
     </div>
   </nav>
@@ -86,24 +140,57 @@ Do NOT place <script> or <style> here when loading via fetch+innerHTML
   <div id="site-nav" class="md:hidden hidden border-t border-slate-800 bg-slate-950/95">
     <div class="max-w-7xl mx-auto px-6 py-4 space-y-2 text-sm max-h-[75vh] overflow-y-auto">
 
-      <a href="/contextwell/" class="block rounded-lg px-3 py-2 text-slate-200 hover:bg-slate-900 hover:text-emerald-400">Overview</a>
-      <a href="/contextwell/about/" class="block rounded-lg px-3 py-2 text-slate-200 hover:bg-slate-900 hover:text-emerald-400">About</a>
+      <a href="/contextwell/" class="block rounded-lg px-3 py-2 text-slate-200 hover:bg-slate-900 hover:text-emerald-400">Home</a>
+
+      <details class="rounded-lg border border-slate-800 bg-slate-950">
+        <summary class="px-3 py-2 cursor-pointer text-slate-200 hover:text-emerald-400">About</summary>
+        <div class="px-2 pb-2">
+          <a href="/contextwell/about/mission/" class="block px-3 py-2 text-slate-300 hover:text-emerald-400">Mission</a>
+          <a href="/contextwell/about/perspective/" class="block px-3 py-2 text-slate-300 hover:text-emerald-400">Perspective</a>
+          <a href="/contextwell/about/people/" class="block px-3 py-2 text-slate-300 hover:text-emerald-400">People</a>
+        </div>
+      </details>
 
       <details class="rounded-lg border border-slate-800 bg-slate-950">
         <summary class="px-3 py-2 cursor-pointer text-slate-200 hover:text-emerald-400">Research</summary>
         <div class="px-2 pb-2">
-          <a href="/contextwell/projects/#portfolio" class="block px-3 py-2 text-slate-300 hover:text-emerald-400">Project Portfolio</a>
-          <a href="/contextwell/projects/#emerging" class="block px-3 py-2 text-slate-300 hover:text-emerald-400">Emerging Projects</a>
-          <a href="/contextwell/projects/#services" class="block px-3 py-2 text-slate-300 hover:text-emerald-400">Research Services</a>
+          <a href="/contextwell/research/programme/" class="block px-3 py-2 text-slate-300 hover:text-emerald-400">Research Programme</a>
+          <a href="/contextwell/research/areas/" class="block px-3 py-2 text-slate-300 hover:text-emerald-400">Research Areas</a>
+          <a href="/contextwell/research/projects/" class="block px-3 py-2 text-slate-300 hover:text-emerald-400">Projects</a>
+          <a href="/contextwell/research/work-with-contextwell/" class="block px-3 py-2 text-slate-300 hover:text-emerald-400">Work with ContextWell</a>
         </div>
       </details>
 
-      <a href="/contextwell/public-engagement/" class="block rounded-lg px-3 py-2 text-slate-200 hover:bg-slate-900 hover:text-emerald-400">Public Engagement</a>
-      <a href="/contextwell/network/" class="block rounded-lg px-3 py-2 text-slate-200 hover:bg-slate-900 hover:text-emerald-400">Network</a>
+      <details class="rounded-lg border border-slate-800 bg-slate-950">
+        <summary class="px-3 py-2 cursor-pointer text-slate-200 hover:text-emerald-400">Engagement</summary>
+        <div class="px-2 pb-2">
+          <a href="/contextwell/engagement/public-engagement/" class="block px-3 py-2 text-slate-300 hover:text-emerald-400">Public Engagement</a>
+          <a href="/contextwell/engagement/research-communication/" class="block px-3 py-2 text-slate-300 hover:text-emerald-400">Research Communication</a>
+          <a href="/contextwell/engagement/experiments-initiatives/" class="block px-3 py-2 text-slate-300 hover:text-emerald-400">Experiments &amp; Initiatives</a>
+        </div>
+      </details>
+
+      <details class="rounded-lg border border-slate-800 bg-slate-950">
+        <summary class="px-3 py-2 cursor-pointer text-slate-200 hover:text-emerald-400">Network</summary>
+        <div class="px-2 pb-2">
+          <a href="/contextwell/network/collaborators/" class="block px-3 py-2 text-slate-300 hover:text-emerald-400">Collaborators</a>
+          <a href="/contextwell/network/consortiums/" class="block px-3 py-2 text-slate-300 hover:text-emerald-400">Consortiums</a>
+        </div>
+      </details>
+
+      <details class="rounded-lg border border-slate-800 bg-slate-950">
+        <summary class="px-3 py-2 cursor-pointer text-slate-200 hover:text-emerald-400">Knowledge</summary>
+        <div class="px-2 pb-2">
+          <a href="/contextwell/knowledge/publications/" class="block px-3 py-2 text-slate-300 hover:text-emerald-400">Publications</a>
+          <a href="/contextwell/knowledge/reports/" class="block px-3 py-2 text-slate-300 hover:text-emerald-400">Reports</a>
+          <a href="/contextwell/knowledge/frameworks/" class="block px-3 py-2 text-slate-300 hover:text-emerald-400">Frameworks</a>
+          <a href="/contextwell/knowledge/resources/" class="block px-3 py-2 text-slate-300 hover:text-emerald-400">Resources</a>
+        </div>
+      </details>
+
       <a href="/contextwell/news/" class="block rounded-lg px-3 py-2 text-slate-200 hover:bg-slate-900 hover:text-emerald-400">News</a>
-      <a href="/contextwell/library/" class="block rounded-lg px-3 py-2 text-slate-200 hover:bg-slate-900 hover:text-emerald-400">Library</a>
-      <a href="/contextwell/about/#careers" class="block rounded-lg px-3 py-2 text-slate-200 hover:bg-slate-900 hover:text-emerald-400">Careers</a>
-      <a href="/contextwell/support/" class="block rounded-lg px-3 py-2 text-slate-200 hover:bg-slate-900 hover:text-emerald-400">Donate</a>
+      <a href="/contextwell/careers/" class="block rounded-lg px-3 py-2 text-slate-200 hover:bg-slate-900 hover:text-emerald-400">Careers</a>
+      <a href="/contextwell/support/" class="block rounded-lg px-3 py-2 text-slate-200 hover:bg-slate-900 hover:text-emerald-400">Support</a>
 
     </div>
   </div>

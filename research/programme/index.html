@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Research Programme – ContextWell Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="ContextWell Lab's research programme: research, experimentation, and translation, built on the SCWF foundation." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; }
+    .dd-open [data-dd-panel] { opacity: 1 !important; visibility: visible !important; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100">
+  <div id="site-header"></div>
+
+  <main class="pt-28 pb-16 px-6 max-w-5xl mx-auto">
+    <section class="mb-12 max-w-3xl">
+      <p class="text-xs uppercase tracking-wide text-emerald-400 mb-3">Research</p>
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">Research Programme</h1>
+      <p class="text-slate-300 text-sm">
+        Our mission is to foster a well-being-driven world. The Research Programme is how we work
+        to get there: three methods, one programme.
+      </p>
+    </section>
+
+    <section class="mb-16">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="rounded-xl border border-slate-800 bg-slate-900 p-5">
+          <h3 class="text-lg font-semibold mb-2 text-emerald-400">Research</h3>
+          <p class="text-slate-400 text-sm">
+            Developing frameworks — starting with SCWF — that make contextual well-being and human
+            capacity legible, so they can be studied and designed for rather than assumed.
+          </p>
+        </div>
+        <div class="rounded-xl border border-slate-800 bg-slate-900 p-5">
+          <h3 class="text-lg font-semibold mb-2 text-emerald-400">Experimentation</h3>
+          <p class="text-slate-400 text-sm">
+            Building applied pilots, like Well-being Builder, that let people practise judgement and
+            well-being as a skill under realistic, contextual conditions.
+          </p>
+        </div>
+        <div class="rounded-xl border border-slate-800 bg-slate-900 p-5">
+          <h3 class="text-lg font-semibold mb-2 text-emerald-400">Translation</h3>
+          <p class="text-slate-400 text-sm">
+            Turning findings into research services, reports, and practice recommendations for
+            partner organisations across education, healthcare, and governance.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-16 max-w-3xl">
+      <p class="text-xs uppercase tracking-wide text-emerald-400 mb-2">Foundation</p>
+      <h2 class="text-2xl font-semibold mb-3">Where this starts: SCWF</h2>
+      <p class="text-slate-300 text-sm mb-3">
+        Our doctoral research, the Spectrum of Contextual Well-being Framework (SCWF), is the
+        foundation of this programme. It answers the first layer of our operating logic — how to
+        identify and understand the conditions within a context that shape well-being.
+      </p>
+      <p class="text-slate-400 text-sm mb-5">
+        Future research extends outward from this foundation, toward capacity building,
+        intervention, solution design, and system-level change — across education, healthcare,
+        organisations, and AI-mediated environments.
+      </p>
+      <a href="/contextwell/research/projects/#foundational" class="inline-flex rounded-lg border border-slate-800 bg-slate-900 px-4 py-2 text-sm font-semibold text-slate-200 hover:border-emerald-400 hover:text-emerald-400 transition">
+        View Foundational Research →
+      </a>
+    </section>
+
+    <section class="max-w-3xl">
+      <a href="/contextwell/research/" class="inline-flex items-center text-sm text-emerald-400 hover:text-emerald-300">← Back to Research</a>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    (function () {
+      const BASE = "/contextwell";
+      async function inject(el, url) {
+        if (!el) return;
+        try {
+          const res = await fetch(url, { cache: "no-store" });
+          if (!res.ok) throw new Error("Failed to load: " + url);
+          el.innerHTML = await res.text();
+        } catch (e) { console.warn(e); }
+      }
+      function boot() {
+        inject(document.getElementById("site-header"), BASE + "/partials/header.html");
+        inject(document.getElementById("site-footer"), BASE + "/partials/footer.html");
+      }
+      document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", boot) : boot();
+    })();
+  </script>
+</body>
+</html>

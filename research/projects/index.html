@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Projects – ContextWell Lab Research</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="ContextWell Lab's projects: foundational research, emerging research, and applied prototypes, spanning human capacity, well-being, and oversight in AI mediated environments."
+  />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; }
+    .card-hover { transition: all 0.3s ease; }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgba(16,185,129,0.12), 0 10px 10px -5px rgba(15,23,42,0.6); }
+    .dd-open [data-dd-panel] { opacity: 1 !important; visibility: visible !important; }
+  </style>
+</head>
+
+<body class="bg-slate-950 text-slate-100" id="top">
+  <div id="site-header"></div>
+
+  <main class="pt-28 pb-16 px-6 max-w-6xl mx-auto">
+
+    <section class="mb-14 max-w-3xl">
+      <p class="text-xs uppercase tracking-wide text-emerald-400 mb-3">Research</p>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Projects</h1>
+      <p class="text-lg text-slate-300">
+        Foundational research, emerging research, and applied prototypes — at different stages of
+        development.
+      </p>
+    </section>
+
+    <!-- Foundational Research -->
+    <section id="foundational" class="mb-16 scroll-mt-28">
+      <h2 class="text-xl font-semibold mb-4">Foundational Research</h2>
+      <p class="text-slate-400 text-sm mb-6 max-w-3xl">
+        The doctoral research our programme is built on.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <a href="/contextwell/research/projects/doctoral-project/" class="card-hover block bg-slate-900 border border-slate-800 rounded-xl p-6">
+          <p class="text-xs uppercase tracking-wide text-emerald-400 mb-2">Doctoral Research · University College Dublin</p>
+          <h3 class="text-lg font-semibold mb-2">Spectrum of Contextual Well-being Framework (SCWF)</h3>
+          <p class="text-slate-400 text-sm">
+            Harnessing AI to support sustainable human well-being capacity across AI mediated and non AI contexts.
+          </p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Emerging Research -->
+    <section id="emerging" class="mb-16 scroll-mt-28">
+      <h2 class="text-xl font-semibold mb-3">Emerging Research</h2>
+      <p class="text-slate-300 text-sm mb-3 max-w-3xl">
+        Early-stage ideas and opportunities, not yet established projects. We share these at a high
+        level to invite interest, collaboration, funding, expertise, or data access that could help
+        them develop.
+      </p>
+      <p class="text-slate-500 text-xs mb-6 max-w-3xl">
+        Emerging Research is shared at a high level to facilitate collaboration and funding
+        discussions. Detailed methodologies and unpublished intellectual property are not publicly
+        disclosed.
+      </p>
+      <div data-emerging-projects-container></div>
+    </section>
+
+    <!-- Applied Prototypes -->
+    <section id="applied" class="mb-16 scroll-mt-28">
+      <h2 class="text-xl font-semibold mb-4">Applied Prototypes</h2>
+      <p class="text-slate-400 text-sm mb-6 max-w-3xl">
+        Working pilots that put our research into practice.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <a href="/contextwell/research/projects/well-being-builder/" class="card-hover block bg-slate-900 border border-slate-800 rounded-xl p-6">
+          <p class="text-xs uppercase tracking-wide text-emerald-400 mb-2">Applied Pilot</p>
+          <h3 class="text-lg font-semibold mb-2">Well-being Builder</h3>
+          <p class="text-slate-400 text-sm">
+            A research-led platform that trains people to practise well-being as a skill through short scenarios and AI-supported reflection.
+          </p>
+        </a>
+      </div>
+    </section>
+
+    <section class="max-w-3xl">
+      <a href="/contextwell/research/" class="inline-flex items-center text-sm text-emerald-400 hover:text-emerald-300">← Back to Research</a>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    (function () {
+      const BASE = "/contextwell";
+      async function inject(el, url) {
+        if (!el) return;
+        try {
+          const res = await fetch(url, { cache: "no-store" });
+          if (!res.ok) throw new Error("Failed to load: " + url);
+          el.innerHTML = await res.text();
+        } catch (e) { console.warn(e); }
+      }
+      function boot() {
+        inject(document.getElementById("site-header"), BASE + "/partials/header.html");
+        inject(document.getElementById("site-footer"), BASE + "/partials/footer.html");
+      }
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", boot);
+      } else {
+        boot();
+      }
+    })();
+  </script>
+
+  <script src="/contextwell/assets/js/emerging-projects-loader.js"></script>
+
+</body>
+</html>
